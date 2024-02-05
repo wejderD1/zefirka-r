@@ -50,7 +50,6 @@ const HomeView = () => {
                   <a
                     href="https://www.callebaut.com/en"
                     className="partners__item"
-                    target="_blank"
                   >
                     <img
                       src={require(`../../assets/images/Callebaut_logo.png`)}

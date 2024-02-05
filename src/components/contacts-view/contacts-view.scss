@@ -1,0 +1,59 @@
+@import '../../assets/style/color-palette.scss';
+
+.contacts {
+  &_inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 150px;
+    padding-bottom: 150px;
+  }
+  & .subtitle {
+    font-size: 35px;
+  }
+  &_block {
+    display: flex;
+    justify-content: center;
+  }
+  &_item {
+    padding: 0;
+    &::after {
+      content: '|';
+      padding: 0 20px;
+    }
+    &:last-child::after {
+      content: '';
+    }
+  }
+}
+
+.email {
+  &_block {
+    margin-top: 30px;
+  }
+  &_wrap {
+    display: grid;
+    grid-row-gap: 10px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr auto;
+  }
+}
+
+.main-input {
+  font-family: 'Roboto-Regular';
+  font-size: 20px;
+  color: $contrast-color;
+  width: 100%;
+  height: 40px;
+
+  border: 1px solid $bazis-color;
+  border-radius: 5px;
+}
+
+.comments {
+  width: 100%;
+  height: 20rem;
+  resize: none;
+  padding: 10px 4px;
+}

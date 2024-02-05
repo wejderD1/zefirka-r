@@ -5,6 +5,7 @@ import Footer from "./components/footer/footer";
 import HeaderApp from "./components/header-app/header-app";
 import HomeView from "./components/home-view/home-view";
 import ProductsView from "./components//products-view/products-view";
+import ContactsView from "./components/contacts-view/contacts-view";
 
 const links = ["strona gołówna", "produkty", "galeria", "kontakt"];
 
@@ -25,7 +26,7 @@ function App() {
               <p>Galeria</p>
             </Route>
             <Route path="/kontakt">
-              <div>Kontakt</div>
+              <ContactsView />
             </Route>
             <Footer />
           </div>
