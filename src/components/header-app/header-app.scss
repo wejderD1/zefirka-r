@@ -1,0 +1,97 @@
+@import "../../assets/style/color-palette.scss";
+
+header {
+  position: fixed;
+  width: 100%;
+  padding: 10px;
+  background: url("../../assets/images/background12.png");
+  z-index: 10;
+}
+
+.nav {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+  margin: 20px 0 5px;
+  padding: 25px 0 5px;
+  text-align: center;
+  // background: rgba($color: #fff, $alpha: .9);
+  &__item {
+    display: inline-block;
+  }
+  &__item::after {
+    content: "|";
+    display: inline-block;
+    color: #606060;
+    vertical-align: top;
+  }
+  &__item:last-child::after {
+    content: none;
+  }
+  &__link {
+    text-decoration: none;
+    font-family: "Roboto Serif", serif;
+    letter-spacing: 2px;
+    position: relative;
+    padding-bottom: 20px;
+    font-size: 17px;
+    margin: 0 34px 0 30px;
+    text-transform: uppercase;
+    display: inline-block;
+    transition: color 0.2s;
+  }
+  &__link:hover {
+    color: $main-color;
+  }
+  &__link,
+  &__link:visited {
+    color: #6e6d6e;
+  }
+  &__link::before,
+  &__link::after {
+    content: "";
+    position: absolute;
+    top: auto;
+    height: 4px;
+    right: 50%;
+    left: 50%;
+    bottom: -3px;
+    background: $main-color;
+    transition: 0.8s;
+  }
+  &__link:hover::before,
+  .router-link-exact-active::before {
+    left: 0;
+  }
+  &__link:hover::after,
+  .router-link-exact-active::after {
+    right: 0;
+  }
+}
+
+.router-link-active {
+  color: $main-color !important;
+}
+
+//LOGO STYLES
+.logo {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 5%;
+  background: no-repeat url("../../assets/images/zefirka_logo.png");
+  background-size: 100% auto;
+
+  cursor: pointer;
+}
+
+.lg {
+  width: 300px;
+}
+.md {
+  width: 150px;
+  height: 150px;
+}
+.sm {
+  width: 100px;
+}

@@ -1,0 +1,128 @@
+@import "../../assets/style/color-palette.scss";
+
+// HOME SIZE STYLE
+.home {
+  height: 100%;
+}
+
+.home > .container {
+  background: no-repeat
+    url("../../assets/images/zefir_desert_serdechki_210607_1920x1080.jpg");
+  background-size: 100% auto;
+  background-attachment: fixed;
+}
+
+.description {
+  text-align: center;
+  padding: 75px 0;
+}
+
+.block-inner {
+  margin: 60px;
+  padding-bottom: 20px;
+}
+
+// MAIN TITLE STYLE
+.main-title {
+  font-size: 55px;
+  color: $bazis-color;
+  margin: 3rem 0;
+}
+
+// SUBTITLE STYLE
+.subtitle {
+  position: relative;
+  display: inline-block;
+  font-size: 25px;
+  font-weight: 600;
+  color: $bazis-color;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.subtitle_bottom-line {
+  &::after {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    content: "";
+    display: inline-block;
+
+    width: 150px;
+    border-bottom: 1px solid $bazis-color;
+  }
+}
+
+// BUTTON
+.btn {
+  display: inline-block;
+  color: $contrast-color;
+  width: 200px;
+  height: 50px;
+  margin: auto;
+
+  border: 1px solid $bazis-color;
+  border-radius: 5px;
+
+  text-align: center;
+  text-decoration: none;
+  line-height: 2.5;
+  text-transform: uppercase;
+  font-size: 18px;
+
+  background: rgba(212, 211, 211, 0.8);
+
+  transition: all 0.2s linear;
+  &:hover {
+    background: #fff;
+    cursor: pointer;
+  }
+  &:active {
+    background: rgb(194, 191, 191);
+  }
+}
+
+// MAIN TEXT
+.main-text {
+  font-family: "Roboto-Regular";
+  font-weight: 300;
+  font-size: 15px;
+  color: $text-color;
+  line-height: 2;
+}
+
+.information {
+  display: flex;
+  justify-content: center;
+
+  padding: 100px 0;
+  &__description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 30px;
+  }
+  &_reverse {
+    flex-direction: row-reverse;
+  }
+}
+
+// PARTNERS
+.partners {
+  margin-top: 30px;
+  text-align: center;
+  &__item img {
+    width: 80%;
+  }
+}
+
+.logo-wrapper {
+  display: flex;
+  justify-content: center;
+
+  padding: 50px 0;
+}

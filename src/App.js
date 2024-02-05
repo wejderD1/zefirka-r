@@ -1,24 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.scss";
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Footer from "./components/footer/footer";
+import HeaderApp from "./components/header-app/header-app";
+import HomeView from "./components/home-view/home-view";
+import ProductsView from "./components//products-view/products-view";
+
+const links = ["strona gołówna", "produkty", "galeria", "kontakt"];
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <React.Fragment>
+          <div className="App">
+            <HeaderApp links={links} />
+            <Route exact path="/">
+              <HomeView />
+            </Route>
+            <Route path="/produkty">
+              <ProductsView />
+            </Route>
+            <Route path="/galeria">
+              <p>Galeria</p>
+            </Route>
+            <Route path="/kontakt">
+              <div>Kontakt</div>
+            </Route>
+            <Footer />
+          </div>
+        </React.Fragment>
+      </Switch>
+    </Router>
   );
 }
 
