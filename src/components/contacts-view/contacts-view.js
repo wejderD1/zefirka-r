@@ -6,7 +6,7 @@ const ContactsView = () => {
     <div className="contacts pt-115px">
       <div className="container">
         <div className="contacts_inner">
-          <h1 className="subtitle_bottom-line">Moje kontakty</h1>
+          <h1 className="subtitle subtitle_bottom-line">Kontakty</h1>
           <h1 className="main-text">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum eos
             adipisci alias voluptas eaque itaque esse quos odio libero
@@ -42,7 +42,7 @@ const ContactsView = () => {
           <div className="email_block">
             {/* к форме нужно написать обработчик события */}
             <form>
-              <h1 className="subtitle">Masz pytanie</h1>
+              <h1 className="subtitle subtitle_bottom-line">Masz pytanie</h1>
               <div className="email_wrap">
                 <input
                   id="fName"
