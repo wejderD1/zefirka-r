@@ -25,14 +25,15 @@ const HomeView = () => {
           <div className="about__inner">
             {/* INFORMATION */}
             <InformationBlock
+              img="20220914_141213"
               title="wyjątkowy design"
               description="Indywidualne dekoracje i ozdoby dla każdego deseru. Osobiste podejście do dekorowania tortów i słodkich przysmaków."
             />
             <InformationBlock
+              img="20220308_193827"
               classOther="information_reverse"
-              title="Tylko naturalne komponenty"
-              description="
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi amet accusamus, ipsa totam dolorem nesciunt ipsum ducimus at dolorum, veniam praesentium maxime esse, non possimus saepe! Quos facere maiores vitae!"
+              title="Nasza magia"
+              description="Unikalne torty na zamówienie na wyjątkowe okazje. Ekskluzywne desery na przytulne wieczory i święta. Zestawy na uroczystości i wydarzenia korporacyjne. Słodkie komplementy dla bliskich"
             />
           </div>
         </div>
