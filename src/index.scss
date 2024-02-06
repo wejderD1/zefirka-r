@@ -1,4 +1,5 @@
 @import "./assets/style/normalize.css";
+@import "./assets/style/color-palette.scss";
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wght@8..144,100;8..144,200;8..144,300;8..144,400;8..144,500;8..144,600;8..144,700;8..144,800;8..144,900&display=swap");
 
 body {
@@ -30,10 +31,53 @@ h6 {
   padding-top: 115px;
 }
 
+// MAIN TEXT
 .main-text {
-  letter-spacing: 2px;
-  text-align: center;
+  font-weight: 300;
+  font-size: 20px;
+  color: $text-color;
+  line-height: 2;
   padding: 40px 0;
+
+}
+
+// .main-text {
+//   font-size: 20px;
+//   letter-spacing: 2px;
+//   text-align: center;
+// }
+
+// MAIN TITLE STYLE
+.main-title {
+  font-size: 55px;
+  color: $bazis-color;
+  margin: 3rem 0;
+}
+
+// SUBTITLE STYLE
+.subtitle {
+  position: relative;
+  display: inline-block;
+  font-size: 25px;
+  font-weight: 600;
+  color: $bazis-color;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.subtitle_bottom-line {
+  &::after {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    content: "";
+    display: inline-block;
+
+    width: 150px;
+    border-bottom: 1px solid $bazis-color;
+  }
 }
 
 //FOTER

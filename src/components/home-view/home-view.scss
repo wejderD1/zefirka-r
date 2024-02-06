@@ -22,39 +22,6 @@
   padding-bottom: 20px;
 }
 
-// MAIN TITLE STYLE
-.main-title {
-  font-size: 55px;
-  color: $bazis-color;
-  margin: 3rem 0;
-}
-
-// SUBTITLE STYLE
-.subtitle {
-  position: relative;
-  display: inline-block;
-  font-size: 25px;
-  font-weight: 600;
-  color: $bazis-color;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-.subtitle_bottom-line {
-  &::after {
-    position: absolute;
-    bottom: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-
-    content: "";
-    display: inline-block;
-
-    width: 150px;
-    border-bottom: 1px solid $bazis-color;
-  }
-}
-
 // BUTTON
 .btn {
   display: inline-block;
@@ -82,47 +49,4 @@
   &:active {
     background: rgb(194, 191, 191);
   }
-}
-
-// MAIN TEXT
-.main-text {
-  font-family: "Roboto-Regular";
-  font-weight: 300;
-  font-size: 15px;
-  color: $text-color;
-  line-height: 2;
-}
-
-.information {
-  display: flex;
-  justify-content: center;
-
-  padding: 100px 0;
-  &__description {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    padding: 0 30px;
-  }
-  &_reverse {
-    flex-direction: row-reverse;
-  }
-}
-
-// PARTNERS
-.partners {
-  margin-top: 30px;
-  text-align: center;
-  &__item img {
-    width: 80%;
-  }
-}
-
-.logo-wrapper {
-  display: flex;
-  justify-content: center;
-
-  padding: 50px 0;
 }

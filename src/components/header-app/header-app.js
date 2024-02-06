@@ -6,7 +6,6 @@ const HeaderApp = ({ links }) => {
     return (
       <li className="nav__item" key={i}>
         <NavLink
-          activeClass={{ color: "red" }}
           to={item === "strona gołówna" ? "/" : item}
           className="nav__link"
         >
