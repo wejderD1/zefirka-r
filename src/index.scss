@@ -38,7 +38,6 @@ h6 {
   color: $text-color;
   line-height: 2;
   padding: 40px 0;
-
 }
 
 // .main-text {
@@ -96,13 +95,16 @@ h6 {
   }
 }
 
-.social-container i {
-  padding: 0 10px;
+.social-container {
+  margin: 20px 0;
+  & i {
+    padding: 0 10px;
 
-  transition: color 0.2s linear;
-  &:hover {
-    cursor: pointer;
-    color: aqua;
+    transition: color 0.2s linear;
+    &:hover {
+      cursor: pointer;
+      color: aqua;
+    }
   }
 }
 

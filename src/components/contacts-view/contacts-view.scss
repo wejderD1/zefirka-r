@@ -27,16 +27,17 @@
 
 .email {
   &_block {
-    margin-top: 30px;
-  }
-  &_block .subtitle {
-    margin-bottom: 50px;
-  }
-  &_wrap {
+    width: 80%;
     display: grid;
-    grid-row-gap: 10px;
+    grid-template-columns: 40% 60%;
+    gap: 25px;
+    margin: 60px 0;
+  }
+  &_wrap-item {
+    display: grid;
+    align-items: flex-start;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr auto;
+    grid-template-rows: 20% 20% 20% 40%;
   }
 }
 
@@ -49,6 +50,7 @@
 
   border: 1px solid $bazis-color;
   border-radius: 5px;
+  padding: 0 5px;
 }
 
 .comments {
@@ -56,4 +58,36 @@
   height: 20rem;
   resize: none;
   padding: 10px 4px;
+}
+
+.btn {
+  display: inline-block;
+  font-family: ArchitectsDaughter-Regular;
+  font-size: 20px;
+  color: $contrast-color;
+  width: 200px;
+  height: 50px;
+  margin: auto;
+
+  border: 1px solid $bazis-color;
+  border-radius: 5px;
+
+  text-align: center;
+  text-decoration: none;
+  line-height: 2.5;
+  text-transform: uppercase;
+  background: rgba(212, 211, 211, .8);
+
+  transition: all .2s linear;
+  &:hover {
+    background: #fff;
+    cursor: pointer;
+  }
+  &:active {
+    background: rgb(194, 191, 191);
+  }
+}
+
+.padding-bottom_40 {
+  padding-bottom: 40px;
 }

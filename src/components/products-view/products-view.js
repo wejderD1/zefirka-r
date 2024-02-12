@@ -1,3 +1,4 @@
+import ProductCards from "../product-cards/product-cards";
 import "./products-view.scss";
 
 const ProductsView = () => {
@@ -14,6 +15,10 @@ const ProductsView = () => {
           :text="item.text"
           :price="item.price"
         /> */}
+          <div className="products-wrapper">
+            
+          </div>
+          <ProductCards />
         </div>
       </div>
     </div>
