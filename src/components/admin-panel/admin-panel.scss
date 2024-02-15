@@ -1,0 +1,12 @@
+.admin-panel {
+  height: 100%;
+}
+
+.data-input__container {
+  width: 50%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: 40px;
+  gap: 30px;
+  align-items: center;
+}

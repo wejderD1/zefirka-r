@@ -6,6 +6,7 @@ import HeaderApp from "./components/header-app/header-app";
 import HomeView from "./components/home-view/home-view";
 import ProductsView from "./components//products-view/products-view";
 import ContactsView from "./components/contacts-view/contacts-view";
+import AdminPanel from "./components/admin-panel/admin-panel";
 
 const links = ["strona gołówna", "produkty", "galeria", "kontakt"];
 
@@ -27,6 +28,9 @@ function App() {
             </Route>
             <Route path="/kontakt">
               <ContactsView />
+            </Route>
+            <Route path="/admin-wejder">
+              <AdminPanel />
             </Route>
             <Footer />
           </div>
