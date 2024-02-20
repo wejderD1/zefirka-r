@@ -1,7 +1,9 @@
-import ProductCards from "../product-cards/product-cards";
+import ProductCard from "../product-cards/product-cards";
 import "./products-view.scss";
 
-const ProductsView = () => {
+const ProductsView = ({data}) => {
+  const {pTitle, pDescription, pPrice} = data;
+  console.log(data);
   return (
     <div className="products pt-115px">
       <div className="container">
@@ -18,7 +20,7 @@ const ProductsView = () => {
           <div className="products-wrapper">
             
           </div>
-          <ProductCards />
+          <ProductCard title={pTitle} desc={pDescription} price={pPrice}/>
         </div>
       </div>
     </div>

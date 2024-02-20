@@ -12,9 +12,9 @@ const InformationBlock = ({title, description, classOther, img}) => {
                 <h1 className="subtitle subtitle_bottom-line">
                   {title}
                 </h1>
-                <div className="main-text">
+                <h2 className="main-text">
                   {description}
-                </div>
+                </h2>
               </div>
             </div>
    );

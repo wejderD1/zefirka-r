@@ -1,25 +1,27 @@
 .admin-panel {
-  padding: 200px 0;
+  padding: 160px;
   height: 100%;
-  display: grid;
-  grid-template-rows: 30px;
-  & h1{
+  & h1, h2 {
+    width: 20%;
     margin: 0 auto;
   }
-}
-
-.data-input {
-  height: 30px;
-  &__container {
+  & h2 {
     width: 50%;
-    margin: 50px auto;
-    display: grid;
-    grid-template-rows: 40px;
-    gap: 30px;
-    align-items: center;
   }
 }
 
-.label {
-  margin-bottom: -20px;
+.data-input__container {
+  width: 50%;
+  margin: 0 auto;
+  display: grid;
+  gap: 30px;
+  align-items: center;
+  & label {
+    margin: -10px 0;
+  }
+  & input {
+    height: 30px;
+    font-size: 20px;
+    font-weight: 400;
+  }
 }
