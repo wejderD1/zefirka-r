@@ -12,18 +12,19 @@ import AdminPanel from "./components/admin-panel/admin-panel";
 const links = ["strona gołówna", "produkty", "galeria", "kontakt", "admin"];
 
 function App() {
-
-  const [productData, setProductData] = useState({
-    pTitle: "motti",
-    pDescription: "Lorem undo",
-    pPrice: "10.00"
-  });
+  const [productData, setProductData] = useState([
+    {
+      pTitle: "motti",
+      pDescription: "Lorem undo",
+      pPrice: "10.00",
+    }
+  ]);
 
   const newProductCerate = (data) => {
     const newData = data;
-    setProductData({...productData, ...newData}); //нужно подумать над этой логикой.
-  }
-  
+    setProductData([ ...productData, newData ]); //нужно подумать над этой логикой.
+  };
+
   return (
     <Router>
       <Switch>
@@ -34,7 +35,7 @@ function App() {
               <HomeView />
             </Route>
             <Route path="/produkty">
-              <ProductsView data={productData}/>
+              <ProductsView data={productData} />
             </Route>
             <Route path="/galeria">
               <p>Galeria</p>
@@ -43,7 +44,7 @@ function App() {
               <ContactsView />
             </Route>
             <Route path="/admin">
-              <AdminPanel newProductCreate={newProductCerate}/>
+              <AdminPanel newProductCreate={newProductCerate} />
             </Route>
             <Footer />
           </div>

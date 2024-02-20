@@ -1,9 +1,18 @@
-import ProductCard from "../product-cards/product-cards";
+import ProductCard from "../product-card/product-card";
 import "./products-view.scss";
 
-const ProductsView = ({data}) => {
-  const {pTitle, pDescription, pPrice} = data;
-  console.log(data);
+const ProductsView = ({ data }) => {
+  const products = data.map((e, i) => {
+    return (
+      <ProductCard
+        key={i}
+        title={e.pTitle}
+        desc={e.pDescription}
+        price={e.pPrice}
+      />
+    );
+  });
+
   return (
     <div className="products pt-115px">
       <div className="container">
@@ -11,16 +20,7 @@ const ProductsView = ({data}) => {
       </div>
       <div className="products__inner">
         <div className="container">
-          {/* <ProductItem v-for="(item, index) in this.products" :key="index"
-          :img="item.img"
-          :title="item.title"
-          :text="item.text"
-          :price="item.price"
-        /> */}
-          <div className="products-wrapper">
-            
-          </div>
-          <ProductCard title={pTitle} desc={pDescription} price={pPrice}/>
+          <div className="products-wrapper">{products}</div>
         </div>
       </div>
     </div>
