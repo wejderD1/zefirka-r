@@ -9,10 +9,11 @@ function ProductCards() {
           alt="product ing"
           className="card-img"
         />
-        <h3 className="card-title">Title</h3>
+        <h3 className="card-title">Lorem ipsum dolor</h3>
         <p className="card-description">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda, exercitationem.
         </p>
+        <h3 className="card-title price">10.00 zł</h3>
       </div>
     </div>
   );
