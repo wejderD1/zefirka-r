@@ -17,6 +17,7 @@ function App() {
       pTitle: "motti",
       pDescription: "Lorem undo",
       pPrice: "10.00",
+      pImg: "20220308_193827-min.jpg"
     }
   ]);
 

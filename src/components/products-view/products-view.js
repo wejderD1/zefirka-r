@@ -9,6 +9,7 @@ const ProductsView = ({ data }) => {
         title={e.pTitle}
         desc={e.pDescription}
         price={e.pPrice}
+        img={e.pImg}
       />
     );
   });

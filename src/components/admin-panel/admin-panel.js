@@ -5,6 +5,7 @@ const AdminPanel = ({ newProductCreate }) => {
     pTitle: "",
     pDescription: "",
     pPrice: null,
+    pImg: "",
   };
 
   const onDataChange = (e) => {
@@ -15,7 +16,9 @@ const AdminPanel = ({ newProductCreate }) => {
     <div className="admin-panel">
       <h1>ADMIN PANEL</h1>
 
-      <h2 className="main-text">Create new product item. Insert product title, description and price</h2>
+      <h2 className="main-text">
+        Create new product item. Insert product title, description and price
+      </h2>
       <div className="data-input__container">
         <label className="label" htmlFor="pTitle">
           title
@@ -44,6 +47,16 @@ const AdminPanel = ({ newProductCreate }) => {
           className="data-input"
           type="text"
           name="pPrice"
+          onChange={onDataChange}
+        />
+
+        <label className="label" htmlFor="pImg">
+          product img
+        </label>
+        <input
+          className="data-input"
+          type="text"
+          name="pImg"
           onChange={onDataChange}
         />
 

@@ -1,12 +1,15 @@
 import "./product-card.scss";
 
-function ProductCard({title, desc, price}) {
+function ProductCard({title, desc, price, img}) {
   return (
     <div className="card-container">
       <div className="card-wrapper">
         <img
-          src="http://placehold.it/150x150"
-          alt="product ing"
+          src={require(`/src/assets/images/products_img//${img}`)}
+        // srcSet="~/public/img/20220308_193827.webp"
+          // src="http://placehold.it/150x150"
+          // srcSet={pImg}
+          alt="product img"
           className="card-img"
         />
         <h3 className="card-title">{title}</h3>
