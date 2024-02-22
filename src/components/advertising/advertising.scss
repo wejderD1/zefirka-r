@@ -1,0 +1,16 @@
+.advertising {
+  &__container {
+    overflow: hidden;
+    border: 33px red solid;
+    margin: 50px 0;
+    width: 100%;
+  }
+
+  &__inner {
+
+  }
+
+  &__img {
+    width: 100%;
+  }
+}

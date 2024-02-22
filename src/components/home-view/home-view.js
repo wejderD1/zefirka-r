@@ -1,3 +1,4 @@
+import Advertising from "../advertising/advertising";
 import InformationBlock from "../information-block/information-block";
 import "./home-view.scss";
 import { Link } from "react-router-dom";
@@ -20,6 +21,7 @@ const HomeView = () => {
           </div>
         </div>
       </div>
+      <Advertising />
       <div className="about">
         <div className="container">
           <div className="about__inner">
