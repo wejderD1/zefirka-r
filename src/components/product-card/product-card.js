@@ -5,10 +5,11 @@ function ProductCard({title, desc, price, img}) {
     <div className="card-container">
       <div className="card-wrapper">
         <img
-          src={require(`/src/assets/images/products_img//${img}`)}
-        // srcSet="~/public/img/20220308_193827.webp"
-          // src="http://placehold.it/150x150"
-          // srcSet={pImg}
+          src={
+            img
+             ? require(`/src/assets/images/products_img//${img}`) 
+             : `http://placehold.it/250x250`
+            }
           alt="product img"
           className="card-img"
         />

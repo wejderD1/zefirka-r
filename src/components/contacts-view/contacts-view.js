@@ -17,9 +17,6 @@ const ContactsView = () => {
             <p className="main-text contacts_item tt-uppercase">
               zefirka.wiolet@gmail.com
             </p>
-            <p className="main-text contacts_item tt-uppercase">
-              zamówić onlain tu
-            </p>
           </div>
           <h1 className="main-text">97-500, Radomsko, Polska</h1>
           <div className="social-container padding-bottom_40">
