@@ -1,3 +1,5 @@
+import "./advertising.scss";
+
 function Advertising() {
   return (
     <div className="advertising__container">
