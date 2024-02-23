@@ -1,3 +1,4 @@
+import AboutMe from "../about-me/about-me";
 import Advertising from "../advertising/advertising";
 import InformationBlock from "../information-block/information-block";
 import "./home-view.scss";
@@ -37,6 +38,7 @@ const HomeView = () => {
               title="Nasza magia"
               description="Unikalne torty na zamówienie na wyjątkowe okazje. Ekskluzywne desery na przytulne wieczory i święta. Zestawy na uroczystości i wydarzenia korporacyjne. Słodkie komplementy dla bliskich"
             />
+            <AboutMe />
           </div>
         </div>
       </div>

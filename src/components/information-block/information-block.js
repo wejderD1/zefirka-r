@@ -4,7 +4,7 @@ const InformationBlock = ({title, description, classOther, img}) => {
   return ( 
     <div className={`information ${classOther}`}>
               <img
-                src={require(`../../assets/images/${img}.jpg`)}
+                src={require(`../../assets/images/${img}.jpg`)} //относительный путь, работает только в папке components/component
                 alt="information-img"
                 className="information__photo"
               />
