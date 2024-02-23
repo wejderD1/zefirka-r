@@ -17,8 +17,8 @@ const HeaderApp = ({ links }) => {
   return (
     <header className="App-header">
       <div className="container">
-        <div id="nav-wrapper">
-          <Link className="logo md" alt="zefirka logo" to="/"></Link>
+        <div className="nav__wrapper">
+          <Link className="logo" alt="zefirka logo" to="/"></Link>
           <ul className="nav">{linksItems}</ul>
         </div>
       </div>

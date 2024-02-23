@@ -50,3 +50,10 @@
     background: rgb(194, 191, 191);
   }
 }
+
+/* MEDIA */
+@media only screen  and (max-width: 1366px) {
+  .home {
+    padding-top: 90px;
+  }
+}

@@ -3,19 +3,25 @@
 header {
   position: fixed;
   width: 100%;
-  padding: 10px;
+  padding: 10px 0;
   background: url("../../assets/images/background12.png");
   z-index: 10;
 }
 
 .nav {
   list-style: none;
-  margin: 0;
-  padding-left: 0;
-  margin: 20px 0 5px;
-  padding: 25px 0 5px;
-  text-align: center;
+  // margin: 0;
+  // padding-left: 0;
+  // margin: 20px 0 5px;
+  // padding: 25px 0 5px;
+  // text-align: center;
   // background: rgba($color: #fff, $alpha: .9);
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 10% 90%;
+    justify-items: center;
+    align-items: center;
+  }
   &__item {
     display: inline-block;
   }
@@ -33,7 +39,6 @@ header {
     font-family: "Roboto Serif", serif;
     letter-spacing: 2px;
     position: relative;
-    padding-bottom: 20px;
     font-size: 17px;
     margin: 0 34px 0 30px;
     text-transform: uppercase;
@@ -76,22 +81,20 @@ header {
 //LOGO STYLES
 .logo {
   display: block;
-  position: absolute;
-  top: 0;
-  left: 5%;
+  width: 150px;
+  height: 150px;
   background: no-repeat url("../../assets/images/zefirka_logo.png");
-  background-size: 100% auto;
+  background-size: 100%;
+  background-position: 50%;
 
   cursor: pointer;
 }
 
-.lg {
-  width: 300px;
-}
-.md {
-  width: 150px;
-  height: 150px;
-}
-.sm {
-  width: 100px;
-}
+
+/* MEDIA */
+@media only screen  and (max-width: 1366px) {
+    .logo {
+      width: 70px;
+      height: 70px;
+    }
+  }

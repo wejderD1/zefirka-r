@@ -26,7 +26,7 @@ const HomeView = () => {
       <div className="about">
         <div className="container">
           <div className="about__inner">
-            {/* INFORMATION */}
+            {/* INFORMATION & ABOUT ME*/}
             <AboutMe />
             <InformationBlock
               img="20220308_193827"
