@@ -27,18 +27,18 @@ const HomeView = () => {
         <div className="container">
           <div className="about__inner">
             {/* INFORMATION */}
-            <InformationBlock
-              img="20220914_141213"
-              title="wyjątkowy design"
-              description="Indywidualne dekoracje i ozdoby dla każdego deseru. Osobiste podejście do dekorowania tortów i słodkich przysmaków."
-            />
+            <AboutMe />
             <InformationBlock
               img="20220308_193827"
               classOther="information_reverse"
               title="Nasza magia"
               description="Unikalne torty na zamówienie na wyjątkowe okazje. Ekskluzywne desery na przytulne wieczory i święta. Zestawy na uroczystości i wydarzenia korporacyjne. Słodkie komplementy dla bliskich"
             />
-            <AboutMe />
+            <InformationBlock
+              img="20220914_141213"
+              title="wyjątkowy design"
+              description="Indywidualne dekoracje i ozdoby dla każdego deseru. Osobiste podejście do dekorowania tortów i słodkich przysmaków."
+            />
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import ".//information-block.scss";
 
-const InformationBlock = ({title, description, classOther, img}) => {
+const InformationBlock = ({title, description, classOther, img, children}) => {
   return ( 
     <div className={`information ${classOther}`}>
               <img
@@ -12,6 +12,7 @@ const InformationBlock = ({title, description, classOther, img}) => {
                 <h1 className="subtitle subtitle_bottom-line">
                   {title}
                 </h1>
+                <div>{children}</div>
                 <h2 className="main-text">
                   {description}
                 </h2>
