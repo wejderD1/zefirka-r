@@ -4,7 +4,9 @@ header {
   position: fixed;
   width: 100%;
   padding: 10px 0;
+  // background-color: rgba($color: #f48282, $alpha: 0.5);
   background: url("../../assets/images/background12.png");
+  
   z-index: 10;
 }
 
@@ -18,8 +20,9 @@ header {
   // background: rgba($color: #fff, $alpha: .9);
   &__wrapper {
     display: grid;
-    grid-template-columns: 10% 90%;
+    grid-template-columns: 30% 70%;
     justify-items: center;
+    justify-content: center;
     align-items: center;
   }
   &__item {
@@ -81,11 +84,14 @@ header {
 //LOGO STYLES
 .logo {
   display: block;
-  width: 150px;
-  height: 150px;
-  background: no-repeat url("../../assets/images/zefirka_logo.png");
-  background-size: 100%;
+  width: 110px;
+  height: 110px;
+  background: no-repeat url("../../assets/images/logo_v_2.webp");  background-size: 100%;
   background-position: 50%;
+
+  border-radius: 50%;
+
+  justify-self: end;
 
   cursor: pointer;
 }

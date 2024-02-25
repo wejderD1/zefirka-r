@@ -15,7 +15,7 @@ const HeaderApp = ({ links }) => {
     );
   });
   return (
-    <header className="App-header">
+    <header className="app-header">
       <div className="container">
         <div className="nav__wrapper">
           <Link className="logo" alt="zefirka logo" to="/"></Link>

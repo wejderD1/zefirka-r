@@ -3,13 +3,18 @@
 // HOME SIZE STYLE
 .home {
   height: 100%;
-}
-
-.home > .container {
-  background: no-repeat
-    url("../../assets/images/zefir_desert_serdechki_210607_1920x1080.jpg");
-  background-size: 100% auto;
-  background-attachment: fixed;
+  &__inner {
+    height: 900px;
+  }
+  & > .container {
+    background: no-repeat
+      url("../../assets/images/bkg_home_2.webp");
+    background-size: 100% auto;
+    background-attachment: fixed;
+  }
+  &-title_white {
+    color: $bazis-color;
+  }
 }
 
 .description {
@@ -49,6 +54,9 @@
   &:active {
     background: rgb(194, 191, 191);
   }
+}
+
+.shadow_white {
 }
 
 /* MEDIA */

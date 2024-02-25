@@ -50,7 +50,7 @@ h6 {
 // MAIN TITLE STYLE
 .main-title {
   font-size: 55px;
-  color: $bazis-color;
+  color: $text-color;
   margin: 3rem 0;
 }
 
@@ -60,7 +60,7 @@ h6 {
   display: inline-block;
   font-size: 25px;
   font-weight: 600;
-  color: $bazis-color;
+  color: $text-color;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
@@ -76,7 +76,7 @@ h6 {
     display: inline-block;
 
     width: 150px;
-    border-bottom: 1px solid $bazis-color;
+    border-bottom: 1px solid $contrast-color;
   }
 }
 
