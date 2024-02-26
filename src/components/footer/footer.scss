@@ -1,0 +1,15 @@
+//FOTER
+#footer {
+  margin-top: 35px;
+  padding: 20px 50px;
+  background: url("../../assets/images/background12.png");
+  & .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  & .footer-title {
+    font-family: "Acme-Regular";
+    font-size: 15px;
+  }
+}

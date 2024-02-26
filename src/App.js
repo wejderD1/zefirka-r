@@ -24,14 +24,16 @@ function App() {
   useEffect( () => {
     if(localStorage.getItem("product-list")) {
       const productList = JSON.parse(localStorage.getItem("product-list"))
-      setProductData([...productData, productList]);
+      setProductData((prevProductData) => [...prevProductData, productList]);
     }
     return () => {};
   }, []);
   
 
   const newProductCerate = (data) => {
-    setProductData([ ...productData, data ]) //нужно подумать над этой логикой.
+    setProductData((prevProductData) => [...prevProductData, data]);
+    console.log(data, "data");
+    console.log(productData, "pd");
     localStorage.setItem("product-list", JSON.stringify(productData))
   };
 

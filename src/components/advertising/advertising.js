@@ -1,16 +1,26 @@
+import SocialLinks from "../social-links/social-links";
 import "./advertising.scss";
 
 function Advertising() {
   return (
     <div className="advertising__container">
       <div className="advertising__inner">
-        <div className="main-title">Тут заголовок рекламы</div>
-        <img
-          // src="http://placehold.it/1600x790"
-          // src={require("../../assets/images/pexels-roman-odintsov-6897341.jpg")}
-          alt="картинка рекламы"
-          className="advertising__img"
-        />
+        <div>
+          <h2 className="main-title advertising__title">
+            Pyszne babeczki wielkanocne
+          </h2>
+          <p className="information__description advertising__description">
+          Czekoladowe jajka, desery z marshmallow, wielkanocne babki będą doskonałym poczęstunkiem na Wielkanoc.
+          <span>Zamówienia są przyjmowane do 24 marca.</span>
+          <SocialLinks />
+          </p>
+        </div>
+          <img
+            // src="http://placehold.it/1600x790"
+            src={require("../../assets/images/advertising_collage.jpg")}
+            alt="картинка рекламы"
+            className="advertising__img img-2"
+          />
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 .advertising {
   &__container {
-    background-color: rgb(149, 149, 149);
+    background-image: url(../../assets/images/bkg_advertising.jpg);
     overflow: hidden;
     margin-bottom: 5px;
     padding: 40px;
@@ -10,11 +10,24 @@
   &__inner {
     display: grid;
     grid-template-columns: 50% 50%;
-
+    align-items: center;
   }
 
   &__img {
-    width: 100%;
-    height: 500px;
+    width: 50%;
+    border-radius: 20px;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 70px;
+  }
+  &__description {
+    font-size: 30px;
+  }
+  &__description span {
+    padding-top: 30px;
+    color: rgb(9, 52, 80);
+    font-size: 20px;
   }
 }

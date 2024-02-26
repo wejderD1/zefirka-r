@@ -15,7 +15,7 @@ function ProductCard({title, desc, price, img}) {
         />
         <h3 className="card-title">{title}</h3>
         <p className="card-description">
-          Lorem ipsum dolor sit amet = {desc}.
+          {desc}.
         </p>
         <h3 className="card-title price">{price} zł</h3>
       </div>
