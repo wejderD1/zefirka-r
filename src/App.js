@@ -1,5 +1,5 @@
 import "./App.scss";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Footer from "./components/footer/footer";
@@ -11,19 +11,28 @@ import AdminPanel from "./components/admin-panel/admin-panel";
 
 const links = ["strona gołówna", "produkty", "galeria", "kontakt", "admin"];
 
+
+    // {
+    //   pTitle: "motti",
+    //   pDescription: "Lorem undo",
+    //   pPrice: "10.00",
+    //   pImg: "20220308_193827-min.jpg"
+    // }
 function App() {
-  const [productData, setProductData] = useState([
-    {
-      pTitle: "motti",
-      pDescription: "Lorem undo",
-      pPrice: "10.00",
-      pImg: "20220308_193827-min.jpg"
+  const [productData, setProductData] = useState([]);
+
+  useEffect( () => {
+    if(localStorage.getItem("product-list")) {
+      const productList = JSON.parse(localStorage.getItem("product-list"))
+      setProductData([...productData, productList]);
     }
-  ]);
+    return () => {};
+  }, []);
+  
 
   const newProductCerate = (data) => {
-    const newData = data;
-    setProductData([ ...productData, newData ]); //нужно подумать над этой логикой.
+    setProductData([ ...productData, data ]) //нужно подумать над этой логикой.
+    localStorage.setItem("product-list", JSON.stringify(productData))
   };
 
   return (
