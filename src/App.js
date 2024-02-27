@@ -11,30 +11,34 @@ import AdminPanel from "./components/admin-panel/admin-panel";
 
 const links = ["strona gołówna", "produkty", "galeria", "kontakt", "admin"];
 
-
-    // {
-    //   pTitle: "motti",
-    //   pDescription: "Lorem undo",
-    //   pPrice: "10.00",
-    //   pImg: "20220308_193827-min.jpg"
-    // }
+// {
+//   pTitle: "motti",
+//   pDescription: "Lorem undo",
+//   pPrice: "10.00",
+//   pImg: "20220308_193827-min.jpg"
+// }
 function App() {
   const [productData, setProductData] = useState([]);
 
-  useEffect( () => {
-    if(localStorage.getItem("product-list")) {
-      const productList = JSON.parse(localStorage.getItem("product-list"))
-      setProductData((prevProductData) => [...prevProductData, productList]);
+  useEffect(() => {
+    if (!localStorage.getItem("product-list")) {
+      return;
     }
-    return () => {};
+    const productList = JSON.parse(localStorage.getItem("product-list"));
+    setProductData(...productList);
+    console.log(productData, "data");
   }, []);
-  
 
   const newProductCerate = (data) => {
+    const { pTitle, pDescription, pPrice } = data;
+    if (!pTitle || !pDescription || !pPrice) {
+      return;
+    }
     setProductData((prevProductData) => [...prevProductData, data]);
-    console.log(data, "data");
-    console.log(productData, "pd");
-    localStorage.setItem("product-list", JSON.stringify(productData))
+    localStorage.setItem(
+      "product-list",
+      JSON.stringify([...productData, data])
+    );
   };
 
   return (
