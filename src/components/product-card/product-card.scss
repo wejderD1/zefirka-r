@@ -2,7 +2,7 @@
 
 .card {
   &-container {
-    width: 250px;
+    width: 280px;
     height: auto;
     border-radius: 10px;
     box-shadow: 2px 2px 16px $contrast-color;
@@ -20,8 +20,8 @@
     justify-items: start;
   }
   &-img {
-    width: 250px;
-    height: 250px;
+    width: 280px;
+    height: 280px;
     border-radius: 10px;
   }
   &-title {

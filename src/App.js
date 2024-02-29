@@ -23,10 +23,10 @@ function App() {
   useEffect(() => {
     if (!localStorage.getItem("product-list")) {
       return;
-    }
+    } else {
     const productList = JSON.parse(localStorage.getItem("product-list"));
-    setProductData(...productList);
-    console.log(productData, "data");
+    setProductData(productList);
+    }
   }, []);
 
   const newProductCerate = (data) => {
