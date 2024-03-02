@@ -11,12 +11,6 @@ import AdminPanel from "./components/admin-panel/admin-panel";
 
 const links = ["strona gołówna", "produkty", "galeria", "kontakt", "admin"];
 
-// {
-//   pTitle: "motti",
-//   pDescription: "Lorem undo",
-//   pPrice: "10.00",
-//   pImg: "20220308_193827-min.jpg"
-// }
 function App() {
   const [productData, setProductData] = useState([]);
 
