@@ -87,4 +87,29 @@ h6 {
   font-weight: 300;
 }
 
+.btn {
+  display: inline-block;
+  font-family: ArchitectsDaughter-Regular;
+  font-size: 20px;
+  color: $contrast-color;
+  width: 200px;
+  height: 50px;
 
+  border: 1px solid $text-color;
+  border-radius: 5px;
+
+  text-align: center;
+  text-decoration: none;
+  line-height: 2.5;
+  text-transform: uppercase;
+  background: rgba(212, 211, 211, .8);
+
+  transition: all .2s linear;
+  &:hover {
+    background: #fff;
+    cursor: pointer;
+  }
+  &:active {
+    background: rgb(194, 191, 191);
+  }
+}

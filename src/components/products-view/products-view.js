@@ -1,3 +1,4 @@
+import CategoriesTabs from "../categories-tabs/categories-tabs";
 import ProductCard from "../product-card/product-card";
 import "./products-view.scss";
 
@@ -21,7 +22,8 @@ const ProductsView = ({ data }) => {
       </div>
       <div className="products__inner">
         <div className="container">
-          <div className="products-wrapper">{products}</div>
+          <CategoriesTabs />
+          {/* <div className="products-wrapper">{products}</div> */}
         </div>
       </div>
     </div>

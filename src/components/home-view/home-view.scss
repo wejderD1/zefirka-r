@@ -27,35 +27,6 @@
   padding-bottom: 20px;
 }
 
-// BUTTON
-.btn {
-  display: inline-block;
-  color: $contrast-color;
-  width: 200px;
-  height: 50px;
-  margin: auto;
-
-  border: 1px solid $bazis-color;
-  border-radius: 5px;
-
-  text-align: center;
-  text-decoration: none;
-  line-height: 2.5;
-  text-transform: uppercase;
-  font-size: 18px;
-
-  background: rgba(212, 211, 211, 0.8);
-
-  transition: all 0.2s linear;
-  &:hover {
-    background: #fff;
-    cursor: pointer;
-  }
-  &:active {
-    background: rgb(194, 191, 191);
-  }
-}
-
 .shadow_white {
 }
 
