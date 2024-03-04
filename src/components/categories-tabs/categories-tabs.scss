@@ -10,36 +10,4 @@
     align-items: center;
     justify-content: center;
   }
-  &__item {
-    display: inline-block;
-    font-family: ArchitectsDaughter-Regular;
-    color: $contrast-color;
-    list-style: none;
-    font-size: 14px;
-    width: 140px;
-    height: 30px;
-
-    line-height: 2.1;
-
-    border: 1px solid $text-color;
-    border-radius: 5px;
-  
-    text-align: center;
-    text-decoration: none;
-    text-transform: uppercase;
-    background: rgba(212, 211, 211, .8);
-  
-    transition: all .2s linear;
-    &:hover {
-      background: #fff;
-      cursor: pointer;
-    }
-    &:active {
-      background: rgb(194, 191, 191);
-    }
-  }
-}
-
-.item_active {
-  background: #d7c3c3;
 }

@@ -1,32 +1,40 @@
 import { useState } from "react";
 import "./categories-tabs.scss";
+import TabItem from "../tab-item/tab-item";
+import TabContent from "../tab-content/tab-content";
 
 function CategoriesTabs() {
-  const [activeTab, setActiveTab] = useState("third");
-  const categories = ["first", "second", "third"];
-
-  const onToggleTab = () => {
-    setActiveTab("tab3");
-  }
+  const [activeTab, setActiveTab] = useState("s");
+  const categories = ["f", "s", "t"];
 
   const tabItem = categories.map((el, i) => {
     return (
-      <li 
-        className={activeTab === el ? "tabs__item item_active" : "tabs__item"}
-        onClick={onToggleTab}
-      >{el}</li>
-    )
-  })
+      <TabItem
+        key={i}
+        id={el}
+        title={el}
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
+      />
+    );
+  });
 
-  return ( 
+  const tabContent = categories.map((el, i) => {
+    return (
+      <TabContent key={i} id={el} activeTab={activeTab}>
+        This is {i} tab
+      </TabContent>
+    );
+  });
+
+  return (
     <div className="tabs__container">
       <div className="tabs__inner">
-        <ul className="tabs__nav">
-          {tabItem}
-        </ul>
+        <ul className="tabs__nav">{tabItem}</ul>
+        {tabContent}
       </div>
     </div>
-   );
+  );
 }
 
 export default CategoriesTabs;
