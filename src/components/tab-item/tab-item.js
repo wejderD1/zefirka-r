@@ -4,13 +4,12 @@ function TabItem({id, title, activeTab, setActiveTab}) {
   
   const onToggleTab = () => {
     setActiveTab(id);
-    console.log("id = ", id);
   }
   
   return (
     <li 
     key={id}
-    className={activeTab === title ? "tabs__item item_active" : "tabs__item"}
+    className={`tabs__item ${activeTab === title ? " item_active" : ""}`}
     onClick={onToggleTab}
   >{title}</li>
   );

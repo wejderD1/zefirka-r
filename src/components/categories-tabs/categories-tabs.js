@@ -3,7 +3,7 @@ import "./categories-tabs.scss";
 import TabItem from "../tab-item/tab-item";
 import TabContent from "../tab-content/tab-content";
 
-function CategoriesTabs() {
+function CategoriesTabs({ productCards }) {
   const [activeTab, setActiveTab] = useState("s");
   const categories = ["f", "s", "t"];
 
@@ -22,7 +22,10 @@ function CategoriesTabs() {
   const tabContent = categories.map((el, i) => {
     return (
       <TabContent key={i} id={el} activeTab={activeTab}>
-        This is {i} tab
+        <div className="products-wrapper">
+          Tab {i}
+          {productCards}
+        </div>
       </TabContent>
     );
   });

@@ -22,8 +22,7 @@ const ProductsView = ({ data }) => {
       </div>
       <div className="products__inner">
         <div className="container">
-          <CategoriesTabs />
-          {/* <div className="products-wrapper">{products}</div> */}
+          <CategoriesTabs productCards={products} />
         </div>
       </div>
     </div>

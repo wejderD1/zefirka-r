@@ -1,6 +1,18 @@
 import "./admin-panel.scss";
+import { useState } from "react";
 
 const AdminPanel = ({ newProductCreate }) => {
+  const categories = [
+    "Torty musowe",
+    "Zefir",
+    "Ciastka",
+    "Czekoladki",
+    "Motti",
+    "Wielkanocne wypieki"
+  ];
+  
+  const [selectedOption, setSelectedOption] = useState(categories[0]);
+
   let productData = {
     pTitle: "",
     pDescription: "",
@@ -8,9 +20,29 @@ const AdminPanel = ({ newProductCreate }) => {
     pImg: "",
   };
 
+  const handleRadioChange = (e) => {
+    setSelectedOption(e.target.value);
+  };
+
   const onDataChange = (e) => {
     productData[e.target.name] = e.target.value;
   };
+
+  const categoriesRadio = categories.map((el, i) => {
+    return (
+      <label key={i}>
+        <input
+          key={i}
+          type="radio"
+          value={el}
+          checked={selectedOption === el}
+          onChange={handleRadioChange}
+          name="categories"
+        />
+        {el}
+      </label>
+    );
+  });
 
   return (
     <div className="admin-panel">
@@ -21,6 +53,7 @@ const AdminPanel = ({ newProductCreate }) => {
           Create new product item. Insert product title, description and price
         </h2>
         <div className="data-input__container">
+          <div className="categories__wrapper">{categoriesRadio}</div>
           <label className="label" htmlFor="pTitle">
             title
           </label>
