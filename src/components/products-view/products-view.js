@@ -1,19 +1,7 @@
 import CategoriesTabs from "../categories-tabs/categories-tabs";
-import ProductCard from "../product-card/product-card";
 import "./products-view.scss";
 
 const ProductsView = ({ data }) => {
-  const products = data.map((e, i) => {
-    return (
-      <ProductCard
-        key={i}
-        title={e.pTitle}
-        desc={e.pDescription}
-        price={e.pPrice}
-        img={e.pImg}
-      />
-    );
-  });
 
   return (
     <div className="products">
@@ -22,7 +10,7 @@ const ProductsView = ({ data }) => {
       </div>
       <div className="products__inner">
         <div className="container">
-          <CategoriesTabs productCards={products} />
+          <CategoriesTabs contents={data} />
         </div>
       </div>
     </div>

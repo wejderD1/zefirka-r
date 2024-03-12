@@ -1,5 +1,5 @@
 import "./admin-panel.scss";
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 const AdminPanel = ({ newProductCreate }) => {
   const categories = [
@@ -8,24 +8,34 @@ const AdminPanel = ({ newProductCreate }) => {
     "Ciastka",
     "Czekoladki",
     "Motti",
-    "Wielkanocne wypieki"
+    "Wielkanocne wypieki",
   ];
-  
-  const [selectedOption, setSelectedOption] = useState(categories[0]);
 
-  let productData = {
+  const [selectedOption, setSelectedOption] = useState(categories[0]);
+  const [productCard, setProductCard] = useState({
+    category: "",
     pTitle: "",
     pDescription: "",
     pPrice: null,
     pImg: "",
-  };
+  });
 
-  const handleRadioChange = (e) => {
+  useEffect(() => {
+    setProductCard((prevState) => ({
+      ...prevState,
+      category: selectedOption,
+    }));
+  }, [selectedOption]);
+
+  const handleRadioChange = useCallback((e) => {
     setSelectedOption(e.target.value);
-  };
+  }, []);
 
   const onDataChange = (e) => {
-    productData[e.target.name] = e.target.value;
+    setProductCard((prevState) => ({
+      ...prevState, // сохраняем предыдущее состояние объекта
+      [e.target.name]: e.target.value, // устанавливаем новое значение для свойства name
+    }));
   };
 
   const categoriesRadio = categories.map((el, i) => {
@@ -97,7 +107,10 @@ const AdminPanel = ({ newProductCreate }) => {
           <button
             className="btn admin-panel__button"
             type="button"
-            onClick={() => newProductCreate(productData)}
+            onClick={() => {
+              newProductCreate(productCard)
+              console.log(productCard);
+            }}
           >
             CREATE
           </button>

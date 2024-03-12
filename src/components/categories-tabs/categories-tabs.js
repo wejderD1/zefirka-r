@@ -1,11 +1,29 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./categories-tabs.scss";
 import TabItem from "../tab-item/tab-item";
 import TabContent from "../tab-content/tab-content";
+import ProductCard from "../product-card/product-card";
 
-function CategoriesTabs({ productCards }) {
+function CategoriesTabs({ contents }) {
   const [activeTab, setActiveTab] = useState("s");
   const categories = ["f", "s", "t"];
+  const [productsCards, setProductsCards] = useState([])
+
+  useEffect(() => {
+    const productsCards = contents.map((e, i) => {
+      return (
+        <ProductCard
+          key={i}
+          title={e.pTitle}
+          desc={e.pDescription}
+          price={e.pPrice}
+          img={e.pImg}
+        />
+      );
+    });
+
+    setProductsCards(productsCards);
+  }, [contents]);
 
   const tabItem = categories.map((el, i) => {
     return (
@@ -24,7 +42,7 @@ function CategoriesTabs({ productCards }) {
       <TabContent key={i} id={el} activeTab={activeTab}>
         <div className="products-wrapper">
           Tab {i}
-          {productCards}
+          {productsCards}
         </div>
       </TabContent>
     );
