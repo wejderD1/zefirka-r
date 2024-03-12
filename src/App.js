@@ -48,7 +48,7 @@ function App() {
               <ProductsView data={productData} />
             </Route>
             <Route path="/galeria">
-              <p>Galeria</p>
+              <h1>Galeria</h1>
             </Route>
             <Route path="/kontakt">
               <ContactsView />
