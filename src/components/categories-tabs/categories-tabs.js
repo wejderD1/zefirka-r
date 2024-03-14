@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import "./categories-tabs.scss";
 import TabItem from "../tab-item/tab-item";
 import TabContent from "../tab-content/tab-content";
 import ProductCard from "../product-card/product-card";
 
 function CategoriesTabs({ contents, categoriesName }) {
-  const [activeTab, setActiveTab] = useState("s");
+  const [activeTab, setActiveTab] = useState(categoriesName[0]);
   const categories = categoriesName;
   const [productsCards, setProductsCards] = useState([])
 
@@ -48,12 +48,20 @@ function CategoriesTabs({ contents, categoriesName }) {
     );
   });
 
+  const createGridTemplateStyle = useCallback(() => {
+    let str = "";
+    for (let index = 0; index < categoriesName.length; index++) {
+      str += "1fr ";        
+    }
+    return str;
+  }, [categoriesName])
+
   return (
     <div className="tabs__container">
       <div className="tabs__inner">
         <ul 
           className="tabs__nav"
-          style={ {gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr 1fr" }}
+          style={{ gridTemplateColumns: createGridTemplateStyle() }}
         >{tabItem}</ul>
         {tabContent}
       </div>

@@ -11,12 +11,12 @@ import AdminPanel from "./components/admin-panel/admin-panel";
 
 const links = ["strona gołówna", "produkty", "galeria", "kontakt", "admin"];
 const categories = [
-  "Torty musowe",
-  "Zefir",
-  "Ciastka",
-  "Czekoladki",
-  "Motti",
-  "Wielkanocne wypieki",
+  "torty musowe",
+  "zefir",
+  "ciastka",
+  "czekoladki",
+  "motti",
+  "cukierky"
 ];
 
 function App() {
