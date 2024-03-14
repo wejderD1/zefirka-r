@@ -12,8 +12,8 @@ function Advertising() {
           <p className="information__description advertising__description">
           Czekoladowe jajka, desery z marshmallow, wielkanocne babki i panetone będą doskonałym poczęstunkiem na Wielkanoc.
           <span>Zamówienia są przyjmowane do 24 marca.</span>
-          <SocialLinks />
           </p>
+          <SocialLinks />
         </div>
           <img
             // src="http://placehold.it/1600x790"

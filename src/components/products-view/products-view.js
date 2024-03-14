@@ -1,7 +1,7 @@
 import CategoriesTabs from "../categories-tabs/categories-tabs";
 import "./products-view.scss";
 
-const ProductsView = ({ data }) => {
+const ProductsView = ({ data, categoriesName }) => {
 
   return (
     <div className="products">
@@ -10,7 +10,7 @@ const ProductsView = ({ data }) => {
       </div>
       <div className="products__inner">
         <div className="container">
-          <CategoriesTabs contents={data} />
+          <CategoriesTabs contents={data} categoriesName = {categoriesName} />
         </div>
       </div>
     </div>

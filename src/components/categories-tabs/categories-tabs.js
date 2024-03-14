@@ -4,9 +4,9 @@ import TabItem from "../tab-item/tab-item";
 import TabContent from "../tab-content/tab-content";
 import ProductCard from "../product-card/product-card";
 
-function CategoriesTabs({ contents }) {
+function CategoriesTabs({ contents, categoriesName }) {
   const [activeTab, setActiveTab] = useState("s");
-  const categories = ["f", "s", "t"];
+  const categories = categoriesName;
   const [productsCards, setProductsCards] = useState([])
 
   useEffect(() => {
@@ -51,7 +51,10 @@ function CategoriesTabs({ contents }) {
   return (
     <div className="tabs__container">
       <div className="tabs__inner">
-        <ul className="tabs__nav">{tabItem}</ul>
+        <ul 
+          className="tabs__nav"
+          style={ {gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr 1fr" }}
+        >{tabItem}</ul>
         {tabContent}
       </div>
     </div>

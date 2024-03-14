@@ -1,17 +1,9 @@
 import "./admin-panel.scss";
 import { useCallback, useEffect, useState } from "react";
 
-const AdminPanel = ({ newProductCreate }) => {
-  const categories = [
-    "Torty musowe",
-    "Zefir",
-    "Ciastka",
-    "Czekoladki",
-    "Motti",
-    "Wielkanocne wypieki",
-  ];
+const AdminPanel = ({ newProductCreate, categoriesName }) => {
 
-  const [selectedOption, setSelectedOption] = useState(categories[0]);
+  const [selectedOption, setSelectedOption] = useState(categoriesName[0]);
   const [productCard, setProductCard] = useState({
     category: "",
     pTitle: "",
@@ -38,7 +30,7 @@ const AdminPanel = ({ newProductCreate }) => {
     }));
   };
 
-  const categoriesRadio = categories.map((el, i) => {
+  const categoriesRadio = categoriesName.map((el, i) => {
     return (
       <label key={i}>
         <input
@@ -109,7 +101,6 @@ const AdminPanel = ({ newProductCreate }) => {
             type="button"
             onClick={() => {
               newProductCreate(productCard)
-              console.log(productCard);
             }}
           >
             CREATE

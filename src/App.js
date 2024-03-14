@@ -10,6 +10,14 @@ import ContactsView from "./components/contacts-view/contacts-view";
 import AdminPanel from "./components/admin-panel/admin-panel";
 
 const links = ["strona gołówna", "produkty", "galeria", "kontakt", "admin"];
+const categories = [
+  "Torty musowe",
+  "Zefir",
+  "Ciastka",
+  "Czekoladki",
+  "Motti",
+  "Wielkanocne wypieki",
+];
 
 function App() {
   const [productData, setProductData] = useState([]);
@@ -18,8 +26,8 @@ function App() {
     if (!localStorage.getItem("product-list")) {
       return;
     } else {
-    const productList = JSON.parse(localStorage.getItem("product-list"));
-    setProductData(productList);
+      const productList = JSON.parse(localStorage.getItem("product-list"));
+      setProductData(productList);
     }
   }, []);
 
@@ -45,16 +53,17 @@ function App() {
               <HomeView />
             </Route>
             <Route path="/produkty">
-              <ProductsView data={productData} />
+              <ProductsView data={productData} categoriesName={categories} />
             </Route>
-            <Route path="/galeria">
-              <h1>Galeria</h1>
-            </Route>
+            <Route path="/galeria"></Route>
             <Route path="/kontakt">
               <ContactsView />
             </Route>
             <Route path="/admin">
-              <AdminPanel newProductCreate={newProductCerate} />
+              <AdminPanel
+                newProductCreate={newProductCerate}
+                categoriesName={categories}
+              />
             </Route>
             <Footer />
           </div>
