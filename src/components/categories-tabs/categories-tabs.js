@@ -10,7 +10,9 @@ function CategoriesTabs({ contents, categoriesName }) {
   const [productsCards, setProductsCards] = useState([])
 
   useEffect(() => {
-    const productsCards = contents.map((e, i) => {
+    const filterArr = contents.filter((filter) => filter.category === activeTab)
+
+    const productsCards = filterArr.map((e, i) => {
       return (
         <ProductCard
           key={i}
@@ -23,7 +25,7 @@ function CategoriesTabs({ contents, categoriesName }) {
     });
 
     setProductsCards(productsCards);
-  }, [contents]);
+  }, [activeTab]);
 
   const tabItem = categories.map((el, i) => {
     return (
@@ -38,16 +40,21 @@ function CategoriesTabs({ contents, categoriesName }) {
   });
 
   const tabContent = categories.map((el, i) => {
+    // const productsFilter = productsCards.map((el) => console.log(el.props))
+    // // const productsFilter = productsCards.filter((filter) => filter.props === activeTab)
+    // console.log(productsFilter);
     return (
       <TabContent key={i} id={el} activeTab={activeTab}>
         <div className="products-wrapper">
-          Tab {i}
           {productsCards}
         </div>
       </TabContent>
     );
   });
 
+  /**
+   * create grid template collumns style
+   */
   const createGridTemplateStyle = useCallback(() => {
     let str = "";
     for (let index = 0; index < categoriesName.length; index++) {
