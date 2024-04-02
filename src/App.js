@@ -63,6 +63,7 @@ function App() {
               <AdminPanel
                 newProductCreate={newProductCerate}
                 categoriesName={categories}
+                data={productData}
               />
             </Route>
             <Footer />

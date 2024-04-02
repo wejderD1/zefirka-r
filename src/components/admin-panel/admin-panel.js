@@ -1,7 +1,7 @@
 import "./admin-panel.scss";
 import { useCallback, useEffect, useState } from "react";
 
-const AdminPanel = ({ newProductCreate, categoriesName }) => {
+const AdminPanel = ({ newProductCreate, categoriesName, data }) => {
 
   const [selectedOption, setSelectedOption] = useState(categoriesName[0]);
   const [productCard, setProductCard] = useState({
@@ -45,6 +45,10 @@ const AdminPanel = ({ newProductCreate, categoriesName }) => {
       </label>
     );
   });
+
+  const dataItem = data.map((el, i) => {
+
+  })
 
   return (
     <div className="admin-panel">
@@ -105,6 +109,9 @@ const AdminPanel = ({ newProductCreate, categoriesName }) => {
           >
             CREATE
           </button>
+        </div>
+        <div className="data-wrapper">
+          
         </div>
       </div>
     </div>
