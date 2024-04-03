@@ -42,9 +42,11 @@ function App() {
     );
   };
 
+  
   const productDelete = (productName) => {
     setProductData(prevProductData => prevProductData.filter(el => el.pTitle !== productName));
-    localStorage.setItem("product-list", JSON.stringify([...productData]));
+    console.log(productData);
+    // localStorage.setItem("product-list", JSON.stringify([...productData]));
   }
 
   return (
@@ -68,7 +70,7 @@ function App() {
                 newProductCreate={newProductCerate}
                 categoriesName={categories}
                 data={productData}
-                productDelete = {productDelete}
+                onProductDelete = {productDelete}
               />
             </Route>
             <Footer />

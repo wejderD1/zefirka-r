@@ -40,9 +40,6 @@ function CategoriesTabs({ contents, categoriesName }) {
   });
 
   const tabContent = categories.map((el, i) => {
-    // const productsFilter = productsCards.map((el) => console.log(el.props))
-    // // const productsFilter = productsCards.filter((filter) => filter.props === activeTab)
-    // console.log(productsFilter);
     return (
       <TabContent key={i} id={el} activeTab={activeTab}>
         <div className="products-wrapper">
