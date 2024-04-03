@@ -49,7 +49,7 @@ const AdminPanel = ({ newProductCreate, categoriesName, data, productDelete }) =
     return (
       <li key={i} className="data-item">
         <p>{`${category} --- ${pTitle}`}</p>
-        <button className="data-delete" onClick={productDelete(i)}>Delete</button>
+        <button className="data-delete" onClick={() => productDelete(pTitle)}>Delete</button>
       </li>
     );
   });

@@ -23,11 +23,10 @@ function App() {
   const [productData, setProductData] = useState([]);
 
   useEffect(() => {
-    if (!localStorage.getItem("product-list")) {
-      return;
-    } else {
-      const productList = JSON.parse(localStorage.getItem("product-list"));
-      setProductData(productList);
+    const productsList = JSON.parse(localStorage.getItem("product-list"));
+
+    if (productsList) {
+      setProductData(productsList);
     }
   }, []);
 
@@ -43,10 +42,9 @@ function App() {
     );
   };
 
-  const productDelete = (productId) => {
-    // const e = productData.filter(el => el !== productId)
-    console.log("eeeeee");
-    // setProductData(prevProductData => productData.filter(el => el.pTitle !== productId))
+  const productDelete = (productName) => {
+    setProductData(prevProductData => prevProductData.filter(el => el.pTitle !== productName));
+    localStorage.setItem("product-list", JSON.stringify([...productData]));
   }
 
   return (
