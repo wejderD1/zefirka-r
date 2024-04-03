@@ -1,7 +1,7 @@
 import "./admin-panel.scss";
 import { useCallback, useEffect, useState } from "react";
 
-const AdminPanel = ({ newProductCreate, categoriesName, data }) => {
+const AdminPanel = ({ newProductCreate, categoriesName, data, productDelete }) => {
   const [selectedOption, setSelectedOption] = useState(categoriesName[0]);
   const [productCard, setProductCard] = useState({
     category: "",
@@ -49,7 +49,7 @@ const AdminPanel = ({ newProductCreate, categoriesName, data }) => {
     return (
       <li key={i} className="data-item">
         <p>{`${category} --- ${pTitle}`}</p>
-        <button className="data-delete">Delete</button>
+        <button className="data-delete" onClick={productDelete(i)}>Delete</button>
       </li>
     );
   });

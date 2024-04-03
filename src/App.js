@@ -43,6 +43,12 @@ function App() {
     );
   };
 
+  const productDelete = (productId) => {
+    // const e = productData.filter(el => el !== productId)
+    console.log("eeeeee");
+    // setProductData(prevProductData => productData.filter(el => el.pTitle !== productId))
+  }
+
   return (
     <Router>
       <Switch>
@@ -64,6 +70,7 @@ function App() {
                 newProductCreate={newProductCerate}
                 categoriesName={categories}
                 data={productData}
+                productDelete = {productDelete}
               />
             </Route>
             <Footer />
