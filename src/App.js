@@ -20,15 +20,14 @@ const categories = [
 ];
 
 function App() {
-  const [productData, setProductData] = useState([]);
+  const [productData, setProductData] = useState(() => {
+    const data = JSON.parse(localStorage.getItem("product-list"));
+    return data ? data : [];
+  });
 
   useEffect(() => {
-    const productsList = JSON.parse(localStorage.getItem("product-list"));
-
-    if (productsList) {
-      setProductData(productsList);
-    }
-  }, []);
+    localStorage.setItem("product-list", JSON.stringify(productData));
+    }, [productData]);
 
   const newProductCerate = (data) => {
     const { pTitle, pDescription, pPrice } = data;
@@ -45,8 +44,6 @@ function App() {
   
   const productDelete = (productName) => {
     setProductData(prevProductData => prevProductData.filter(el => el.pTitle !== productName));
-    console.log(productData);
-    // localStorage.setItem("product-list", JSON.stringify([...productData]));
   }
 
   return (
