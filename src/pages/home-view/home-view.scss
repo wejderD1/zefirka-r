@@ -3,6 +3,7 @@
 // HOME SIZE STYLE
 .home {
   height: 100%;
+  padding-top: var(--header-height);
   &__inner {
     height: 900px;
   }

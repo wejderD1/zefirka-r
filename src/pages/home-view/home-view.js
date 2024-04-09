@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const HomeView = () => {
   return (
-    <div className="home pt-115px">
+    <div className="home">
       <div className="container">
         <div className="home__inner">
           <div className="description">
