@@ -42,12 +42,11 @@ function App() {
     );
   };
 
-  
-  const productDelete = (productName) => {
+  function productDelete(productName) {
     setProductData(prevProductData => prevProductData.filter(el => el.pTitle !== productName));
-    console.log(productData);
-    // localStorage.setItem("product-list", JSON.stringify([...productData]));
-  }
+  } ;
+
+//треба в useEffect змінювати локалсторадж
 
   return (
     <Router>
