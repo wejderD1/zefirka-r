@@ -1,12 +1,12 @@
-import AboutMe from "../about-me/about-me";
-import Advertising from "../advertising/advertising";
-import InformationBlock from "../information-block/information-block";
+import AboutMe from "../../components/about-me/about-me";
+import Advertising from "../../components/advertising/advertising";
+import InformationBlock from "../../components/information-block/information-block";
 import "./home-view.scss";
 import { Link } from "react-router-dom";
 
 const HomeView = () => {
   return (
-    <div className="home pt-115px">
+    <div className="home">
       <div className="container">
         <div className="home__inner">
           <div className="description">

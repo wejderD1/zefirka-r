@@ -1,9 +1,10 @@
 .admin-panel {
   margin: 0 auto;
   width: 50%;
+  padding-top: var(--header-height);
 
   &__wrapper {
-    padding-top: 200px;
+    padding-top: 50px;
   }
   height: 100%;
   & h1,

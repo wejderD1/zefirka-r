@@ -1,4 +1,4 @@
-import CategoriesTabs from "../categories-tabs/categories-tabs";
+import CategoriesTabs from "../../components/categories-tabs/categories-tabs";
 import "./products-view.scss";
 
 const ProductsView = ({ data, categoriesName }) => {
