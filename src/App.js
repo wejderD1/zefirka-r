@@ -12,6 +12,7 @@ import {
   ProductsView,
   AdminPanel,
 } from "./pages";
+import ProductDetails from "./pages/product-details/product-details";
 
 const links = ["strona gołówna", "produkty", "galeria", "kontakt", "admin"];
 const categories = [
@@ -73,6 +74,9 @@ function App() {
               data={productData}
               onProductDelete={productDelete}
             />
+          </Route>
+          <Route path="/product-details">
+            <ProductDetails />
           </Route>
           <Route component={Page404} />
         </Switch>
