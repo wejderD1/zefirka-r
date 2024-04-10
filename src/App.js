@@ -11,8 +11,8 @@ import {
   ContactsView,
   ProductsView,
   AdminPanel,
+  ProductDetails
 } from "./pages";
-import ProductDetails from "./pages/product-details/product-details";
 
 const links = ["strona gołówna", "produkty", "galeria", "kontakt", "admin"];
 const categories = [

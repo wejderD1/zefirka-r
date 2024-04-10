@@ -1,5 +1,65 @@
+@import "../../assets/style/color-palette.scss";
+
 .product-details {
-  &_container {
+  &__container {
     padding-top: var(--header-height);
   }
+  &__inner {
+    margin: 0 4rem;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    gap: 4rem;
+  }
 }
+
+.product {
+  &__info {
+    padding: 2rem 0;
+    display: grid;
+    grid-template-rows: 20% 60% 20%;
+  }
+  &__info > div {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__title {
+    position: relative;
+    font-size: 45px;
+    &_bottom-line::after {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+  
+      content: "";
+      display: inline-block;
+  
+      width: 100%;
+      border-bottom: 1px solid $contrast-color;
+    }
+  }
+  &__details{
+    line-height: 1.5;
+    padding: 0;
+  }
+  &__photo {
+    width: 25rem;
+    height: auto;
+  }
+  &__price{
+    font-size: 6rem;
+  }
+  &__btn {
+    width: 15rem;
+  }
+}
+
+
+
+/* MEDIA */
+@media only screen and (max-width: 1366px) {
+  .product__price {
+    font-size: 3rem;
+  }
+}
+
