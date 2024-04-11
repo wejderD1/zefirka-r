@@ -11,10 +11,9 @@ import {
   ContactsView,
   ProductsView,
   AdminPanel,
-  ProductDetails
+  ProductDetails,
 } from "./pages";
 
-const links = ["strona gołówna", "produkty", "galeria", "kontakt", "admin"];
 const categories = [
   "torty musowe",
   "zefir",
@@ -25,6 +24,14 @@ const categories = [
 ];
 
 function App() {
+  const [links, setLinks] = useState([
+    "strona gołówna",
+    "produkty",
+    "galeria",
+    "kontakt",
+    "admin",
+  ]);
+
   const [productData, setProductData] = useState(() => {
     const data = JSON.parse(localStorage.getItem("product-list"));
     return data ? data : [];
@@ -75,8 +82,8 @@ function App() {
               onProductDelete={productDelete}
             />
           </Route>
-          <Route path="/product-details/:productId">
-            <ProductDetails data={productData}/>
+          <Route path="/details/:id">
+            <ProductDetails link={links}/>
           </Route>
           <Route component={Page404} />
         </Switch>

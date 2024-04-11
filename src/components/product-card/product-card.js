@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 
 import "./product-card.scss";
 
-function ProductCard({ title, desc, price, img, productId }) {
+function ProductCard({id, title, desc, price, img}) {
   return (
-    <Link className="card-link" style={{textDecoration: "none"}} to={`/product-details/${productId}`}>
+    <Link className="card-link" to={`/details/23`} style={{textDecoration: "none"}}>
       <div className="card-container">
         <div className="card-wrapper">
           <img

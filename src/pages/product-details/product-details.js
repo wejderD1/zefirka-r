@@ -1,6 +1,10 @@
+import {useParams} from "react-router-dom";
+import { useEffect } from "react";
 import "./product-details.scss";
 
-function ProductDetails() {
+function ProductDetails({link}) {
+  let Id = useParams();
+  
   return (
     <div className="container product-details__container">
       <div className="product-details__inner">
