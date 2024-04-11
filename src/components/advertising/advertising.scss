@@ -1,3 +1,5 @@
+@import "../../assets/style/color-palette.scss";
+
 .advertising {
   &__container {
     background-image: url(../../assets/images/bkg_advertising.jpg);
@@ -21,6 +23,7 @@
   &__title {
     font-weight: 700;
     font-size: 70px;
+    color: $main-color;
   }
   &__description {
     font-size: 30px;

@@ -2,10 +2,11 @@
 
 .product-details {
   &__container {
+    height: 80dvh;
     padding-top: var(--header-height);
   }
   &__inner {
-    margin: 0 4rem;
+    margin: 4rem;
     display: grid;
     grid-template-columns: 40% 60%;
     gap: 4rem;
@@ -21,10 +22,12 @@
   &__info > div {
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
   &__title {
     position: relative;
     font-size: 45px;
+    color: $main-color;
     &_bottom-line::after {
       position: absolute;
       bottom: 20px;
@@ -47,7 +50,7 @@
     height: auto;
   }
   &__price{
-    font-size: 6rem;
+    font-size: 3rem;
   }
   &__btn {
     width: 15rem;
@@ -57,9 +60,9 @@
 
 
 /* MEDIA */
-@media only screen and (max-width: 1366px) {
+@media only screen and (min-width: 1580px) {
   .product__price {
-    font-size: 3rem;
+    font-size: 4rem;
   }
 }
 

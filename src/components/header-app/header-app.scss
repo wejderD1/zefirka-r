@@ -20,7 +20,7 @@ header {
   // background: rgba($color: #fff, $alpha: .9);
   &__wrapper {
     display: grid;
-    grid-template-columns: 30% 70%;
+    grid-template-columns: 20% 80%;
     justify-items: center;
     justify-content: center;
     align-items: center;
@@ -42,7 +42,7 @@ header {
     font-family: "Roboto Serif", serif;
     letter-spacing: 2px;
     position: relative;
-    font-size: 17px;
+    font-size: 14px;
     margin: 0 34px 0 30px;
     text-transform: uppercase;
     display: inline-block;
@@ -84,8 +84,8 @@ header {
 //LOGO STYLES
 .logo {
   display: block;
-  width: 110px;
-  height: 110px;
+  width: 70px;
+  height: 70px;
   background: no-repeat url("../../assets/images/logo_v_2.webp");
   background-size: 100%;
   background-position: 50%;
@@ -98,18 +98,18 @@ header {
 }
 
 /* MEDIA */
-@media only screen and (max-width: 1366px) {
+@media only screen and (min-width: 1536px) {
   .logo {
-    width: 70px;
-    height: 70px;
+    width: 110px;
+    height: 110px;
   }
 
   .nav {
     &__link {
-      font-size: 14px;
+      font-size: 17px;
     }
     &__wrapper {
-      grid-template-columns: 20% 80%;
+      grid-template-columns: 30% 70%;
     }
   }
 }

@@ -8,6 +8,8 @@
     box-shadow: 2px 2px 16px $contrast-color;
     padding: 25px;
 
+    color: $contrast-color;
+
     cursor: pointer;
     transition: all linear 0.5s;
   }
@@ -29,10 +31,16 @@
     letter-spacing: 2px;
     font-size: 25px;
     font-weight: 500;
-    color: $text-color;
+    color: $main-color;
     padding: 10px 0;
   }
+  &-price {
+    color: $text-color;
+  }
   &-description {
+  }
+  &-link {
+    text-decoration: none;
   }
 }
 

@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 
 import "./product-card.scss";
 
-function ProductCard({ title, desc, price, img }) {
+function ProductCard({ title, desc, price, img, productId }) {
   return (
-    <Link style={{textDecoration: "none"}} to="product-details">
+    <Link className="card-link" style={{textDecoration: "none"}} to={`/product-details/${productId}`}>
       <div className="card-container">
         <div className="card-wrapper">
           <img
@@ -18,7 +18,7 @@ function ProductCard({ title, desc, price, img }) {
           />
           <h3 className="card-title">{title}</h3>
           <p className="card-description">{desc}.</p>
-          <h3 className="card-title price">{price} zł</h3>
+          <h3 className="card-title card-price">{price} zł</h3>
         </div>
       </div>
     </Link>

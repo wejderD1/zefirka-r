@@ -75,8 +75,8 @@ function App() {
               onProductDelete={productDelete}
             />
           </Route>
-          <Route path="/product-details">
-            <ProductDetails />
+          <Route path="/product-details/:productId">
+            <ProductDetails data={productData}/>
           </Route>
           <Route component={Page404} />
         </Switch>
