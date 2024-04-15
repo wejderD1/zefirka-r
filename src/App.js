@@ -15,7 +15,7 @@ import {
 } from "./pages";
 
 const categories = [
-  "torty musowe",
+  "mo0tti",
   "zefir",
   "ciastka",
   "czekoladki",
