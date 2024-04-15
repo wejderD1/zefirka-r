@@ -135,9 +135,19 @@ const AdminPanel = ({
             </div>
           </div>
           <div className="data__item-wrapper">
-            2
+            <img
+              src={require(`../../assets/images/20220308_193827.jpg`)} //относительный путь, работает только в папке components/component
+              alt="information-img"
+              className="information__photo"
+            />
           </div>
-          <div className="data__item-wrapper">3</div>
+          <div className="data__item-wrapper">
+            <img
+              src={require(`../../assets/images/20220914_141213.jpg`)} //относительный путь, работает только в папке components/component
+              alt="information-img"
+              className="information__photo"
+            />
+          </div>
         </Carousel>
       </div>
     </div>
