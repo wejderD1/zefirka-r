@@ -5,7 +5,7 @@ const ProductsView = ({ data, categoriesName }) => {
 
   return (
     <div className="products">
-      <div className="container">
+      <div className="container ">
         <h1 className="subtitle subtitle_bottom-line">Nasza produkcja</h1>
       </div>
       <div className="products__inner">

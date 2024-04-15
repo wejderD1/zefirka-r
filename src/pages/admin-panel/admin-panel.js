@@ -1,3 +1,4 @@
+import Carousel from "../../components/carousel/carousel";
 import "./admin-panel.scss";
 import { useCallback, useEffect, useState } from "react";
 
@@ -56,7 +57,10 @@ const AdminPanel = ({
       return (
         <li key={i} className="data-item">
           <p>{`${category} --- ${pTitle}`}</p>
-          <button className="data-delete" onClick={() => onProductDelete(pTitle)}>
+          <button
+            className="data-delete"
+            onClick={() => onProductDelete(pTitle)}
+          >
             Delete
           </button>
         </li>
@@ -71,61 +75,70 @@ const AdminPanel = ({
         <h2 className="main-text">
           Create new product item. Insert product title, description and price
         </h2>
-        <div className="data-input__container">
-          <div className="categories__wrapper">{categoriesRadio}</div>
-          <label className="label" htmlFor="pTitle">
-            title
-          </label>
-          <input
-            className="data-input"
-            type="text"
-            name="pTitle"
-            onChange={onDataChange}
-          />
 
-          <label className="label" htmlFor="pDescription">
-            product description
-          </label>
-          <input
-            className="data-input"
-            type="text"
-            name="pDescription"
-            onChange={onDataChange}
-          />
+        <Carousel>
+          <div className="data__item-wrapper">
+            <div className="data-input__container">
+              <div className="categories__wrapper">{categoriesRadio}</div>
+              <label className="label" htmlFor="pTitle">
+                title
+              </label>
+              <input
+                className="data-input"
+                type="text"
+                name="pTitle"
+                onChange={onDataChange}
+              />
 
-          <label className="label" htmlFor="pPrice">
-            product price
-          </label>
-          <input
-            className="data-input"
-            type="text"
-            name="pPrice"
-            onChange={onDataChange}
-          />
+              <label className="label" htmlFor="pDescription">
+                product description
+              </label>
+              <input
+                className="data-input"
+                type="text"
+                name="pDescription"
+                onChange={onDataChange}
+              />
 
-          <label className="label" htmlFor="pImg">
-            product img
-          </label>
-          <input
-            className="data-input"
-            type="text"
-            name="pImg"
-            onChange={onDataChange}
-          />
+              <label className="label" htmlFor="pPrice">
+                product price
+              </label>
+              <input
+                className="data-input"
+                type="text"
+                name="pPrice"
+                onChange={onDataChange}
+              />
 
-          <button
-            className="btn admin-panel__button"
-            type="button"
-            onClick={() => {
-              newProductCreate(productCard);
-            }}
-          >
-            CREATE
-          </button>
-        </div>
-        <div className="data-wrapper">
-          <ul>{dataItem}</ul>
-        </div>
+              <label className="label" htmlFor="pImg">
+                product img
+              </label>
+              <input
+                className="data-input"
+                type="text"
+                name="pImg"
+                onChange={onDataChange}
+              />
+
+              <button
+                className="btn admin-panel__button"
+                type="button"
+                onClick={() => {
+                  newProductCreate(productCard);
+                }}
+              >
+                CREATE
+              </button>
+            </div>
+            <div className="data-wrapper">
+              <ul>{dataItem}</ul>
+            </div>
+          </div>
+          <div className="data__item-wrapper">
+            2
+          </div>
+          <div className="data__item-wrapper">3</div>
+        </Carousel>
       </div>
     </div>
   );
