@@ -1,18 +1,17 @@
 .carousel {
   &__wrapper {
+    margin: 3rem 0;
     width: 100%;
     display: flex;
     gap: 20px;
     align-items: start;
   }
   &__inner {
-    flex-grow: 1;
   }
   &__items-container {
-    transition: all 0.25s ease-in;
     scrollbar-width: none;
-
     margin: 10px;
+    flex-grow: 1;
   }
   &__items-container:nth-child(1){
     width: 100%;
