@@ -2,11 +2,15 @@
 
 .advertising {
   &__container {
+    display: flex;
+    gap: 20px;
+  align-items: center;
+
     background-image: url(../../assets/images/bkg_advertising.jpg);
-    overflow: hidden;
+    // overflow: hidden;
     margin-bottom: 5px;
     padding: 40px;
-    width: 100%;
+    // width: 100%;
   }
 
   &__inner {

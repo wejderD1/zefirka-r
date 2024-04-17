@@ -1,6 +1,7 @@
 import AboutMe from "../../components/about-me/about-me";
 import Advertising from "../../components/advertising/advertising";
 import InformationBlock from "../../components/information-block/information-block";
+
 import "./home-view.scss";
 import { Link } from "react-router-dom";
 
@@ -16,7 +17,7 @@ const HomeView = () => {
               </h1>
               <h1 className="main-title shadow_white">Desery z miłością od Valentyny</h1>
             </div>
-            <Link className="btn" to="/produkty">
+            <Link className="btn btn_main" to="/produkty">
               nasza produkcja
             </Link>
           </div>
