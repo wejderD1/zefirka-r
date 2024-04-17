@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -8,23 +8,24 @@ import "./carousel.scss";
 
 function Carousel({ children }) {
   library.add(faArrowLeft, faArrowRight);
-  const [items, setItems ] = useState([])
+  const [items, setItems ] = useState([]);
+  const [activeSlide, setActiveSlide] = useState(0);
 
   useEffect(() => {
-    const items = children.map((el, i) => (
-      <div className="carousel__item" key={i}>
-        {el}
-      </div>
-    ));
-    setItems(items);
-  }, [children])
+    setItems(children[activeSlide])
+    console.log(items);
+  }, [activeSlide])
 
   function leftHandle() {
-    console.log("left");
+    if(activeSlide !== 0) {
+      setActiveSlide(prevCount => prevCount -=1);
+    }
   }
 
   function rightHandle() {
-    console.log("right");
+    if(activeSlide !== children.length-1) {
+      setActiveSlide(prevCount => prevCount +=1);
+    }
   }
 
   return (

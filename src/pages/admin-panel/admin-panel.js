@@ -16,6 +16,11 @@ const AdminPanel = ({
     pPrice: null,
     pImg: "",
   });
+  const [task, setTask] = useState([
+    "Stwóż"
+    "Create new product item. Insert product title, description and price",
+    "Crea"
+  ])
 
   useEffect(() => {
     setProductCard((prevState) => ({
@@ -77,6 +82,7 @@ const AdminPanel = ({
         </h2>
 
         <Carousel>
+          {/* create new product tab */}
           <div className="data__item-wrapper">
             <div className="data-input__container">
               <div className="categories__wrapper">{categoriesRadio}</div>
@@ -134,13 +140,41 @@ const AdminPanel = ({
               <ul>{dataItem}</ul>
             </div>
           </div>
+          {/* create advertising tab */}
           <div className="data__item-wrapper">
-            <img
-              src={require(`../../assets/images/20220308_193827.jpg`)} //относительный путь, работает только в папке components/component
-              alt="information-img"
-              className="information__photo"
-            />
+            <div className="data-input__container">
+              <label className="label" htmlFor="pTitle">
+                title
+              </label>
+              <input
+                className="data-input"
+                type="text"
+                name="pTitle"
+                onChange={onDataChange}
+              />
+
+              <label className="label" htmlFor="pDescription">
+                advertising description
+              </label>
+              <input
+                className="data-input"
+                type="text"
+                name="pDescription"
+                onChange={onDataChange}
+              />
+
+              <label className="label" htmlFor="pImg">
+                img
+              </label>
+              <input
+                className="data-input"
+                type="text"
+                name="pImg"
+                onChange={onDataChange}
+              />
+            </div>
           </div>
+          {/* NONE */}
           <div className="data__item-wrapper">
             <img
               src={require(`../../assets/images/20220914_141213.jpg`)} //относительный путь, работает только в папке components/component

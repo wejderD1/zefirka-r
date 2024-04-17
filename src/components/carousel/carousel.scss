@@ -6,17 +6,9 @@
     align-items: start;
   }
   &__inner {
-    position: relative;
     flex-grow: 1;
   }
   &__items-container {
-    display: flex;
-    justify-content: space-between;
-
-    scroll-behavior: smooth;
-    scroll-snap-type: x mandatory;
-
-    overflow: auto;
     transition: all 0.25s ease-in;
     scrollbar-width: none;
 
@@ -27,7 +19,7 @@
   }
   &__item {
     min-width: 100%;
-    scroll-snap-align: center;
+    transition: all .5s linear;
   }
   &__btn {
     width: 40px;

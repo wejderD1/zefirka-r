@@ -15,7 +15,6 @@ import {
 } from "./pages";
 
 const categories = [
-  "mo0tti",
   "zefir",
   "ciastka",
   "czekoladki",
