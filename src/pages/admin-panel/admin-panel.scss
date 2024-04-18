@@ -68,3 +68,13 @@
     cursor: pointer;
   }
 }
+
+.carousel {
+  &__wrapper {
+    margin: 3rem 0;
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    align-items: start;
+  }
+}

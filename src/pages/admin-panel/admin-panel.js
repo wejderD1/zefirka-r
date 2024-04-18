@@ -1,6 +1,6 @@
-import Carousel from "../../components/carousel/carousel";
 import "./admin-panel.scss";
 import { useCallback, useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const AdminPanel = ({
   newProductCreate,
@@ -8,7 +8,7 @@ const AdminPanel = ({
   data,
   onProductDelete,
 }) => {
-  const [key, setKey] = useState(0);
+  const [activeSlide, setActiveSlide] = useState(0);
   const [selectedOption, setSelectedOption] = useState(categoriesName[0]);
   const [productCard, setProductCard] = useState({
     category: "",
@@ -28,7 +28,6 @@ const AdminPanel = ({
   //ratio button change
   const handleRadioChange = useCallback((e) => {
     setSelectedOption(e.target.value);
-    setKey((prev) => (prev += 1));
   }, []);
 
   //input data changed
@@ -74,120 +73,140 @@ const AdminPanel = ({
       );
     });
 
+  function leftHandle() {
+    console.log("left");
+  }
+
+  function rightHandle() {
+    console.log("right");
+  }
+
   return (
     <div className="admin-panel">
       <div className="admin-panel__wrapper">
         <h1>ADMIN PANEL</h1>
+        <div className="carousel__wrapper">
+          <button
+            className="carousel__btn carousel__btn_left"
+            onClick={leftHandle}
+          >
+            <FontAwesomeIcon icon="fa-solid fa-arrow-left" />
+          </button>
+          <div className="carousel__inner">
+            <div className="data__item-wrapper">
+              <div className="data-input__container">
+                <h2 className="main-text">
+                  Utwórz nową pozycję produktu. Wstaw tytuł, opis i cenę produkt
+                </h2>
+                <div className="categories__wrapper">{categoriesRadio}</div>
+                <label className="label" htmlFor="pTitle">
+                  title
+                </label>
+                <input
+                  className="data-input"
+                  type="text"
+                  name="pTitle"
+                  onChange={onDataChangeHandler}
+                />
 
-        <Carousel key={key}>
-          {/* create new product tab */}
-          <div className="data__item-wrapper">
-            <div className="data-input__container">
-              <h2 className="main-text">
-                Utwórz nową pozycję produktu. Wstaw tytuł, opis i cenę produkt
-              </h2>
-              <div className="categories__wrapper">{categoriesRadio}</div>
-              <label className="label" htmlFor="pTitle">
-                title
-              </label>
-              <input
-                className="data-input"
-                type="text"
-                name="pTitle"
-                onChange={onDataChangeHandler}
-              />
+                <label className="label" htmlFor="pDescription">
+                  product description
+                </label>
+                <input
+                  className="data-input"
+                  type="text"
+                  name="pDescription"
+                  onChange={onDataChangeHandler}
+                />
 
-              <label className="label" htmlFor="pDescription">
-                product description
-              </label>
-              <input
-                className="data-input"
-                type="text"
-                name="pDescription"
-                onChange={onDataChangeHandler}
-              />
+                <label className="label" htmlFor="pPrice">
+                  product price
+                </label>
+                <input
+                  className="data-input"
+                  type="text"
+                  name="pPrice"
+                  onChange={onDataChangeHandler}
+                />
 
-              <label className="label" htmlFor="pPrice">
-                product price
-              </label>
-              <input
-                className="data-input"
-                type="text"
-                name="pPrice"
-                onChange={onDataChangeHandler}
-              />
+                <label className="label" htmlFor="pImg">
+                  product img
+                </label>
+                <input
+                  className="data-input"
+                  type="text"
+                  name="pImg"
+                  onChange={onDataChangeHandler}
+                />
 
-              <label className="label" htmlFor="pImg">
-                product img
-              </label>
-              <input
-                className="data-input"
-                type="text"
-                name="pImg"
-                onChange={onDataChangeHandler}
-              />
-
-              <button
-                className="btn admin-panel__button"
-                type="button"
-                onClick={() => {
-                  newProductCreate(productCard);
-                }}
-              >
-                CREATE
-              </button>
+                <button
+                  className="btn admin-panel__button"
+                  type="button"
+                  onClick={() => {
+                    newProductCreate(productCard);
+                  }}
+                >
+                  CREATE
+                </button>
+              </div>
+              <div className="data-wrapper">
+                <ul>{dataItem}</ul>
+              </div>
             </div>
-            <div className="data-wrapper">
-              <ul>{dataItem}</ul>
+            {/* create advertising tab * */}
+            <div className="data__item-wrapper">
+              <div className="data-input__container">
+                <h2 className="main-text">
+                  Utwórz reklamę, napisz nagłówek i opis reklamy.
+                </h2>
+                <label className="label" htmlFor="pTitle">
+                  title
+                </label>
+                <input
+                  className="data-input"
+                  type="text"
+                  name="pTitle"
+                  onChange={onDataChangeHandler}
+                />
+
+                <label className="label" htmlFor="pDescription">
+                  advertising description
+                </label>
+                <input
+                  className="data-input"
+                  type="text"
+                  name="pDescription"
+                  onChange={onDataChangeHandler}
+                />
+
+                <label className="label" htmlFor="pImg">
+                  img
+                </label>
+                <input
+                  className="data-input"
+                  type="text"
+                  name="pImg"
+                  onChange={onDataChangeHandler}
+                />
+              </div>
+            </div>
+            {/* NONE */}
+            <div className="data__item-wrapper">
+              <h2 className="main-text">nowa pozycja</h2>
+              <img
+                src={require(`../../assets/images/20220914_141213.jpg`)}
+                alt="information-img"
+                className="information__photo"
+              />
             </div>
           </div>
-          {/* create advertising tab */}
-          <div className="data__item-wrapper">
-            <div className="data-input__container">
-              <h2 className="main-text">
-                Utwórz reklamę, napisz nagłówek i opis reklamy.
-              </h2>
-              <label className="label" htmlFor="pTitle">
-                title
-              </label>
-              <input
-                className="data-input"
-                type="text"
-                name="pTitle"
-                onChange={onDataChangeHandler}
-              />
-
-              <label className="label" htmlFor="pDescription">
-                advertising description
-              </label>
-              <input
-                className="data-input"
-                type="text"
-                name="pDescription"
-                onChange={onDataChangeHandler}
-              />
-
-              <label className="label" htmlFor="pImg">
-                img
-              </label>
-              <input
-                className="data-input"
-                type="text"
-                name="pImg"
-                onChange={onDataChangeHandler}
-              />
-            </div>
-          </div>
-          {/* NONE */}
-          <div className="data__item-wrapper">
-            <h2 className="main-text">nowa pozycja</h2>
-            <img
-              src={require(`../../assets/images/20220914_141213.jpg`)} //относительный путь, работает только в папке components/component
-              alt="information-img"
-              className="information__photo"
-            />
-          </div>
-        </Carousel>
+          <button
+            className="carousel__btn carousel__btn_right"
+            onClick={rightHandle}
+          >
+            <FontAwesomeIcon icon="fa-solid fa-arrow-right" />
+          </button>
+        </div>
       </div>
     </div>
   );
