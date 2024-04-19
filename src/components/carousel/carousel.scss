@@ -1,11 +1,4 @@
 .carousel {
-  &__wrapper {
-    margin: 3rem 0;
-    width: 100%;
-    display: flex;
-    gap: 20px;
-    align-items: start;
-  }
   &__items-container {
     scrollbar-width: none;
     margin: 10px;
@@ -18,14 +11,5 @@
     min-width: 100%;
     transition: all .5s linear;
   }
-  &__btn {
-    width: 40px;
-    height: 80px;
 
-    cursor: pointer;
-    &_left {
-    }
-    &_right {
-    }
-  }
 }

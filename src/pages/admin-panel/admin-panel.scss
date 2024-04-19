@@ -13,38 +13,51 @@
   }
 }
 
-.data-input__container {
-  margin: 0 auto;
-  display: grid;
-  gap: 30px;
-  align-items: center;
-  & label {
-    margin: -10px 0;
-  }
-  & input {
-    height: 30px;
-    font-size: 20px;
-    font-weight: 400;
-  }
-}
-
-.categories {
+// CAROUSEL
+.carousel {
   &__wrapper {
-    display: grid;
-    gap: 1rem;
-    grid-auto-flow: column;
-    align-self: center;
-    justify-items: center;
+    margin: 3rem 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: start;
+  }
+  &__inner {
+    flex-grow: 1;
+  }
+  &__item-wrapper {
+    display: none;
+    &_active {
+      display: block;
+    }
+  }
+  &__btn {
+    width: 40px;
+    height: 80px;
 
-    padding: 2rem 0;
-  }
-  &__wrapper > label {
-    cursor: pointer;
-  }
-  &__radio:hover {
     cursor: pointer;
   }
 }
+
+.item {
+  &__container {
+    margin: 0 auto;
+    display: grid;
+    gap: 30px;
+    align-items: center;
+    & label {
+      margin: -10px 0;
+    }
+    & input {
+      height: 30px;
+      font-size: 20px;
+      font-weight: 400;
+    }
+  }
+}
+
+// DATA CONTAINER
 .data {
   &-wrapper {
     margin: 40px auto;
@@ -69,12 +82,25 @@
   }
 }
 
-.carousel {
+// RADIO BUTTON CONTAINER
+.categories {
   &__wrapper {
-    margin: 3rem 0;
-    width: 100%;
-    display: flex;
-    gap: 20px;
-    align-items: start;
+    display: grid;
+    gap: 1rem;
+    grid-auto-flow: column;
+    align-self: center;
+    justify-items: center;
+
+    padding: 2rem 0;
   }
+  &__wrapper > label {
+    cursor: pointer;
+  }
+  &__radio:hover {
+    cursor: pointer;
+  }
+}
+
+.new-product-button {
+  width: 200px;
 }

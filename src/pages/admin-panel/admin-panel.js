@@ -1,5 +1,5 @@
 import "./admin-panel.scss";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const AdminPanel = ({
@@ -8,7 +8,7 @@ const AdminPanel = ({
   data,
   onProductDelete,
 }) => {
-  const [activeSlide, setActiveSlide] = useState(0);
+  const [activeSlide, setActiveSlide] = useState(1);
   const [selectedOption, setSelectedOption] = useState(categoriesName[0]);
   const [productCard, setProductCard] = useState({
     category: "",
@@ -18,12 +18,21 @@ const AdminPanel = ({
     pImg: "",
   });
 
+  const carouselInner = useRef(null);
+  const [numberOfChildren, setNumberOfChildren] = useState(0);
+
   useEffect(() => {
     setProductCard((prevState) => ({
       ...prevState,
       category: selectedOption,
     }));
   }, [selectedOption]);
+
+  //получаю количество слайдов в слайдере
+  useEffect(() => {
+    const childrenLength  = carouselInner.current.children.length;
+    setNumberOfChildren(childrenLength)
+  }, [numberOfChildren]);
 
   //ratio button change
   const handleRadioChange = useCallback((e) => {
@@ -73,13 +82,23 @@ const AdminPanel = ({
       );
     });
 
-  function leftHandle() {
-    console.log("left");
-  }
+  const rightHandle = () => {
+    if(activeSlide !== numberOfChildren) {
+      setActiveSlide((prevSlide) => {
+        const updatedSlide = prevSlide + 1;
+        return updatedSlide;
+      });
+    }
+  };
 
-  function rightHandle() {
-    console.log("right");
-  }
+  const leftHandle = () => {
+    if(activeSlide !== 1) {
+      setActiveSlide((prevSlide) => {
+        const updatedSlide = prevSlide - 1;
+        return updatedSlide;
+      });
+    }
+  };
 
   return (
     <div className="admin-panel">
@@ -87,16 +106,20 @@ const AdminPanel = ({
         <h1>ADMIN PANEL</h1>
         <div className="carousel__wrapper">
           <button
-            className="carousel__btn carousel__btn_left"
+            className="btn carousel__btn carousel__btn_left"
             onClick={leftHandle}
           >
             <FontAwesomeIcon icon="fa-solid fa-arrow-left" />
           </button>
-          <div className="carousel__inner">
-            <div className="data__item-wrapper">
-              <div className="data-input__container">
+          <div className="carousel__inner" ref={carouselInner}>
+            <div
+              className={`carousel__item-wrapper ${
+                activeSlide === 1 ? "carousel__item-wrapper_active" : ""
+              } `}
+            >
+              <div className="item__container">
                 <h2 className="main-text">
-                  Utwórz nową pozycję produktu. Wstaw tytuł, opis i cenę produkt
+                  Utwórz nową pozycję produktu. Wstaw tytuł, opis i cenę produktu
                 </h2>
                 <div className="categories__wrapper">{categoriesRadio}</div>
                 <label className="label" htmlFor="pTitle">
@@ -140,7 +163,7 @@ const AdminPanel = ({
                 />
 
                 <button
-                  className="btn admin-panel__button"
+                  className="btn new-product-button"
                   type="button"
                   onClick={() => {
                     newProductCreate(productCard);
@@ -149,13 +172,19 @@ const AdminPanel = ({
                   CREATE
                 </button>
               </div>
+
+              {/* DATA CONTAINER */}
               <div className="data-wrapper">
                 <ul>{dataItem}</ul>
               </div>
             </div>
             {/* create advertising tab * */}
-            <div className="data__item-wrapper">
-              <div className="data-input__container">
+            <div
+              className={`carousel__item-wrapper ${
+                activeSlide === 2 ? "carousel__item-wrapper_active" : ""
+              } `}
+            >
+              <div className="item__container">
                 <h2 className="main-text">
                   Utwórz reklamę, napisz nagłówek i opis reklamy.
                 </h2>
@@ -191,7 +220,7 @@ const AdminPanel = ({
               </div>
             </div>
             {/* NONE */}
-            <div className="data__item-wrapper">
+            <div className={`carousel__item-wrapper ${activeSlide === 3 ? 'carousel__item-wrapper_active' : ''} `}>
               <h2 className="main-text">nowa pozycja</h2>
               <img
                 src={require(`../../assets/images/20220914_141213.jpg`)}
@@ -201,7 +230,7 @@ const AdminPanel = ({
             </div>
           </div>
           <button
-            className="carousel__btn carousel__btn_right"
+            className="btn carousel__btn carousel__btn_right"
             onClick={rightHandle}
           >
             <FontAwesomeIcon icon="fa-solid fa-arrow-right" />
