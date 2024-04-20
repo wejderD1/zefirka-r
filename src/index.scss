@@ -103,24 +103,20 @@ h6 {
 
   text-decoration: none;
 
-  transition: all 0.2s linear;
+  cursor: pointer;
+
   &:hover {
     background: #fff;
-    cursor: pointer;
+    color: $main-color;
+    transition: all .2s linear;
   }
   &:active {
     background: rgb(194, 191, 191);
   }
   &_arrow {
-    padding: 0;
-    margin: 0;
     height: 40px;
-    text-align: center;
-    font-size: 30px;
-    line-height: 1.8;
-  }
-  &_arrow-left {
-  }
-  &_arrow-right {
+    width: 20px;
+    font-size: 27px;
+    line-height: 0.8;
   }
 }
