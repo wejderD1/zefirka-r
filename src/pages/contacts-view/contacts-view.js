@@ -56,7 +56,7 @@ const ContactsView = () => {
                 type="text"
                 placeholder="telefon"
               />
-              <Link className="btn btn-contacts" to="/">
+              <Link className="btn btn_contacts" to="/">
                 wysłać
               </Link>
             </div>
