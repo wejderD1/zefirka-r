@@ -1,8 +1,40 @@
+import { useEffect, useRef, useState } from "react";
 import SocialLinks from "../social-links/social-links";
 
 import "./advertising.scss";
 
 function Advertising() {
+  const slidesContainer = useRef(null);
+  const [offset, setOffset] = useState(0);
+  const offsetWidth =useRef(null);
+
+  //створити стейт з індикаторами (кількість дочірніх елементів в контейнері)
+  // змінювати клас активності в індикаторах
+
+  useEffect(() => {
+    offsetWidth.current = slidesContainer.current.children[0].clientWidth;
+    console.log(offsetWidth);
+  }, [offset]);
+
+  const rigthBtnHandler = () => {
+    const scrollWidth = slidesContainer.current.scrollWidth;
+    if (offset + offsetWidth.current < scrollWidth) {
+      setOffset((prev) => {
+        const offset = prev + offsetWidth.current;
+        return offset;
+      });
+    }
+  };
+
+  const leftBtnHandler = () => {
+    if (offset !== 0) {
+      setOffset((prev) => {
+        const offset = prev - offsetWidth.current;
+        return offset;
+      });
+    }
+  };
+
   return (
     <div className="advertising__container">
       <ol className="carousell__indicators">
@@ -11,11 +43,15 @@ function Advertising() {
         <li data-slide-to="2"></li>
       </ol>
       <div className="carousell__inner">
-        <div className="carousell__slides">
+        <div
+          className="carousell__slides"
+          ref={slidesContainer}
+          style={{ transform: `translateX(-${offset}px)` }}
+        >
           <div className="carousell__item">
             <div className="advertising__info">
               <h2 className="main-title advertising__title">
-                Pyszne babeczki wielkanocne
+                1Pyszne babeczki wielkanocne
               </h2>
               <p className="information__description advertising__description">
                 Czekoladowe jajka, desery z marshmallow, wielkanocne babki i
@@ -32,9 +68,9 @@ function Advertising() {
             />
           </div>
           <div className="carousell__item">
-          <div className="advertising__info">
+            <div className="advertising__info">
               <h2 className="main-title advertising__title">
-                Pyszne babeczki wielkanocne
+                2Pyszne babeczki wielkanocne
               </h2>
               <p className="information__description advertising__description">
                 Czekoladowe jajka, desery z marshmallow, wielkanocne babki i
@@ -51,9 +87,9 @@ function Advertising() {
             />
           </div>
           <div className="carousell__item">
-          <div className="advertising__info">
+            <div className="advertising__info">
               <h2 className="main-title advertising__title">
-                Pyszne babeczki wielkanocne
+                3Pyszne babeczki wielkanocne
               </h2>
               <p className="information__description advertising__description">
                 Czekoladowe jajka, desery z marshmallow, wielkanocne babki i
@@ -71,8 +107,18 @@ function Advertising() {
           </div>
         </div>
       </div>
-      <buton className="btn btn_arrow carousell__btn carousell__btn_left">&#8249;</buton>
-      <buton className="btn btn_arrow carousell__btn carousell__btn_right">&#8250;</buton>
+      <button
+        className="btn btn_arrow carousell__btn carousell__btn_left"
+        onClick={leftBtnHandler}
+      >
+        &#8249;
+      </button>
+      <button
+        className="btn btn_arrow carousell__btn carousell__btn_right"
+        onClick={rigthBtnHandler}
+      >
+        &#8250;
+      </button>
     </div>
   );
 }
