@@ -5,7 +5,7 @@ import InformationBlock from "../../components/information-block/information-blo
 import "./home-view.scss";
 import { Link } from "react-router-dom";
 
-const HomeView = () => {
+const HomeView = ({advertisingData}) => {
   return (
     <div className="home">
       <div className="container">
@@ -23,7 +23,7 @@ const HomeView = () => {
           </div>
         </div>
       </div>
-      <Advertising />
+      <Advertising data={advertisingData}/>
       <div className="about">
         <div className="container">
           <div className="about__inner">

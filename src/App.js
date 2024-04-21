@@ -36,7 +36,14 @@ function App() {
     return data ? data : [];
   });
 
-  const [advertisingData, setAdvertisingData] = useState([])
+  const [advertisingData, setAdvertisingData] = useState([
+    {
+      aTitle: "Hello",
+      aDesc: "Lorem",
+      aNote: "sdfsdf sdf s",
+      aImg: "20220308_193827.jpg"
+    }
+  ])
 
   useEffect(() => {
     localStorage.setItem("product-list", JSON.stringify(productData));
@@ -70,7 +77,7 @@ function App() {
         <HeaderApp links={links} />
         <Switch>
           <Route exact path="/">
-            <HomeView />
+            <HomeView advertisingData={advertisingData}/>
           </Route>
           <Route path="/produkty">
             <ProductsView data={productData} categoriesName={categories} />
