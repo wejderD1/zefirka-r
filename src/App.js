@@ -36,6 +36,8 @@ function App() {
     return data ? data : [];
   });
 
+  const [advertisingData, setAdvertisingData] = useState([])
+
   useEffect(() => {
     localStorage.setItem("product-list", JSON.stringify(productData));
   }, [productData]);
@@ -58,6 +60,10 @@ function App() {
     );
   };
 
+  const newAdvertisingCreate = (data) => {
+    setAdvertisingData((prevAdvertisinData) => [...prevAdvertisinData, data])
+  }
+
   return (
     <Router>
       <div className="app">
@@ -79,6 +85,7 @@ function App() {
               categoriesName={categories}
               data={productData}
               onProductDelete={productDelete}
+              newAdvertisingCreate={newAdvertisingCreate}
             />
           </Route>
           <Route path="/details/:id">

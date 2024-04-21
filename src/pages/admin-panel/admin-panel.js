@@ -7,6 +7,7 @@ const AdminPanel = ({
   categoriesName,
   data,
   onProductDelete,
+  newAdvertisingCreate
 }) => {
   const [activeSlide, setActiveSlide] = useState(1);
   const [selectedOption, setSelectedOption] = useState(categoriesName[0]);
@@ -16,6 +17,13 @@ const AdminPanel = ({
     pDescription: "",
     pPrice: null,
     pImg: "",
+  });
+
+  const [advertising, setAdvertising] = useState({
+    aTitle: "",
+    aDesc: "",
+    aNote: "",
+    aImg: "",
   });
 
   const carouselInner = useRef(null);
@@ -30,8 +38,8 @@ const AdminPanel = ({
 
   //получаю количество слайдов в слайдере
   useEffect(() => {
-    const childrenLength  = carouselInner.current.children.length;
-    setNumberOfChildren(childrenLength)
+    const childrenLength = carouselInner.current.children.length;
+    setNumberOfChildren(childrenLength);
   }, [numberOfChildren]);
 
   //ratio button change
@@ -46,6 +54,13 @@ const AdminPanel = ({
       [e.target.name]: e.target.value, // устанавливаем новое значение для свойства name
     }));
   };
+
+  const onAdvertisingDataChange = (e) => {
+    setAdvertising((prevState) => ({
+      ...prevState, // сохраняем предыдущее состояние объекта
+      [e.target.name]: e.target.value, // устанавливаем новое значение для свойства name
+    }));
+  }
 
   //created categories block (ratio buttons)
   const categoriesRadio = categoriesName.map((el, i) => {
@@ -83,7 +98,7 @@ const AdminPanel = ({
     });
 
   const rightHandle = () => {
-    if(activeSlide !== numberOfChildren) {
+    if (activeSlide !== numberOfChildren) {
       setActiveSlide((prevSlide) => {
         const updatedSlide = prevSlide + 1;
         return updatedSlide;
@@ -92,7 +107,7 @@ const AdminPanel = ({
   };
 
   const leftHandle = () => {
-    if(activeSlide !== 1) {
+    if (activeSlide !== 1) {
       setActiveSlide((prevSlide) => {
         const updatedSlide = prevSlide - 1;
         return updatedSlide;
@@ -119,7 +134,8 @@ const AdminPanel = ({
             >
               <div className="item__container">
                 <h2 className="main-text">
-                  Utwórz nową pozycję produktu. Wstaw tytuł, opis i cenę produktu
+                  Utwórz nową pozycję produktu. Wstaw tytuł, opis i cenę
+                  produktu
                 </h2>
                 <div className="categories__wrapper">{categoriesRadio}</div>
                 <label className="label" htmlFor="pTitle">
@@ -163,7 +179,7 @@ const AdminPanel = ({
                 />
 
                 <button
-                  className="btn new-product-button"
+                  className="btn btn-create"
                   type="button"
                   onClick={() => {
                     newProductCreate(productCard);
@@ -188,46 +204,66 @@ const AdminPanel = ({
                 <h2 className="main-text">
                   Utwórz reklamę, napisz nagłówek i opis reklamy.
                 </h2>
-                <label className="label" htmlFor="pTitle">
+                <label className="label" htmlFor="aTitle">
                   title
                 </label>
                 <input
                   className="data-input"
                   type="text"
-                  name="pTitle"
-                  onChange={onDataChangeHandler}
+                  name="aTitle"
+                  onChange={onAdvertisingDataChange}
                 />
-
-                <label className="label" htmlFor="pDescription">
+                <label className="label" htmlFor="aDesc">
                   advertising description
                 </label>
                 <input
                   className="data-input"
                   type="text"
-                  name="pDescription"
-                  onChange={onDataChangeHandler}
+                  name="aDesc"
+                  onChange={onAdvertisingDataChange}
                 />
-
-                <label className="label" htmlFor="pImg">
+                <label className="label" htmlFor="aNote">
+                  advertising note
+                </label>
+                <input
+                  className="data-input"
+                  type="text"
+                  name="aNote"
+                  onChange={onAdvertisingDataChange}
+                />
+                <label className="label" htmlFor="aImg">
                   img
                 </label>
                 <input
                   className="data-input"
                   type="text"
-                  name="pImg"
-                  onChange={onDataChangeHandler}
+                  name="aImg"
+                  onChange={onAdvertisingDataChange}
                 />
+                                <button
+                  className="btn btn-create"
+                  type="button"
+                  onClick={() => {
+                    newAdvertisingCreate(advertising);
+                  }}
+                >
+                  CREATE
+                </button>
               </div>
             </div>
-            {/* NONE */}
-            <div className={`carousel__item-wrapper ${activeSlide === 3 ? 'carousel__item-wrapper_active' : ''} `}>
+            {/* NONE
+            <div
+              className={`carousel__item-wrapper ${
+                activeSlide === 3 ? "carousel__item-wrapper_active" : ""
+              } `}
+            >
               <h2 className="main-text">nowa pozycja</h2>
               <img
                 src={require(`../../assets/images/20220914_141213.jpg`)}
                 alt="information-img"
                 className="information__photo"
               />
-            </div>
+            </div> */}
           </div>
           <button
             className="btn carousel__btn carousel__btn_right"

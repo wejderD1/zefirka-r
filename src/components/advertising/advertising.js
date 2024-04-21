@@ -64,7 +64,7 @@ function Advertising() {
         <div
           className="carousell__slides"
           ref={slidesContainer}
-          style={{ transform: `translateX(-${offset}px)` }}
+          style={{ transform: `translateX(-${offset }px)` }}
         >
           <div className="carousell__item">
             <div className="advertising__info">
@@ -76,13 +76,12 @@ function Advertising() {
                 panetone będą doskonałym poczęstunkiem na Wielkanoc.
                 <span>Zamówienia są przyjmowane do 24 marca.</span>
               </p>
-              <SocialLinks />
             </div>
             <img
+              className="advertising__img"
               // src="http://placehold.it/1600x790"
               src={require("../../assets/images/advertising_collage.jpg")}
               alt="картинка рекламы"
-              className="advertising__img img-2"
             />
           </div>
           <div className="carousell__item">
