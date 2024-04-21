@@ -4,25 +4,32 @@ import SocialLinks from "../social-links/social-links";
 import "./advertising.scss";
 
 function Advertising() {
+  const offsetWidth = useRef(null);
   const slidesContainer = useRef(null);
+  const scrollWidth = useRef(null);
+
   const [offset, setOffset] = useState(0);
-  const offsetWidth =useRef(null);
+  const [slidesIndex, setSlidesIndex] = useState(1);
+  const [slidesLength, setSlidesLength] = useState(0);
+  // const [scrollWidth, setScrollWidth]
 
   //створити стейт з індикаторами (кількість дочірніх елементів в контейнері)
   // змінювати клас активності в індикаторах
 
   useEffect(() => {
     offsetWidth.current = slidesContainer.current.children[0].clientWidth;
-    console.log(offsetWidth);
+    scrollWidth.current = slidesContainer.current.scrollWidth;
+    setSlidesLength(slidesContainer.current.childElementCount);
+    // console.dir(slidesContainer.current)
   }, [offset]);
 
   const rigthBtnHandler = () => {
-    const scrollWidth = slidesContainer.current.scrollWidth;
-    if (offset + offsetWidth.current < scrollWidth) {
+    if (offset + offsetWidth.current < scrollWidth.current) {
       setOffset((prev) => {
         const offset = prev + offsetWidth.current;
         return offset;
       });
+      setSlidesIndex((prev) => (prev += 1));
     }
   };
 
@@ -32,16 +39,27 @@ function Advertising() {
         const offset = prev - offsetWidth.current;
         return offset;
       });
+      setSlidesIndex((prev) => (prev -= 1));
     }
+  };
+
+  const CarouselIndicators = ({ slidesLenght }) => {
+    let listItems = [];
+    for (let index = 0; index < slidesLength; index++) {
+      listItems.push(
+        <li
+          key={index}
+          className={slidesIndex === index + 1 ? "active" : ""}
+        ></li>
+      );
+    }
+
+    return <ol className="carousell__indicators">{listItems}</ol>;
   };
 
   return (
     <div className="advertising__container">
-      <ol className="carousell__indicators">
-        <li className="active" data-slide-to="0"></li>
-        <li data-slide-to="1"></li>
-        <li data-slide-to="2"></li>
-      </ol>
+      <CarouselIndicators />
       <div className="carousell__inner">
         <div
           className="carousell__slides"
@@ -110,12 +128,20 @@ function Advertising() {
       <button
         className="btn btn_arrow carousell__btn carousell__btn_left"
         onClick={leftBtnHandler}
+        style={
+          offset === 0 ? { visibility: "hidden" } : { visibility: "visible" }
+        }
       >
         &#8249;
       </button>
       <button
         className="btn btn_arrow carousell__btn carousell__btn_right"
         onClick={rigthBtnHandler}
+        style={
+          offset + offsetWidth.current < scrollWidth.current
+            ? { visibility: "visible" }
+            : { visibility: "hidden" }
+        }
       >
         &#8250;
       </button>
