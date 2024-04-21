@@ -10,7 +10,7 @@ function ProductCard({id, title, desc, price, img}) {
           <img
             src={
               img
-                ? require(`/src/assets/images/products_img//${img}`)
+                ? require(`/src/assets/images/products_img/${img}`)
                 : `http://placehold.it/250x250`
             }
             alt="product img"
