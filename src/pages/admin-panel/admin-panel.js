@@ -251,19 +251,6 @@ const AdminPanel = ({
                 </button>
               </div>
             </div>
-            {/* NONE
-            <div
-              className={`carousel__item-wrapper ${
-                activeSlide === 3 ? "carousel__item-wrapper_active" : ""
-              } `}
-            >
-              <h2 className="main-text">nowa pozycja</h2>
-              <img
-                src={require(`../../assets/images/20220914_141213.jpg`)}
-                alt="information-img"
-                className="information__photo"
-              />
-            </div> */}
           </div>
           <button
             className="btn carousel__btn carousel__btn_right"

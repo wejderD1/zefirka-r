@@ -39,7 +39,7 @@ function App() {
   const [advertisingData, setAdvertisingData] = useState([
     {
       aTitle: "Hello",
-      aDesc: "Lorem",
+      aDesc: "Lorem ipsum",
       aNote: "sdfsdf sdf s",
       aImg: "20220308_193827.jpg"
     }

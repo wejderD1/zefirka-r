@@ -68,7 +68,7 @@ function Advertising({ data }) {
     );
   });
 
-  const CarouselIndicators = ({ slidesLenght }) => {
+  const CarouselIndicators = () => {
     let listItems = [];
     for (let index = 0; index < slidesLength; index++) {
       listItems.push(
