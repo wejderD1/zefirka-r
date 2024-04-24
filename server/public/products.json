@@ -1,7 +1,7 @@
 [
   {
     "category": "torty musowe",
-    "pTitle": "asdfasdf  afasd ",
+    "pTitle": "это проверка ",
     "pDescription": "asdfasdf",
     "pPrice": "333",
     "pImg": ""
@@ -32,6 +32,13 @@
     "pTitle": "dfa",
     "pDescription": "adfgdsfg",
     "pPrice": "333",
+    "pImg": ""
+  },
+  {
+    "category": "zefir",
+    "pTitle": "zefirkin",
+    "pDescription": "ну дуже смачно",
+    "pPrice": "300",
     "pImg": ""
   }
 ]

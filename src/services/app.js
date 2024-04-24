@@ -1,11 +1,11 @@
-function getData(url) {
-  return fetch(url).then((res) => {
-    if (res.status !== "ok") {
-      throw new Error("Error");
-    }
-    return res.json();
-  })
-  .catch((err) => console.log(err, "ERROR"));
-}
+const fetchData = async (url) => {
+  try {
+    const data = await fetch(url)
+    .then((response) => response.json());
 
-export {getData};
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+export {fetchData};

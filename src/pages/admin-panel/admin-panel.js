@@ -1,8 +1,6 @@
 import "./admin-panel.scss";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import axios from "axios";
-// import { getData } from "../../services/app";
 
 const AdminPanel = ({
   newProductCreate,
@@ -30,35 +28,6 @@ const AdminPanel = ({
 
   const carouselInner = useRef(null);
   const [numberOfChildren, setNumberOfChildren] = useState(0);
-  const [responce, setResponce] = useState([]);
-
-  // const subscribe = async () => {
-  //   try {
-  //     const {data} = await axios.get("https://jsonplaceholder.typicode.com/posts");
-  //     setUserData(data);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-
-  // }
-
-  const fetchData = async () => {
-    try {
-      fetch('http://localhost:5000/products')
-      .then((response) => response.json())
-      .then((json) => {
-        setResponce((prev) => [...prev, json]);
-        console.log(json)
-      }); 
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  
-  useEffect(() => {
-    fetchData();
-    console.log(responce);
-  }, []);
 
   useEffect(() => {
     setProductCard((prevState) => ({
@@ -67,7 +36,7 @@ const AdminPanel = ({
     }));
   }, [selectedOption]);
 
-  //получаю количество слайдов в слайдере
+  //get slides count into slider
   useEffect(() => {
     const childrenLength = carouselInner.current.children.length;
     setNumberOfChildren(childrenLength);
@@ -91,6 +60,24 @@ const AdminPanel = ({
       ...prevState, // сохраняем предыдущее состояние объекта
       [e.target.name]: e.target.value, // устанавливаем новое значение для свойства name
     }));
+  };
+
+  const rightHandle = () => {
+    if (activeSlide !== numberOfChildren) {
+      setActiveSlide((prevSlide) => {
+        const updatedSlide = prevSlide + 1;
+        return updatedSlide;
+      });
+    }
+  };
+
+  const leftHandle = () => {
+    if (activeSlide !== 1) {
+      setActiveSlide((prevSlide) => {
+        const updatedSlide = prevSlide - 1;
+        return updatedSlide;
+      });
+    }
   };
 
   //created categories block (ratio buttons)
@@ -128,25 +115,8 @@ const AdminPanel = ({
       );
     });
 
-  const rightHandle = () => {
-    if (activeSlide !== numberOfChildren) {
-      setActiveSlide((prevSlide) => {
-        const updatedSlide = prevSlide + 1;
-        return updatedSlide;
-      });
-    }
-  };
 
-  const leftHandle = () => {
-    if (activeSlide !== 1) {
-      setActiveSlide((prevSlide) => {
-        const updatedSlide = prevSlide - 1;
-        return updatedSlide;
-      });
-    }
-  };
-
-  return (
+    return (
     <div className="admin-panel">
       <div className="admin-panel__wrapper">
         <h1>ADMIN PANEL</h1>

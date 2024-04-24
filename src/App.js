@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Footer from "./components/footer/footer";
 import HeaderApp from "./components/header-app/header-app";
 
+import { fetchData } from "./services/app";
 import {
   Page404,
   HomeView,
@@ -20,6 +21,7 @@ const categories = [
   "czekoladki",
   "motti",
   "cukierky",
+  "torty musowe"
 ];
 
 function App() {
@@ -45,6 +47,14 @@ function App() {
     }
   ])
 
+
+  useEffect(() => {
+    fetchData("http://localhost:5000/products").then((data) => {
+      setProductData(data);
+    });
+
+  }, []);
+
   useEffect(() => {
     localStorage.setItem("product-list", JSON.stringify(productData));
   }, [productData]);
@@ -55,10 +65,10 @@ function App() {
       return;
     }
     setProductData((prevProductData) => [...prevProductData, data]);
-    localStorage.setItem(
-      "product-list",
-      JSON.stringify([...productData, data])
-    );
+    // localStorage.setItem(
+    //   "product-list",
+    //   JSON.stringify([...productData, data])
+    // );
   };
 
   const productDelete = (productName) => {
