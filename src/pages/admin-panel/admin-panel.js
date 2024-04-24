@@ -1,7 +1,8 @@
 import "./admin-panel.scss";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { getData } from "../../services/app";
+import axios from "axios";
+// import { getData } from "../../services/app";
 
 const AdminPanel = ({
   newProductCreate,
@@ -29,24 +30,34 @@ const AdminPanel = ({
 
   const carouselInner = useRef(null);
   const [numberOfChildren, setNumberOfChildren] = useState(0);
+  const [responce, setResponce] = useState([]);
 
-  const [userData, setUserData] = useState(null);
+  // const subscribe = async () => {
+  //   try {
+  //     const {data} = await axios.get("https://jsonplaceholder.typicode.com/posts");
+  //     setUserData(data);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
 
+  // }
+
+  const fetchData = async () => {
+    try {
+      fetch('http://localhost:5000/products')
+      .then((response) => response.json())
+      .then((json) => {
+        setResponce((prev) => [...prev, json]);
+        console.log(json)
+      }); 
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('http://localhost:5000/admin/products');
-        if (!response.ok) {
-          throw new Error('Ошибка сети');
-        }
-        const data = await response.json();
-        setUserData(data);
-      } catch (error) {
-        console.error('Ошибка получения данных:', error);
-      }
-    };
-
     fetchData();
+    console.log(responce);
   }, []);
 
   useEffect(() => {
@@ -139,7 +150,6 @@ const AdminPanel = ({
     <div className="admin-panel">
       <div className="admin-panel__wrapper">
         <h1>ADMIN PANEL</h1>
-        <h1>userData --  {userData}</h1>
         <div className="carousel__wrapper">
           <button
             className="btn carousel__btn carousel__btn_left"

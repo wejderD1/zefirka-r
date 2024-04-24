@@ -3,19 +3,18 @@ const path = require("path");
 const fs = require("fs");
 const cors = require("cors");
 
+// respond with "hello world" when a GET request is made to the homepage
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = 5000;
 
-app.use(cors);
+app.use(cors());
 app.use(express.json());
-app.use(express.static("public"));
 
 const jsonData = JSON.parse(fs.readFileSync('public/products.json', 'utf-8'));
 
-app.get(("/admin/products"), (req, res) => {
-  // res.json(jsonData);
-  res.json({"user": "Yurii"});
+app.get('/products', function(req, res) {
+  res.json(jsonData);
 });
 
-app.listen(PORT, () => console.log("Serever start"));
+app.listen(PORT, () => console.log("Serever start " + PORT ));
 
