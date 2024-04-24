@@ -1,9 +1,8 @@
-import {useParams} from "react-router-dom";
-import { useEffect } from "react";
+// import {useParams} from "react-router-dom";
 import "./product-details.scss";
 
-function ProductDetails({link}) {
-  let Id = useParams();
+function ProductDetails() {
+  // let Id = useParams();
   
   return (
     <div className="container product-details__container">
@@ -21,6 +20,7 @@ function ProductDetails({link}) {
           <div>
             <h3 className="product__price">333zł</h3>
             <button className="product__btn btn">Kupuję</button>
+            <button className="product__btn btn">Powrót</button>
           </div>
         </div>
         <img

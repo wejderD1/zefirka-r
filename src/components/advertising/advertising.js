@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import SocialLinks from "../social-links/social-links";
+// import SocialLinks from "../social-links/social-links";
 
 import "./advertising.scss";
 
@@ -14,32 +14,29 @@ function Advertising({ data }) {
   const [advertisingData, setAdvertisingData] = useState([]);
 
   useEffect(() => {
-    offsetWidth.current = slidesContainer.current.children[0].clientWidth;
-    scrollWidth.current = slidesContainer.current.scrollWidth;
+    offsetWidth.current = slidesContainer.current.children[0].clientWidth; //children width
+    scrollWidth.current = slidesContainer.current.scrollWidth; //parent lendth
     setSlidesLength(slidesContainer.current.childElementCount);
-    // console.dir(slidesContainer.current);
   }, [slidesLength]);
 
   useEffect(() => {
     setAdvertisingData(data);
   }, [data]);
 
+  useEffect(() => {
+    const offset = offsetWidth.current * (slidesIndex - 1) ;
+    setOffset(offset);
+    console.log(offset, " ---- ", slidesIndex);
+  }, [slidesIndex]);
+
   const rigthBtnHandler = () => {
     if (offset + offsetWidth.current < scrollWidth.current) {
-      setOffset((prev) => {
-        const offset = prev + offsetWidth.current;
-        return offset;
-      });
       setSlidesIndex((prev) => (prev += 1));
     }
   };
 
   const leftBtnHandler = () => {
     if (offset !== 0) {
-      setOffset((prev) => {
-        const offset = prev - offsetWidth.current;
-        return offset;
-      });
       setSlidesIndex((prev) => (prev -= 1));
     }
   };
@@ -75,6 +72,9 @@ function Advertising({ data }) {
         <li
           key={index}
           className={slidesIndex === index + 1 ? "active" : ""}
+          onClick={() => {
+            setSlidesIndex(index + 1);
+          }}
         ></li>
       );
     }
@@ -96,6 +96,42 @@ function Advertising({ data }) {
             <div className="advertising__info">
               <h2 className="main-title advertising__title">
                 1Pyszne babeczki wielkanocne
+              </h2>
+              <p className="information__description advertising__description">
+                Czekoladowe jajka, desery z marshmallow, wielkanocne babki i
+                panetone będą doskonałym poczęstunkiem na Wielkanoc.
+                <span>Zamówienia są przyjmowane do 24 marca.</span>
+              </p>
+            </div>
+            <img
+              className="advertising__img"
+              // src="http://placehold.it/1600x790"
+              src={require("../../assets/images/advertising_collage.jpg")}
+              alt="картинка рекламы"
+            />
+          </div>
+          <div className="carousell__item">
+            <div className="advertising__info">
+              <h2 className="main-title advertising__title">
+                43Pyszne babeczki wielkanocne
+              </h2>
+              <p className="information__description advertising__description">
+                Czekoladowe jajka, desery z marshmallow, wielkanocne babki i
+                panetone będą doskonałym poczęstunkiem na Wielkanoc.
+                <span>Zamówienia są przyjmowane do 24 marca.</span>
+              </p>
+            </div>
+            <img
+              className="advertising__img"
+              // src="http://placehold.it/1600x790"
+              src={require("../../assets/images/advertising_collage.jpg")}
+              alt="картинка рекламы"
+            />
+          </div>
+          <div className="carousell__item">
+            <div className="advertising__info">
+              <h2 className="main-title advertising__title">
+                13Pyszne babeczki wielkanocne
               </h2>
               <p className="information__description advertising__description">
                 Czekoladowe jajka, desery z marshmallow, wielkanocne babki i

@@ -25,14 +25,6 @@ const categories = [
 ];
 
 function App() {
-  const [links, setLinks] = useState([
-    "strona gołówna",
-    "produkty",
-    "galeria",
-    "kontakt",
-    "admin",
-  ]);
-
   const [productData, setProductData] = useState(() => {
     const data = JSON.parse(localStorage.getItem("product-list"));
     return data ? data : [];
@@ -65,10 +57,6 @@ function App() {
       return;
     }
     setProductData((prevProductData) => [...prevProductData, data]);
-    // localStorage.setItem(
-    //   "product-list",
-    //   JSON.stringify([...productData, data])
-    // );
   };
 
   const productDelete = (productName) => {
@@ -84,7 +72,7 @@ function App() {
   return (
     <Router>
       <div className="app">
-        <HeaderApp links={links} />
+        <HeaderApp/>
         <Switch>
           <Route exact path="/">
             <HomeView advertisingData={advertisingData}/>
@@ -106,7 +94,7 @@ function App() {
             />
           </Route>
           <Route path="/details/:id">
-            <ProductDetails link={links}/>
+            <ProductDetails/>
           </Route>
           <Route component={Page404} />
         </Switch>

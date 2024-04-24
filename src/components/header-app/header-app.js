@@ -1,23 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import "./header-app.scss";
-import { useEffect } from "react";
 
-const HeaderApp = ({ links }) => {
-
-  // const linksItems = links.map((item, i) => {
-  //   return (
-  //     <li className="nav__item" key={i}>
-  //       <NavLink
-  //         to={item}
-  //         // to={item === "strona gołówna" ? "/" : item}
-  //         className="nav__link"
-  //       >
-  //         {item}
-  //       </NavLink>
-  //     </li>
-  //   );
-  // });
-
+const HeaderApp = () => {
 
   return (
     <header className="app-header">
