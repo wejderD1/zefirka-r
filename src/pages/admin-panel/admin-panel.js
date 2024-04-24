@@ -1,13 +1,14 @@
 import "./admin-panel.scss";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { getData } from "../../services/app";
 
 const AdminPanel = ({
   newProductCreate,
   categoriesName,
   data,
   onProductDelete,
-  newAdvertisingCreate
+  newAdvertisingCreate,
 }) => {
   const [activeSlide, setActiveSlide] = useState(1);
   const [selectedOption, setSelectedOption] = useState(categoriesName[0]);
@@ -28,6 +29,25 @@ const AdminPanel = ({
 
   const carouselInner = useRef(null);
   const [numberOfChildren, setNumberOfChildren] = useState(0);
+
+  const [userData, setUserData] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:5000/admin/products');
+        if (!response.ok) {
+          throw new Error('Ошибка сети');
+        }
+        const data = await response.json();
+        setUserData(data);
+      } catch (error) {
+        console.error('Ошибка получения данных:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   useEffect(() => {
     setProductCard((prevState) => ({
@@ -60,7 +80,7 @@ const AdminPanel = ({
       ...prevState, // сохраняем предыдущее состояние объекта
       [e.target.name]: e.target.value, // устанавливаем новое значение для свойства name
     }));
-  }
+  };
 
   //created categories block (ratio buttons)
   const categoriesRadio = categoriesName.map((el, i) => {
@@ -119,6 +139,7 @@ const AdminPanel = ({
     <div className="admin-panel">
       <div className="admin-panel__wrapper">
         <h1>ADMIN PANEL</h1>
+        <h1>userData --  {userData}</h1>
         <div className="carousel__wrapper">
           <button
             className="btn carousel__btn carousel__btn_left"
@@ -240,7 +261,7 @@ const AdminPanel = ({
                   name="aImg"
                   onChange={onAdvertisingDataChange}
                 />
-                                <button
+                <button
                   className="btn btn-create"
                   type="button"
                   onClick={() => {
