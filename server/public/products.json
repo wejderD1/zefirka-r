@@ -40,5 +40,12 @@
     "pDescription": "ну дуже смачно",
     "pPrice": "300",
     "pImg": ""
+  },
+  {
+    "category": "ciastka",
+    "pTitle": "ciasto masto",
+    "pDescription": "o moj bog",
+    "pPrice": "3002",
+    "pImg": ""
   }
 ]
