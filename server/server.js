@@ -10,10 +10,15 @@ const PORT = 5000;
 app.use(cors());
 app.use(express.json());
 
-const jsonData = JSON.parse(fs.readFileSync('public/products.json', 'utf-8'));
+const productsData = JSON.parse(fs.readFileSync('public/products.json', 'utf-8'));
+const advertisingData = JSON.parse(fs.readFileSync('public/advertising.json', 'utf-8'));
 
 app.get('/products', function(req, res) {
-  res.json(jsonData);
+  res.json(productsData);
+});
+
+app.get('/advertising', function(req, res) {
+  res.json(advertisingData);
 });
 
 app.listen(PORT, () => console.log("Serever start " + PORT ));
