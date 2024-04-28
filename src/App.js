@@ -35,6 +35,7 @@ function App() {
     return data ? data : [];
   });
 
+
   useEffect(() => {
     fetchData("http://localhost:5000/products").then((data) => {
       setProductData(data);
@@ -45,9 +46,12 @@ function App() {
   useEffect(() => {
     fetchData("http://localhost:5000/advertising").then((data) => {
       setAdvertisingData(data);
-      localStorage.setItem("advertising-data", JSON.stringify(advertisingData));
     });
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem("advertising-data", JSON.stringify(advertisingData));
+  }, [advertisingData]);
 
   const newProductCerate = (data) => {
     const { pTitle, pDescription, pPrice } = data;

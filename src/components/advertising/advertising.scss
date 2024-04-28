@@ -26,10 +26,11 @@ $button-offset: 15px;
   &__description {
     font-size: 30px;
   }
-  &__description span {
+  &__note {
     padding-top: 30px;
     color: rgb(9, 52, 80);
     font-size: 20px;
+    font-style: italic;
   }
 }
 
