@@ -21,7 +21,7 @@ const categories = [
   "czekoladki",
   "motti",
   "cukierky",
-  "torty musowe"
+  "torty musowe",
 ];
 
 function App() {
@@ -30,26 +30,24 @@ function App() {
     return data ? data : [];
   });
 
-  const [advertisingData, setAdvertisingData] = useState([
-    {
-      aTitle: "Hello",
-      aDesc: "Lorem ipsum",
-      aNote: "sdfsdf sdf s",
-      aImg: "20220308_193827.jpg"
-    }
-  ])
-
+  const [advertisingData, setAdvertisingData] = useState(() => {
+    const data = JSON.parse(localStorage.getItem("advertising-data"));
+    return data ? data : [];
+  });
 
   useEffect(() => {
     fetchData("http://localhost:5000/products").then((data) => {
       setProductData(data);
+      localStorage.setItem("product-list", JSON.stringify(productData));
     });
-
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("product-list", JSON.stringify(productData));
-  }, [productData]);
+    fetchData("http://localhost:5000/advertising").then((data) => {
+      setAdvertisingData(data);
+      localStorage.setItem("advertising-data", JSON.stringify(advertisingData));
+    });
+  }, []);
 
   const newProductCerate = (data) => {
     const { pTitle, pDescription, pPrice } = data;
@@ -66,16 +64,16 @@ function App() {
   };
 
   const newAdvertisingCreate = (data) => {
-    setAdvertisingData((prevAdvertisinData) => [...prevAdvertisinData, data])
-  }
+    setAdvertisingData((prevAdvertisinData) => [...prevAdvertisinData, data]);
+  };
 
   return (
     <Router>
       <div className="app">
-        <HeaderApp/>
+        <HeaderApp />
         <Switch>
           <Route exact path="/">
-            <HomeView advertisingData={advertisingData}/>
+            <HomeView advertisingData={advertisingData} />
           </Route>
           <Route path="/produkty">
             <ProductsView data={productData} categoriesName={categories} />
@@ -94,7 +92,7 @@ function App() {
             />
           </Route>
           <Route path="/details/:id">
-            <ProductDetails/>
+            <ProductDetails />
           </Route>
           <Route component={Page404} />
         </Switch>

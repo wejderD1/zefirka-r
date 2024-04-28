@@ -11,7 +11,15 @@ function Advertising({ data }) {
   const [offset, setOffset] = useState(0);
   const [slidesIndex, setSlidesIndex] = useState(1);
   const [slidesLength, setSlidesLength] = useState(0);
-  const [advertisingData, setAdvertisingData] = useState([]);
+  const [advertisingData, setAdvertisingData] = useState(() => {
+    if(!data) {
+      return [];
+    }
+
+    console.log(data, "data");
+    const adData = data;
+    return adData;
+  });
 
   useEffect(() => {
     offsetWidth.current = slidesContainer.current.children[0].clientWidth; //children width
@@ -20,13 +28,8 @@ function Advertising({ data }) {
   }, [slidesLength]);
 
   useEffect(() => {
-    setAdvertisingData(data);
-  }, [data]);
-
-  useEffect(() => {
     const offset = offsetWidth.current * (slidesIndex - 1) ;
     setOffset(offset);
-    console.log(offset, " ---- ", slidesIndex);
   }, [slidesIndex]);
 
   const rigthBtnHandler = () => {
@@ -41,7 +44,7 @@ function Advertising({ data }) {
     }
   };
 
-  const advertisingItems = advertisingData.map((el, i) => {
+  const advertisingItems = advertisingData.length > 0 && advertisingData.map((el, i) => {
     return (
       <div key={i} className="carousell__item">
         <div className="advertising__info">
@@ -73,6 +76,7 @@ function Advertising({ data }) {
           key={index}
           className={slidesIndex === index + 1 ? "active" : ""}
           onClick={() => {
+            
             setSlidesIndex(index + 1);
           }}
         ></li>
@@ -91,7 +95,6 @@ function Advertising({ data }) {
           ref={slidesContainer}
           style={{ transform: `translateX(-${offset}px)` }}
         >
-          {advertisingItems}
           <div className="carousell__item">
             <div className="advertising__info">
               <h2 className="main-title advertising__title">
@@ -110,42 +113,7 @@ function Advertising({ data }) {
               alt="картинка рекламы"
             />
           </div>
-          <div className="carousell__item">
-            <div className="advertising__info">
-              <h2 className="main-title advertising__title">
-                43Pyszne babeczki wielkanocne
-              </h2>
-              <p className="information__description advertising__description">
-                Czekoladowe jajka, desery z marshmallow, wielkanocne babki i
-                panetone będą doskonałym poczęstunkiem na Wielkanoc.
-                <span>Zamówienia są przyjmowane do 24 marca.</span>
-              </p>
-            </div>
-            <img
-              className="advertising__img"
-              // src="http://placehold.it/1600x790"
-              src={require("../../assets/images/advertising_collage.jpg")}
-              alt="картинка рекламы"
-            />
-          </div>
-          <div className="carousell__item">
-            <div className="advertising__info">
-              <h2 className="main-title advertising__title">
-                13Pyszne babeczki wielkanocne
-              </h2>
-              <p className="information__description advertising__description">
-                Czekoladowe jajka, desery z marshmallow, wielkanocne babki i
-                panetone będą doskonałym poczęstunkiem na Wielkanoc.
-                <span>Zamówienia są przyjmowane do 24 marca.</span>
-              </p>
-            </div>
-            <img
-              className="advertising__img"
-              // src="http://placehold.it/1600x790"
-              src={require("../../assets/images/advertising_collage.jpg")}
-              alt="картинка рекламы"
-            />
-          </div>
+          {advertisingItems}
         </div>
       </div>
       <button
