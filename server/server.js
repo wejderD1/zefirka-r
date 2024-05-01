@@ -1,25 +1,26 @@
 const express = require("express");
-const path = require("path");
-const fs = require("fs");
+const dotenv = require("dotenv");
 const cors = require("cors");
+const fs = require('fs');
 
-// respond with "hello world" when a GET request is made to the homepage
+const productRoute = require("./routes/products");
+const advertisingRoute = require("./routes/advertising");
+
 const app = express();
+dotenv.config();
+
+//Constants
 const PORT = 5000;
 
+//Middelware
 app.use(cors());
 app.use(express.json());
 
-const productsData = JSON.parse(fs.readFileSync('public/products.json', 'utf-8'));
-const advertisingData = JSON.parse(fs.readFileSync('public/advertising.json', 'utf-8'));
+//Routers
+app.use('/', productRoute);
+app.use('/', advertisingRoute);
 
-app.get('/products', function(req, res) {
-  res.json(productsData);
-});
 
-app.get('/advertising', function(req, res) {
-  res.json(advertisingData);
-});
 
-app.listen(PORT, () => console.log("Serever start " + PORT ));
+app.listen(PORT, () => console.log("Server starting as port " + PORT));
 
