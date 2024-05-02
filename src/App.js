@@ -25,28 +25,33 @@ const categories = [
 ];
 
 function App() {
-  const [productData, setProductData] = useState(() => {
-    const data = JSON.parse(localStorage.getItem("product-list"));
-    return data ? data : [];
-  });
-
+  const [productData, setProductData] = useState();
   const [advertisingData, setAdvertisingData] = useState([]);
 
+  useEffect(() => {
+    console.log(productData, "pd");
+  }, [productData]);
 
   useEffect(() => {
-    fetchData("http://localhost:5000/products").then((data) => {
-      setProductData(data);
-      localStorage.setItem("product-list", JSON.stringify(productData));
-    });
+    const getData = async () => {
+      try {
+        const data = await fetchData("http://localhost:5000/products");
+        setProductData(data);
+        localStorage.setItem("product-list", JSON.stringify(productData));
+      } catch (error) {
+        console.error(error);
+        throw error;
+      }
+    };
+    getData();
   }, []);
 
   useEffect(() => {
     fetchData("http://localhost:5000/advertising").then((data) => {
       setAdvertisingData(data);
-      localStorage.setItem("advertising-data", JSON.stringify(advertisingData));
+      // localStorage.setItem("advertising-data", JSON.stringify(advertisingData));
     });
   }, []);
-
 
   const newProductCerate = (data) => {
     const { pTitle, pDescription, pPrice } = data;

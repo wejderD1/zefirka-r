@@ -1,10 +1,14 @@
 const fetchData = async (url) => {
   try {
-    const data = await fetch(url)
-    .then((response) => response.json());
-    return data;
+    const response = await fetch(url)
+    if (!response.ok) {
+      throw new Error('Ошибка при загрузке данных');
+    }
+    const jsonData = await response.json();
+    return jsonData;
   } catch (error) {
-    console.log(error);
+    console.error('Ошибка при получении данных:', error);
+    throw error;
   }
 };
 export {fetchData};

@@ -1,7 +1,12 @@
+import { useEffect } from "react";
 import CategoriesTabs from "../../components/categories-tabs/categories-tabs";
 import "./products-view.scss";
 
 const ProductsView = ({ data, categoriesName }) => {
+
+  useEffect(() => {
+    console.log("data", data);
+  }, [])
 
   return (
     <div className="products">

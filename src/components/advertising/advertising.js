@@ -3,7 +3,6 @@ import { useEffect, useRef, useState } from "react";
 import UserSpinner from "../user-spiner/userSpiner";
 
 import "./advertising.scss";
-import { faLeaf } from "@fortawesome/free-solid-svg-icons";
 
 function Advertising({ data }) {
   const offsetWidth = useRef(null);

@@ -11,7 +11,6 @@ function CategoriesTabs({ contents, categoriesName }) {
 
   useEffect(() => {
     const filterArr = contents.filter((filter) => filter.category === activeTab)
-
     const productsCards = filterArr.map((e, i) => {
       return (
         <ProductCard
