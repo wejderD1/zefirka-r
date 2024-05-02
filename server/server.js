@@ -20,7 +20,5 @@ app.use(express.json());
 app.use('/', productRoute);
 app.use('/', advertisingRoute);
 
-
-
 app.listen(PORT, () => console.log("Server starting as port " + PORT));
 
