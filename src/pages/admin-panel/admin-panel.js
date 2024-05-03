@@ -44,12 +44,25 @@ const AdminPanel = ({
     setNumberOfChildren(childrenLength);
   }, [numberOfChildren]);
 
+  //submit product to server
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const elem = Object.values(e.target.elements).filter(el => el.className === "data-input")
+    // elem.forEach(element => {
+    //   console.log(element.className === "data-input" ? element : null);
+    // });
+    console.log(elem)
+    // postData("http://localhost:5000/products/new-product", productCard);
+    // newProductCreate(productCard);
+  };
+
   //ratio button change
   const handleRadioChange = useCallback((e) => {
     setSelectedOption(e.target.value);
   }, []);
 
   //input data changed
+  // эти две функции нужно переделать в одну
   const onDataChangeHandler = (e) => {
     setProductCard((prevState) => ({
       ...prevState, // сохраняем предыдущее состояние объекта
@@ -101,27 +114,47 @@ const AdminPanel = ({
   });
 
   //created data change block (products list & delete button)
+  const ProductsControlItem = ({ category, title, keyItem }) => {
+    const handleDelete = (title) => {
+      if (!title) {
+        alert(`nie ma tytulu ${title}`);
+      }
+      postData("http://localhost:5000/products/remove", {
+        productTitle: title,
+      });
+      onProductDelete(title);
+    };
+
+    useEffect(() => {
+      return () => {
+        document.removeEventListener("click", handleDelete);
+      };
+    }, []);
+
+    return (
+      <li key={keyItem} className="data-item">
+        <p>{`${category} --- ${title}`}</p>
+        <button
+          className="data-delete"
+          type="submit"
+          onClick={() => handleDelete(title)}
+        >
+          Delete
+        </button>
+      </li>
+    );
+  };
+
+  //create data items
   const dataItem = data
     .filter((el) => el.category === selectedOption)
     .map(({ category, pTitle }, i) => {
       return (
-        <li key={i} className="data-item">
-          <p>{`${category} --- ${pTitle}`}</p>
-          <button
-            className="data-delete"
-            onClick={() => 
-              postData("http://localhost:5000/products/remove", pTitle)
-              // onProductDelete(pTitle)
-            }
-          >
-            Delete
-          </button>
-        </li>
+        <ProductsControlItem category={category} title={pTitle} keyItem={i} />
       );
     });
 
-
-    return (
+  return (
     <div className="admin-panel">
       <div className="admin-panel__wrapper">
         <h1>ADMIN PANEL</h1>
@@ -138,67 +171,64 @@ const AdminPanel = ({
                 activeSlide === 1 ? "carousel__item-wrapper_active" : ""
               } `}
             >
-              <div className="item__container">
-                <h2 className="main-text">
-                  Utwórz nową pozycję produktu. Wstaw tytuł, opis i cenę
-                  produktu
-                </h2>
-                <div className="categories__wrapper">{categoriesRadio}</div>
-                <label className="label" htmlFor="pTitle">
-                  title
-                </label>
-                <input
-                  className="data-input"
-                  type="text"
-                  name="pTitle"
-                  onChange={onDataChangeHandler}
-                />
+              <form action="POST" onSubmit={handleSubmit}>
+                <div className="item__container">
+                  <h2 className="main-text">
+                    Utwórz nową pozycję produktu. Wstaw tytuł, opis i cenę
+                    produktu
+                  </h2>
+                  <div className="categories__wrapper">{categoriesRadio}</div>
+                  <label className="label" htmlFor="pTitle">
+                    title
+                  </label>
+                  <input
+                    className="data-input"
+                    type="text"
+                    name="pTitle"
+                    onChange={onDataChangeHandler}
+                  />
 
-                <label className="label" htmlFor="pDescription">
-                  product description
-                </label>
-                <input
-                  className="data-input"
-                  type="text"
-                  name="pDescription"
-                  onChange={onDataChangeHandler}
-                />
+                  <label className="label" htmlFor="pDescription">
+                    product description
+                  </label>
+                  <input
+                    className="data-input"
+                    type="text"
+                    name="pDescription"
+                    onChange={onDataChangeHandler}
+                  />
 
-                <label className="label" htmlFor="pPrice">
-                  product price
-                </label>
-                <input
-                  className="data-input"
-                  type="text"
-                  name="pPrice"
-                  onChange={onDataChangeHandler}
-                />
+                  <label className="label" htmlFor="pPrice">
+                    product price
+                  </label>
+                  <input
+                    className="data-input"
+                    type="text"
+                    name="pPrice"
+                    onChange={onDataChangeHandler}
+                  />
 
-                <label className="label" htmlFor="pImg">
-                  product img
-                </label>
-                <input
-                  className="data-input"
-                  type="text"
-                  name="pImg"
-                  onChange={onDataChangeHandler}
-                />
+                  <label className="label" htmlFor="pImg">
+                    product img
+                  </label>
+                  <input
+                    className="data-input"
+                    type="text"
+                    name="pImg"
+                    onChange={onDataChangeHandler}
+                  />
 
-                <button
-                  className="btn btn-create"
-                  type="button"
-                  onClick={async () => {
-                    await postData("http://localhost:5000/products/new-product", productCard)
-                    newProductCreate(productCard);
-                  }}
-                >
-                  CREATE
-                </button>
-              </div>
+                  <button className="btn btn-create" type="submit">
+                    CREATE
+                  </button>
+                </div>
+              </form>
 
               {/* DATA CONTAINER */}
               <div className="data-wrapper">
-                <ul>{dataItem}</ul>
+                <form onSubmit={(e) => e.preventDefault()}>
+                  <ul>{dataItem}</ul>
+                </form>
               </div>
             </div>
             {/* create advertising tab * */}

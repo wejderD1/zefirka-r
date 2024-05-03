@@ -20,13 +20,13 @@ const postData = async(url, dataPost) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(dataPost)
-    })
-    const data = await response.json();
-    console.log(data);
+    });
+
+    const result = response.json();
+    console.log(`Success --- ${result}`);
   } catch (error) {
     console.error(error);
   }
 }
-
 
 export {getResource, postData};
