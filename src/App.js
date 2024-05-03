@@ -25,33 +25,42 @@ const categories = [
 ];
 
 function App() {
-  const [productData, setProductData] = useState();
-  const [advertisingData, setAdvertisingData] = useState([]);
+  const [productData, setProductData] = useState(() => {
+    const data = JSON.parse(localStorage.getItem("product-list"));
+    return data ? data : [];
+  });
+
+  const [advertisingData, setAdvertisingData] = useState(() => {
+    const data = JSON.parse(localStorage.getItem("advertising-data"));
+    return data ? data : [];
+  });
+
+  const getData = async (url, calback) => {
+    try {
+      const data = await fetchData(url);
+      calback(data);
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
+  };
 
   useEffect(() => {
-    console.log(productData, "pd");
+    getData("http://localhost:5000/products", setProductData);
+    getData("http://localhost:5000/advertising", setAdvertisingData);
+  }, []);
+
+  useEffect(() => {
+    if (productData) {
+      localStorage.setItem("product-list", JSON.stringify(productData));
+    }
   }, [productData]);
 
   useEffect(() => {
-    const getData = async () => {
-      try {
-        const data = await fetchData("http://localhost:5000/products");
-        setProductData(data);
-        localStorage.setItem("product-list", JSON.stringify(productData));
-      } catch (error) {
-        console.error(error);
-        throw error;
-      }
-    };
-    getData();
-  }, []);
-
-  useEffect(() => {
-    fetchData("http://localhost:5000/advertising").then((data) => {
-      setAdvertisingData(data);
-      // localStorage.setItem("advertising-data", JSON.stringify(advertisingData));
-    });
-  }, []);
+    if (advertisingData) {
+      localStorage.setItem("advertising-data", JSON.stringify(advertisingData));
+    }
+  }, [advertisingData]);
 
   const newProductCerate = (data) => {
     const { pTitle, pDescription, pPrice } = data;

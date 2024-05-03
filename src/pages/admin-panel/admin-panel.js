@@ -2,6 +2,8 @@ import "./admin-panel.scss";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import { postData } from "../../services/app";
+
 const AdminPanel = ({
   newProductCreate,
   categoriesName,
@@ -183,7 +185,8 @@ const AdminPanel = ({
                   className="btn btn-create"
                   type="button"
                   onClick={() => {
-                    newProductCreate(productCard);
+                    postData("http://localhost:5000/products", productCard)
+                    // newProductCreate(productCard);
                   }}
                 >
                   CREATE

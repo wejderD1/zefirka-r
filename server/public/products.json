@@ -47,5 +47,19 @@
     "pDescription": "o moj bog",
     "pPrice": "3002",
     "pImg": ""
+  },
+  {
+    "category": "zefir",
+    "pTitle": "zef",
+    "pDescription": "zef",
+    "pPrice": "123",
+    "pImg": ""
+  },
+  {
+    "category": "zefir",
+    "pTitle": "zefffffffff",
+    "pDescription": "ffffffffff",
+    "pPrice": "123456",
+    "pImg": ""
   }
 ]

@@ -11,7 +11,16 @@ router.get('/products', (req, res) => {
 });
 
 router.post('/products', (req, res) => {
-  console.log(req.body);
+  const product = req.body;
+  productsData.push(product);
+  const endData = JSON.stringify(productsData);
+  fs.writeFile('public/products.json', endData, 'utf8', (err) => {
+    if (err) {
+      console.error('Ошибка записи в файл:', err);
+      return;
+    }
+    console.log('Объект успешно записан в файл');
+  });
 })
 
 module.exports = router;
