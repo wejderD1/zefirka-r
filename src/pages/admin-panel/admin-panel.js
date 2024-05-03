@@ -109,7 +109,10 @@ const AdminPanel = ({
           <p>{`${category} --- ${pTitle}`}</p>
           <button
             className="data-delete"
-            onClick={() => onProductDelete(pTitle)}
+            onClick={() => 
+              postData("http://localhost:5000/products/remove", pTitle)
+              // onProductDelete(pTitle)
+            }
           >
             Delete
           </button>
@@ -184,9 +187,9 @@ const AdminPanel = ({
                 <button
                   className="btn btn-create"
                   type="button"
-                  onClick={() => {
-                    postData("http://localhost:5000/products", productCard)
-                    // newProductCreate(productCard);
+                  onClick={async () => {
+                    await postData("http://localhost:5000/products/new-product", productCard)
+                    newProductCreate(productCard);
                   }}
                 >
                   CREATE

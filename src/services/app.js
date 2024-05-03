@@ -1,4 +1,4 @@
-const fetchData = async (url) => {
+const getResource = async (url) => {
   try {
     const response = await fetch(url)
     if (!response.ok) {
@@ -29,4 +29,4 @@ const postData = async(url, dataPost) => {
 }
 
 
-export {fetchData, postData};
+export {getResource, postData};

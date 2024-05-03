@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Footer from "./components/footer/footer";
 import HeaderApp from "./components/header-app/header-app";
 
-import { fetchData } from "./services/app";
+import { getResource } from "./services/app";
 import {
   Page404,
   HomeView,
@@ -37,7 +37,7 @@ function App() {
 
   const getData = async (url, calback) => {
     try {
-      const data = await fetchData(url);
+      const data = await getResource(url);
       calback(data);
     } catch (error) {
       console.error(error);
