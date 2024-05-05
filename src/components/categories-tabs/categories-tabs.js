@@ -4,21 +4,26 @@ import TabItem from "../tab-item/tab-item";
 import TabContent from "../tab-content/tab-content";
 import ProductCard from "../product-card/product-card";
 
-function CategoriesTabs({ contents, categoriesName }) {
+function CategoriesTabs({ contents, categoriesName, productId }) {
   const [activeTab, setActiveTab] = useState(categoriesName[0]);
   const categories = categoriesName;
-  const [productsCards, setProductsCards] = useState([])
+  const [productsCards, setProductsCards] = useState([]);
 
   useEffect(() => {
-    const filterArr = contents.filter((filter) => filter.category === activeTab)
-    const productsCards = filterArr.map((e, i) => {
+    const filterArr = contents.filter(
+      (filter) => filter.category === activeTab
+    );
+
+    const productsCards = filterArr.map((e) => {
       return (
         <ProductCard
-          key={i}
+          key={e.id}
+          id={e.id}
           title={e.pTitle}
           desc={e.pDescription}
           price={e.pPrice}
           img={e.pImg}
+          productId={productId}
         />
       );
     });
@@ -41,9 +46,7 @@ function CategoriesTabs({ contents, categoriesName }) {
   const tabContent = categories.map((el, i) => {
     return (
       <TabContent key={i} id={el} activeTab={activeTab}>
-        <div className="products-wrapper">
-          {productsCards}
-        </div>
+        <div className="products-wrapper">{productsCards}</div>
       </TabContent>
     );
   });
@@ -54,18 +57,20 @@ function CategoriesTabs({ contents, categoriesName }) {
   const createGridTemplateStyle = useCallback(() => {
     let str = "";
     for (let index = 0; index < categoriesName.length; index++) {
-      str += "1fr ";        
+      str += "1fr ";
     }
     return str;
-  }, [categoriesName])
+  }, [categoriesName]);
 
   return (
     <div className="tabs__container">
       <div className="tabs__inner">
-        <ul 
+        <ul
           className="tabs__nav"
           style={{ gridTemplateColumns: createGridTemplateStyle() }}
-        >{tabItem}</ul>
+        >
+          {tabItem}
+        </ul>
         {tabContent}
       </div>
     </div>

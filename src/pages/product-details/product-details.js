@@ -1,24 +1,26 @@
-// import {useParams} from "react-router-dom";
+import { useEffect } from "react";
 import "./product-details.scss";
 
-function ProductDetails() {
-  // let Id = useParams();
-  
+
+//нужно добавить загрузку при перезагрузке страници по тому самому id
+//вытягивать через url
+//делать запрос в юзЕффект на сервер или с локалсторадж
+
+function ProductDetails({productData}) {
+  const {pTitle, pDescription, pImg, pPrice} = productData;
+
   return (
     <div className="container product-details__container">
       <div className="product-details__inner">
         <div className="product__info">
           <h2 className="product__title subtitle product__title_bottom-line">
-            romowa babka
+            {pTitle}
           </h2>
           <h3 className="main-text product__details">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Repudiandae, nostrum exercitationem. Sunt, ullam aut architecto
-            necessitatibus dolor fugiat, dignissimos suscipit fuga soluta odit
-            reiciendis totam rerum, autem maxime blanditiis velit?
+            {pDescription}
           </h3>
           <div>
-            <h3 className="product__price">333zł</h3>
+            <h3 className="product__price">{pPrice}</h3>
             <button className="product__btn btn">Kupuję</button>
             <button className="product__btn btn">Powrót</button>
           </div>

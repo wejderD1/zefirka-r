@@ -19,6 +19,7 @@ router.get('/products', (req, res) => {
   res.json(productsData);
 });
 
+//add product
 router.post('/products/new-product', (req, res) => {
   const product = req.body;
   productsData.push(product);
@@ -26,6 +27,7 @@ router.post('/products/new-product', (req, res) => {
   writeFile(endData);
 })
 
+//remove product
 router.post('/products/remove', (req, res) => {
   const removeObj = req.body;
   const endData = JSON.stringify(productsData.filter(el => el.id !== removeObj.productId));
