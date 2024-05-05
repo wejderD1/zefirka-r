@@ -28,7 +28,7 @@ router.post('/products/new-product', (req, res) => {
 
 router.post('/products/remove', (req, res) => {
   const removeObj = req.body;
-  const endData = JSON.stringify(productsData.filter(el => el.pTitle !== removeObj.productTitle));
+  const endData = JSON.stringify(productsData.filter(el => el.id !== removeObj.productId));
   writeFile(endData)
 })
 

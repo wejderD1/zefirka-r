@@ -67,12 +67,13 @@ function App() {
     if (!pTitle || !pDescription || !pPrice) {
       return;
     }
+
     setProductData((prevProductData) => [...prevProductData, data]);
   };
 
-  const productDelete = (productName) => {
+  const productDelete = (productId) => {
     setProductData((prevProductData) =>
-      prevProductData.filter((el) => el.pTitle !== productName)
+      prevProductData.filter((el) => el.id !== productId)
     );
   };
 

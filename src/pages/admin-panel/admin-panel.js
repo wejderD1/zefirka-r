@@ -14,6 +14,7 @@ const AdminPanel = ({
   const [activeSlide, setActiveSlide] = useState(1);
   const [selectedOption, setSelectedOption] = useState(categoriesName[0]);
   const [productCard, setProductCard] = useState({
+    id: null,
     category: "",
     pTitle: "",
     pDescription: "",
@@ -32,8 +33,11 @@ const AdminPanel = ({
   const [numberOfChildren, setNumberOfChildren] = useState(0);
 
   useEffect(() => {
+    const uniqueID = `id-${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`;
     setProductCard((prevState) => ({
       ...prevState,
+
+      id: uniqueID,
       category: selectedOption,
     }));
   }, [selectedOption]);
@@ -47,13 +51,15 @@ const AdminPanel = ({
   //submit product to server
   const handleSubmit = (e) => {
     e.preventDefault();
-    const elem = Object.values(e.target.elements).filter(el => el.className === "data-input")
-    // elem.forEach(element => {
-    //   console.log(element.className === "data-input" ? element : null);
-    // });
-    console.log(elem)
-    // postData("http://localhost:5000/products/new-product", productCard);
-    // newProductCreate(productCard);
+    const elem = Object.values(e.target.elements).filter(
+      (el) => el.className === "data-input"
+    );
+
+    postData("http://localhost:5000/products/new-product", productCard);
+    newProductCreate(productCard);
+    elem.forEach((element) => {
+      element.value = "";
+    });
   };
 
   //ratio button change
@@ -114,15 +120,12 @@ const AdminPanel = ({
   });
 
   //created data change block (products list & delete button)
-  const ProductsControlItem = ({ category, title, keyItem }) => {
-    const handleDelete = (title) => {
-      if (!title) {
-        alert(`nie ma tytulu ${title}`);
-      }
+  const ProductsControlItem = ({ category, id, title, keyItem }) => {
+    const handleDelete = (id) => {
       postData("http://localhost:5000/products/remove", {
-        productTitle: title,
+        productId: id,
       });
-      onProductDelete(title);
+      onProductDelete(id);
     };
 
     useEffect(() => {
@@ -137,7 +140,7 @@ const AdminPanel = ({
         <button
           className="data-delete"
           type="submit"
-          onClick={() => handleDelete(title)}
+          onClick={() => handleDelete(id)}
         >
           Delete
         </button>
@@ -148,9 +151,9 @@ const AdminPanel = ({
   //create data items
   const dataItem = data
     .filter((el) => el.category === selectedOption)
-    .map(({ category, pTitle }, i) => {
+    .map(({ category, pTitle, id }, i) => {
       return (
-        <ProductsControlItem category={category} title={pTitle} keyItem={i} />
+        <ProductsControlItem category={category} title={pTitle} id={id} keyItem={i} />
       );
     });
 
