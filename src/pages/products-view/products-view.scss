@@ -10,7 +10,7 @@
     height: 300px;
     text-align: center;
     font-size: 35px;
-    padding: 180px 0;
+    padding-top: var(--header-height);
     background: no-repeat
       url("../../assets/images/5946038.jpg");
     background-size: 100% 100%;
@@ -25,6 +25,6 @@
 /* MEDIA */
 @media only screen and (max-width: 1366px) {
   .products > .container {
-    
+    height: 200px;
   }
 }

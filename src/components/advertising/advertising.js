@@ -8,7 +8,7 @@ function Advertising({ data }) {
   const offsetWidth = useRef(null);
   const slidesContainer = useRef(null);
   const scrollWidth = useRef(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const [offset, setOffset] = useState(0);
   const [slidesIndex, setSlidesIndex] = useState(1);
