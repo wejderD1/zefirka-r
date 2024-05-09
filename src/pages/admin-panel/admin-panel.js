@@ -29,11 +29,16 @@ const AdminPanel = ({
     aImg: "",
   });
 
-  const carouselInner = useRef(null);
   const [numberOfChildren, setNumberOfChildren] = useState(0);
 
+  const carouselInner = useRef(null);
+  const itemContainer = useRef(null);
+
+  //created unique id from product card
   useEffect(() => {
-    const uniqueID = `id-${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`;
+    const uniqueID = `id-${Date.now().toString(36)}-${Math.random()
+      .toString(36)
+      .slice(2)}`;
     setProductCard((prevState) => ({
       ...prevState,
 
@@ -120,12 +125,31 @@ const AdminPanel = ({
   });
 
   //created data change block (products list & delete button)
-  const ProductsControlItem = ({ category, id, title, keyItem }) => {
+  const ProductsControlItem = ({ data, i }) => {
+    const {id, category, pTitle: title} = data;
+
     const handleDelete = (id) => {
       postData("http://localhost:5000/products/remove", {
         productId: id,
       });
       onProductDelete(id);
+    };
+
+    const handleChange = (elem) => {
+      const el = Object.values(elem.children).filter(
+        (e) => e.className === "data-input"
+      );
+
+      console.log(data);
+      /**здесь нужно пройтись по каждому елементу и
+       * исходя с его названия подставлять правильную информацию с массива данных
+       */
+      // data.forEach(ell => ell)
+
+      // el.forEach(el => {
+      //   if(el.name === )
+      // })
+      // console.dir(el);
     };
 
     useEffect(() => {
@@ -135,7 +159,11 @@ const AdminPanel = ({
     }, []);
 
     return (
-      <li key={keyItem} className="data-item">
+      <li
+        key={i}
+        className="data-item"
+        onClick={() => handleChange(itemContainer.current)}
+      >
         <p>{`${category} --- ${title}`}</p>
         <button
           className="data-delete"
@@ -151,9 +179,12 @@ const AdminPanel = ({
   //create data items
   const dataItem = data
     .filter((el) => el.category === selectedOption)
-    .map(({ category, pTitle, id }, i) => {
+    .map((el, i) => {
       return (
-        <ProductsControlItem category={category} title={pTitle} id={id} keyItem={i} />
+        <ProductsControlItem
+          data={el}
+          key={i}
+        />
       );
     });
 
@@ -175,7 +206,7 @@ const AdminPanel = ({
               } `}
             >
               <form action="POST" onSubmit={handleSubmit}>
-                <div className="item__container">
+                <div className="item__container" ref={itemContainer}>
                   <h2 className="main-text">
                     Utwórz nową pozycję produktu. Wstaw tytuł, opis i cenę
                     produktu
