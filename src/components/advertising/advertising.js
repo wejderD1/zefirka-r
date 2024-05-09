@@ -22,7 +22,7 @@ function Advertising({ data }) {
       offsetWidth.current = slidesContainer.current.children[0].clientWidth; //children width
       scrollWidth.current = slidesContainer.current.scrollWidth; //parent lendth
       setSlidesLength(slidesContainer.current.childElementCount);
-      console.dir(slidesContainer.current);
+      // console.dir(slidesContainer.current);
     }
   }, [slidesLength]);
 

@@ -1,13 +1,26 @@
-import { Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
+import { getResource } from "../../services/app";
 import "./product-details.scss";
 
-//нужно добавить загрузку при перезагрузке страници по тому самому id
-//вытягивать через url
-//делать запрос в юзЕффект на сервер или с локалсторадж
+function ProductDetails() {
+  const { id } = useParams();
+  const [product, setProduct] = useState({});
 
-function ProductDetails({ productData }) {
-  const { pTitle, pDescription, pImg, pPrice } = productData;
+  useEffect(() => {
+    if (id) {
+      getResource("http://localhost:5000/products")
+      .then(res => res.find(e => e.id === id))
+      .then(data => {
+        setProduct(data)      
+      });
+    }
+
+  }, [id]);
+
+  const { pTitle, pDescription, pImg, pPrice } = product;
+
   return (
     <div className="container product-details__container">
       <div className="product-details__inner">

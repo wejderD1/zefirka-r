@@ -86,7 +86,6 @@ function App() {
   const productId = (id) => {
     const [selectedProduct] = productData.filter(el => el.id === id);
     setProduct(selectedProduct);
-    console.log(product, "product");
   }
 
   return (
