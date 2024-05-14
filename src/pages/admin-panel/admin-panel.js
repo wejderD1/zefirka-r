@@ -3,6 +3,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { postData } from "../../services/app";
+import { InputDataChange } from "../../services/hoocks";
 
 const AdminPanel = ({
   newProductCreate,
@@ -11,9 +12,7 @@ const AdminPanel = ({
   onProductDelete,
   newAdvertisingCreate,
 }) => {
-  const [activeSlide, setActiveSlide] = useState(1);
-  const [selectedOption, setSelectedOption] = useState(categoriesName[0]);
-  const [productCard, setProductCard] = useState({
+  const productCard = InputDataChange({
     id: null,
     category: "",
     pTitle: "",
@@ -22,13 +21,15 @@ const AdminPanel = ({
     pImg: "",
   });
 
-  const [advertising, setAdvertising] = useState({
+  const advertising = InputDataChange({
     aTitle: "",
     aDesc: "",
     aNote: "",
     aImg: "",
   });
 
+  const [activeSlide, setActiveSlide] = useState(1);
+  const [selectedOption, setSelectedOption] = useState(categoriesName[0]);
   const [numberOfChildren, setNumberOfChildren] = useState(0);
 
   const carouselInner = useRef(null);
@@ -36,15 +37,8 @@ const AdminPanel = ({
 
   //created unique id from product card
   useEffect(() => {
-    const uniqueID = `id-${Date.now().toString(36)}-${Math.random()
-      .toString(36)
-      .slice(2)}`;
-    setProductCard((prevState) => ({
-      ...prevState,
-
-      id: uniqueID,
-      category: selectedOption,
-    }));
+    const uniqueID = `id-${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`;
+    productCard.addProperty({ id: uniqueID, category: selectedOption });
   }, [selectedOption]);
 
   //get slides count into slider
@@ -60,8 +54,8 @@ const AdminPanel = ({
       (el) => el.className === "data-input"
     );
 
-    postData("http://localhost:5000/products/new-product", productCard);
-    newProductCreate(productCard);
+    postData("http://localhost:5000/products/new-product", productCard.value);
+    newProductCreate(productCard.value);
     elem.forEach((element) => {
       element.value = "";
     });
@@ -73,19 +67,12 @@ const AdminPanel = ({
   }, []);
 
   //input data changed
-  // эти две функции нужно переделать в одну
   const onDataChangeHandler = (e) => {
-    setProductCard((prevState) => ({
-      ...prevState, // сохраняем предыдущее состояние объекта
-      [e.target.name]: e.target.value, // устанавливаем новое значение для свойства name
-    }));
+    productCard.onDataChange(e);
   };
 
   const onAdvertisingDataChange = (e) => {
-    setAdvertising((prevState) => ({
-      ...prevState, // сохраняем предыдущее состояние объекта
-      [e.target.name]: e.target.value, // устанавливаем новое значение для свойства name
-    }));
+    advertising.onDataChange(e);
   };
 
   const rightHandle = () => {
@@ -107,7 +94,7 @@ const AdminPanel = ({
   };
 
   //created categories block (ratio buttons)
-  const categoriesRadio = categoriesName.map((el, i) => {
+  const categoriesRadioButton = categoriesName.map((el, i) => {
     return (
       <label key={i}>
         <input
@@ -126,7 +113,7 @@ const AdminPanel = ({
 
   //created data change block (products list & delete button)
   const ProductsControlItem = ({ data, i }) => {
-    const {id, category, pTitle: title} = data;
+    const { id, category, pTitle: title } = data;
 
     const handleDelete = (id) => {
       postData("http://localhost:5000/products/remove", {
@@ -136,20 +123,19 @@ const AdminPanel = ({
     };
 
     const handleChange = (elem) => {
+      //получаю все инпуты на странице
       const el = Object.values(elem.children).filter(
         (e) => e.className === "data-input"
       );
 
-      console.log(data);
-      /**здесь нужно пройтись по каждому елементу и
-       * исходя с его названия подставлять правильную информацию с массива данных
-       */
-      // data.forEach(ell => ell)
-
-      // el.forEach(el => {
-      //   if(el.name === )
-      // })
-      // console.dir(el);
+      //подставляю значения выбраного продукта в инпуты
+      for (const elem of el) {
+        for (const e in data) {
+          if(elem.name === e){
+            elem.value = data[e]
+          }
+        }
+      }
     };
 
     useEffect(() => {
@@ -164,7 +150,7 @@ const AdminPanel = ({
         className="data-item"
         onClick={() => handleChange(itemContainer.current)}
       >
-        <p>{`${category} --- ${title}`}</p>
+        <p>{`${id} --- ${title}`}</p>
         <button
           className="data-delete"
           type="submit"
@@ -180,12 +166,7 @@ const AdminPanel = ({
   const dataItem = data
     .filter((el) => el.category === selectedOption)
     .map((el, i) => {
-      return (
-        <ProductsControlItem
-          data={el}
-          key={i}
-        />
-      );
+      return <ProductsControlItem data={el} key={i} />;
     });
 
   return (
@@ -211,7 +192,7 @@ const AdminPanel = ({
                     Utwórz nową pozycję produktu. Wstaw tytuł, opis i cenę
                     produktu
                   </h2>
-                  <div className="categories__wrapper">{categoriesRadio}</div>
+                  <div className="categories__wrapper">{categoriesRadioButton}</div>
                   <label className="label" htmlFor="pTitle">
                     title
                   </label>

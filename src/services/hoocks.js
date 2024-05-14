@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const InputDataChange = (initialValue, {...otherValue}) => {
+const InputDataChange = (initialValue) => {
   const [value, setValue] = useState(initialValue);
 
   const onDataChange = (event) => {
@@ -11,10 +11,10 @@ const InputDataChange = (initialValue, {...otherValue}) => {
       }));
   }
 
-  const addProperty = () => {
+  const addProperty = (otherValue = {}) => {
     setValue((prevState) => ({
       ...prevState,
-      otherValue
+      ...otherValue
     }));
   }
 
