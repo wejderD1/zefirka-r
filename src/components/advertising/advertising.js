@@ -1,6 +1,5 @@
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 // import SocialLinks from "../social-links/social-links";
-import UserSpinner from "../user-spiner/userSpiner";
 
 import "./advertising.scss";
 
@@ -8,7 +7,6 @@ function Advertising({ data }) {
   const offsetWidth = useRef(null);
   const slidesContainer = useRef(null);
   const scrollWidth = useRef(null);
-  const [loading, setLoading] = useState(false);
 
   const [offset, setOffset] = useState(0);
   const [slidesIndex, setSlidesIndex] = useState(1);
@@ -84,9 +82,8 @@ function Advertising({ data }) {
     return <ol className="carousell__indicators">{listItems}</ol>;
   };
 
-  const spiner = loading ? <UserSpinner /> : null;
-  const content = !loading ? (
-    <>
+  const content = (
+    <Fragment>
       <CarouselIndicators />
       <div className="carousell__inner">
         <div
@@ -135,12 +132,11 @@ function Advertising({ data }) {
       >
         &#8250;
       </button>
-    </>
-  ) : null;
+    </Fragment>
+  );
 
   return (
     <div className="advertising__container">
-      {spiner}
       {content}
     </div>
   );

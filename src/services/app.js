@@ -1,25 +1,25 @@
 const getResource = async (url) => {
   try {
-    const response = await fetch(url)
+    const response = await fetch(url);
     if (!response.ok) {
-      throw new Error('Ошибка при загрузке данных');
+      throw new Error(`Could not fetch ${url}, status: ${response.status}`);
     }
     const jsonData = await response.json();
     return jsonData;
   } catch (error) {
-    console.error('Ошибка при получении данных:', error);
+    console.error("Ошибка при получении данных:", error);
     throw error;
   }
 };
 
-const postData = async(url, dataPost) => {
+const postData = async (url, dataPost) => {
   try {
     const response = await fetch(url, {
       method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(dataPost)
+      body: JSON.stringify(dataPost),
     });
 
     const result = response.json();
@@ -27,6 +27,6 @@ const postData = async(url, dataPost) => {
   } catch (error) {
     console.error(error);
   }
-}
+};
 
-export {getResource, postData};
+export { getResource, postData };
