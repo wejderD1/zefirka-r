@@ -1,5 +1,5 @@
 import "./admin-panel.scss";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { Fragment, useCallback, useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { postData } from "../../services/app";
@@ -37,7 +37,9 @@ const AdminPanel = ({
 
   //created unique id from product card
   useEffect(() => {
-    const uniqueID = `id-${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`;
+    const uniqueID = `id-${Date.now().toString(36)}-${Math.random()
+      .toString(36)
+      .slice(2)}`;
     productCard.addProperty({ id: uniqueID, category: selectedOption });
   }, [selectedOption]);
 
@@ -113,7 +115,13 @@ const AdminPanel = ({
 
   //created data change block (products list & delete button)
   const ProductsControlItem = ({ data, i }) => {
-    const { id, category, pTitle: title } = data;
+    const { id, pTitle: title } = data;
+
+    useEffect(() => {
+      return () => {
+        document.removeEventListener("click", handleDelete);
+      };
+    }, []);
 
     const handleDelete = (id) => {
       postData("http://localhost:5000/products/remove", {
@@ -122,7 +130,7 @@ const AdminPanel = ({
       onProductDelete(id);
     };
 
-    const handleChange = (elem) => {
+    const selectedProduct = (elem) => {
       //получаю все инпуты на странице
       const el = Object.values(elem.children).filter(
         (e) => e.className === "data-input"
@@ -131,24 +139,18 @@ const AdminPanel = ({
       //подставляю значения выбраного продукта в инпуты
       for (const elem of el) {
         for (const e in data) {
-          if(elem.name === e){
-            elem.value = data[e]
+          if (elem.name === e) {
+            elem.value = data[e];
           }
         }
       }
     };
 
-    useEffect(() => {
-      return () => {
-        document.removeEventListener("click", handleDelete);
-      };
-    }, []);
-
     return (
       <li
         key={i}
         className="data-item"
-        onClick={() => handleChange(itemContainer.current)}
+        onClick={() => selectedProduct(itemContainer.current)}
       >
         <p>{`${id} --- ${title}`}</p>
         <button
@@ -192,7 +194,9 @@ const AdminPanel = ({
                     Utwórz nową pozycję produktu. Wstaw tytuł, opis i cenę
                     produktu
                   </h2>
-                  <div className="categories__wrapper">{categoriesRadioButton}</div>
+                  <div className="categories__wrapper">
+                    {categoriesRadioButton}
+                  </div>
                   <label className="label" htmlFor="pTitle">
                     title
                   </label>
@@ -232,10 +236,15 @@ const AdminPanel = ({
                     name="pImg"
                     onChange={onDataChangeHandler}
                   />
+                  <div className="btn-wrapper">
+                    <button className="btn btn_create" type="submit">
+                      CREATE
+                    </button>
 
-                  <button className="btn btn-create" type="submit">
-                    CREATE
-                  </button>
+                    <button className="btn btn_clear" type="button">
+                      clear form
+                    </button>
+                  </div>
                 </div>
               </form>
 
