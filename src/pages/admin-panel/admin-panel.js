@@ -5,6 +5,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { postData } from "../../services/app";
 import { InputDataChange } from "../../services/hoocks";
 
+const uniqueID = () =>
+  `id-${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`;
+
 const AdminPanel = ({
   newProductCreate,
   categoriesName,
@@ -37,10 +40,7 @@ const AdminPanel = ({
 
   //created unique id from product card
   useEffect(() => {
-    const uniqueID = `id-${Date.now().toString(36)}-${Math.random()
-      .toString(36)
-      .slice(2)}`;
-    productCard.addProperty({ id: uniqueID, category: selectedOption });
+    productCard.addProperty({ id: uniqueID(), category: selectedOption });
   }, [selectedOption]);
 
   //get slides count into slider
@@ -63,7 +63,7 @@ const AdminPanel = ({
     });
   };
 
-  //ratio button change
+  //radio button change
   const handleRadioChange = useCallback((e) => {
     setSelectedOption(e.target.value);
   }, []);
