@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { postData } from "../../services/app";
 import { InputDataChange } from "../../services/hoocks";
+import EditList from "../../components/edit-list/edit-list";
 
 const uniqueID = () =>
   `id-${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`;
@@ -11,7 +12,8 @@ const uniqueID = () =>
 const AdminPanel = ({
   newProductCreate,
   categoriesName,
-  data,
+  productData,
+  advertisingData,
   onProductDelete,
   newAdvertisingCreate,
 }) => {
@@ -95,6 +97,13 @@ const AdminPanel = ({
     }
   };
 
+  const handleDelete = (id) => {
+    postData("http://localhost:5000/products/remove", {
+      productId: id,
+    });
+    onProductDelete(id);
+  };
+
   //created categories block (ratio buttons)
   const categoriesRadioButton = categoriesName.map((el, i) => {
     return (
@@ -113,63 +122,31 @@ const AdminPanel = ({
     );
   });
 
-  //created data change block (products list & delete button)
-  const ProductsControlItem = ({ data, i }) => {
-    const { id, pTitle: title } = data;
-
-    useEffect(() => {
-      return () => {
-        document.removeEventListener("click", handleDelete);
-      };
-    }, []);
-
-    const handleDelete = (id) => {
-      postData("http://localhost:5000/products/remove", {
-        productId: id,
-      });
-      onProductDelete(id);
-    };
-
-    const selectedProduct = (elem) => {
-      //получаю все инпуты на странице
-      const el = Object.values(elem.children).filter(
-        (e) => e.className === "data-input"
-      );
-
-      //подставляю значения выбраного продукта в инпуты
-      for (const elem of el) {
-        for (const e in data) {
-          if (elem.name === e) {
-            elem.value = data[e];
-          }
-        }
-      }
-    };
-
-    return (
-      <li
-        key={i}
-        className="data-item"
-        onClick={() => selectedProduct(itemContainer.current)}
-      >
-        <p>{`${id} --- ${title}`}</p>
-        <button
-          className="data-delete"
-          type="submit"
-          onClick={() => handleDelete(id)}
-        >
-          Delete
-        </button>
-      </li>
-    );
-  };
-
-  //create data items
-  const dataItem = data
+  //create Edit List
+  const productEditList = productData
     .filter((el) => el.category === selectedOption)
     .map((el, i) => {
-      return <ProductsControlItem data={el} key={i} />;
+      return (
+        <EditList
+          data={el}
+          key={i}
+          handleDelete={handleDelete}
+          container={itemContainer.current}
+        />
+      );
     });
+
+  //create Edit List
+  const advertisingEditList = advertisingData.map((el, i) => {
+    return (
+      <EditList
+        data={el}
+        key={i}
+        handleDelete={handleDelete}
+        container={itemContainer.current}
+      />
+    );
+  });
 
   return (
     <div className="admin-panel">
@@ -197,45 +174,31 @@ const AdminPanel = ({
                   <div className="categories__wrapper">
                     {categoriesRadioButton}
                   </div>
-                  <label className="label" htmlFor="pTitle">
-                    title
-                  </label>
-                  <input
-                    className="data-input"
-                    type="text"
-                    name="pTitle"
-                    onChange={onDataChangeHandler}
-                  />
-
-                  <label className="label" htmlFor="pDescription">
-                    product description
-                  </label>
-                  <input
-                    className="data-input"
-                    type="text"
-                    name="pDescription"
-                    onChange={onDataChangeHandler}
-                  />
-
-                  <label className="label" htmlFor="pPrice">
-                    product price
-                  </label>
-                  <input
-                    className="data-input"
-                    type="text"
-                    name="pPrice"
-                    onChange={onDataChangeHandler}
-                  />
-
-                  <label className="label" htmlFor="pImg">
-                    product img
-                  </label>
-                  <input
-                    className="data-input"
-                    type="text"
-                    name="pImg"
-                    onChange={onDataChangeHandler}
-                  />
+                  {Object.keys(productCard.value).map((el, i) => {
+                    return (
+                      <Fragment key={i}>
+                        <label className="label" htmlFor={el}>
+                          {el}
+                        </label>
+                        <input
+                          className="data-input"
+                          type="text"
+                          name={el}
+                          onChange={onDataChangeHandler}
+                          placeholder={
+                            el === "id"
+                              ? productCard.value.id
+                              : null || el === "category"
+                              ? productCard.value.category
+                              : null
+                          }
+                          disabled={
+                            el === "id" || el === "category" ? true : false
+                          }
+                        />
+                      </Fragment>
+                    );
+                  })}
                   <div className="btn-wrapper">
                     <button className="btn btn_create" type="submit">
                       CREATE
@@ -251,7 +214,7 @@ const AdminPanel = ({
               {/* DATA CONTAINER */}
               <div className="data-wrapper">
                 <form onSubmit={(e) => e.preventDefault()}>
-                  <ul>{dataItem}</ul>
+                  <ul>{productEditList}</ul>
                 </form>
               </div>
             </div>
@@ -265,7 +228,23 @@ const AdminPanel = ({
                 <h2 className="main-text">
                   Utwórz reklamę, napisz nagłówek i opis reklamy.
                 </h2>
-                <label className="label" htmlFor="aTitle">
+                {Object.keys(advertising.value).map((el, i) => {
+                  return (
+                    <Fragment key={i}>
+                      <label className="label" htmlFor={el}>
+                        {el}
+                      </label>
+                      <input
+                        className="data-input"
+                        type="text"
+                        name={el}
+                        onChange={onAdvertisingDataChange}
+                        placeholder={el === "id" ? advertising.value.id : null}
+                      />
+                    </Fragment>
+                  );
+                })}
+                {/* <label className="label" htmlFor="aTitle">
                   title
                 </label>
                 <input
@@ -300,9 +279,9 @@ const AdminPanel = ({
                   type="text"
                   name="aImg"
                   onChange={onAdvertisingDataChange}
-                />
+                /> */}
                 <button
-                  className="btn btn-create"
+                  className="btn btn_create"
                   type="button"
                   onClick={() => {
                     newAdvertisingCreate(advertising);
@@ -310,6 +289,12 @@ const AdminPanel = ({
                 >
                   CREATE
                 </button>
+              </div>
+              {/* DATA CONTAINER */}
+              <div className="data-wrapper">
+                <form onSubmit={(e) => e.preventDefault()}>
+                  <ul>{advertisingEditList}</ul>
+                </form>
               </div>
             </div>
           </div>

@@ -107,7 +107,8 @@ function App() {
             <AdminPanel
               newProductCreate={newProductCerate}
               categoriesName={categories}
-              data={productData}
+              productData={productData}
+              advertisingData={advertisingData}
               onProductDelete={productDelete}
               newAdvertisingCreate={newAdvertisingCreate}
             />
