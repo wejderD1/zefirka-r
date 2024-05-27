@@ -51,6 +51,11 @@ const AdminPanel = ({
     setNumberOfChildren(childrenLength);
   }, [numberOfChildren]);
 
+  //.....continue created....
+  useEffect(() => {
+//    setSelectedElement((prev) => (...prev, selected))
+  }, [])//зависимость от выбраного компонента который попадет в стейт
+
   //submit product to server
   const handleSubmit = (e) => {
     e.preventDefault();
