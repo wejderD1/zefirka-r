@@ -35,7 +35,7 @@ function App() {
     return data ? data : [];
   });
 
-  const [product, setProduct] = useState({})
+  const [product, setProduct] = useState({});
 
   const getData = async (url, calback) => {
     try {
@@ -84,9 +84,9 @@ function App() {
   };
 
   const productId = (id) => {
-    const [selectedProduct] = productData.filter(el => el.id === id);
-    setProduct(selectedProduct);
-  }
+    const [selectedProduct] = productData.filter((el) => el.id === id);
+    setProduct((prev) => ({ ...prev, selectedProduct }));
+  };
 
   return (
     <Router>
@@ -97,7 +97,11 @@ function App() {
             <HomeView advertisingData={advertisingData} />
           </Route>
           <Route path="/produkty">
-            <ProductsView data={productData} categoriesName={categories} productId={productId} />
+            <ProductsView
+              data={productData}
+              categoriesName={categories}
+              productId={productId}
+            />
           </Route>
           <Route path="/galeria"></Route>
           <Route path="/kontakt">
@@ -114,7 +118,7 @@ function App() {
             />
           </Route>
           <Route path="/details/:id">
-            <ProductDetails productData={product}/>
+            <ProductDetails productData={product} />
           </Route>
           <Route component={Page404} />
         </Switch>

@@ -1,0 +1,42 @@
+.slider-container {
+  position: relative;
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  flex: 1;
+}
+
+.slide {
+  min-width: 100%;
+}
+
+// CAROUSEL
+.carousel {
+//   &__wrapper {
+//     margin: 3rem 0;
+//     width: 100%;
+//     display: flex;
+//     justify-content: space-between;
+//     gap: 20px;
+//     align-items: start;
+//   }
+  // &__inner {
+  //   flex-grow: 1;
+  // }
+
+  &__btn {
+    user-select: none;
+    width: 40px;
+    height: 80px;
+    z-index: 1;
+
+    cursor: pointer;
+  }
+}

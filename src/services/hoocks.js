@@ -5,6 +5,7 @@ const InputDataChange = (initialValue) => {
 
   const onDataChange = (event) => {
     const eventData = event.target;
+
     setValue((prevState) => ({
       ...prevState,
         [eventData.name]: eventData.value

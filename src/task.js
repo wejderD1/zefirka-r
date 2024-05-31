@@ -17,6 +17,7 @@ function EditList({ data, i, handleDelete, container }) {
 - в цене только цифры (регулярные выражения)
 
 
+нужно добавить универсальный метод для уникального ид. для компонентов.
 
     линк админ пароль оооочень длинний
 
@@ -32,5 +33,94 @@ function EditList({ data, i, handleDelete, container }) {
 
 
     заполнить ссылки для кнопок соцсе
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div className="carousel__wrapper">
+          <button
+            className="btn carousel__btn carousel__btn_left"
+            onClick={leftHandle}
+          >
+            <FontAwesomeIcon icon="fa-solid fa-arrow-left" />
+          </button>
+          <div className="carousel__inner" ref={carouselInner}>
+            <div
+              className={`carousel__item-wrapper ${
+                activeSlide === 1 ? "carousel__item-wrapper_active" : ""
+              } `}
+            >
+              <form action="POST" onSubmit={handleSubmit}>
+                <div className="item__container" ref={itemContainer}>
+                  <h2 className="main-text">
+                    Utwórz nową pozycję produktu. Wstaw tytuł, opis i cenę
+                    produktu
+                  </h2>
+                  <div className="categories__wrapper">
+                    {categoriesRadioButton}
+                  </div>
+                  {Object.keys(productCard.value).map((el, i) => {
+                    return (
+                      <Fragment key={i}>
+                        <label className="label" htmlFor={el}>
+                          {el}
+                        </label>
+                        <input
+                          className="data-input"
+                          type="text"
+                          name={el}
+                          onChange={onDataChangeHandler}
+                          placeholder={
+                            el === "id"
+                              ? productCard.value.id
+                              : null || el === "category"
+                              ? productCard.value.category
+                              : null
+                          }
+                          disabled={
+                            el === "id" || el === "category" ? true : false
+                          }
+                        />
+                      </Fragment>
+                    );
+                  })}
+                  <div className="btn-wrapper">
+                    <button className="btn btn_create" type="submit">
+                      CREATE
+                    </button>
+
+                    <button className="btn btn_clear" type="button">
+                      clear form
+                    </button>
+                  </div>
+                </div>
+              </form>
+
+              {/* DATA CONTAINER */}
+              <div className="data-wrapper">
+                <form onSubmit={(e) => e.preventDefault()}>
+                  <ul>{productEditList}</ul>
+                </form>
+              </div>
+            </div>
+            {/* create advertising tab * */}
+            
+          </div>
+          <button
+            className="btn carousel__btn carousel__btn_right"
+            onClick={rightHandle}
+          >
+            <FontAwesomeIcon icon="fa-solid fa-arrow-right" />
+          </button>
+        </div>
 
 */
