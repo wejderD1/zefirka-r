@@ -1,5 +1,5 @@
 import "./admin-panel.scss";
-import { useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import { postData } from "../../services/app";
 import { InputDataChange } from "../../services/hoocks";
@@ -33,37 +33,39 @@ const AdminPanel = ({
     aImg: "",
   });
 
-  const carouselInner = useRef(null);
-  const itemContainer = useRef(null);
+  const [selectedElement, setSelectedElement] = useState({});
 
-  //submit product to server
-  const handleSubmit = (e, url) => {
-    e.preventDefault();
+  useEffect(() => {
+    
+  }, [selectedElement]);
+
+  const clearTextInput = (e) => {
     const elem = Object.values(e.target.elements).filter(
       (el) => el.className === "data-input"
     );
-
-    postData(url, productCard.value);
-    newProductCreate(productCard.value);
     elem.forEach((element) => {
       element.value = "";
     });
   };
-  
 
-  const slides = [
-    <ProductSlider
-      categoriesName={categoriesName}
-      handleSubmit={handleSubmit}
-      productCard={productCard}
-    />,
-    <AdvertisingSlider 
-      advertisingCard={advertisingCard}
-    />,
-  ];
+  //submit product to server
+  const productCreate = (e) => {
+    e.preventDefault();
+    postData("http://localhost:5000/products/new-product", productCard.value);
+    newProductCreate(productCard.value);
+    clearTextInput(e);
+  };
 
-
-
+  //submit advertising to server
+  const advertisingCreate = (e) => {
+    e.preventDefault();
+    postData(
+      "http://localhost:5000/products/new-advertising",
+      advertisingCard.value
+    );
+    newAdvertisingCreate(advertisingCard.value);
+    clearTextInput(e);
+  };
 
   const handleDelete = (id) => {
     postData("http://localhost:5000/products/remove", {
@@ -72,31 +74,38 @@ const AdminPanel = ({
     onProductDelete(id);
   };
 
-  // //create Edit List
-  // const productEditList = productData
-  //   .filter((el) => el.category === selectedOption)
-  //   .map((el, i) => {
-  //     return (
-  //       <EditList
-  //         data={el}
-  //         key={i}
-  //         handleDelete={handleDelete}
-  //         container={itemContainer.current}
-  //       />
-  //     );
-  //   });
+  const selectedProduct = (id) => {
+    const selectedElement = productData.filter((el) => el.id === id);
 
-  //create Edit List
-  const advertisingEditList = advertisingData.map((el, i) => {
-    return (
-      <EditList
-        data={el}
-        key={i}
-        handleDelete={handleDelete}
-        container={itemContainer.current}
-      />
-    );
-  });
+    setSelectedElement((prev) => [...prev, selectedElement]);
+    //получаю все инпуты на странице
+    // const el = Object.values(elem.children).filter(
+    //   (e) => e.className === "data-input"
+    // );
+
+    // //подставляю значения выбраного продукта в инпуты
+    // for (const elem of el) {
+    //   for (const e in data) {
+    //     if (elem.name === e) {
+    //       elem.value = data[e];
+    //     }
+    //   }
+    // }
+  };
+
+  const slides = [
+    <ProductSlider
+      categoriesName={categoriesName}
+      handleSubmit={productCreate}
+      productCard={productCard}
+      productData={productData}
+      selectedProduct={selectedProduct}
+    />,
+    <AdvertisingSlider
+      advertisingCard={advertisingCard}
+      handleSubmit={advertisingCreate}
+    />,
+  ];
 
   return (
     <div className="admin-panel">
@@ -109,3 +118,15 @@ const AdminPanel = ({
 };
 
 export default AdminPanel;
+
+//create Edit List
+// const advertisingEditList = advertisingData.map((el, i) => {
+//   return (
+//     <EditList
+//       data={el}
+//       key={i}
+//       handleDelete={handleDelete}
+//       container={itemContainer.current}
+//     />
+//   );
+// });

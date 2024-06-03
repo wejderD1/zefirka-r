@@ -3,7 +3,7 @@ import { Fragment, useEffect, useState } from "react";
 const uniqueID = () =>
   `id-${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`;
 
-function AdvertisingSlider({ advertisingCard }) {
+function AdvertisingSlider({ advertisingCard, handleSubmit }) {
   const onAdvertisingDataChange = (e) => {
     advertisingCard.onDataChange(e);
   };
@@ -37,9 +37,6 @@ function AdvertisingSlider({ advertisingCard }) {
         <button
           className="btn btn_create"
           type="button"
-          onClick={() => {
-            newAdvertisingCreate(advertisingCard);
-          }}
         >
           CREATE
         </button>

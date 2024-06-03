@@ -1,21 +1,9 @@
-import { useEffect, useState } from "react";
+import { Fragment, useEffect } from "react";
 
 import "./edit-list.scss";
 
-function EditList({ data, i, handleDelete, container }) {
-  const { id, pTitle: title } = data;
-  // const item = { ...data };
-
-  /**
-   * нужно в передавать наверх значение выбраного елемента (т.е. ) елемента в списке
-   * и уже в елементе :админ панель: подставлять значение в инпуты и записывать в стейт 
-   * выбраный елемент массива
-   * 
-   * этот компонент не должен обрабатывать он только рисует список продуктов
-   * 
-   * функция selectedProduct должна быть в компоненте admin panel 
-   * тогда и пропс container не будет нужен
-   */
+function EditList({ data, i, handleDelete, selectedProduct }) {
+  const { id } = data;
 
   useEffect(() => {
     return () => {
@@ -24,40 +12,29 @@ function EditList({ data, i, handleDelete, container }) {
   }, []);
 
 
-  //перенести в другой компонент
-  const selectedProduct = (elem) => {
-    //получаю все инпуты на странице
-    const el = Object.values(elem.children).filter(
-      (e) => e.className === "data-input"
-    );
-
-    //подставляю значения выбраного продукта в инпуты
-    for (const elem of el) {
-      for (const e in data) {
-        if (elem.name === e) {
-          elem.value = data[e];
-        }
-      }
-    }
-  };
-
   const renderDataList = () => {
-    let label = '';
+    let title = "";
+    let desc = "";
     for (const key in data) {
       if (Object.hasOwnProperty.call(data, key)) {
         const element = data[key];
-        label += element + "---";
+        title += key +"  ";
+        desc += element + "   /   ";
       }
     }
-    return <p>{label}</p>;
-
+    return (
+      <Fragment>
+        <p>{title}</p>
+        <h5>{desc}</h5>
+      </Fragment>
+    );
   };
-  
+
   return (
     <li
       key={i}
       className="data-item"
-      onClick={() => selectedProduct(container)}
+      onClick={() => selectedProduct(id)}
     >
       {renderDataList()}
 
@@ -68,7 +45,6 @@ function EditList({ data, i, handleDelete, container }) {
       >
         Delete
       </button>
-
     </li>
   );
 }
