@@ -14,6 +14,8 @@ import {
   AdminPanel,
   ProductDetails,
 } from "./pages";
+import { useDispatch, useSelector } from "react-redux";
+import { productsFetched } from "./features/products/productsSlice";
 
 const categories = [
   "zefir",
@@ -25,6 +27,9 @@ const categories = [
 ];
 
 function App() {
+  const {productList} = useSelector((state) => state.products);
+  const dispatch = useDispatch();
+  
   const [productData, setProductData] = useState(() => {
     const data = JSON.parse(localStorage.getItem("product-list"));
     return data ? data : [];
@@ -48,9 +53,19 @@ function App() {
   };
 
   useEffect(() => {
-    getData("http://localhost:5000/products", setProductData);
-    getData("http://localhost:5000/advertising", setAdvertisingData);
-  }, []);
+    async function fetchData() {
+      const data = await getResource("http://localhost:5000/products");
+      return data;
+    }
+    
+    dispatch(productsFetched(fetchData()));
+    }, []);
+    
+  // useEffect(() => {
+  //   getData("http://localhost:5000/products", setProductData);
+  //   getData("http://localhost:5000/advertising", setAdvertisingData);
+  //   dispatch(productFetched());
+  // }, []);
 
   useEffect(() => {
     if (productData) {
