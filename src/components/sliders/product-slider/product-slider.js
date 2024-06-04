@@ -67,6 +67,7 @@ function ProductSlider({
   });
 
   return (
+<<<<<<< HEAD
     <Fragment>
       <form action="POST" onSubmit={handleSubmit}>
         <div className="item__container">
@@ -105,6 +106,41 @@ function ProductSlider({
               clear form
             </button>
           </div>
+=======
+    <form action="POST" onSubmit={handleSubmit}>
+      <div className="item__container">
+        <h2 className="main-text">
+          Utwórz nową pozycję produktu. Wstaw tytuł, opis i cenę produktu
+        </h2>
+        <div className="categories__wrapper">{categoriesRadioButton}</div>
+        {Object.keys(productCard.value).map((el, i) => {
+          return (
+            <Fragment key={i}>
+              <label className="label" htmlFor={el}>
+                {el}
+              </label>
+              <input
+                className="data-input"
+                type="text"
+                name={el}
+                onChange={onDataChangeHandler}
+                placeholder={
+                  el === "id"
+                    ? productCard.value.id
+                    : null || el === "category"
+                    ? productCard.value.category
+                    : null
+                }
+                disabled={el === "id" || el === "category" ? true : false}
+              />
+            </Fragment>
+          );
+        })}
+        <div className="btn-wrapper">
+          <button className="btn btn_create" type="submit">
+            CREATE
+          </button>
+>>>>>>> bdb9441 (errors correct)
 
           {productEditList}
         </div>

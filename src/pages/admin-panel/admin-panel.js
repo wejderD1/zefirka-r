@@ -47,6 +47,23 @@ const AdminPanel = ({
       element.value = "";
     });
   };
+<<<<<<< HEAD
+=======
+  
+
+  const slides = [
+    <ProductSlider
+      categoriesName={categoriesName}
+      handleSubmit={handleSubmit}
+      productCard={productCard}
+    />,
+    <AdvertisingSlider 
+      advertisingCard={advertisingCard}
+      handleSubmit={handleSubmit}
+    />,
+  ];
+
+>>>>>>> bdb9441 (errors correct)
 
   //submit product to server
   const productCreate = (e) => {
