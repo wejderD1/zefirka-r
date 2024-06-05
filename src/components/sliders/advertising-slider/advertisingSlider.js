@@ -37,12 +37,6 @@ function AdvertisingSlider({ advertisingCard, handleSubmit }) {
         <button
           className="btn btn_create"
           type="button"
-<<<<<<< HEAD
-=======
-          onClick={() => {
-            // newAdvertisingCreate(advertisingCard);
-          }}
->>>>>>> bdb9441 (errors correct)
         >
           CREATE
         </button>
