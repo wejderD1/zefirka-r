@@ -27,9 +27,9 @@ const categories = [
 ];
 
 function App() {
-  const {productList} = useSelector((state) => state.products);
+  const { productList } = useSelector((state) => state);
   const dispatch = useDispatch();
-  
+
   const [productData, setProductData] = useState(() => {
     const data = JSON.parse(localStorage.getItem("product-list"));
     return data ? data : [];
@@ -42,29 +42,27 @@ function App() {
 
   const [product, setProduct] = useState({});
 
-  const getData = async (url, calback) => {
-    try {
-      const data = await getResource(url);
-      calback(data);
-    } catch (error) {
-      console.error(error);
-      throw error;
-    }
-  };
+  // const getData = async (url, calback) => {
+  //   try {
+  //     const data = await getResource(url);
+  //     calback(data);
+  //   } catch (error) {
+  //     console.error(error);
+  //     throw error;
+  //   }
+  // };
 
   useEffect(() => {
-    async function fetchData() {
-      const data = await getResource("http://localhost:5000/products");
-      return data;
-    }
-    
-    dispatch(productsFetched(fetchData()));
-    }, []);
-    
+    getResource("http://localhost:5000/products")
+      .then((data) => dispatch(productsFetched(data)))
+      .catch((error) => console.log(error));
+  }, []);
+
+
   // useEffect(() => {
   //   getData("http://localhost:5000/products", setProductData);
   //   getData("http://localhost:5000/advertising", setAdvertisingData);
-  //   dispatch(productFetched());
+  //   // dispatch(productFetched());
   // }, []);
 
   useEffect(() => {
@@ -113,7 +111,7 @@ function App() {
           </Route>
           <Route path="/produkty">
             <ProductsView
-              data={productData}
+              // data={productList}
               categoriesName={categories}
               productId={productId}
             />

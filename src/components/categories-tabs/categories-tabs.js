@@ -4,32 +4,53 @@ import TabItem from "../tab-item/tab-item";
 import TabContent from "../tab-content/tab-content";
 import ProductCard from "../product-card/product-card";
 
+import { productCategoriesChanged } from "../../actions";
+import { useDispatch, useSelector } from "react-redux";
+
 function CategoriesTabs({ contents, categoriesName, productId }) {
-  const [activeTab, setActiveTab] = useState(categoriesName[0]);
   const categories = categoriesName;
-  const [productsCards, setProductsCards] = useState([]);
+  // const [productsCards, setProductsCards] = useState([]);
 
-  useEffect(() => {
-    const filterArr = contents.filter(
-      (filter) => filter.category === activeTab
+  const { activeCategory, filteredProductsList } = useSelector((state) => state);
+  const dispatch = useDispatch();
+
+
+  const productsCards = filteredProductsList.map((e) => {
+    return (
+      <ProductCard
+        key={e.id}
+        id={e.id}
+        title={e.pTitle}
+        desc={e.pDescription}
+        price={e.pPrice}
+        img={e.pImg}
+        productId={productId}
+      />
     );
+  });
 
-    const productsCards = filterArr.map((e) => {
-      return (
-        <ProductCard
-          key={e.id}
-          id={e.id}
-          title={e.pTitle}
-          desc={e.pDescription}
-          price={e.pPrice}
-          img={e.pImg}
-          productId={productId}
-        />
-      );
-    });
 
-    setProductsCards(productsCards);
-  }, [activeTab]);
+  // useEffect(() => {
+  //   const filterArr = contents.filter(
+  //     (filter) => filter.category === activeTab
+  //   );
+
+    // const productsCards = filterArr.map((e) => {
+    //   return (
+    //     <ProductCard
+    //       key={e.id}
+    //       id={e.id}
+    //       title={e.pTitle}
+    //       desc={e.pDescription}
+    //       price={e.pPrice}
+    //       img={e.pImg}
+    //       productId={productId}
+    //     />
+    //   );
+    // });
+
+  //   setProductsCards(productsCards);
+  // }, [activeTab]);
 
   const tabItem = categories.map((el, i) => {
     return (
@@ -37,15 +58,13 @@ function CategoriesTabs({ contents, categoriesName, productId }) {
         key={i}
         id={el}
         title={el}
-        activeTab={activeTab}
-        setActiveTab={setActiveTab}
       />
     );
   });
 
   const tabContent = categories.map((el, i) => {
     return (
-      <TabContent key={i} id={el} activeTab={activeTab}>
+      <TabContent key={i} id={el} >
         <div className="products-wrapper">{productsCards}</div>
       </TabContent>
     );

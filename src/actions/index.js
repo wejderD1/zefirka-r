@@ -4,3 +4,10 @@ export const productCreated = (product) => {
       payload: product
   }
 }
+
+export const productCategoriesChanged = (categoryName) => {
+  return {
+      type: 'PRODUCT_CATEGORIES_CHANGED',
+      payload: categoryName
+  }
+}
