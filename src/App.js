@@ -37,16 +37,6 @@ function App() {
 
   const [product, setProduct] = useState({});
 
-  // const getData = async (url, calback) => {
-  //   try {
-  //     const data = await getResource(url);
-  //     calback(data);
-  //   } catch (error) {
-  //     console.error(error);
-  //     throw error;
-  //   }
-  // };
-
   useEffect(() => {
     getResource("http://localhost:5000/products")
       .then((data) => dispatch(productsFetched(data)))

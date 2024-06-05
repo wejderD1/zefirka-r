@@ -3,6 +3,7 @@ const initialState = {
   filteredProductsList: [],
   advertisingData: [],
   activeCategory: "",
+  selectedProduct: ""
 };
 
 const reducer = (state = initialState, action) => {
@@ -22,14 +23,20 @@ const reducer = (state = initialState, action) => {
         ),
       };
 
-      case "DEFAULT_CATEGORY":
-        return {
-          ...state,
-          activeCategory: action.payload,
-          filteredProductsList: state.productsList.filter(
-            (el) => el.category === action.payload
-          ),
-        };
+    case "DEFAULT_CATEGORY":
+      return {
+        ...state,
+        activeCategory: action.payload,
+        filteredProductsList: state.productsList.filter(
+          (el) => el.category === action.payload
+        ),
+      };
+
+    case "SELECTED_PRODUCT":
+      return {
+        ...state,
+        selectedProduct: action.payload
+      };
 
     default:
       return state;

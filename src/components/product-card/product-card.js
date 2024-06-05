@@ -1,14 +1,19 @@
 import { Link } from "react-router-dom";
+import { selectedProduct } from "../../actions";
 
 import "./product-card.scss";
+import { useDispatch } from "react-redux";
 
 function ProductCard({ title, desc, price, img, id, productId }) {
+  const dispatch = useDispatch();
+
+
   return (
     <Link
       className="card-link"
       to={`/details/${id}`}
       style={{ textDecoration: "none" }}
-      onClick={() => productId(id)}
+      onClick={() => dispatch(selectedProduct(id))}
     >
       <div className="card-container">
         <div className="card-wrapper">

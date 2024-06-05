@@ -6,7 +6,8 @@
     padding-top: var(--header-height);
   }
   &__inner {
-    margin: 4rem auto;
+    margin: 0 auto;
+    padding-top: 8rem;
     display: grid;
     grid-template-columns: 40% 60%;
     gap: 9rem;

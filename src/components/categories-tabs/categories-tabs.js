@@ -4,12 +4,11 @@ import TabItem from "../tab-item/tab-item";
 import TabContent from "../tab-content/tab-content";
 import ProductCard from "../product-card/product-card";
 
-import { productCategoriesChanged, setDefaultCategory } from "../../actions";
+import { setDefaultCategory } from "../../actions";
 import { useDispatch, useSelector } from "react-redux";
 
 function CategoriesTabs({ contents, categoriesName, productId }) {
   const categories = categoriesName;
-  // const [productsCards, setProductsCards] = useState([]);
 
   const { filteredProductsList } = useSelector((state) => state);
   const dispatch = useDispatch();
@@ -31,28 +30,6 @@ function CategoriesTabs({ contents, categoriesName, productId }) {
       />
     );
   });
-
-  // useEffect(() => {
-  //   const filterArr = contents.filter(
-  //     (filter) => filter.category === activeTab
-  //   );
-
-    // const productsCards = filterArr.map((e) => {
-    //   return (
-    //     <ProductCard
-    //       key={e.id}
-    //       id={e.id}
-    //       title={e.pTitle}
-    //       desc={e.pDescription}
-    //       price={e.pPrice}
-    //       img={e.pImg}
-    //       productId={productId}
-    //     />
-    //   );
-    // });
-
-  //   setProductsCards(productsCards);
-  // }, [activeTab]);
 
   const tabItem = categories.map((el, i) => {
     return (

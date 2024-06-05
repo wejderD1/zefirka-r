@@ -1,3 +1,5 @@
+import { type } from "@testing-library/user-event/dist/type"
+
 export const productsFetched = (product) => {
   return {
       type: 'PRODUCTS_FETCHED',
@@ -16,5 +18,12 @@ export const setDefaultCategory = (categoryName) => {
   return {
       type: 'DEFAULT_CATEGORY',
       payload: categoryName
+  }
+}
+
+export const selectedProduct = (selectedId) => {
+  return {
+    type: 'SELECTED_PRODUCT',
+    payload: selectedId
   }
 }
