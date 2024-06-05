@@ -15,7 +15,7 @@ import {
   ProductDetails,
 } from "./pages";
 import { useDispatch, useSelector } from "react-redux";
-import { productsFetched } from "./features/products/productsSlice";
+import { productsFetched } from "./actions";
 
 const categories = [
   "zefir",
@@ -27,13 +27,8 @@ const categories = [
 ];
 
 function App() {
-  const { productList } = useSelector((state) => state);
+  const { productsList } = useSelector((state) => state);
   const dispatch = useDispatch();
-
-  const [productData, setProductData] = useState(() => {
-    const data = JSON.parse(localStorage.getItem("product-list"));
-    return data ? data : [];
-  });
 
   const [advertisingData, setAdvertisingData] = useState(() => {
     const data = JSON.parse(localStorage.getItem("advertising-data"));
@@ -58,7 +53,6 @@ function App() {
       .catch((error) => console.log(error));
   }, []);
 
-
   // useEffect(() => {
   //   getData("http://localhost:5000/products", setProductData);
   //   getData("http://localhost:5000/advertising", setAdvertisingData);
@@ -66,38 +60,32 @@ function App() {
   // }, []);
 
   useEffect(() => {
-    if (productData) {
-      localStorage.setItem("product-list", JSON.stringify(productData));
-    }
-  }, [productData]);
-
-  useEffect(() => {
     if (advertisingData) {
       localStorage.setItem("advertising-data", JSON.stringify(advertisingData));
     }
   }, [advertisingData]);
 
-  const newProductCerate = (data) => {
-    const { pTitle, pDescription, pPrice } = data;
-    if (!pTitle || !pDescription || !pPrice) {
-      return;
-    }
+  // const newProductCerate = (data) => {
+  //   const { pTitle, pDescription, pPrice } = data;
+  //   if (!pTitle || !pDescription || !pPrice) {
+  //     return;
+  //   }
 
-    setProductData((prevProductData) => [...prevProductData, data]);
-  };
+  //   setProductData((prevProductData) => [...prevProductData, data]);
+  // };
 
-  const productDelete = (productId) => {
-    setProductData((prevProductData) =>
-      prevProductData.filter((el) => el.id !== productId)
-    );
-  };
+  // const productDelete = (productId) => {
+  //   setProductData((prevProductData) =>
+  //     prevProductData.filter((el) => el.id !== productId)
+  //   );
+  // };
 
   const newAdvertisingCreate = (data) => {
     setAdvertisingData((prevAdvertisinData) => [...prevAdvertisinData, data]);
   };
 
   const productId = (id) => {
-    const [selectedProduct] = productData.filter((el) => el.id === id);
+    const [selectedProduct] = productsList.filter((el) => el.id === id);
     setProduct((prev) => ({ ...prev, selectedProduct }));
   };
 
@@ -122,11 +110,11 @@ function App() {
           </Route>
           <Route path="/admin">
             <AdminPanel
-              newProductCreate={newProductCerate}
-              categoriesName={categories}
-              productData={productData}
-              advertisingData={advertisingData}
-              onProductDelete={productDelete}
+              // newProductCreate={newProductCerate}
+              // categoriesName={categories}
+              // productData={productData}
+              // advertisingData={advertisingData}
+              // onProductDelete={productDelete}
               newAdvertisingCreate={newAdvertisingCreate}
             />
           </Route>

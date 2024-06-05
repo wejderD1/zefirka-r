@@ -1,5 +1,5 @@
 const initialState = {
-  productList: [],
+  productsList: [],
   filteredProductsList: [],
   advertisingData: [],
   activeCategory: "",
@@ -7,22 +7,29 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case "PRODUCT_CREATED":
-      // let newCreatedProductList = [...state.productList, action.payload];
-
+    case "PRODUCTS_FETCHED":
       return {
         ...state,
-        productList: action.payload,
+        productsList: action.payload,
       };
 
     case "PRODUCT_CATEGORIES_CHANGED":
       return {
         ...state,
         activeCategory: action.payload,
-        filteredProductsList: state.productList.filter(
-          (element) => element.category === action.payload
+        filteredProductsList: state.productsList.filter(
+          (el) => el.category === action.payload
         ),
       };
+
+      case "DEFAULT_CATEGORY":
+        return {
+          ...state,
+          activeCategory: action.payload,
+          filteredProductsList: state.productsList.filter(
+            (el) => el.category === action.payload
+          ),
+        };
 
     default:
       return state;

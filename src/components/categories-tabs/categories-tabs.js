@@ -4,16 +4,19 @@ import TabItem from "../tab-item/tab-item";
 import TabContent from "../tab-content/tab-content";
 import ProductCard from "../product-card/product-card";
 
-import { productCategoriesChanged } from "../../actions";
+import { productCategoriesChanged, setDefaultCategory } from "../../actions";
 import { useDispatch, useSelector } from "react-redux";
 
 function CategoriesTabs({ contents, categoriesName, productId }) {
   const categories = categoriesName;
   // const [productsCards, setProductsCards] = useState([]);
 
-  const { activeCategory, filteredProductsList } = useSelector((state) => state);
+  const { filteredProductsList } = useSelector((state) => state);
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(setDefaultCategory(categoriesName[0]));
+  }, [])
 
   const productsCards = filteredProductsList.map((e) => {
     return (
@@ -28,7 +31,6 @@ function CategoriesTabs({ contents, categoriesName, productId }) {
       />
     );
   });
-
 
   // useEffect(() => {
   //   const filterArr = contents.filter(

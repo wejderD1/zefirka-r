@@ -1,10 +1,9 @@
 import "./admin-panel.scss";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { postData } from "../../services/app";
 import { InputDataChange } from "../../services/hoocks";
 
-import EditList from "../../components/edit-list/edit-list";
 import ProductSlider from "../../components/sliders/product-slider/product-slider";
 import AdvertisingSlider from "../../components/sliders/advertising-slider/advertisingSlider";
 import AdminSlider from "../../components/admin-slider/admin-slider";

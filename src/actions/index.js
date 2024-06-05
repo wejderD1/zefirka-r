@@ -1,6 +1,6 @@
-export const productCreated = (product) => {
+export const productsFetched = (product) => {
   return {
-      type: 'PRODUCT_CREATED',
+      type: 'PRODUCTS_FETCHED',
       payload: product
   }
 }
@@ -8,6 +8,13 @@ export const productCreated = (product) => {
 export const productCategoriesChanged = (categoryName) => {
   return {
       type: 'PRODUCT_CATEGORIES_CHANGED',
+      payload: categoryName
+  }
+}
+
+export const setDefaultCategory = (categoryName) => {
+  return {
+      type: 'DEFAULT_CATEGORY',
       payload: categoryName
   }
 }

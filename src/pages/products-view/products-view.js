@@ -9,7 +9,11 @@ const ProductsView = ({ data, categoriesName, productId }) => {
       </div>
       <div className="products__inner">
         <div className="container">
-          <CategoriesTabs contents={data} categoriesName = {categoriesName} productId={productId} />
+          <CategoriesTabs
+            contents={data}
+            categoriesName={categoriesName}
+            productId={productId}
+          />
         </div>
       </div>
     </div>
