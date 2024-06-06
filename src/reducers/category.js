@@ -1,7 +1,7 @@
 const initialState = {
   category: {
     categoryList: [],
-    activeCategory: "",
+    activeCategory: "zefir", // это неправильно, нужно поменять на переменную
   },
 };
 

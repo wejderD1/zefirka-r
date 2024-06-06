@@ -10,6 +10,8 @@ import { createSelector } from "reselect";
 function CategoriesTabs({ categoriesName }) {
   const categories = categoriesName;
 
+  const { activeCategory } = useSelector((state) => state.categoryReducer);
+
   const filteredProductsListSelector = createSelector(
     (state) => state.productReducer.productsList,
     (state) => state.categoryReducer.activeCategory,
@@ -18,11 +20,11 @@ function CategoriesTabs({ categoriesName }) {
   );
 
   const filteredProductsList = useSelector(filteredProductsListSelector);
-
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(categoriesChanged(categoriesName[0]));
+    console.log(activeCategory, "ac");
+    dispatch(categoriesChanged(activeCategory));
   }, []);
 
   const productsCards = filteredProductsList.map((e) => {
