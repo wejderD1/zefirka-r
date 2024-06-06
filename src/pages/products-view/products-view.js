@@ -15,6 +15,7 @@ const ProductsView = ({ categoriesName }) => {
     getResource("http://localhost:5000/products")
       .then((data) => dispatch(productsFetched(data)))
       .catch((error) => console.log(error));
+
   }, []);
 
   return (
