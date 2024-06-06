@@ -1,5 +1,3 @@
-import { type } from "@testing-library/user-event/dist/type"
-
 export const productsFetched = (product) => {
   return {
       type: 'PRODUCTS_FETCHED',

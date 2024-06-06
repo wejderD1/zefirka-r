@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Footer from "./components/footer/footer";
 import HeaderApp from "./components/header-app/header-app";
 
-import { getResource } from "./services/app";
 import {
   Page404,
   HomeView,
@@ -14,8 +13,7 @@ import {
   AdminPanel,
   ProductDetails,
 } from "./pages";
-import { useDispatch, useSelector } from "react-redux";
-import { productsFetched } from "./actions";
+import { useDispatch } from "react-redux";
 
 const categories = [
   "zefir",
@@ -27,21 +25,12 @@ const categories = [
 ];
 
 function App() {
-  const { productsList } = useSelector((state) => state);
   const dispatch = useDispatch();
 
   const [advertisingData, setAdvertisingData] = useState(() => {
     const data = JSON.parse(localStorage.getItem("advertising-data"));
     return data ? data : [];
   });
-
-  const [product, setProduct] = useState({});
-
-  useEffect(() => {
-    getResource("http://localhost:5000/products")
-      .then((data) => dispatch(productsFetched(data)))
-      .catch((error) => console.log(error));
-  }, []);
 
   // useEffect(() => {
   //   getData("http://localhost:5000/products", setProductData);
@@ -102,7 +91,7 @@ function App() {
             />
           </Route>
           <Route path="/details/:id">
-            <ProductDetails productData={product} />
+            <ProductDetails />
           </Route>
           <Route component={Page404} />
         </Switch>

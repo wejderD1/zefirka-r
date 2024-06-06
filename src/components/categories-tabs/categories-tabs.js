@@ -7,10 +7,10 @@ import ProductCard from "../product-card/product-card";
 import { setDefaultCategory } from "../../actions";
 import { useDispatch, useSelector } from "react-redux";
 
-function CategoriesTabs({ categoriesName, productId }) {
+function CategoriesTabs({ categoriesName }) {
   const categories = categoriesName;
 
-  const { filteredProductsList } = useSelector((state) => state);
+  const { filteredProductsList } = useSelector((state) => state.products);
   const dispatch = useDispatch();
 
   useEffect(() => {

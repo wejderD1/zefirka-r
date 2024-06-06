@@ -105,22 +105,25 @@ function EditList({ data, i, handleDelete, container }) {
                 </div>
               </form>
 
-              {/* DATA CONTAINER */}
-              <div className="data-wrapper">
-                <form onSubmit={(e) => e.preventDefault()}>
-                  <ul>{productEditList}</ul>
-                </form>
-              </div>
-            </div>
-            {/* create advertising tab * */}
+              {/* DATA CONTAINER */
+//               <div className="data-wrapper">
+//                 <form onSubmit={(e) => e.preventDefault()}>
+//                   <ul>{productEditList}</ul>
+//                 </form>
+//               </div>
+//             </div>
+//             {/* create advertising tab * */}
             
-          </div>
-          <button
-            className="btn carousel__btn carousel__btn_right"
-            onClick={rightHandle}
-          >
-            <FontAwesomeIcon icon="fa-solid fa-arrow-right" />
-          </button>
-        </div>
+//           </div>
+//           <button
+//             className="btn carousel__btn carousel__btn_right"
+//             onClick={rightHandle}
+//           >
+//             <FontAwesomeIcon icon="fa-solid fa-arrow-right" />
+//           </button>
+//         </div>
 
-*/
+// */
+
+// const { productsList } = useSelector((state) => state);
+
