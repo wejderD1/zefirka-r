@@ -74,11 +74,6 @@ function App() {
     setAdvertisingData((prevAdvertisinData) => [...prevAdvertisinData, data]);
   };
 
-  const productId = (id) => {
-    const [selectedProduct] = productsList.filter((el) => el.id === id);
-    setProduct((prev) => ({ ...prev, selectedProduct }));
-  };
-
   return (
     <Router>
       <div className="app">
@@ -89,9 +84,7 @@ function App() {
           </Route>
           <Route path="/produkty">
             <ProductsView
-              // data={productList}
               categoriesName={categories}
-              productId={productId}
             />
           </Route>
           <Route path="/galeria"></Route>

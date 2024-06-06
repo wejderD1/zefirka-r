@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import "./tab-content.scss";
 
-function TabContent({ id, activeTab, children }) {
+function TabContent({ id, children }) {
   const { activeCategory } = useSelector((state) => state);
 
 

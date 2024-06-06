@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect } from "react";
 import "./categories-tabs.scss";
 import TabItem from "../tab-item/tab-item";
 import TabContent from "../tab-content/tab-content";
@@ -7,7 +7,7 @@ import ProductCard from "../product-card/product-card";
 import { setDefaultCategory } from "../../actions";
 import { useDispatch, useSelector } from "react-redux";
 
-function CategoriesTabs({ contents, categoriesName, productId }) {
+function CategoriesTabs({ categoriesName, productId }) {
   const categories = categoriesName;
 
   const { filteredProductsList } = useSelector((state) => state);
@@ -26,7 +26,6 @@ function CategoriesTabs({ contents, categoriesName, productId }) {
         desc={e.pDescription}
         price={e.pPrice}
         img={e.pImg}
-        productId={productId}
       />
     );
   });

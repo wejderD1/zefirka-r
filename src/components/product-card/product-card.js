@@ -4,7 +4,7 @@ import { selectedProduct } from "../../actions";
 import "./product-card.scss";
 import { useDispatch } from "react-redux";
 
-function ProductCard({ title, desc, price, img, id, productId }) {
+function ProductCard({ title, desc, price, img, id }) {
   const dispatch = useDispatch();
 
 
