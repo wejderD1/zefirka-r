@@ -1,14 +1,14 @@
 import { useDispatch, useSelector } from "react-redux";
-import {productCategoriesChanged} from "../../actions";
+import {categoriesChanged} from "../../actions";
 
 import "./tab-item.scss";
 
 function TabItem({ id, title}) {
-  const { activeCategory } = useSelector((state) => state);
+  const { activeCategory } = useSelector((state) => state.categoryReducer);
   const dispatch = useDispatch()
 
   const onToggleTab = () => {
-    dispatch(productCategoriesChanged(id))
+    dispatch(categoriesChanged(id))
   };
 
   return (

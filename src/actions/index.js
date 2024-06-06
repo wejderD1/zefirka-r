@@ -5,16 +5,9 @@ export const productsFetched = (product) => {
   }
 }
 
-export const productCategoriesChanged = (categoryName) => {
+export const categoriesChanged = (categoryName) => {
   return {
-      type: 'PRODUCT_CATEGORIES_CHANGED',
-      payload: categoryName
-  }
-}
-
-export const setDefaultCategory = (categoryName) => {
-  return {
-      type: 'DEFAULT_CATEGORY',
+      type: 'CATEGORIES_CHANGED',
       payload: categoryName
   }
 }

@@ -4,46 +4,53 @@ import TabItem from "../tab-item/tab-item";
 import TabContent from "../tab-content/tab-content";
 import ProductCard from "../product-card/product-card";
 
-import { setDefaultCategory } from "../../actions";
+import { categoriesChanged } from "../../actions";
 import { useDispatch, useSelector } from "react-redux";
 
 function CategoriesTabs({ categoriesName }) {
   const categories = categoriesName;
 
-  const { filteredProductsList } = useSelector((state) => state.products);
+
+  const {productsList} = useSelector(state => state.productReducer);
+  // const filteredProductsList  = useSelector((state) => {
+  //   const productsList = state.productReducer.productsList;
+  //   const activeCategory = state.categoryReducer.activeCategory;
+
+console.log(productsList);
+  //   console.log(productsList, activeCategory);
+  //   // filteredProductsList = productsList.filter(
+  //   //   (el) => el.category === activeCategory
+  //   // );
+  //   return filteredProductsList;
+  // });
+
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(setDefaultCategory(categoriesName[0]));
-  }, [])
+    dispatch(categoriesChanged(categoriesName[0]));
+  }, []);
 
-  const productsCards = filteredProductsList.map((e) => {
-    return (
-      <ProductCard
-        key={e.id}
-        id={e.id}
-        title={e.pTitle}
-        desc={e.pDescription}
-        price={e.pPrice}
-        img={e.pImg}
-      />
-    );
-  });
+  // const productsCards = filteredProductsList.map((e) => {
+  //   return (
+  //     <ProductCard
+  //       key={e.id}
+  //       id={e.id}
+  //       title={e.pTitle}
+  //       desc={e.pDescription}
+  //       price={e.pPrice}
+  //       img={e.pImg}
+  //     />
+  //   );
+  // });
 
   const tabItem = categories.map((el, i) => {
-    return (
-      <TabItem
-        key={i}
-        id={el}
-        title={el}
-      />
-    );
+    return <TabItem key={i} id={el} title={el} />;
   });
 
   const tabContent = categories.map((el, i) => {
     return (
-      <TabContent key={i} id={el} >
-        <div className="products-wrapper">{productsCards}</div>
+      <TabContent key={i} id={el}>
+        {/* <div className="products-wrapper">{productsCards}</div> */}
       </TabContent>
     );
   });
