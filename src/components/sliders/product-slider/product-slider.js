@@ -1,7 +1,9 @@
-import { useState, useCallback, Fragment, useEffect } from "react";
+import { useCallback, Fragment, useEffect, useState } from "react";
 
 import EditList from "../../edit-list/edit-list";
 import "./product-slider.scss";
+import { useDispatch, useSelector } from "react-redux";
+import { categoriesChanged } from "../../../actions";
 
 const uniqueID = () =>
   `id-${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`;
@@ -11,36 +13,43 @@ function ProductSlider({
   handleSubmit,
   productCard,
   productData,
-  selectedProduct
+  selectedProduct,
 }) {
-  const [selectedOption, setSelectedOption] = useState(categoriesName[0]);
+  const { activeCategory } = useSelector((state) => state.categoryReducer);
+  const dispatch = useDispatch();
+
+  const [id, setId] = useState("");
+
+useEffect(() => {
+  setId(uniqueID());
+}, []);
 
   useEffect(() => {
-    productCard.addProperty({ id: uniqueID() });
+    productCard.addProperty({ id });
   }, []);
 
   //created unique id from product card
   useEffect(() => {
-    productCard.addProperty({ category: selectedOption });
-  }, [selectedOption]);
+    productCard.addProperty({ category: activeCategory });
+  }, []);
 
   //create Edit List
-  const productEditList = productData
-    .filter((el) => el.category === selectedOption)
-    .map((el, i) => {
-      return (
-        <EditList
-          data={el}
-          key={i}
-          selectedProduct={selectedProduct}
-          // handleDelete={handleDelete}
-        />
-      );
-    });
+  // const productEditList = productData
+  //   .filter((el) => el.category === activeCategory)
+  //   .map((el, i) => {
+  //     return (
+  //       <EditList
+  //         data={el}
+  //         key={i}
+  //         selectedProduct={selectedProduct}
+  //         // handleDelete={handleDelete}
+  //       />
+  //     );
+  //   });
 
   //radio button change
   const handleRadioChange = useCallback((e) => {
-    setSelectedOption(e.target.value);
+    dispatch(categoriesChanged(e.target.value));
   }, []);
 
   //input data changed
@@ -57,7 +66,7 @@ function ProductSlider({
           key={i}
           type="radio"
           value={el}
-          checked={selectedOption === el}
+          checked={activeCategory === el}
           onChange={handleRadioChange}
           name="categories"
         />
@@ -105,7 +114,7 @@ function ProductSlider({
               clear form
             </button>
           </div>
-          {productEditList}
+          {/* {productEditList} */}
         </div>
       </form>
     </Fragment>

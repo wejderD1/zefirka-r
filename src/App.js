@@ -13,7 +13,6 @@ import {
   AdminPanel,
   ProductDetails,
 } from "./pages";
-import { useDispatch } from "react-redux";
 
 const categories = [
   "zefir",
@@ -25,7 +24,6 @@ const categories = [
 ];
 
 function App() {
-  const dispatch = useDispatch();
 
   const [advertisingData, setAdvertisingData] = useState(() => {
     const data = JSON.parse(localStorage.getItem("advertising-data"));
@@ -83,7 +81,7 @@ function App() {
           <Route path="/admin">
             <AdminPanel
               // newProductCreate={newProductCerate}
-              // categoriesName={categories}
+              categoriesName={categories}
               // productData={productData}
               // advertisingData={advertisingData}
               // onProductDelete={productDelete}

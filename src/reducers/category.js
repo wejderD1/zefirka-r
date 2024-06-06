@@ -12,9 +12,6 @@ const categoryReducer = (state = initialState.category, action) => {
       return {
         ...state,
         activeCategory: action.payload,
-        // filteredProductsList: state.productsList.filter(
-        //   (el) => el.category === action.payload
-        // ),
       };
 
     default:

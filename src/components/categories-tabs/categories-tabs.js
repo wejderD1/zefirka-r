@@ -23,7 +23,6 @@ function CategoriesTabs({ categoriesName }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log(activeCategory, "ac");
     dispatch(categoriesChanged(activeCategory));
   }, []);
 
