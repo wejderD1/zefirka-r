@@ -5,16 +5,19 @@ import ProductCard from "../product-card/product-card";
 
 import { categoriesChanged } from "../../actions";
 import { useDispatch, useSelector } from "react-redux";
+import { createSelector } from "reselect";
 
 function CategoriesTabs({ categoriesName }) {
   const categories = categoriesName;
 
-  const filteredProductsList = useSelector((state) => {
-    const productsList = state.productReducer.productsList;
-    const activeCategory = state.categoryReducer.activeCategory;
-    const newList = productsList.filter((el) => el.category === activeCategory);
-    return newList;
-  });
+  const filteredProductsListSelector = createSelector(
+    (state) => state.productReducer.productsList,
+    (state) => state.categoryReducer.activeCategory,
+    (products, selectedCategory) =>
+      products.filter((el) => el.category === selectedCategory)
+  );
+
+  const filteredProductsList = useSelector(filteredProductsListSelector);
 
   const dispatch = useDispatch();
 
