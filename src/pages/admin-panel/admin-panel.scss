@@ -84,17 +84,6 @@
   }
 }
 
-.btn {
-  &_create {
-    width: 200px;
-  }
-  &_clear {
-    background-color: rgb(251, 202, 202);
-    padding: 0 2rem;
-  }
-}
-
-
 .btn-wrapper {
   display: flex;
   gap: 20px;

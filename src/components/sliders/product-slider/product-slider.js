@@ -87,7 +87,6 @@ function ProductSlider({
   //input data changed
   const onDataChangeHandler = useCallback((e) => {
     const value = e.target.value;
-    console.log(value, "v");
     switch (e.target.name) {
       case "pTitle":
         setProductName(value);

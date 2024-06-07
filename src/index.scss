@@ -108,7 +108,7 @@ h6 {
   &:hover {
     background: #fff;
     color: $main-color;
-    transition: all .2s linear;
+    transition: all 0.2s linear;
   }
   &:active {
     background: rgb(194, 191, 191);
@@ -118,5 +118,12 @@ h6 {
     width: 20px;
     font-size: 27px;
     line-height: 0.8;
+  }
+  &_create {
+    width: 200px;
+  }
+  &_clear {
+    background-color: rgb(251, 202, 202);
+    padding: 0 2rem;
   }
 }
