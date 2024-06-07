@@ -28,7 +28,7 @@ function ProductCard({ title, desc, price, img, id }) {
           />
           <h3 className="card-title">{title}</h3>
           <p className="card-description">
-            {desc.lenght > 20 ? desc : desc.substr(0, 20) + "..."}.
+            {desc.length < 20 ? desc : desc.substr(0, 20) + "..."}
           </p>
           <h3 className="card-title card-price">{price} zł</h3>
         </div>
