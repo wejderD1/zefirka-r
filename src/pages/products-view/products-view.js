@@ -14,7 +14,7 @@ const ProductsView = ({ categoriesName }) => {
   useEffect(() => {
     getResource("http://localhost:5000/products")
       .then((data) => dispatch(productsFetched(data)))
-      .catch((error) => console.log(error));
+      .catch((error) => console.error(error));
 
   }, []);
 

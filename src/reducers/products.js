@@ -2,7 +2,7 @@ const initialState = {
   products: {
     productsList: [],
     selectedProduct: "",
-  }
+  },
 };
 
 const productReducer = (state = initialState.products, action) => {
@@ -30,6 +30,12 @@ const productReducer = (state = initialState.products, action) => {
     //       (el) => el.category === action.payload
     //     ),
     //   };
+
+    case "ADD_PRODUCT":
+      return {
+        ...state,
+        productsList: [...state.productsList, action.payload],
+      };
 
     case "SELECTED_PRODUCT":
       return {

@@ -1,9 +1,12 @@
 import { useCallback, Fragment, useEffect, useState } from "react";
+import { createSelector } from "reselect";
+import { useDispatch, useSelector } from "react-redux";
 
 import EditList from "../../edit-list/edit-list";
+import { categoriesChanged, addProduct } from "../../../actions";
+import { postData } from "../../../services/app";
+
 import "./product-slider.scss";
-import { useDispatch, useSelector } from "react-redux";
-import { categoriesChanged } from "../../../actions";
 
 const uniqueID = () =>
   `id-${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`;
@@ -16,21 +19,50 @@ function ProductSlider({
   selectedProduct,
 }) {
   const { activeCategory } = useSelector((state) => state.categoryReducer);
-  const dispatch = useDispatch();
+
+  // const filteredProductsListSelector = createSelector(
+  //   (state) => state.productReducer.productsList,
+  //   (state) => state.categoryReducer.activeCategory,
+  //   (products, selectedCategory) =>
+  //     products.filter((el) => el.category === selectedCategory)
+  // );
+
+  // const filteredProductsList = useSelector(filteredProductsListSelector);
+  // const dispatch = useDispatch();
 
   const [id, setId] = useState("");
 
-useEffect(() => {
-  setId(uniqueID());
-}, []);
+  const [productName, setProductName] = useState("");
+  const [productDescription, setProductDescription] = useState("");
+  const [productPrice, setProductPrice] = useState("");
+  const [productImage, setProductImage] = useState("");
+
+  const dispatch = useDispatch();
+
+  const onSubmitHandler = (e) => {
+    e.preventDefault();
+    const newProduct = {
+      id,
+      category: activeCategory,
+      pTitle: productName,
+      pDescription: productDescription,
+      pPrice: productPrice,
+      pImg: "20210529_105117.jpg"
+      // pImg: productImage,
+    };
+
+    postData("http://localhost:5000/products/new-product", newProduct)
+      .then((data) => dispatch(addProduct(data)))
+      .catch((error) => console.error(error));
+
+    setProductName("");
+    setProductDescription("");
+    setProductImage("");
+    setProductPrice("");
+  };
 
   useEffect(() => {
-    productCard.addProperty({ id });
-  }, []);
-
-  //created unique id from product card
-  useEffect(() => {
-    productCard.addProperty({ category: activeCategory });
+    setId(uniqueID());
   }, []);
 
   //create Edit List
@@ -54,7 +86,24 @@ useEffect(() => {
 
   //input data changed
   const onDataChangeHandler = useCallback((e) => {
-    productCard.onDataChange(e);
+    const value = e.target.value;
+    console.log(value, "v");
+    switch (e.target.name) {
+      case "pTitle":
+        setProductName(value);
+        break;
+      case "pDescription":
+        setProductDescription(value);
+        break;
+      case "pPrice":
+        setProductPrice(value);
+        break;
+      case "pImg":
+        setProductImage(value);
+        break;
+      default:
+        break;
+    }
   }, []);
 
   //created categories block (ratio buttons)
@@ -77,7 +126,7 @@ useEffect(() => {
 
   return (
     <Fragment>
-      <form action="POST" onSubmit={handleSubmit}>
+      <form action="POST" onSubmit={onSubmitHandler}>
         <div className="item__container">
           <h2 className="main-text">
             Utwórz nową pozycję produktu. Wstaw tytuł, opis i cenę produktu
@@ -96,9 +145,9 @@ useEffect(() => {
                   onChange={onDataChangeHandler}
                   placeholder={
                     el === "id"
-                      ? productCard.value.id
+                      ? id
                       : null || el === "category"
-                      ? productCard.value.category
+                      ? activeCategory
                       : null
                   }
                   disabled={el === "id" || el === "category" ? true : false}

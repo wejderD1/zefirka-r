@@ -3,7 +3,7 @@
 .card {
   &-container {
     width: 280px;
-    height: 390px;
+    height: 450px;
     border-radius: 10px;
     box-shadow: 2px 2px 16px $contrast-color;
     padding: 25px;
@@ -49,6 +49,7 @@
   .card {
     &-container {
       width: 200px;
+      height: 360px;
     }
     &-img {
       width: 200px;
