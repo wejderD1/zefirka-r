@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
+import { useHttp } from "../../services/http.hooks";
 import { getResource } from "../../services/app";
 import { productsFetched } from "../../actions";
 
@@ -8,14 +9,13 @@ import CategoriesTabs from "../../components/categories-tabs/categories-tabs";
 import "./products-view.scss";
 
 const ProductsView = ({ categoriesName }) => {
-
   const dispatch = useDispatch();
+  const { request } = useHttp();
 
   useEffect(() => {
-    getResource("http://localhost:5000/products")
+    request("http://localhost:5000/products")
       .then((data) => dispatch(productsFetched(data)))
       .catch((error) => console.error(error));
-
   }, []);
 
   return (
@@ -25,9 +25,7 @@ const ProductsView = ({ categoriesName }) => {
       </div>
       <div className="products__inner">
         <div className="container">
-          <CategoriesTabs
-            categoriesName={categoriesName}
-          />
+          <CategoriesTabs categoriesName={categoriesName} />
         </div>
       </div>
     </div>
