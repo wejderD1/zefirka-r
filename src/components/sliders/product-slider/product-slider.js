@@ -1,15 +1,11 @@
 import { useCallback, Fragment, useEffect, useState } from "react";
-import { createSelector } from "reselect";
 import { useDispatch, useSelector } from "react-redux";
+import { v4 as uuidv4 } from "uuid";
 
-import EditList from "../../edit-list/edit-list";
 import { categoriesChanged, addProduct } from "../../../actions";
-import { postData } from "../../../services/app";
 
 import "./product-slider.scss";
-
-const uniqueID = () =>
-  `id-${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`;
+import { useHttp } from "../../../services/http.hooks";
 
 function ProductSlider({
   categoriesName,
@@ -19,7 +15,7 @@ function ProductSlider({
   selectedProduct,
 }) {
   const { activeCategory } = useSelector((state) => state.categoryReducer);
-
+  const { request } = useHttp();
   // const filteredProductsListSelector = createSelector(
   //   (state) => state.productReducer.productsList,
   //   (state) => state.categoryReducer.activeCategory,
@@ -29,8 +25,6 @@ function ProductSlider({
 
   // const filteredProductsList = useSelector(filteredProductsListSelector);
   // const dispatch = useDispatch();
-
-  const [id, setId] = useState("");
 
   const [productName, setProductName] = useState("");
   const [productDescription, setProductDescription] = useState("");
@@ -42,42 +36,28 @@ function ProductSlider({
   const onSubmitHandler = (e) => {
     e.preventDefault();
     const newProduct = {
-      id,
+      id: uuidv4(),
       category: activeCategory,
       pTitle: productName,
       pDescription: productDescription,
       pPrice: productPrice,
-      pImg: "20210529_105117.jpg"
+      pImg: productImage || "20210529_105117.jpg",
       // pImg: productImage,
     };
 
-    postData("http://localhost:5000/products/new-product", newProduct)
-      .then((data) => dispatch(addProduct(data)))
-      .catch((error) => console.error(error));
+    request(
+      "http://localhost:5000/products/new-product",
+      "POST",
+      JSON.stringify(newProduct)
+    )
+      .then(dispatch(addProduct(newProduct)))
+      .catch((err) => console.log(err));
 
     setProductName("");
     setProductDescription("");
     setProductImage("");
     setProductPrice("");
   };
-
-  useEffect(() => {
-    setId(uniqueID());
-  }, []);
-
-  //create Edit List
-  // const productEditList = productData
-  //   .filter((el) => el.category === activeCategory)
-  //   .map((el, i) => {
-  //     return (
-  //       <EditList
-  //         data={el}
-  //         key={i}
-  //         selectedProduct={selectedProduct}
-  //         // handleDelete={handleDelete}
-  //       />
-  //     );
-  //   });
 
   //radio button change
   const handleRadioChange = useCallback((e) => {
@@ -125,11 +105,12 @@ function ProductSlider({
 
   return (
     <Fragment>
-      <form action="POST" onSubmit={onSubmitHandler}>
+      <form onSubmit={onSubmitHandler}>
         <div className="item__container">
           <h2 className="main-text">
             Utwórz nową pozycję produktu. Wstaw tytuł, opis i cenę produktu
           </h2>
+          
           <div className="categories__wrapper">{categoriesRadioButton}</div>
           {Object.keys(productCard.value).map((el, i) => {
             return (
@@ -141,14 +122,12 @@ function ProductSlider({
                   className="data-input"
                   type="text"
                   name={el}
+                  value={el === "pTitle" ? productName :
+                    el === "pDescription" ? productDescription :
+                    el === "pPrice" ? productPrice :
+                    el === "pImg" ? productImage : ''}
                   onChange={onDataChangeHandler}
-                  placeholder={
-                    el === "id"
-                      ? id
-                      : null || el === "category"
-                      ? activeCategory
-                      : null
-                  }
+                  placeholder={el === "category" ? activeCategory : null}
                   disabled={el === "id" || el === "category" ? true : false}
                 />
               </Fragment>
