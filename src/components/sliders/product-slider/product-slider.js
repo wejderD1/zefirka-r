@@ -42,7 +42,6 @@ function ProductSlider({
       pDescription: productDescription,
       pPrice: productPrice,
       pImg: productImage || "20210529_105117.jpg",
-      // pImg: productImage,
     };
 
     request(

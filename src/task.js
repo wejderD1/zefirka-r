@@ -4,6 +4,8 @@
 
 
 
+
+
 function EditList({ data, i, handleDelete, container }) {
   const { id, pTitle: title } = data; нужно переделать на универсальный компонент
 

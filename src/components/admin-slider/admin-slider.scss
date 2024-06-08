@@ -13,10 +13,6 @@
   flex: 1;
 }
 
-.slide {
-  min-width: 100%;
-}
-
 // CAROUSEL
 .carousel {
 //   &__wrapper {
@@ -39,4 +35,8 @@
 
     cursor: pointer;
   }
+}
+
+.slide {
+  flex:  0 0 100%;
 }
