@@ -9,22 +9,10 @@ import { useHttp } from "../../../services/http.hooks";
 
 function ProductSlider({
   categoriesName,
-  handleSubmit,
   productCard,
-  productData,
-  selectedProduct,
 }) {
   const { activeCategory } = useSelector((state) => state.categoryReducer);
   const { request } = useHttp();
-  // const filteredProductsListSelector = createSelector(
-  //   (state) => state.productReducer.productsList,
-  //   (state) => state.categoryReducer.activeCategory,
-  //   (products, selectedCategory) =>
-  //     products.filter((el) => el.category === selectedCategory)
-  // );
-
-  // const filteredProductsList = useSelector(filteredProductsListSelector);
-  // const dispatch = useDispatch();
 
   const [productName, setProductName] = useState("");
   const [productDescription, setProductDescription] = useState("");

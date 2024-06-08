@@ -1,7 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-import { getResource } from "../../services/app";
 import "./product-details.scss";
 
 function ProductDetails() {
