@@ -1,5 +1,4 @@
 import "./admin-panel.scss";
-import { useEffect, useState } from "react";
 
 import { InputDataChange } from "../../services/hoocks";
 
