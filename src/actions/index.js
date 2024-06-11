@@ -25,3 +25,10 @@ export const addProduct = (product) => {
     payload: product
   }
 }
+
+export const creaetAdvertising = (advertising) => {
+  return {
+    type: "ADVERTIOSING_CREATE",
+    payload: advertising
+  }
+}
