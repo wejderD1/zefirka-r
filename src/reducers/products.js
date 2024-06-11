@@ -1,7 +1,7 @@
 const initialState = {
   products: {
     productsList: [],
-    selectedProduct: "",
+    oneProduct: null,
   },
 };
 
@@ -38,9 +38,10 @@ const productReducer = (state = initialState.products, action) => {
       };
 
     case "SELECTED_PRODUCT":
+      const selectedProduct = state.productsList.find((el) => el.id === action.payload);
       return {
         ...state,
-        selectedProduct: action.payload,
+        oneProduct: selectedProduct
       };
 
     default:

@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
 import { useHttp } from "../../services/http.hooks";
-import { getResource } from "../../services/app";
 import { productsFetched } from "../../actions";
 
 import CategoriesTabs from "../../components/categories-tabs/categories-tabs";

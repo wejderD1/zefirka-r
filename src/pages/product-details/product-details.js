@@ -2,29 +2,40 @@ import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import "./product-details.scss";
+import { useDispatch, useSelector } from "react-redux";
+import { selectedProduct, productsFetched } from "../../actions";
+import { useHttp } from "../../services/http.hooks";
 
 function ProductDetails() {
   const { id } = useParams();
-  const [product, setProduct] = useState({});
+  const { request } = useHttp();
+
+  const dispatch = useDispatch();
+  const oneProduct = useSelector((state) => state.productReducer.oneProduct);
 
   useEffect(() => {
-    if (id) {
-      getResource("http://localhost:5000/products")
-      .then(res => res.find(e => e.id === id))
-      .then(data => {
-        setProduct(data)      
-      });
-    }
+    request("http://localhost:5000/products")
+      .then((data) => {
+        dispatch(productsFetched(data));
+        dispatch(selectedProduct(id));
+      })
+      .catch((error) => console.error(error));
+  }, [id, request]);
 
-  }, [id]);
+  if (!oneProduct || Object.keys(oneProduct).length === 0) {
+    return <div>Loading...</div>;
+  }
 
-  const { pTitle, pDescription, pImg, pPrice } = product;
+  const { pTitle, pDescription, pPrice } = oneProduct;
 
   return (
     <div className="container product-details__container">
       <div className="product-details__inner">
         <div className="product__info">
-          <h2 className="product__title subtitle product__title_bottom-line">
+          <h2
+            className="subtitle product__title product__title_bottom-line"
+            type="title"
+          >
             {pTitle}
           </h2>
           <h3 className="main-text product__details">{pDescription}</h3>
