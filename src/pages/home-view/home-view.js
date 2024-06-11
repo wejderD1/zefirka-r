@@ -1,11 +1,17 @@
+import { useDispatch, useSelector } from "react-redux";
+
 import AboutMe from "../../components/about-me/about-me";
 import Advertising from "../../components/advertising/advertising";
 import InformationBlock from "../../components/information-block/information-block";
 
+import { useHttp } from "../../services/http.hooks";
+
 import "./home-view.scss";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { advertisingFetched } from "../../actions";
 
-const HomeView = ({advertisingData}) => {
+const HomeView = () => {
   return (
     <div className="home">
       <div className="container">
@@ -15,7 +21,9 @@ const HomeView = ({advertisingData}) => {
               <h1 className="subtitle subtitle_bottom-line home-title_white">
                 domowe słodycze i wypieki
               </h1>
-              <h1 className="main-title shadow_white">Desery z miłością od Valentyny</h1>
+              <h1 className="main-title shadow_white">
+                Desery z miłością od Valentyny
+              </h1>
             </div>
             <Link className="btn btn_main" to="/produkty">
               nasza produkcja
@@ -23,7 +31,7 @@ const HomeView = ({advertisingData}) => {
           </div>
         </div>
       </div>
-      <Advertising data={advertisingData}/>
+      <Advertising />
       <div className="about">
         <div className="container">
           <div className="about__inner">

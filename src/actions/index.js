@@ -26,7 +26,14 @@ export const addProduct = (product) => {
   }
 }
 
-export const creaetAdvertising = (advertising) => {
+export const advertisingFetched = (data) => {
+  return {
+    type: "ADVERTISING_FETCHED",
+    payload: data
+  }
+} 
+
+export const createAdvertising = (advertising) => {
   return {
     type: "ADVERTIOSING_CREATE",
     payload: advertising

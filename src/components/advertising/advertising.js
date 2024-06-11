@@ -1,9 +1,12 @@
 import { Fragment, useEffect, useRef, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 // import SocialLinks from "../social-links/social-links";
 
+import { useHttp } from "../../services/http.hooks";
+import { advertisingFetched } from "../../actions";
 import "./advertising.scss";
 
-function Advertising({ data }) {
+function Advertising() {
   const offsetWidth = useRef(null);
   const slidesContainer = useRef(null);
   const scrollWidth = useRef(null);
@@ -11,16 +14,24 @@ function Advertising({ data }) {
   const [offset, setOffset] = useState(0);
   const [slidesIndex, setSlidesIndex] = useState(1);
   const [slidesLength, setSlidesLength] = useState(0);
-  const [advertisingData, setAdvertisingData] = useState(() => {
-    return !data ? [] : data;
-  });
+
+  const { advertisingList } = useSelector((state) => state.advertisingReducer);
+  const dispatch = useDispatch();
+  const { request } = useHttp();
+
+
+  //!!!!!!!!!!!!!!!!!1не проходит запрос на сервер!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+  useEffect(() => {
+    request("http://localhost:5000/advertising")
+      .then((data) => dispatch(advertisingFetched(data)))
+      .catch((error) => console.error(error));
+  }, []);
 
   useEffect(() => {
-    if(slidesContainer.current) {
+    if (slidesContainer.current) {
       offsetWidth.current = slidesContainer.current.children[0].clientWidth; //children width
       scrollWidth.current = slidesContainer.current.scrollWidth; //parent lendth
       setSlidesLength(slidesContainer.current.childElementCount);
-      // console.dir(slidesContainer.current);
     }
   }, [slidesLength]);
 
@@ -42,8 +53,8 @@ function Advertising({ data }) {
   };
 
   const advertisingItems =
-    advertisingData.length > 0 &&
-    advertisingData.map((el, i) => {
+    advertisingList.length > 0 &&
+    advertisingList.map((el, i) => {
       return (
         <div key={i} className="carousell__item">
           <div className="advertising__info">
@@ -100,7 +111,9 @@ function Advertising({ data }) {
                 Czekoladowe jajka, desery z marshmallow, wielkanocne babki i
                 panetone będą doskonałym poczęstunkiem na Wielkanoc.
               </p>
-              <h5 className="advertising__note">Zamówienia są przyjmowane do 24 marca.</h5>
+              <h5 className="advertising__note">
+                Zamówienia są przyjmowane do 24 marca.
+              </h5>
             </div>
             <img
               className="advertising__img"
@@ -135,11 +148,7 @@ function Advertising({ data }) {
     </Fragment>
   );
 
-  return (
-    <div className="advertising__container">
-      {content}
-    </div>
-  );
+  return <div className="advertising__container">{content}</div>;
 }
 
 export default Advertising;
