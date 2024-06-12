@@ -15,15 +15,15 @@ function Advertising() {
   const [slidesIndex, setSlidesIndex] = useState(1);
   const [slidesLength, setSlidesLength] = useState(0);
 
-  const { advertisingList } = useSelector((state) => state.advertisingReducer);
+  const { advertisingsList } = useSelector((state) => state.advertisingReducer);
   const dispatch = useDispatch();
   const { request } = useHttp();
 
-
-  //!!!!!!!!!!!!!!!!!1не проходит запрос на сервер!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
   useEffect(() => {
     request("http://localhost:5000/advertising")
-      .then((data) => dispatch(advertisingFetched(data)))
+      .then((data) => {
+        dispatch(advertisingFetched(data))
+  })
       .catch((error) => console.error(error));
   }, []);
 
@@ -52,9 +52,9 @@ function Advertising() {
     }
   };
 
-  const advertisingItems =
-    advertisingList.length > 0 &&
-    advertisingList.map((el, i) => {
+  const advertisingsItems =
+    // advertisingList.length > 0 &&
+    advertisingsList.map((el, i) => {
       return (
         <div key={i} className="carousell__item">
           <div className="advertising__info">
@@ -122,7 +122,7 @@ function Advertising() {
               alt="картинка рекламы"
             />
           </div>
-          {advertisingItems}
+          {advertisingsItems}
         </div>
       </div>
       <button

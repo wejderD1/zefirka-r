@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useCallback, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 import { createAdvertising } from "../../../actions";
@@ -13,7 +13,6 @@ function AdvertisingSlider({ advertisingCard }) {
   const [advertisingImage, setAdvertisingImage] = useState("");
   const { request } = useHttp();
 
-  // const {advertisingList} = useSelector((state) => state.advertisingReducer)
   const dispatch = useDispatch();
 
   const onSubmitHandler = (e) => {
@@ -40,9 +39,27 @@ function AdvertisingSlider({ advertisingCard }) {
     setAdvertisingNote("");
   };
 
-  const onAdvertisingDataChange = (e) => {
-    advertisingCard.onDataChange(e);
-  };
+    //input data changed
+    const onDataChangeHandler = useCallback((e) => {
+      const value = e.target.value;
+      console.log(value);
+      switch (e.target.name) {
+        case "aTitle":
+          setAdvertisingName(value);
+          break;
+        case "aDesc":
+          setAdvertisingDescription(value);
+          break;
+        case "aNote":
+          setAdvertisingNote(value);
+          break;
+        case "aImg":
+          setAdvertisingImage(value);
+          break;
+        default:
+          break;
+      }
+    }, []);
 
   return (
     <form action="POST" onSubmit={onSubmitHandler}>
@@ -60,13 +77,13 @@ function AdvertisingSlider({ advertisingCard }) {
                 className="data-input"
                 type="text"
                 name={el}
-                onChange={onAdvertisingDataChange}
+                onChange={onDataChangeHandler}
                 placeholder={el === "id" ? advertisingCard.value.id : null}
               />
             </Fragment>
           );
         })}
-        <button className="btn btn_create" type="button">
+        <button className="btn btn_create" type="submit">
           CREATE
         </button>
       </div>

@@ -11,7 +11,7 @@ const advertisingReducer = (state = initialState.advertisings, action) => {
         ...state,
         advertisingsList: action.payload,
       };
-    case "ADVERTIOSING_CREATE":
+    case "ADVERTISING_CREATE":
       return {
         ...state,
         advertisingsList: [...state.advertisingsList, action.payload],
