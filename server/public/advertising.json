@@ -1,28 +1,30 @@
 [
   {
-    "aTitle": "Słodka majówka",
-    "aDesc": "Tylko 3 dni 1-3 maja wszystkie torty -30%",
-    "aNote": "zamówienia śą aktywne do 30 kwietnia",
-    "aImg": "20220308_193827.jpg"
+    "id": "d32b8ee6-e9e6-4d17-8719-6d34e69f1678",
+    "aTitle": "Welkanocna wyprzedaż",
+    "aDesc": "wszystkie ciastka po 1 zł",
+    "pNote": "tylko w ponedziałek",
+    "aImg": "20210529_105117.jpg"
   },
   {
-    "aTitle": "3 maja są zefirki w kolorash flagi",
-    "aDesc": "Czerwone i biale. Bardzo smachne (ze smakiem maliny i wanili)",
-    "aNote": "polecam dla wszystkich",
-    "aImg": "20220308_193827.jpg"
+    "id": "efecdf67-e66c-4eed-ac46-4342ee8bbef7",
+    "aTitle": "",
+    "aDesc": "",
+    "pNote": "",
+    "aImg": "20210529_105117.jpg"
   },
   {
-    "id": "d249344b-964a-4f89-86b9-981c474c9c16",
-    "aTitle": "zxczxc",
-    "aDesc": "zxczxc",
-    "pNote": "zxczxc",
-    "aImg": "20220308_193827.jpg"
+    "id": "aaf750ce-b4da-429c-b563-f651515070e6",
+    "aTitle": "lololololo lorem",
+    "aDesc": "asdfasdfasdfsad asdf asdfasdf",
+    "pNote": "asdfasdfasdf sadfasd asdf s",
+    "aImg": "20210529_105117.jpg"
   },
   {
-    "id": "fb83fdb4-d0c9-480b-8236-59661746a18a",
-    "aTitle": "aSDAAd",
-    "aDesc": "ASDAsdASD AsdASDAsd",
-    "pNote": "sdASDSDDD",
-    "aImg": "20220308_193827.jpg"
+    "id": "aaf750ce-b4da-429c-b563-f651515070e6",
+    "aTitle": "lololololo lorem",
+    "aDesc": "asdfasdfasdfsad asdf asdfasdf",
+    "pNote": "asdfasdfasdf sadfasd asdf s",
+    "aImg": "20210529_105117.jpg"
   }
 ]

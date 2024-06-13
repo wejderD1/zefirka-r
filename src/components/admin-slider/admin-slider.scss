@@ -2,9 +2,10 @@
   position: relative;
   width: 80%;
   margin: auto;
+  margin-top: 25px;
   overflow: hidden;
   display: flex;
-  align-items: center;
+  align-items: baseline;
 }
 
 .slides {
@@ -15,18 +16,6 @@
 
 // CAROUSEL
 .carousel {
-//   &__wrapper {
-//     margin: 3rem 0;
-//     width: 100%;
-//     display: flex;
-//     justify-content: space-between;
-//     gap: 20px;
-//     align-items: start;
-//   }
-  // &__inner {
-  //   flex-grow: 1;
-  // }
-
   &__btn {
     user-select: none;
     width: 40px;
