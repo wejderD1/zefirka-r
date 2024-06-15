@@ -22,42 +22,42 @@ const HomeView = () => {
   useEffect(() => {
     request("http://localhost:5000/advertising")
       .then((data) => {
-        dispatch(advertisingFetched(data))
+        dispatch(advertisingFetched(data));
         setLoading(false);
       })
       .catch((error) => {
-        console.error(error)
+        console.error(error);
         setLoading(false);
       });
-      
   }, []);
 
   if (loading) {
-    return <div style={{paddingTop: "200px", height: "100vh"}}>Loading...</div>;
+    return (
+      <div style={{ paddingTop: "200px", height: "100vh" }}>Loading...</div>
+    );
   }
 
   const advertisingContent = advertisingsList.map((el, i) => {
     return (
-      <div key={i} className="carousell__item">
-      <div className="advertising__info">
-        <h2 className="main-title advertising__title">{el.aTitle}</h2>
-        <p className="advertising__description">{el.aDesc}</p>
-        <h5 className="advertising__note">{el.aNote}</h5>
+      <div key={i} className="carousell__item" style={{ minHeight: "25rem" }}>
+        <div className="advertising__info">
+          <h2 className="main-title advertising__title">{el.aTitle}</h2>
+          <p className="advertising__description">{el.aDesc}</p>
+          <h5 className="advertising__note">{el.aNote}</h5>
+        </div>
+        <img
+          className="advertising__img"
+          // src="http://placehold.it/1600x790"
+          src={
+            el.aImg
+              ? require(`../../assets/images/${el.aImg}`)
+              : `http://placehold.it/350x350`
+          }
+          alt="aPicturec"
+        />
       </div>
-      <img
-        className="advertising__img"
-        // src="http://placehold.it/1600x790"
-        src={
-          el.aImg
-            ? require(`../../assets/images/${el.aImg}`)
-            : `http://placehold.it/350x350`
-        }
-        alt="aPicturec"
-      />
-    </div>
-    )
-
-  })
+    );
+  });
   return (
     <div className="home">
       <div className="container">
@@ -77,7 +77,7 @@ const HomeView = () => {
           </div>
         </div>
       </div>
-      <Slider itemsData={advertisingContent}/>
+      <Slider itemsData={advertisingContent} />
       {/* <Advertising /> */}
       <div className="about">
         <div className="container">

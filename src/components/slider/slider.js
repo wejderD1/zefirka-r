@@ -1,10 +1,9 @@
 import { useState, useRef, useEffect } from "react";
 import "./slider.scss";
 
-function  Slider({ itemsData }) {
-
+function Slider({ itemsData }) {
   const sliderItem = useRef(null);
-  
+
   const [offset, setOffset] = useState(0);
   const [sliderWidth, setSliderWidth] = useState(0);
   const [slidersCount, setSlidersCount] = useState(1);
@@ -12,19 +11,18 @@ function  Slider({ itemsData }) {
   useEffect(() => {
     setSliderWidth(sliderItem.current.clientWidth);
   }, []);
-  
+
   const nextSlide = () => {
     if (slidersCount !== itemsData.length) {
-      setOffset(offset + sliderWidth);      
-      setSlidersCount(prev => prev + 1);
+      setOffset(offset + sliderWidth);
+      setSlidersCount((prev) => prev + 1);
     }
-
   };
 
   const pervSlide = () => {
     if (offset !== 0) {
       setOffset(offset - sliderWidth);
-      setSlidersCount(prev => prev - 1);
+      setSlidersCount((prev) => prev - 1);
     }
   };
 
@@ -44,10 +42,18 @@ function  Slider({ itemsData }) {
           })}
         </div>
       </div>
-      <button className="slider__btn slider__btn_prev" onClick={pervSlide}>
+      <button
+        className="slider__btn slider__btn_prev"
+        onClick={pervSlide}
+        disabled={slidersCount === 1 ? true : false}
+      >
         &#8249;
       </button>
-      <button className="slider__btn slider__btn_next" onClick={nextSlide}>
+      <button
+        className="slider__btn slider__btn_next"
+        onClick={nextSlide}
+        disabled={slidersCount === itemsData.length ? true : false}
+      >
         &#8250;
       </button>
     </div>
