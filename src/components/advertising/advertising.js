@@ -25,7 +25,6 @@ function Advertising() {
         dispatch(advertisingFetched(data))
   })
       .catch((error) => console.error(error));
-
   }, []);
 
   useEffect(() => {
