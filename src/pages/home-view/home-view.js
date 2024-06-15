@@ -1,17 +1,63 @@
 import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 
 import AboutMe from "../../components/about-me/about-me";
 import Advertising from "../../components/advertising/advertising";
 import InformationBlock from "../../components/information-block/information-block";
-
-import { useHttp } from "../../services/http.hooks";
+import Slider from "../../components/slider/slider";
 
 import "./home-view.scss";
-import { Link } from "react-router-dom";
-import { useEffect } from "react";
+import { useHttp } from "../../services/http.hooks";
 import { advertisingFetched } from "../../actions";
 
+import { Link } from "react-router-dom";
+
 const HomeView = () => {
+  const [loading, setLoading] = useState(true);
+
+  const { advertisingsList } = useSelector((state) => state.advertisingReducer);
+  const dispatch = useDispatch();
+  const { request } = useHttp();
+
+  useEffect(() => {
+    request("http://localhost:5000/advertising")
+      .then((data) => {
+        dispatch(advertisingFetched(data))
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error(error)
+        setLoading(false);
+      });
+      
+  }, []);
+
+  if (loading) {
+    return <div style={{paddingTop: "200px", height: "100vh"}}>Loading...</div>;
+  }
+
+  const advertisingContent = advertisingsList.map((el, i) => {
+    return (
+      <div key={i} className="carousell__item">
+      <div className="advertising__info">
+        <h2 className="main-title advertising__title">{el.aTitle}</h2>
+        <p className="advertising__description">{el.aDesc}</p>
+        <h5 className="advertising__note">{el.aNote}</h5>
+      </div>
+      <img
+        className="advertising__img"
+        // src="http://placehold.it/1600x790"
+        src={
+          el.aImg
+            ? require(`../../assets/images/${el.aImg}`)
+            : `http://placehold.it/350x350`
+        }
+        alt="aPicturec"
+      />
+    </div>
+    )
+
+  })
   return (
     <div className="home">
       <div className="container">
@@ -31,7 +77,8 @@ const HomeView = () => {
           </div>
         </div>
       </div>
-      <Advertising />
+      <Slider itemsData={advertisingContent}/>
+      {/* <Advertising /> */}
       <div className="about">
         <div className="container">
           <div className="about__inner">

@@ -5,6 +5,7 @@ import { InputDataChange } from "../../services/hoocks";
 import ProductSlider from "../../components/sliders/product-slider/product-slider";
 import AdvertisingSlider from "../../components/sliders/advertising-slider/advertisingSlider";
 import AdminSlider from "../../components/admin-slider/admin-slider";
+import Slider from "../../components/slider/slider";
 
 const AdminPanel = ({
   categoriesName,
@@ -40,7 +41,7 @@ const AdminPanel = ({
     <div className="admin-panel">
       <div className="admin-panel__wrapper">
         <h1>ADMIN PANEL</h1>
-        <AdminSlider slides={slides} />
+        <Slider itemsData={slides} />
       </div>
     </div>
   );
