@@ -6,6 +6,7 @@ import InformationBlock from "../../components/information-block/information-blo
 import Slider from "../../components/slider/slider";
 
 import "./home-view.scss";
+import bkg from "../../assets/images/bkg_advertising.jpg";
 import { useHttp } from "../../services/http.hooks";
 import { advertisingFetched } from "../../actions";
 
@@ -46,11 +47,10 @@ const HomeView = () => {
         </div>
         <img
           className="advertising__img"
-          // src="http://placehold.it/1600x790"
           src={
             el.aImg
               ? require(`../../assets/images/${el.aImg}`)
-              : `http://placehold.it/350x350`
+              : `http://placehold.it/300`
           }
           alt="advertising pictures"
         />
@@ -80,7 +80,7 @@ const HomeView = () => {
       <Slider itemsData={advertisingContent} option={
         {
           indicators: true,
-          background: "../../assets/images/bkg_advertising.jpg"
+          backgroundImage: bkg
         }
       }/>
       {/* <Advertising /> */}

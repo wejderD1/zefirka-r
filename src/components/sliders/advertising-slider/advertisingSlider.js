@@ -1,7 +1,7 @@
 import { Fragment, useCallback, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-import { createAdvertising } from "../../../actions";
+import { advertisingCreate } from "../../../actions";
 import { useDispatch } from "react-redux";
 
 import { useHttp } from "../../../services/http.hooks";
@@ -21,7 +21,7 @@ function AdvertisingSlider({ advertisingCard }) {
       id: uuidv4(),
       aTitle: advertisingName,
       aDesc: advertisingDescription,
-      pNote: advertisingNote,
+      aNote: advertisingNote,
       aImg: advertisingImage,
     };
 
@@ -30,7 +30,7 @@ function AdvertisingSlider({ advertisingCard }) {
       "POST",
       JSON.stringify(newAdvertising)
     )
-      .then(dispatch(createAdvertising(newAdvertising)))
+      .then(dispatch(advertisingCreate(newAdvertising)))
       .catch((err) => console.log(err));
 
     setAdvertisingName("");
@@ -77,6 +77,12 @@ function AdvertisingSlider({ advertisingCard }) {
                 className="data-input"
                 type="text"
                 name={el}
+                value={
+                  el === "aTitle" ? advertisingName :
+                  el === "aDesc" ? advertisingDescription :
+                  el === "aNote" ? advertisingNote :
+                  el === "aImg" ? advertisingImage : ""
+                }
                 onChange={onDataChangeHandler}
                 placeholder={el === "id" ? advertisingCard.value.id : null}
               />

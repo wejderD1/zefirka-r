@@ -33,7 +33,7 @@ export const advertisingFetched = (data) => {
   }
 } 
 
-export const createAdvertising = (advertising) => {
+export const advertisingCreate = (advertising) => {
   return {
     type: "ADVERTISING_CREATE",
     payload: advertising

@@ -3,16 +3,21 @@ import CarouselIndicators from "./carousel-indicators/carouselIndicators";
 
 import "./slider.scss";
 
+//нужно продумать как добавлять или убирать картинку
+
 /**
  *
  * @param itemsData Array - slider items data }
- * @param option 
+ * @param option
  *  - indicators : Boolean - slider indicators visible
- *  - background : String - slider background image 
+ *  - backgroundImage : String - slider background image
+ *  - image: Boolean - add image into advertising
  * @returns Slider components
  */
 
 function Slider({ itemsData, option = null }) {
+  const { indicators, backgroundImage } = option;
+
   const sliderItem = useRef(null);
 
   const [offset, setOffset] = useState(0);
@@ -40,7 +45,12 @@ function Slider({ itemsData, option = null }) {
   };
 
   return (
-    <div className="slider__container">
+    <div
+      className="slider__container"
+      style={{
+        backgroundImage: backgroundImage ? `url(${backgroundImage})` : 'none'
+      }}
+    >
       <div className="slider__inner">
         <div
           className="slider__wrapper"
@@ -71,7 +81,7 @@ function Slider({ itemsData, option = null }) {
       </button>
 
       <CarouselIndicators
-        visible={option.indicators}
+        visible={indicators}
         itemsCount={itemsData.length}
         activeSlider={activeSlider}
         setActiveSlider={setActiveSlider}

@@ -109,10 +109,12 @@ function ProductSlider({
                   className="data-input"
                   type="text"
                   name={el}
-                  value={el === "pTitle" ? productName :
+                  value={
+                    el === "pTitle" ? productName :
                     el === "pDescription" ? productDescription :
                     el === "pPrice" ? productPrice :
-                    el === "pImg" ? productImage : ''}
+                    el === "pImg" ? productImage : ''
+                  }
                   onChange={onDataChangeHandler}
                   placeholder={el === "category" ? activeCategory : null}
                   disabled={el === "id" || el === "category" ? true : false}
