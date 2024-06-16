@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 
 import AboutMe from "../../components/about-me/about-me";
-import Advertising from "../../components/advertising/advertising";
 import InformationBlock from "../../components/information-block/information-block";
 import Slider from "../../components/slider/slider";
 
@@ -39,7 +38,7 @@ const HomeView = () => {
 
   const advertisingContent = advertisingsList.map((el, i) => {
     return (
-      <div key={i} className="carousell__item" style={{ minHeight: "25rem" }}>
+      <div className="advertising__container">
         <div className="advertising__info">
           <h2 className="main-title advertising__title">{el.aTitle}</h2>
           <p className="advertising__description">{el.aDesc}</p>
@@ -53,11 +52,12 @@ const HomeView = () => {
               ? require(`../../assets/images/${el.aImg}`)
               : `http://placehold.it/350x350`
           }
-          alt="aPicturec"
+          alt="advertising pictures"
         />
       </div>
     );
   });
+
   return (
     <div className="home">
       <div className="container">

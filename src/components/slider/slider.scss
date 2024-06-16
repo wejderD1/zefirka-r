@@ -1,26 +1,30 @@
 .slider {
   &__container {
+    display: flex;
+    background-image: url(../../assets/images/bkg_advertising.jpg);
+
+    align-items: center;
     width: 100%;
-    min-height: 20rem;
+    min-height: 28rem;
     position: relative;
   }
   &__inner {
     margin: 0 auto;
-
     overflow: hidden;
   }
   &__wrapper {
     display: flex;
+    align-items: center;
     transition: all 0.5s linear;
-    &:first-child{
+    &:first-child {
       padding-left: 50px;
     }
   }
 
   &__item {
     height: 100%;
-    min-width: 100%;
-    padding-right: 10px;
+    min-width: 98%;
+    padding-right: 40px;
   }
 
   &__btn {
@@ -33,6 +37,7 @@
     font-size: 20px;
 
     transition: all 0.5s linear;
+    cursor: pointer;
     &_prev {
       left: 10px;
     }

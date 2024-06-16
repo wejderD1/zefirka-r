@@ -1,4 +1,6 @@
 import { useState, useRef, useEffect } from "react";
+import CarouselIndicators from "./carousel-indicators/carouselIndicators";
+
 import "./slider.scss";
 
 function Slider({ itemsData }) {
@@ -6,23 +8,26 @@ function Slider({ itemsData }) {
 
   const [offset, setOffset] = useState(0);
   const [sliderWidth, setSliderWidth] = useState(0);
-  const [slidersCount, setSlidersCount] = useState(1);
+  const [activeSlider, setActiveSlider] = useState(1);
 
   useEffect(() => {
     setSliderWidth(sliderItem.current.clientWidth);
   }, []);
 
+  useEffect(() => {
+    const offset = sliderWidth * (activeSlider - 1);
+    setOffset(offset);
+  }, [activeSlider]);
+
   const nextSlide = () => {
-    if (slidersCount !== itemsData.length) {
-      setOffset(offset + sliderWidth);
-      setSlidersCount((prev) => prev + 1);
+    if (activeSlider !== itemsData.length) {
+      setActiveSlider((prev) => prev + 1);
     }
   };
 
   const pervSlide = () => {
     if (offset !== 0) {
-      setOffset(offset - sliderWidth);
-      setSlidersCount((prev) => prev - 1);
+      setActiveSlider((prev) => prev - 1);
     }
   };
 
@@ -45,17 +50,23 @@ function Slider({ itemsData }) {
       <button
         className="slider__btn slider__btn_prev"
         onClick={pervSlide}
-        disabled={slidersCount === 1 ? true : false}
+        disabled={activeSlider === 1 ? true : false}
       >
         &#8249;
       </button>
       <button
         className="slider__btn slider__btn_next"
         onClick={nextSlide}
-        disabled={slidersCount === itemsData.length ? true : false}
+        disabled={activeSlider === itemsData.length ? true : false}
       >
         &#8250;
       </button>
+
+      <CarouselIndicators
+        itemsCount={itemsData.length}
+        activeSlider={activeSlider}
+        setActiveSlider={setActiveSlider}
+      />
     </div>
   );
 }

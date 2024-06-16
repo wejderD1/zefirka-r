@@ -22,7 +22,7 @@ function AdvertisingSlider({ advertisingCard }) {
       aTitle: advertisingName,
       aDesc: advertisingDescription,
       pNote: advertisingNote,
-      aImg: advertisingImage || "20210529_105117.jpg",
+      aImg: advertisingImage,
     };
 
     request(
