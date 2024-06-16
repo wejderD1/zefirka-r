@@ -1,5 +1,4 @@
 import "./App.scss";
-import { useState, useEffect } from "react";
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Footer from "./components/footer/footer";
@@ -13,7 +12,6 @@ import {
   AdminPanel,
   ProductDetails,
 } from "./pages";
-import { useSelector } from "react-redux";
 
 const categories = [
   "zefir",

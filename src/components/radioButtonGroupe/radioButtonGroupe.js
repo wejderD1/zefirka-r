@@ -1,5 +1,4 @@
 function RadioButtonGroupe({ radioItems, onChangeHandler, selectedOption }) {
-  //created categories block (ratio buttons)
   const categoriesRadio = radioItems.map((el, i) => {
 
     return (

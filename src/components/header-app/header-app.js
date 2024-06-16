@@ -8,7 +8,6 @@ const HeaderApp = () => {
       <div className="container">
         <div className="nav__wrapper">
           <Link className="logo" alt="zefirka logo" to="/"></Link>
-          {/* <ul className="nav">{linksItems}</ul> */}
           <ul className="nav">
             <li className="nav__item">
               <NavLink className="nav__link" to="/">strona gołówna</NavLink>

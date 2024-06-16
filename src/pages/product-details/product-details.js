@@ -1,5 +1,5 @@
 import { useParams, Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 import "./product-details.scss";
 import { useDispatch, useSelector } from "react-redux";

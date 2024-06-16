@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom/cjs/react-router-dom";
 import "./Page404.scss";
 
 function Page404 () {
