@@ -77,7 +77,12 @@ const HomeView = () => {
           </div>
         </div>
       </div>
-      <Slider itemsData={advertisingContent} />
+      <Slider itemsData={advertisingContent} option={
+        {
+          indicators: true,
+          background: "../../assets/images/bkg_advertising.jpg"
+        }
+      }/>
       {/* <Advertising /> */}
       <div className="about">
         <div className="container">

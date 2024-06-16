@@ -3,13 +3,21 @@ import CarouselIndicators from "./carousel-indicators/carouselIndicators";
 
 import "./slider.scss";
 
-function Slider({ itemsData }) {
+/**
+ *
+ * @param itemsData Array - slider items data }
+ * @param option 
+ *  - indicators : Boolean - slider indicators visible
+ *  - background : String - slider background image 
+ * @returns Slider components
+ */
+
+function Slider({ itemsData, option = null }) {
   const sliderItem = useRef(null);
 
   const [offset, setOffset] = useState(0);
   const [sliderWidth, setSliderWidth] = useState(0);
   const [activeSlider, setActiveSlider] = useState(1);
-
   useEffect(() => {
     setSliderWidth(sliderItem.current.clientWidth);
   }, []);
@@ -63,6 +71,7 @@ function Slider({ itemsData }) {
       </button>
 
       <CarouselIndicators
+        visible={option.indicators}
         itemsCount={itemsData.length}
         activeSlider={activeSlider}
         setActiveSlider={setActiveSlider}

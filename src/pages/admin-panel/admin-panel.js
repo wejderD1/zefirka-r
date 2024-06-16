@@ -41,7 +41,9 @@ const AdminPanel = ({
     <div className="admin-panel">
       <div className="admin-panel__wrapper">
         <h1>ADMIN PANEL</h1>
-        <Slider itemsData={slides} />
+        <Slider itemsData={slides} option={{
+          indicators: false
+        }}/>
       </div>
     </div>
   );

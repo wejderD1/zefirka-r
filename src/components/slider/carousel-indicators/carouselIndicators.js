@@ -1,6 +1,6 @@
 import "./carouselIndicators.scss"
 
-const CarouselIndicators = ({itemsCount, activeSlider, setActiveSlider}) => {
+const CarouselIndicators = ({visible, itemsCount, activeSlider, setActiveSlider}) => {
 
   let listItems = [];
   for (let index = 0; index < itemsCount; index++) {
@@ -15,8 +15,13 @@ const CarouselIndicators = ({itemsCount, activeSlider, setActiveSlider}) => {
     );
 
   }
-console.log(listItems);
-  return <ol className="carousell__indicators">{listItems}</ol>;
+  return <ol 
+  style={{
+    display: visible ? "" : "none"
+  }}
+    className="carousell__indicators"
+  
+  >{listItems}</ol>;
 };
 
 export default CarouselIndicators;
