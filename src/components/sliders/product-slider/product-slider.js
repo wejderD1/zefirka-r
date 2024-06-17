@@ -2,16 +2,20 @@ import { useCallback, Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 
-import { categoriesChanged, addProduct } from "../../../actions";
+import { categoriesChanged, addProduct, productsFetched } from "../../../actions";
 
 import "./product-slider.scss";
 import { useHttp } from "../../../services/http.hooks";
+import EditList from "../../edit-list/edit-list";
 
 function ProductSlider({
   categoriesName,
   productCard,
 }) {
   const { activeCategory } = useSelector((state) => state.categoryReducer);
+  const {productsList} = useSelector((state) => state.productReducer);
+  const dispatch = useDispatch();
+
   const { request } = useHttp();
 
   const [productName, setProductName] = useState("");
@@ -19,7 +23,11 @@ function ProductSlider({
   const [productPrice, setProductPrice] = useState("");
   const [productImage, setProductImage] = useState("");
 
-  const dispatch = useDispatch();
+  useEffect(() => {
+    request("http://localhost:5000/products")
+      .then((data) => dispatch(productsFetched(data)))
+      .catch((error) => console.error(error));
+  }, []);
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
@@ -130,7 +138,7 @@ function ProductSlider({
               clear form
             </button>
           </div>
-          {/* {productEditList} */}
+          {<EditList editList={productsList.filter(el => el.category === activeCategory)}/>}
         </div>
       </form>
     </Fragment>

@@ -1,52 +1,49 @@
 import { Fragment, useEffect } from "react";
 
 import "./edit-list.scss";
-
-function EditList({ data, i, handleDelete, selectedProduct }) {
-  const { id } = data;
-
-  useEffect(() => {
-    return () => {
-      document.removeEventListener("click", handleDelete);
-    };
-  }, []);
+import { useSelector, useDispatch } from "react-redux";
+import { productsFetched } from "../../actions";
+import { useHttp } from "../../services/http.hooks";
 
 
-  const renderDataList = () => {
-    let title = "";
-    let desc = "";
-    for (const key in data) {
-      if (Object.hasOwnProperty.call(data, key)) {
-        const element = data[key];
-        title += key +"  ";
-        desc += element + "   /   ";
-      }
-    }
+function EditList({editList}) {
+
+  // useEffect(() => {
+  //   return () => {
+  //     document.removeEventListener("click", handleDelete);
+  //   };
+  // }, []);
+
+console.log(editList);
+  if(!editList) {
     return (
       <Fragment>
-        <p>{title}</p>
-        <h5>{desc}</h5>
-      </Fragment>
-    );
-  };
+      <h1>List is empty</h1>
+    </Fragment>
+    )
+  }
 
-  return (
-    <li
-      key={i}
-      className="data-item"
-      onClick={() => selectedProduct(id)}
-    >
-      {renderDataList()}
-
-      <button
-        className="data-delete"
-        type="submit"
-        onClick={() => handleDelete(id)}
+  const renderDataList = editList.map((el, i) => {
+    return (
+      <li
+        key={i}
+        className="data-item"
+        // onClick={() => selectedProduct(i)}
       >
-        Delete
-      </button>
-    </li>
-  );
+  
+        <button
+          className="data-delete"
+          type="submit"
+        >
+          Delete
+        </button>
+      </li>
+    );
+  })
+
+  return renderDataList;
+
+
 }
 
 export default EditList;

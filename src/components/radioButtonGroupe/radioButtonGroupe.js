@@ -16,7 +16,7 @@ function RadioButtonGroupe({ radioItems, onChangeHandler, selectedOption }) {
       </label>
     );
   });
-  return <>{categoriesRadio}</>;
+  return {categoriesRadio};
 }
 
 export default RadioButtonGroupe;
