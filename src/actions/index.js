@@ -26,6 +26,13 @@ export const addProduct = (product) => {
   }
 }
 
+export const deleteProduct = (id) => {
+  return {
+    type: "DELETE_PRODUCT",
+    payload: id
+  }
+}
+
 export const advertisingFetched = (data) => {
   return {
     type: "ADVERTISING_FETCHED",

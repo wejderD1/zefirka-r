@@ -2,18 +2,20 @@ import { useCallback, Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 
-import { categoriesChanged, addProduct, productsFetched } from "../../../actions";
+import {
+  categoriesChanged,
+  addProduct,
+  deleteProduct,
+  productsFetched,
+} from "../../../actions";
 
 import "./product-slider.scss";
 import { useHttp } from "../../../services/http.hooks";
 import EditList from "../../edit-list/edit-list";
 
-function ProductSlider({
-  categoriesName,
-  productCard,
-}) {
+function ProductSlider({ categoriesName, productCard }) {
   const { activeCategory } = useSelector((state) => state.categoryReducer);
-  const {productsList} = useSelector((state) => state.productReducer);
+  const { productsList } = useSelector((state) => state.productReducer);
   const dispatch = useDispatch();
 
   const { request } = useHttp();
@@ -29,6 +31,14 @@ function ProductSlider({
       .catch((error) => console.error(error));
   }, []);
 
+  const clearDataItems = () => {
+    setProductName("");
+    setProductDescription("");
+    setProductImage("");
+    setProductPrice("");
+  };
+
+  //product create
   const onSubmitHandler = (e) => {
     e.preventDefault();
     const newProduct = {
@@ -48,10 +58,20 @@ function ProductSlider({
       .then(dispatch(addProduct(newProduct)))
       .catch((err) => console.log(err));
 
-    setProductName("");
-    setProductDescription("");
-    setProductImage("");
-    setProductPrice("");
+    clearDataItems();
+  };
+
+  //product remove
+  const submitDelete = (id) => {
+    request(
+      "http://localhost:5000/products/remove",
+      "POST",
+      JSON.stringify(id)
+    )
+      .then((data) => dispatch(deleteProduct(10)))
+      .catch((error) => console.error(error));
+
+    clearDataItems();
   };
 
   //radio button change
@@ -98,14 +118,22 @@ function ProductSlider({
     );
   });
 
+  //created editList data
+  const editList = productsList
+    .filter((el) => el.category === activeCategory)
+    .map((el) => ({
+      id: el.id,
+      title: el.pTitle,
+    }));
+
   return (
     <Fragment>
-      <form onSubmit={onSubmitHandler}>
+      <form action="POST" onSubmit={onSubmitHandler}>
         <div className="item__container">
           <h2 className="main-text">
             Utwórz nową pozycję produktu. Wstaw tytuł, opis i cenę produktu
           </h2>
-          
+
           <div className="categories__wrapper">{categoriesRadioButton}</div>
           {Object.keys(productCard.value).map((el, i) => {
             return (
@@ -118,10 +146,15 @@ function ProductSlider({
                   type="text"
                   name={el}
                   value={
-                    el === "pTitle" ? productName :
-                    el === "pDescription" ? productDescription :
-                    el === "pPrice" ? productPrice :
-                    el === "pImg" ? productImage : ''
+                    el === "pTitle"
+                      ? productName
+                      : el === "pDescription"
+                      ? productDescription
+                      : el === "pPrice"
+                      ? productPrice
+                      : el === "pImg"
+                      ? productImage
+                      : ""
                   }
                   onChange={onDataChangeHandler}
                   placeholder={el === "category" ? activeCategory : null}
@@ -138,8 +171,10 @@ function ProductSlider({
               clear form
             </button>
           </div>
-          {<EditList editList={productsList.filter(el => el.category === activeCategory)}/>}
         </div>
+      </form>
+      <form action="DELETE" onSubmit={submitDelete}>
+        <EditList editList={editList} />
       </form>
     </Fragment>
   );

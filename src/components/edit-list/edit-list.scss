@@ -1,5 +1,5 @@
 .data {
-  &-item {
+  &__item {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -7,17 +7,14 @@
     font-size: 20px;
 
     padding: 0 10px;
+    margin: 5px 0;
 
   }
-  &-item:hover {
+  &__item:hover {
     cursor: pointer;
     background-color: rgb(214, 214, 214);
   }
-  &-item > p {
-    margin: 0;
-    padding: 20px 20px;
-  }
-  &-delete {
+  &__delete {
     height: 80%;
     cursor: pointer;
   }

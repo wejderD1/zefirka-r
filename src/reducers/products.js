@@ -20,10 +20,21 @@ const productReducer = (state = initialState.products, action) => {
       };
 
     case "SELECTED_PRODUCT":
-      const selectedProduct = state.productsList.find((el) => el.id === action.payload);
+      const selectedProduct = state.productsList.find(
+        (el) => el.id === action.payload
+      );
       return {
         ...state,
-        oneProduct: selectedProduct
+        oneProduct: selectedProduct,
+      };
+
+    case "DELETE_PRODUCT":
+      const deleteProductList = state.productsList.filter(
+        (el) => el.id !== action.payload
+      );
+      return {
+        ...state,
+        productList: [...state.productsList, deleteProductList],
       };
 
     default:
