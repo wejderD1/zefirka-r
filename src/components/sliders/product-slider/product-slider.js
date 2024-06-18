@@ -29,6 +29,8 @@ function ProductSlider({ categoriesName, productCard }) {
     request("http://localhost:5000/products")
       .then((data) => dispatch(productsFetched(data)))
       .catch((error) => console.error(error));
+
+      console.log("fetched");
   }, []);
 
   const clearDataItems = () => {
@@ -63,15 +65,14 @@ function ProductSlider({ categoriesName, productCard }) {
 
   //product remove
   const submitDelete = (id) => {
+    console.log(id, "sh");
     request(
-      "http://localhost:5000/products/remove",
-      "POST",
-      JSON.stringify(id)
+      `http://localhost:5000/products/${id}`,
+      "DELETE",
     )
-      .then((data) => dispatch(deleteProduct(10)))
+      .then((data) => console.log(data, "data"))
       .catch((error) => console.error(error));
 
-    clearDataItems();
   };
 
   //radio button change
@@ -173,8 +174,8 @@ function ProductSlider({ categoriesName, productCard }) {
           </div>
         </div>
       </form>
-      <form action="DELETE" onSubmit={submitDelete}>
-        <EditList editList={editList} />
+      <form action="DELETE">
+        <EditList editList={editList} submitHandle={submitDelete} />
       </form>
     </Fragment>
   );
