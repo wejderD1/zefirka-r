@@ -1,10 +1,11 @@
-import { Fragment, useCallback, useState } from "react";
+import { Fragment, useCallback, useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-import { advertisingCreate } from "../../../actions";
-import { useDispatch } from "react-redux";
+import { advertisingCreate, advertisingDelete, advertisingFetched } from "../../../actions";
+import { useDispatch, useSelector } from "react-redux";
 
 import { useHttp } from "../../../services/http.hooks";
+import EditList from "../../edit-list/edit-list";
 
 function AdvertisingSlider({ advertisingCard }) {
   const [advertisingName, setAdvertisingName] = useState("");
@@ -13,7 +14,16 @@ function AdvertisingSlider({ advertisingCard }) {
   const [advertisingImage, setAdvertisingImage] = useState("");
   const { request } = useHttp();
 
+  const { advertisingsList } = useSelector(
+    (state) => state.advertisingReducer
+  );
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    request("http://localhost:5000/advertising")
+      .then((data) => dispatch(advertisingFetched(data)))
+      .catch((error) => console.error(error));
+  }, []);
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
@@ -25,6 +35,9 @@ function AdvertisingSlider({ advertisingCard }) {
       aImg: advertisingImage,
     };
 
+    if(!advertisingName || !advertisingDescription ) {
+      return;
+    }
     request(
       "http://localhost:5000/advertising/new-advertising",
       "POST",
@@ -39,61 +52,85 @@ function AdvertisingSlider({ advertisingCard }) {
     setAdvertisingNote("");
   };
 
-    //input data changed
-    const onDataChangeHandler = useCallback((e) => {
-      const value = e.target.value;
-      console.log(value);
-      switch (e.target.name) {
-        case "aTitle":
-          setAdvertisingName(value);
-          break;
-        case "aDesc":
-          setAdvertisingDescription(value);
-          break;
-        case "aNote":
-          setAdvertisingNote(value);
-          break;
-        case "aImg":
-          setAdvertisingImage(value);
-          break;
-        default:
-          break;
-      }
-    }, []);
+  //input data changed
+  const onDataChangeHandler = (e) => {
+    const value = e.target.value;
+    switch (e.target.name) {
+      case "aTitle":
+        setAdvertisingName(value);
+        break;
+      case "aDesc":
+        setAdvertisingDescription(value);
+        break;
+      case "aNote":
+        setAdvertisingNote(value);
+        break;
+      case "aImg":
+        setAdvertisingImage(value);
+        break;
+      default:
+        break;
+    }
+  };
+
+  const deleteHandler = (id) => {
+    if(!window.confirm("Delete this content?")){
+      return
+    }
+    request(
+      `http://localhost:5000/advertising/${id}`,
+      "DELETE",
+    )
+      .then(() => dispatch(advertisingDelete(id)))
+      .catch((error) => console.error(error));
+  };
+
+  const editList = advertisingsList.map((el) => ({
+    id: el.id,
+    title: el.aTitle,
+  }));
 
   return (
-    <form action="POST" onSubmit={onSubmitHandler}>
-      <div className="item__container">
-        <h2 className="main-text">
-          Utwórz reklamę, napisz nagłówek i opis reklamy.
-        </h2>
-        {Object.keys(advertisingCard.value).map((el, i) => {
-          return (
-            <Fragment key={i}>
-              <label className="label" htmlFor={el}>
-                {el}
-              </label>
-              <input
-                className="data-input"
-                type="text"
-                name={el}
-                value={
-                  el === "aTitle" ? advertisingName :
-                  el === "aDesc" ? advertisingDescription :
-                  el === "aNote" ? advertisingNote :
-                  el === "aImg" ? advertisingImage : ""
-                }
-                onChange={onDataChangeHandler}
-                placeholder={el === "id" ? advertisingCard.value.id : null}
-              />
-            </Fragment>
-          );
-        })}
-        <button className="btn btn_create" type="submit">
-          CREATE
-        </button>
-      </div>
-    </form>
+    <Fragment>
+      <form action="POST" onSubmit={onSubmitHandler}>
+        <div className="item__container">
+          <h2 className="main-text">
+            Utwórz reklamę, napisz nagłówek i opis reklamy.
+          </h2>
+          {Object.keys(advertisingCard.value).map((el, i) => {
+            return (
+              <Fragment key={i}>
+                <label className="label" htmlFor={el}>
+                  {el}
+                </label>
+                <input
+                  className="data-input"
+                  type="text"
+                  name={el}
+                  value={
+                    el === "aTitle"
+                      ? advertisingName
+                      : el === "aDesc"
+                      ? advertisingDescription
+                      : el === "aNote"
+                      ? advertisingNote
+                      : el === "aImg"
+                      ? advertisingImage
+                      : ""
+                  }
+                  onChange={onDataChangeHandler}
+                  placeholder={el === "id" ? advertisingCard.value.id : null}
+                />
+              </Fragment>
+            );
+          })}
+          <button className="btn btn_create" type="submit">
+            CREATE
+          </button>
+        </div>
+      </form>
+      <EditList editList={editList} submitHandle={deleteHandler}/>
+    </Fragment>
   );
 }
 

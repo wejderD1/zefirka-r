@@ -17,6 +17,12 @@ const advertisingReducer = (state = initialState.advertisings, action) => {
         advertisingsList: [...state.advertisingsList, action.payload],
       };
 
+    case "ADVERTISING_DELETE":
+      return {
+        ...state,
+        advertisingsList: state.advertisingsList.filter(el => el.id !== action.payload)
+      }
+
     default:
       return state;
   }

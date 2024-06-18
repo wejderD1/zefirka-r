@@ -46,3 +46,9 @@ export const advertisingCreate = (advertising) => {
     payload: advertising
   }
 }
+export const advertisingDelete = (id) => {
+  return {
+    type: "ADVERTISING_DELETE",
+    payload: id
+  }
+}
