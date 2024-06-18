@@ -9,15 +9,15 @@ import {
   productsFetched,
 } from "../../../actions";
 
-import "./product-slider.scss";
 import { useHttp } from "../../../services/http.hooks";
 import EditList from "../../edit-list/edit-list";
+
+import "./product-slider.scss";
 
 function ProductSlider({ categoriesName, productCard }) {
   const { activeCategory } = useSelector((state) => state.categoryReducer);
   const { productsList } = useSelector((state) => state.productReducer);
   const dispatch = useDispatch();
-
   const { request } = useHttp();
 
   const [productName, setProductName] = useState("");
@@ -29,8 +29,6 @@ function ProductSlider({ categoriesName, productCard }) {
     request("http://localhost:5000/products")
       .then((data) => dispatch(productsFetched(data)))
       .catch((error) => console.error(error));
-
-      console.log("fetched");
   }, []);
 
   const clearDataItems = () => {
@@ -43,6 +41,7 @@ function ProductSlider({ categoriesName, productCard }) {
   //product create
   const onSubmitHandler = (e) => {
     e.preventDefault();
+
     const newProduct = {
       id: uuidv4(),
       category: activeCategory,
@@ -51,6 +50,10 @@ function ProductSlider({ categoriesName, productCard }) {
       pPrice: productPrice,
       pImg: productImage || "20210529_105117.jpg",
     };
+
+    if(!productName || !productDescription || !productPrice) {
+      return;
+    }
 
     request(
       "http://localhost:5000/products/new-product",
@@ -65,14 +68,15 @@ function ProductSlider({ categoriesName, productCard }) {
 
   //product remove
   const submitDelete = (id) => {
-    console.log(id, "sh");
+    if(!window.confirm("Delete this product?")){
+      return
+    }
     request(
       `http://localhost:5000/products/${id}`,
       "DELETE",
     )
-      .then((data) => console.log(data, "data"))
+      .then(() => dispatch(deleteProduct(id)))
       .catch((error) => console.error(error));
-
   };
 
   //radio button change

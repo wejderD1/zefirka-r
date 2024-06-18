@@ -29,12 +29,11 @@ const productReducer = (state = initialState.products, action) => {
       };
 
     case "DELETE_PRODUCT":
-      const deleteProductList = state.productsList.filter(
-        (el) => el.id !== action.payload
-      );
       return {
         ...state,
-        productList: [...state.productsList, deleteProductList],
+        productsList: state.productsList.filter(
+          (el) => el.id !== action.payload
+        ),
       };
 
     default:
