@@ -2,7 +2,7 @@ import { Fragment } from "react";
 
 import "./edit-list.scss";
 
-function EditList({ editList, submitHandle }) {
+function EditList({ editList, submitHandler, selectItemsHandler }) {
   if (!editList) {
     return (
       <Fragment>
@@ -17,13 +17,14 @@ function EditList({ editList, submitHandle }) {
       <li
         key={id}
         className="data__item"
+        onClick={() => selectItemsHandler(id)}
       >
         {`${id}  -----  ${title}`}
 
         <button 
           className="data__delete"
           type="button"
-          onClick={() => submitHandle(id)}
+          onClick={() => submitHandler(id)}
         >
           Delete
         </button>

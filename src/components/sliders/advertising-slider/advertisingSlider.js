@@ -129,7 +129,7 @@ function AdvertisingSlider({ advertisingCard }) {
           </button>
         </div>
       </form>
-      <EditList editList={editList} submitHandle={deleteHandler}/>
+      <EditList editList={editList} submitHandler={deleteHandler}/>
     </Fragment>
   );
 }

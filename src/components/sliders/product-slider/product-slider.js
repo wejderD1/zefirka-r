@@ -20,6 +20,7 @@ function ProductSlider({ categoriesName, productCard }) {
   const dispatch = useDispatch();
   const { request } = useHttp();
 
+  const [id, setId] = useState(uuidv4());
   const [productName, setProductName] = useState("");
   const [productDescription, setProductDescription] = useState("");
   const [productPrice, setProductPrice] = useState("");
@@ -32,6 +33,7 @@ function ProductSlider({ categoriesName, productCard }) {
   }, []);
 
   const clearDataItems = () => {
+    setId(uuidv4());
     setProductName("");
     setProductDescription("");
     setProductImage("");
@@ -43,7 +45,7 @@ function ProductSlider({ categoriesName, productCard }) {
     e.preventDefault();
 
     const newProduct = {
-      id: uuidv4(),
+      id: id,
       category: activeCategory,
       pTitle: productName,
       pDescription: productDescription,
@@ -78,6 +80,14 @@ function ProductSlider({ categoriesName, productCard }) {
       .then(() => dispatch(deleteProduct(id)))
       .catch((error) => console.error(error));
   };
+
+  const selectHandler = (id) => {
+    const {pTitle, pDescription, pPrice, pImg} = productsList.find(el => el.id === id)
+    setProductName(pTitle);
+    setProductDescription(pDescription);
+    setProductPrice(pPrice);
+    setProductImage(pImg);
+  }
 
   //radio button change
   const handleRadioChange = useCallback((e) => {
@@ -172,14 +182,14 @@ function ProductSlider({ categoriesName, productCard }) {
             <button className="btn btn_create" type="submit">
               CREATE
             </button>
-            <button className="btn btn_clear" type="button">
+            <button className="btn btn_clear" type="button" onClick={() => clearDataItems()}>
               clear form
             </button>
           </div>
         </div>
       </form>
       <form action="DELETE">
-        <EditList editList={editList} submitHandle={submitDelete} />
+        <EditList editList={editList} submitHandler={submitDelete} selectItemsHandler={selectHandler}/>
       </form>
     </Fragment>
   );
