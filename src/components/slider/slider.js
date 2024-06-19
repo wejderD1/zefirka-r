@@ -23,12 +23,18 @@ function Slider({ itemsData, option = null }) {
   const [offset, setOffset] = useState(0);
   const [sliderWidth, setSliderWidth] = useState(0);
   const [activeSlider, setActiveSlider] = useState(1);
-  useEffect(() => {
-    setSliderWidth(sliderItem.current.clientWidth);
-  }, []);
 
   useEffect(() => {
-    const offset = sliderWidth * (activeSlider - 1);
+    if(sliderItem.current) {
+      setSliderWidth(sliderItem.current.clientWidth);
+      return;
+    }
+
+    
+  }, [sliderItem]);
+
+  useEffect(() => {
+    const offset = sliderWidth * (activeSlider - 1);    
     setOffset(offset);
   }, [activeSlider]);
 
@@ -58,7 +64,7 @@ function Slider({ itemsData, option = null }) {
         >
           {itemsData.map((el, i) => {
             return (
-              <div key={i} className="slider__item" ref={sliderItem}>
+          <div key={i} className="slider__item"  ref={sliderItem}>
                 {el}
               </div>
             );
