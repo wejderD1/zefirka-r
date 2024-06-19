@@ -50,7 +50,7 @@ const HomeView = () => {
           src={
             el.aImg
               ? require(`../../assets/images/${el.aImg}`)
-              : `http://placehold.it/250`
+              : `http://placehold.it/150`
           }
           alt="advertising pictures"
         />

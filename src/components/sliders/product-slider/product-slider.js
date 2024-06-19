@@ -7,6 +7,7 @@ import {
   addProduct,
   deleteProduct,
   productsFetched,
+  
 } from "../../../actions";
 
 import { useHttp } from "../../../services/http.hooks";
@@ -32,7 +33,8 @@ function ProductSlider({ categoriesName, productCard }) {
       .catch((error) => console.error(error));
   }, []);
 
-  const clearDataItems = () => {
+  //clear input fields
+  function clearDataItems() {
     setId(uuidv4());
     setProductName("");
     setProductDescription("");
@@ -40,10 +42,10 @@ function ProductSlider({ categoriesName, productCard }) {
     setProductPrice("");
   };
 
-  //product create
+  //product create POST
+  //нужно будет в конце убрать картинку по умолчанию
   const onSubmitHandler = (e) => {
     e.preventDefault();
-
     const newProduct = {
       id: id,
       category: activeCategory,
@@ -81,8 +83,10 @@ function ProductSlider({ categoriesName, productCard }) {
       .catch((error) => console.error(error));
   };
 
-  const selectHandler = (id) => {
-    const {pTitle, pDescription, pPrice, pImg} = productsList.find(el => el.id === id)
+  //add selected product to input fields
+  const selectHandler = (prodId) => {
+    const {id, pTitle, pDescription, pPrice, pImg} = productsList.find(el => el.id === prodId)
+    setId(id);
     setProductName(pTitle);
     setProductDescription(pDescription);
     setProductPrice(pPrice);
@@ -172,7 +176,7 @@ function ProductSlider({ categoriesName, productCard }) {
                       : ""
                   }
                   onChange={onDataChangeHandler}
-                  placeholder={el === "category" ? activeCategory : null}
+                  placeholder={el === "category" ? activeCategory : null || el === "id" ? id : null}
                   disabled={el === "id" || el === "category" ? true : false}
                 />
               </Fragment>
@@ -181,6 +185,9 @@ function ProductSlider({ categoriesName, productCard }) {
           <div className="btn-wrapper">
             <button className="btn btn_create" type="submit">
               CREATE
+            </button>
+            <button className="btn btn_update" type="button" onClick={() => clearDataItems()}>
+              update
             </button>
             <button className="btn btn_clear" type="button" onClick={() => clearDataItems()}>
               clear form

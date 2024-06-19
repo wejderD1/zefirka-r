@@ -22,22 +22,40 @@ router.get("/products", (req, res) => {
   res.json(productsData);
 });
 
-//add product
+//add product POST
 router.post("/products/new-product", (req, res) => {
   const product = req.body;
 
-  if(!product) {
-    res.status(404).json({message: `Product data error - ${product}`})
+  if (!product) {
+    res.status(404).json({ message: `Product data error - ${product}` });
   } else {
     productsData.push(product);
     writeFile(JSON.stringify(productsData));
-    res.status(200).json({message: `New product add into list`});
-
+    res.status(200).json({ message: `New product add into list` });
   }
-
 });
 
-//remove product
+//update product PATCH
+router.patch("/products/:id", (req, res) => {
+  const productId = req.params.id;
+  const updateData = res.body;
+  const index = productsData.findIndex((product) => product.id === productId);
+  
+  if (index !== -1) {
+    productsData[index] = {...productsData[index], ...updateData};
+
+    console.log(productsData, "pd", updateData) 
+    writeFile(JSON.stringify(productsData));
+    
+    res
+      .status(200)
+      .json({ message: `product data with id ${productId} sucefully update` });
+  } else {
+    res.status(404).json({ message: `product update error` });
+  }
+});
+
+//remove product DELETE
 router.delete("/products/:id", (req, res) => {
   const productId = req.params.id;
 
@@ -55,7 +73,6 @@ router.delete("/products/:id", (req, res) => {
 });
 
 module.exports = router;
-
 
 /**
  * добре було б зробити мідлвеєр для валідації данних які приходять від клієнта
