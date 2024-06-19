@@ -7,7 +7,6 @@ import {
   addProduct,
   deleteProduct,
   productsFetched,
-  
 } from "../../../actions";
 
 import { useHttp } from "../../../services/http.hooks";
@@ -40,7 +39,7 @@ function ProductSlider({ categoriesName, productCard }) {
     setProductDescription("");
     setProductImage("");
     setProductPrice("");
-  };
+  }
 
   //product create POST
   //нужно будет в конце убрать картинку по умолчанию
@@ -55,7 +54,7 @@ function ProductSlider({ categoriesName, productCard }) {
       pImg: productImage || "20210529_105117.jpg",
     };
 
-    if(!productName || !productDescription || !productPrice) {
+    if (!productName || !productDescription || !productPrice) {
       return;
     }
 
@@ -72,26 +71,30 @@ function ProductSlider({ categoriesName, productCard }) {
 
   //product remove
   const submitDelete = (id) => {
-    if(!window.confirm("Delete this product?")){
-      return
+    if (!window.confirm("Delete this product?")) {
+      return;
     }
-    request(
-      `http://localhost:5000/products/${id}`,
-      "DELETE",
-    )
+    request(`http://localhost:5000/products/${id}`, "DELETE")
       .then(() => dispatch(deleteProduct(id)))
       .catch((error) => console.error(error));
   };
 
   //add selected product to input fields
   const selectHandler = (prodId) => {
-    const {id, pTitle, pDescription, pPrice, pImg} = productsList.find(el => el.id === prodId)
+    const { id, pTitle, pDescription, pPrice, pImg } = productsList.find(
+      (el) => el.id === prodId
+    );
     setId(id);
     setProductName(pTitle);
     setProductDescription(pDescription);
     setProductPrice(pPrice);
     setProductImage(pImg);
-  }
+  };
+
+  const updateHandler = (id) => {
+    request(`http://localhost:5000/products/${id}`, "PATCH")
+    .then(() => )
+  };
 
   //radio button change
   const handleRadioChange = useCallback((e) => {
@@ -176,7 +179,13 @@ function ProductSlider({ categoriesName, productCard }) {
                       : ""
                   }
                   onChange={onDataChangeHandler}
-                  placeholder={el === "category" ? activeCategory : null || el === "id" ? id : null}
+                  placeholder={
+                    el === "category"
+                      ? activeCategory
+                      : null || el === "id"
+                      ? id
+                      : null
+                  }
                   disabled={el === "id" || el === "category" ? true : false}
                 />
               </Fragment>
@@ -186,17 +195,29 @@ function ProductSlider({ categoriesName, productCard }) {
             <button className="btn btn_create" type="submit">
               CREATE
             </button>
-            <button className="btn btn_update" type="button" onClick={() => clearDataItems()}>
+            <button
+              className="btn btn_update"
+              type="button"
+              onClick={() => updateHandler()}
+            >
               update
             </button>
-            <button className="btn btn_clear" type="button" onClick={() => clearDataItems()}>
+            <button
+              className="btn btn_clear"
+              type="button"
+              onClick={() => clearDataItems()}
+            >
               clear form
             </button>
           </div>
         </div>
       </form>
       <form action="DELETE">
-        <EditList editList={editList} submitHandler={submitDelete} selectItemsHandler={selectHandler}/>
+        <EditList
+          editList={editList}
+          submitHandler={submitDelete}
+          selectItemsHandler={selectHandler}
+        />
       </form>
     </Fragment>
   );
