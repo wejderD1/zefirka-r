@@ -14,8 +14,6 @@ import {
 import { useHttp } from "../../../services/http.hooks";
 import EditList from "../../edit-list/edit-list";
 
-import "./product-slider.scss";
-
 function ProductSlider({ categoriesName, productCard }) {
   const { activeCategory } = useSelector((state) => state.categoryReducer);
   const { productsList, oneProduct } = useSelector(

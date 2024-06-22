@@ -13,37 +13,10 @@
   }
 }
 
-// // CAROUSEL
-// .carousel {
-//   &__wrapper {
-//     margin: 3rem 0;
-//     width: 100%;
-//     display: flex;
-//     justify-content: space-between;
-//     gap: 20px;
-//     align-items: start;
-//   }
-//   &__inner {
-//     flex-grow: 1;
-//   }
-//   &__item-wrapper {
-//     display: none;
-//     &_active {
-//       display: block;
-//     }
-//   }
-//   &__btn {
-//     width: 40px;
-//     height: 80px;
-
-//     cursor: pointer;
-//   }
-// }
-
 .item {
   &__container {
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 70px;
     display: grid;
     gap: 30px;
     align-items: center;
