@@ -20,10 +20,6 @@ function Slider({ itemsData, option = null }) {
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  useEffect(() => {
-    console.log(0 % 3, 1 % 3, 2 % 3, 3 % 3);
-  }, []);
-
   const pervSlide = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? itemsData.length - 1 : prevIndex - 1
@@ -32,7 +28,6 @@ function Slider({ itemsData, option = null }) {
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % itemsData.length);
-    console.log(currentIndex);
   };
 
   return (

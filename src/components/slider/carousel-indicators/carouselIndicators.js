@@ -7,9 +7,9 @@ const CarouselIndicators = ({visible, itemsCount, activeSlider, setActiveSlider}
     listItems.push(
       <li
         key={index}
-        className={activeSlider === index - 1 ? "active" : ""}
+        className={activeSlider === index ? "active" : ""}
         onClick={() => {
-          setActiveSlider(index + 1);
+          setActiveSlider(index);
         }}
       />
     );
