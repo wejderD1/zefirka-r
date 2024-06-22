@@ -18,70 +18,53 @@ import "./slider.scss";
 function Slider({ itemsData, option = null }) {
   const { indicators, backgroundImage } = option;
 
-  const sliderItem = useRef(null);
-
-  const [offset, setOffset] = useState(0);
-  const [sliderWidth, setSliderWidth] = useState(0);
-  const [activeSlider, setActiveSlider] = useState(1);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    if(sliderItem.current) {
-      setSliderWidth(sliderItem.current.clientWidth);
-      return;
-    }
-
-    
-  }, [sliderItem]);
-
-  useEffect(() => {
-    const offset = sliderWidth * (activeSlider - 1);    
-    setOffset(offset);
-  }, [activeSlider]);
-
-  const nextSlide = () => {
-    if (activeSlider !== itemsData.length) {
-      setActiveSlider((prev) => prev + 1);
-    }
-  };
+    console.log(0 % 3, 1 % 3, 2 % 3, 3 % 3);
+  }, []);
 
   const pervSlide = () => {
-    if (offset !== 0) {
-      setActiveSlider((prev) => prev - 1);
-    }
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? itemsData.length - 1 : prevIndex - 1
+    );
+  };
+
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % itemsData.length);
+    console.log(currentIndex);
   };
 
   return (
     <div
       className="slider__container"
       style={{
-        backgroundImage: backgroundImage ? `url(${backgroundImage})` : 'none'
+        backgroundImage: backgroundImage ? `url(${backgroundImage})` : "none",
       }}
     >
-      <div className="slider__inner">
-        <div
-          className="slider__wrapper"
-          style={{ transform: `translateX(${-offset}px)` }}
-        >
-          {itemsData.map((el, i) => {
-            return (
-          <div key={i} className="slider__item"  ref={sliderItem}>
-                {el}
-              </div>
-            );
-          })}
-        </div>
+      <div
+        className="slider__wrapper"
+        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+      >
+        {itemsData.map((el, index) => {
+          return (
+            <div key={index} className="slider__item">
+              {el}
+            </div>
+          );
+        })}
       </div>
       <button
         className="slider__btn slider__btn_prev"
         onClick={pervSlide}
-        disabled={activeSlider === 1 ? true : false}
+        disabled={currentIndex === 0 ? true : false}
       >
         &#8249;
       </button>
       <button
         className="slider__btn slider__btn_next"
         onClick={nextSlide}
-        disabled={activeSlider === itemsData.length ? true : false}
+        disabled={currentIndex === itemsData.length - 1 ? true : false}
       >
         &#8250;
       </button>
@@ -89,8 +72,8 @@ function Slider({ itemsData, option = null }) {
       <CarouselIndicators
         visible={indicators}
         itemsCount={itemsData.length}
-        activeSlider={activeSlider}
-        setActiveSlider={setActiveSlider}
+        activeSlider={currentIndex}
+        setActiveSlider={setCurrentIndex}
       />
     </div>
   );

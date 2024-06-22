@@ -2,31 +2,21 @@
   &__container {
     display: flex;
 
-    align-items: center;
     width: 100%;
-    min-height: 28rem;
-    position: relative;
-    padding-bottom: 50px;
-  }
-  &__inner {
+    align-items: center;
     margin: 0 auto;
+    position: relative;
     overflow: hidden;
   }
   &__wrapper {
     display: flex;
-    align-items: flex-start;
-    transition: all 0.5s linear;
-    &:first-child {
-      padding-left: 50px;
-    }
+    width: 100%;
+    transition: transform 0.5s ease-in-out;
   }
-
   &__item {
     height: 100%;
-    min-width: 98%;
-    padding-right: 40px;
+    min-width: 100%;
   }
-
   &__btn {
     position: absolute;
     top: 25%;
