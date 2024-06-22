@@ -7,6 +7,8 @@ import {
   addProduct,
   deleteProduct,
   productsFetched,
+  selectedProduct,
+  updateProduct,
 } from "../../../actions";
 
 import { useHttp } from "../../../services/http.hooks";
@@ -16,21 +18,34 @@ import "./product-slider.scss";
 
 function ProductSlider({ categoriesName, productCard }) {
   const { activeCategory } = useSelector((state) => state.categoryReducer);
-  const { productsList } = useSelector((state) => state.productReducer);
+  const { productsList, oneProduct } = useSelector(
+    (state) => state.productReducer
+  );
   const dispatch = useDispatch();
-  const { request } = useHttp();
 
   const [id, setId] = useState(uuidv4());
   const [productName, setProductName] = useState("");
   const [productDescription, setProductDescription] = useState("");
   const [productPrice, setProductPrice] = useState("");
   const [productImage, setProductImage] = useState("");
+  const { request } = useHttp();
 
   useEffect(() => {
     request("http://localhost:5000/products")
       .then((data) => dispatch(productsFetched(data)))
       .catch((error) => console.error(error));
-  }, []);
+  }, [productsList]);
+
+  useEffect(() => {
+    if (oneProduct) {
+      const { id, pTitle, pDescription, pPrice, pImg } = oneProduct;
+      setId(id);
+      setProductName(pTitle);
+      setProductDescription(pDescription);
+      setProductPrice(pPrice);
+      setProductImage(pImg);
+    }
+  }, [oneProduct]);
 
   //clear input fields
   function clearDataItems() {
@@ -77,29 +92,37 @@ function ProductSlider({ categoriesName, productCard }) {
     request(`http://localhost:5000/products/${id}`, "DELETE")
       .then(() => dispatch(deleteProduct(id)))
       .catch((error) => console.error(error));
+
+    clearDataItems();
   };
 
   //add selected product to input fields
   const selectHandler = (prodId) => {
-    const { id, pTitle, pDescription, pPrice, pImg } = productsList.find(
-      (el) => el.id === prodId
-    );
-    setId(id);
-    setProductName(pTitle);
-    setProductDescription(pDescription);
-    setProductPrice(pPrice);
-    setProductImage(pImg);
+    dispatch(selectedProduct(prodId));
   };
 
-  const updateHandler = (id) => {
-    request(`http://localhost:5000/products/${id}`, "PATCH")
-    .then(() => )
-  };
+  //PATCH request
+  const updateHandler = () => {
+    const changedProduct = {
+      pTitle: productName,
+      pDescription: productDescription,
+      pPrice: productPrice,
+      pImg: productImage
 
-  //radio button change
-  const handleRadioChange = useCallback((e) => {
-    dispatch(categoriesChanged(e.target.value));
-  }, []);
+    }
+
+    dispatch(updateProduct(changedProduct));
+
+    request(
+      `http://localhost:5000/products/${id}`,
+      "PATCH",
+      JSON.stringify(changedProduct)
+      // JSON.stringify(oneProduct)
+    )
+    .catch((err) => console.error(err))
+
+    // clearDataItems();
+  };
 
   //input data changed
   const onDataChangeHandler = useCallback((e) => {
@@ -120,6 +143,11 @@ function ProductSlider({ categoriesName, productCard }) {
       default:
         break;
     }
+  }, []);
+
+  //radio button change
+  const handleRadioChange = useCallback((e) => {
+    dispatch(categoriesChanged(e.target.value));
   }, []);
 
   //created categories block (ratio buttons)
@@ -216,7 +244,7 @@ function ProductSlider({ categoriesName, productCard }) {
         <EditList
           editList={editList}
           submitHandler={submitDelete}
-          selectItemsHandler={selectHandler}
+          selectItemHandler={selectHandler}
         />
       </form>
     </Fragment>

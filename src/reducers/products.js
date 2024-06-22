@@ -36,6 +36,14 @@ const productReducer = (state = initialState.products, action) => {
         ),
       };
 
+    case "UPDATE_PRODUCT":
+      return {
+        ...state,
+        productsList: state.productsList.map((el) =>
+          el.id === action.payload.id ? { ...el, ...action.payload } : el
+        ),
+      };
+
     default:
       return state;
   }

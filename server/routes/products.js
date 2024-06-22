@@ -38,13 +38,13 @@ router.post("/products/new-product", (req, res) => {
 //update product PATCH
 router.patch("/products/:id", (req, res) => {
   const productId = req.params.id;
-  const updateData = res.body;
+  const updateData = req.body;
   const index = productsData.findIndex((product) => product.id === productId);
   
   if (index !== -1) {
     productsData[index] = {...productsData[index], ...updateData};
 
-    console.log(productsData, "pd", updateData) 
+    console.log("pd", updateData) 
     writeFile(JSON.stringify(productsData));
     
     res

@@ -33,6 +33,13 @@ export const deleteProduct = (id) => {
   }
 }
 
+export const updateProduct = (products) => {
+  return {
+    type: "UPDATE_PRODUCT",
+    payload: products
+  }
+}
+
 export const advertisingFetched = (data) => {
   return {
     type: "ADVERTISING_FETCHED",
