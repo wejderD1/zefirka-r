@@ -8,21 +8,22 @@ import Slider from "../../components/slider/slider";
 import "./home-view.scss";
 import bkg from "../../assets/images/bkg_advertising.jpg";
 import { useHttp } from "../../services/http.hooks";
-import { advertisingFetched } from "../../actions";
+import { fetchedAd } from "../../actions/advertisingAction";
 
 import { Link } from "react-router-dom";
 
 const HomeView = () => {
   const [loading, setLoading] = useState(true);
 
-  const { advertisingsList } = useSelector((state) => state.advertisingReducer);
+  const { itemsList: advertisingsList } = useSelector(
+    (state) => state.universalReducer.ads
+  );
   const dispatch = useDispatch();
   const { request } = useHttp();
-
   useEffect(() => {
     request("http://localhost:5000/advertising")
       .then((data) => {
-        dispatch(advertisingFetched(data));
+        dispatch(fetchedAd(data));
         setLoading(false);
       })
       .catch((error) => {
@@ -77,12 +78,13 @@ const HomeView = () => {
           </div>
         </div>
       </div>
-      <Slider itemsData={advertisingContent} option={
-        {
+      <Slider
+        itemsData={advertisingContent}
+        option={{
           indicators: true,
-          backgroundImage: bkg
-        }
-      }/>
+          backgroundImage: bkg,
+        }}
+      />
       {/* <Advertising /> */}
       <div className="about">
         <div className="container">

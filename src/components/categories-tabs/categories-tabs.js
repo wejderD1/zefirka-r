@@ -13,7 +13,7 @@ function CategoriesTabs({ categoriesName }) {
   const { activeCategory } = useSelector((state) => state.categoryReducer);
 
   const filteredProductsListSelector = createSelector(
-    (state) => state.productReducer.productsList,
+    (state) => state.universalReducer.products.itemsList,
     (state) => state.categoryReducer.activeCategory,
     (products, selectedCategory) =>
       products.filter((el) => el.category === selectedCategory)
