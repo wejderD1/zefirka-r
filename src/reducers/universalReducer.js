@@ -18,6 +18,7 @@ const initialState = {
 
 const universalReducer = (state = initialState, action) => {
   const { entity, item, id } = action.payload || {};
+console.log(state.products, "state");
   switch (action.type) {
     case FETCHED_ITEM:
       return {
@@ -32,14 +33,11 @@ const universalReducer = (state = initialState, action) => {
       return;
 
     case SELECT_ITEM:
-      const selectedProduct = state.entity.find(
-        (el) => el.id === action.payload
-      );
       return {
         ...state,
         [entity]: {
           ...state.entity,
-          oneProduct: selectedProduct,
+          oneProduct: state[entity].itemsList.find((el) => el.id === id),
         },
       };
 

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { selectedProduct } from "../../actions";
+import { selectedProduct } from "../../actions/productAction";
 
 import "./product-card.scss";
 import { useDispatch } from "react-redux";

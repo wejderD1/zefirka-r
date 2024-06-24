@@ -3,7 +3,7 @@ import { useEffect } from "react";
 
 import "./product-details.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { selectedProduct, productsFetched } from "../../actions";
+import { selectedProduct, fetchedProducts } from "../../actions/productAction";
 import { useHttp } from "../../services/http.hooks";
 
 function ProductDetails() {
@@ -11,12 +11,14 @@ function ProductDetails() {
   const { request } = useHttp();
 
   const dispatch = useDispatch();
-  const oneProduct = useSelector((state) => state.productReducer.oneProduct);
+  const { oneProduct } = useSelector(
+    (state) => state.universalReducer.products
+  );
 
   useEffect(() => {
     request("http://localhost:5000/products")
       .then((data) => {
-        dispatch(productsFetched(data));
+        dispatch(fetchedProducts(data));
         dispatch(selectedProduct(id));
       })
       .catch((error) => console.error(error));
@@ -25,9 +27,7 @@ function ProductDetails() {
   if (!oneProduct || Object.keys(oneProduct).length === 0) {
     return <div>Loading...</div>;
   }
-
   const { pTitle, pDescription, pPrice } = oneProduct;
-
   return (
     <div className="container product-details__container">
       <div className="product-details__inner">

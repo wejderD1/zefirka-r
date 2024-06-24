@@ -1,7 +1,7 @@
-import { Fragment, useCallback, useState, useEffect } from "react";
+import { Fragment, useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-import { advertisingCreate, advertisingDelete, advertisingFetched } from "../../../actions";
+import { addAd, deleteAd, fetchedAd } from "../../../actions/advertisingAction";
 import { useDispatch, useSelector } from "react-redux";
 
 import { useHttp } from "../../../services/http.hooks";
@@ -15,13 +15,13 @@ function AdvertisingSlider({ advertisingCard }) {
   const { request } = useHttp();
 
   const { advertisingsList } = useSelector(
-    (state) => state.advertisingReducer
+    (state) => state.universalReducer.ads
   );
   const dispatch = useDispatch();
 
   useEffect(() => {
     request("http://localhost:5000/advertising")
-      .then((data) => dispatch(advertisingFetched(data)))
+      .then((data) => dispatch(fetchedAd(data)))
       .catch((error) => console.error(error));
   }, []);
 
@@ -43,7 +43,7 @@ function AdvertisingSlider({ advertisingCard }) {
       "POST",
       JSON.stringify(newAdvertising)
     )
-      .then(dispatch(advertisingCreate(newAdvertising)))
+      .then(dispatch(addAd(newAdvertising)))
       .catch((err) => console.log(err));
 
     setAdvertisingName("");
@@ -81,7 +81,7 @@ function AdvertisingSlider({ advertisingCard }) {
       `http://localhost:5000/advertising/${id}`,
       "DELETE",
     )
-      .then(() => dispatch(advertisingDelete(id)))
+      .then(() => dispatch(deleteAd(id)))
       .catch((error) => console.error(error));
   };
 

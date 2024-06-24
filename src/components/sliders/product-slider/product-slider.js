@@ -3,21 +3,22 @@ import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 
 import {
-  categoriesChanged,
   addProduct,
   deleteProduct,
-  productsFetched,
+  fetchedProducts,
   selectedProduct,
   updateProduct,
-} from "../../../actions";
+} from "../../../actions/productAction";
+
+import { categoriesChanged } from "../../../actions";
 
 import { useHttp } from "../../../services/http.hooks";
 import EditList from "../../edit-list/edit-list";
 
 function ProductSlider({ categoriesName, productCard }) {
   const { activeCategory } = useSelector((state) => state.categoryReducer);
-  const { productsList, oneProduct } = useSelector(
-    (state) => state.productReducer
+  const { itemsList, oneProduct } = useSelector(
+    (state) => state.universalReducer.products
   );
   const dispatch = useDispatch();
 
@@ -30,9 +31,9 @@ function ProductSlider({ categoriesName, productCard }) {
 
   useEffect(() => {
     request("http://localhost:5000/products")
-      .then((data) => dispatch(productsFetched(data)))
+      .then((data) => dispatch(fetchedProducts(data)))
       .catch((error) => console.error(error));
-  }, [productsList]);
+  }, [itemsList]);
 
   useEffect(() => {
     if (oneProduct) {
@@ -105,9 +106,8 @@ function ProductSlider({ categoriesName, productCard }) {
       pTitle: productName,
       pDescription: productDescription,
       pPrice: productPrice,
-      pImg: productImage
-
-    }
+      pImg: productImage,
+    };
 
     dispatch(updateProduct(changedProduct));
 
@@ -116,8 +116,7 @@ function ProductSlider({ categoriesName, productCard }) {
       "PATCH",
       JSON.stringify(changedProduct)
       // JSON.stringify(oneProduct)
-    )
-    .catch((err) => console.error(err))
+    ).catch((err) => console.error(err));
 
     // clearDataItems();
   };
@@ -167,7 +166,7 @@ function ProductSlider({ categoriesName, productCard }) {
   });
 
   //created editList data
-  const editList = productsList
+  const editList = itemsList
     .filter((el) => el.category === activeCategory)
     .map((el) => ({
       id: el.id,
