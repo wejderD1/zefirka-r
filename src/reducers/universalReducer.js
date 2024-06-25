@@ -23,19 +23,25 @@ const universalReducer = (state = initialState, action) => {
       return {
         ...state,
         [entity]: {
-          ...state.entity,
+          ...state[entity],
           itemsList: item,
         },
       };
 
     case ADD_ITEM:
-      return;
+      return {
+        ...state,
+        [entity]: {
+          ...state[entity],
+          itemsList: [...state[entity].itemsList, item]
+        }
+      }
 
     case SELECT_ITEM:
       return {
         ...state,
         [entity]: {
-          ...state.entity,
+          ...state[entity],
           oneProduct: state[entity].itemsList.find((el) => el.id === id),
         },
       };

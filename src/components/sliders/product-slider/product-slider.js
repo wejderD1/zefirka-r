@@ -33,7 +33,7 @@ function ProductSlider({ categoriesName, productCard }) {
     request("http://localhost:5000/products")
       .then((data) => dispatch(fetchedProducts(data)))
       .catch((error) => console.error(error));
-  }, [itemsList]);
+  }, []);
 
   useEffect(() => {
     if (oneProduct) {
