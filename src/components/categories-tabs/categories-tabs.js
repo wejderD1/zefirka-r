@@ -1,25 +1,23 @@
-import { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
+import { fetchedProducts } from "../../actions/productAction";
+import { categoriesChanged } from "../../actions";
+import { useHttp } from "../../services/http.hooks";
+import { createSelector } from "reselect";
 import TabItem from "../tab-item/tab-item";
 import ProductCard from "../product-card/product-card";
-
-import { categoriesChanged } from "../../actions";
-import { fetchedProducts } from "../../actions/productAction";
-
-import { createSelector } from "reselect";
-import { useHttp } from "../../services/http.hooks";
 import "./categories-tabs.scss";
 
-function CategoriesTabs({ categoriesName }) {
-  const categories = categoriesName;
-
+const CategoriesTabs = ({ categoriesName }) => {
+  const dispatch = useDispatch();
+  const { request } = useHttp();
   const { activeCategory } = useSelector((state) => state.categoryReducer);
 
   const filteredProductsListSelector = createSelector(
     (state) => state.universalReducer.products.itemsList,
     (state) => state.categoryReducer.activeCategory,
     (products, selectedCategory) => {
+      if (!products) return []; 
       return selectedCategory
         ? products.filter((el) => el.category === selectedCategory)
         : products;
@@ -27,21 +25,7 @@ function CategoriesTabs({ categoriesName }) {
   );
 
   const filteredProductsList = useSelector(filteredProductsListSelector);
-  const dispatch = useDispatch();
-  const { request } = useHttp();
-
-  const [loading, setLoading] = useState(false);
-
-  /**
-   * create grid template collumns style
-   */
-  const createGridTemplateStyle = useCallback(() => {
-    let str = "";
-    for (let index = 0; index < categoriesName.length; index++) {
-      str += "1fr ";
-    }
-    return str;
-  }, [categoriesName]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setLoading(true);
@@ -52,43 +36,46 @@ function CategoriesTabs({ categoriesName }) {
       })
       .catch((error) => {
         console.error(error);
-        setLoading(true);
+        setLoading(false); // Обработка ошибки: сброс состояния загрузки
       });
-  }, [request, dispatch]);
+  }, [request, dispatch]); // Обновление при изменении request или dispatch
 
   useEffect(() => {
     dispatch(categoriesChanged(activeCategory));
-  }, []);
+  }, [dispatch, activeCategory]); // Обновление при изменении activeCategory
+
+  const createGridTemplateStyle = () => {
+    let str = "";
+    for (let index = 0; index < categoriesName.length; index++) {
+      str += "1fr ";
+    }
+    return str;
+  };
+
+  const productsCards = filteredProductsList.map((product) => (
+    <ProductCard
+      key={product.id}
+      id={product.id}
+      title={product.pTitle}
+      desc={product.pDescription}
+      price={product.pPrice}
+      img={product.pImg}
+    />
+  ));
+
+  const tabItems = categoriesName.map((category, index) => (
+    <TabItem key={index} id={category} title={category} />
+  ));
 
   if (loading) {
     return <div>Loading...</div>;
   }
 
-  const productsCards = filteredProductsList.map((e) => {
-    return (
-      <ProductCard
-        key={e.id}
-        id={e.id}
-        title={e.pTitle}
-        desc={e.pDescription}
-        price={e.pPrice}
-        img={e.pImg}
-      />
-    );
-  });
-
-  const tabItem = categories.map((el, i) => {
-    return <TabItem key={i} id={el} title={el} />;
-  });
-
   return (
     <div className="tabs__container">
       <div className="tabs__inner">
-        <ul
-          className="tabs__nav"
-          style={{ gridTemplateColumns: createGridTemplateStyle() }}
-        >
-          {tabItem}
+        <ul className="tabs__nav" style={{ gridTemplateColumns: createGridTemplateStyle() }}>
+          {tabItems}
         </ul>
         <div className="tab__content">
           <div className="products-wrapper">{productsCards}</div>
@@ -96,6 +83,6 @@ function CategoriesTabs({ categoriesName }) {
       </div>
     </div>
   );
-}
+};
 
 export default CategoriesTabs;
