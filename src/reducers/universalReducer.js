@@ -46,6 +46,24 @@ const universalReducer = (state = initialState, action) => {
         },
       };
 
+    case DELETE_ITEM:
+      return {
+        ...state,
+        [entity]: {
+          ...state[entity],
+          itemsList: state[entity].itemsList.filter((el) => el.id !== id)
+        }
+      }
+
+      case UPDATE_ITEM:
+        return {
+          ...state,
+        [entity]: {
+          ...state[entity],
+          itemsList: [...state[entity].itemsList, item],
+        },
+        }
+
     default:
       return state;
   }

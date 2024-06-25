@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { selectedProduct } from "../../actions/productAction";
+import { useDispatch } from "react-redux";
 
 import "./product-card.scss";
-import { useDispatch } from "react-redux";
 
 function ProductCard({ title, desc, price, img, id }) {
   const dispatch = useDispatch();

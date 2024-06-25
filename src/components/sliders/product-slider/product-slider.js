@@ -115,7 +115,6 @@ function ProductSlider({ categoriesName, productCard }) {
       `http://localhost:5000/products/${id}`,
       "PATCH",
       JSON.stringify(changedProduct)
-      // JSON.stringify(oneProduct)
     ).catch((err) => console.error(err));
 
     // clearDataItems();
