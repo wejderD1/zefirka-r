@@ -18,7 +18,6 @@ const initialState = {
 
 const universalReducer = (state = initialState, action) => {
   const { entity, item, id } = action.payload || {};
-console.log(state.products, "state");
   switch (action.type) {
     case FETCHED_ITEM:
       return {

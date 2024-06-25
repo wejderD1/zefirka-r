@@ -39,9 +39,7 @@ function App() {
             <ContactsView />
           </Route>
           <Route path="/admin">
-            <AdminPanel
-              categoriesName={categories}
-            />
+            <AdminPanel categoriesName={categories} />
           </Route>
           <Route path="/details/:id">
             <ProductDetails />
