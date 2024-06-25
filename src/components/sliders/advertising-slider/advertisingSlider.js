@@ -14,7 +14,7 @@ function AdvertisingSlider({ advertisingCard }) {
   const [advertisingImage, setAdvertisingImage] = useState("");
   const { request } = useHttp();
 
-  const { advertisingsList } = useSelector(
+  const { itemsList } = useSelector(
     (state) => state.universalReducer.ads
   );
   const dispatch = useDispatch();
@@ -85,7 +85,7 @@ function AdvertisingSlider({ advertisingCard }) {
       .catch((error) => console.error(error));
   };
 
-  const editList = advertisingsList.map((el) => ({
+  const editList = itemsList.map((el) => ({
     id: el.id,
     title: el.aTitle,
   }));
