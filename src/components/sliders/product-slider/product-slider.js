@@ -35,7 +35,7 @@ function ProductSlider({ categoriesName, productCard }) {
         console.log("Products fetched:", data);
         dispatch(fetchedProducts(data))})
       .catch((error) => console.error(error));
-  }, [dispatch]);
+  }, [dispatch, request]);
 
   useEffect(() => {
     if (oneProduct) {
@@ -110,6 +110,7 @@ function ProductSlider({ categoriesName, productCard }) {
   //PATCH request
   const updateHandler = () => {
     const changedProduct = {
+      id,
       pTitle: productName,
       pDescription: productDescription,
       pPrice: productPrice,
