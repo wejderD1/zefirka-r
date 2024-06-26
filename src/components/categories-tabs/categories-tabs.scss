@@ -24,5 +24,12 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   justify-items: center;
-  gap: 2rem 1rem;
+  gap: 6rem 2rem;
+}
+
+/* MEDIA */
+@media only screen and (max-width: 1366px) {
+  .products-wrapper {
+    gap: 5rem 2rem;
+  }
 }

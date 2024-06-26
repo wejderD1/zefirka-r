@@ -2,7 +2,7 @@
 
 .card {
   &-container {
-    width: 280px;
+    width: 20rem;
     height: 100%;
     border-radius: 10px;
     box-shadow: 2px 2px 16px $contrast-color;
@@ -48,8 +48,7 @@
 @media only screen and (max-width: 1366px) {
   .card {
     &-container {
-      width: 200px;
-      height: 360px;
+      width: 15rem;
     }
     &-img {
       width: 200px;
