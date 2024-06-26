@@ -30,6 +30,6 @@ export const deleteProduct = (id) => {
 export const updateProduct = (product) => {
   return {
     type: UPDATE_ITEM,
-    payload: { entity: 'products', item: product }
+    payload: { entity: 'products', item: product}
   }
 }

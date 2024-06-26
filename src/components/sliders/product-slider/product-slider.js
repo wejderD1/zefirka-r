@@ -1,4 +1,4 @@
-import { useCallback, Fragment, useEffect, useState } from "react";
+import { useCallback, Fragment, useEffect, useState, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 
@@ -31,9 +31,11 @@ function ProductSlider({ categoriesName, productCard }) {
 
   useEffect(() => {
     request("http://localhost:5000/products")
-      .then((data) => dispatch(fetchedProducts(data)))
+      .then((data) => {
+        console.log("Products fetched:", data);
+        dispatch(fetchedProducts(data))})
       .catch((error) => console.error(error));
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     if (oneProduct) {
@@ -45,6 +47,11 @@ function ProductSlider({ categoriesName, productCard }) {
       setProductImage(pImg);
     }
   }, [oneProduct]);
+
+  const filteredItems = useMemo(() => {
+    console.log(itemsList, "itemslist");
+    return itemsList.filter((el) => el.category === activeCategory);
+  }, [itemsList, activeCategory]);
 
   //clear input fields
   function clearDataItems() {
@@ -109,14 +116,12 @@ function ProductSlider({ categoriesName, productCard }) {
       pImg: productImage,
     };
 
-    dispatch(updateProduct(changedProduct));
-
     request(
       `http://localhost:5000/products/${id}`,
       "PATCH",
       JSON.stringify(changedProduct)
     ).catch((err) => console.error(err));
-
+    dispatch(updateProduct(changedProduct));
     // clearDataItems();
   };
 
@@ -165,12 +170,14 @@ function ProductSlider({ categoriesName, productCard }) {
   });
 
   //created editList data
-  const editList = itemsList
-    .filter((el) => el.category === activeCategory)
-    .map((el) => ({
+  //ЭТОТ ЕЛЕМЕНТ НЕ ХОЧЕТ ПЕРЕРИСОВЫВАТЬСЯ
+  const editList = useMemo(() => {
+    console.log("memo", filteredItems);
+    return filteredItems.map((el) => ({
       id: el.id,
       title: el.pTitle,
     }));
+  }, [filteredItems]);
 
   return (
     <Fragment>

@@ -33,9 +33,9 @@ const universalReducer = (state = initialState, action) => {
         ...state,
         [entity]: {
           ...state[entity],
-          itemsList: [...state[entity].itemsList, item]
-        }
-      }
+          itemsList: [...state[entity].itemsList, item],
+        },
+      };
 
     case SELECT_ITEM:
       return {
@@ -51,18 +51,20 @@ const universalReducer = (state = initialState, action) => {
         ...state,
         [entity]: {
           ...state[entity],
-          itemsList: state[entity].itemsList.filter((el) => el.id !== id)
-        }
-      }
+          itemsList: state[entity].itemsList.filter((el) => el.id !== id),
+        },
+      };
 
-      case UPDATE_ITEM:
-        return {
-          ...state,
+    case UPDATE_ITEM:
+      return {
+        ...state,
         [entity]: {
           ...state[entity],
-          itemsList: [...state[entity].itemsList, item],
+          itemsList: state[entity].itemsList.map((el) =>
+            el.id === item.id ? { ...el, ...item } : el
+          ),
         },
-        }
+      };
 
     default:
       return state;
