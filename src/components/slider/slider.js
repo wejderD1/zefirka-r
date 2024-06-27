@@ -8,7 +8,8 @@ import "./slider.scss";
 /**
  *
  * @param itemsData Array - slider items data }
- * @param option
+ * @param option 
+ *    options allow you to change the appearance of the slider
  *  - indicators : Boolean - slider indicators visible
  *  - backgroundImage : String - slider background image
  *  - image: Boolean - add image into advertising

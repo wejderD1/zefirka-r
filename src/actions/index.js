@@ -4,3 +4,10 @@ export const categoriesChanged = (categoryName) => {
       payload: categoryName
   }
 }
+
+export const userFetchCounter = (data) => {
+  return {
+    type: "FETCH_COUNTER",
+    payload: data
+  }
+}

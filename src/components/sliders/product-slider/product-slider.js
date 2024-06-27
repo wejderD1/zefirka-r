@@ -32,7 +32,6 @@ function ProductSlider({ categoriesName, productCard }) {
   useEffect(() => {
     request("http://localhost:5000/products")
       .then((data) => {
-        console.log("Products fetched:", data);
         dispatch(fetchedProducts(data))})
       .catch((error) => console.error(error));
   }, [dispatch, request]);
@@ -49,7 +48,6 @@ function ProductSlider({ categoriesName, productCard }) {
   }, [oneProduct]);
 
   const filteredItems = useMemo(() => {
-    console.log(itemsList, "itemslist");
     return itemsList.filter((el) => el.category === activeCategory);
   }, [itemsList, activeCategory]);
 
@@ -173,7 +171,6 @@ function ProductSlider({ categoriesName, productCard }) {
   //created editList data
   //ЭТОТ ЕЛЕМЕНТ НЕ ХОЧЕТ ПЕРЕРИСОВЫВАТЬСЯ
   const editList = useMemo(() => {
-    console.log("memo", filteredItems);
     return filteredItems.map((el) => ({
       id: el.id,
       title: el.pTitle,

@@ -15,9 +15,9 @@ const HeaderApp = () => {
             <li className="nav__item">
               <NavLink className="nav__link" to="/produkty">produkty</NavLink>
             </li>
-            <li className="nav__item">
+            {/* <li className="nav__item">
               <NavLink className="nav__link" to="/gleria">galeria</NavLink>
-            </li>
+            </li> */}
             <li className="nav__item">
               <NavLink className="nav__link" to="/kontakt">kontakt</NavLink>
             </li>

@@ -1,5 +1,5 @@
 import "./App.scss";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Footer from "./components/footer/footer";
 import HeaderApp from "./components/header-app/header-app";
@@ -13,6 +13,7 @@ import {
   ProductDetails,
 } from "./pages";
 
+
 const categories = [
   "zefir",
   "ciastka",
@@ -21,6 +22,7 @@ const categories = [
   "cukierky",
   "torty musowe",
 ];
+
 
 function App() {
   return (
@@ -39,12 +41,12 @@ function App() {
             <ContactsView />
           </Route>
           <Route path="/admin">
-            <AdminPanel categoriesName={categories} />
+            <AdminPanel categoriesName={categories}/>
           </Route>
           <Route path="/details/:id">
             <ProductDetails />
           </Route>
-          <Route component={Page404} />
+          <Route component={Page404} />↓µ…
         </Switch>
         <Footer />
       </div>

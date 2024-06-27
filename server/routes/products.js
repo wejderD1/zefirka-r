@@ -1,4 +1,3 @@
-const { log } = require("console");
 const Router = require("express");
 const fs = require("fs");
 

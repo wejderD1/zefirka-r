@@ -56,9 +56,9 @@ const ContactsView = () => {
                 type="text"
                 placeholder="telefon"
               />
-              <Link className="btn btn_contacts" to="/">
+              <button className="btn btn_contacts" type="submit">
                 wysłać
-              </Link>
+              </button>
             </div>
             <textarea
               name="message"

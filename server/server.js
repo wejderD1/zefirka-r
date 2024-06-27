@@ -5,6 +5,7 @@ const fs = require('fs');
 
 const productRoute = require("./routes/products");
 const advertisingRoute = require("./routes/advertising");
+const userCount = require("./routes/userCount");
 
 const app = express();
 dotenv.config();
@@ -12,11 +13,11 @@ dotenv.config();
 //Constants
 const PORT = 5000;
 
-//Middelware
 app.use(cors());
 app.use(express.json());
 
 //Routers
+app.use("/", userCount);
 app.use('/', productRoute);
 app.use('/', advertisingRoute);
 
