@@ -43,7 +43,6 @@ router.patch("/products/:id", (req, res) => {
   if (index !== -1) {
     productsData[index] = {...productsData[index], ...updateData};
 
-    console.log("pd", updateData) 
     writeFile(JSON.stringify(productsData));
     
     res
