@@ -27,7 +27,7 @@ function ProductSlider({ categoriesName, productCard }) {
   const [productDescription, setProductDescription] = useState("");
   const [productPrice, setProductPrice] = useState("");
   const [productImage, setProductImage] = useState("");
-  const { request } = useHttp();
+  const { request } = useHttp();                     
 
   useEffect(() => {
     request("http://localhost:5000/products")

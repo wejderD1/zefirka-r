@@ -13,6 +13,7 @@ const initialState = {
   },
   ads: {
     itemsList: [],
+    oneProduct: null,
   },
 };
 
