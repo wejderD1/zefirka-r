@@ -13,6 +13,7 @@ import App from "./App";
 import store from "./store";
 
 import "./index.scss";
+import 'react-toastify/dist/ReactToastify.css';
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 library.add(faArrowLeft, faArrowRight, faArrowDown);

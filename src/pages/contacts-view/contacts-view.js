@@ -2,7 +2,8 @@ import { useState } from "react";
 import "./contacts-view.scss";
 import { Link } from "react-router-dom/cjs/react-router-dom";
 
-import {ToastContainer, toast} from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
+
 import { useHttp } from "../../services/http.hooks";
 
 const ContactsView = () => {
@@ -13,27 +14,39 @@ const ContactsView = () => {
 
   const { request } = useHttp();
 
-  const notify = () => toast("wow to easy!");
+  const handleSubmit = (e) => {
+   e.preventDefault();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
     request(
-      "http://localhost:5000/send-email",
+      "http://localhost:5001/send-email",
       "POST",
       JSON.stringify({ name, email, phone, message })
     )
       .then(() => {
+        toast.success("your letter has been sent");
+
         setName("");
         setEmail("");
         setPhone("");
         setMessage("");
-        notify();
       })
-      .catch((error) => console.error("Error: " + error));
+      .catch((error) => toast.error(`Error: ${error}`));
   };
 
   return (
     <div className="contacts pt-115px">
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={true}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <div className="container">
         <div className="contacts_inner">
           <h1 className="subtitle subtitle_bottom-line">Kontakty</h1>
@@ -91,7 +104,7 @@ const ContactsView = () => {
                 className="main-input"
                 type="tel"
                 pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"
-                required 
+                required
                 placeholder="tel: 000-000-000"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
@@ -111,7 +124,6 @@ const ContactsView = () => {
               onChange={(e) => setMessage(e.target.value)}
             ></textarea>
           </form>
-        <ToastContainer />
         </div>
       </div>
     </div>
