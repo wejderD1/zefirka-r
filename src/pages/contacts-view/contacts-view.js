@@ -92,7 +92,7 @@ const ContactsView = () => {
                 type="tel"
                 pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"
                 required 
-                placeholder="000-000-000"
+                placeholder="tel: 000-000-000"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
               />

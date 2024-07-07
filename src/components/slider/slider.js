@@ -31,7 +31,6 @@ function Slider({ itemsData, option = null }) {
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % itemsData.length);
   };
-console.log(itemsData, "id");
   return (
     <div
       className="slider__container"
