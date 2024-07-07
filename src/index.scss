@@ -181,3 +181,9 @@ h6 {
     --header-height: 60px;
   }
 }
+
+@media (max-width: 768px) {
+  :root {
+    --header-height: 20px;
+  }
+}

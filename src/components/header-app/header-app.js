@@ -1,11 +1,13 @@
 import { Link, NavLink } from "react-router-dom";
 import "./header-app.scss";
+import BurgerMenu from "../burger-menu/burger-menu";
 
 const HeaderApp = () => {
 
   return (
     <header className="app-header">
       <div className="container">
+        <BurgerMenu />
         <div className="nav__wrapper">
           <Link className="logo" alt="zefirka logo" to="/"></Link>
           <ul className="nav">

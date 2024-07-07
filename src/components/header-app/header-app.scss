@@ -3,7 +3,6 @@
 header {
   position: fixed;
   width: 100%;
-  height: var(--header-height);
   padding: 10px 0;
   // background-color: rgba($color: #f48282, $alpha: 0.5);
   background: url("../../assets/images/background12.png");
@@ -13,6 +12,7 @@ header {
 
 .nav {
   list-style: none;
+  display: block;
   &__wrapper {
     display: grid;
     grid-template-columns: 20% 80%;
@@ -122,6 +122,10 @@ header {
   }
 }
 
-@media (min-width: 768px) and (max-width: 992px) {
-  
+@media (min-width: 768px) and (max-width: 992px) {}
+
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+  }
 }

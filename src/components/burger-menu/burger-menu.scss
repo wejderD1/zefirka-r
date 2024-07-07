@@ -1,0 +1,84 @@
+@import "../../assets/style/color-palette.scss";
+.burger{
+  display: none;
+  &__container {
+    // height: 100px;
+  }
+}
+
+.bm {
+  list-style: none;
+  display: none;
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+  }
+  &__item {
+    position: relative;
+    display: inline-block;
+
+    margin: 10px 0;
+  }
+  &__item::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    content: "";
+    display: inline-block;
+    color: #606060;
+    vertical-align: top;
+    border-bottom: #606060 1px solid;
+    width: 90%;
+  }
+  &__link {
+    text-decoration: none;
+    font-family: "Roboto Serif", serif;
+    letter-spacing: 2px;
+    position: relative;
+    font-size: 17px;
+    text-transform: uppercase;
+    display: inline-block;
+    transition: color 0.2s;
+  }
+  &__link:hover {
+    color: $main-color;
+  }
+  &__link,
+  &__link:visited {
+    color: #6e6d6e;
+  }
+  &__link::before,
+  &__link::after {
+    content: "";
+    position: absolute;
+    top: auto;
+    height: 4px;
+    right: 50%;
+    left: 50%;
+    bottom: -3px;
+    background: $main-color;
+    transition: 0.8s;
+  }
+  &__link:hover::before,
+  .router-link-exact-active::before {
+    left: 0;
+  }
+  &__link:hover::after,
+  .router-link-exact-active::after {
+    right: 0;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .bm {
+    display: block;
+  }
+  .burger {
+    display: block;
+  }
+}

@@ -6,6 +6,7 @@ import {
   faArrowLeft,
   faArrowRight,
   faArrowDown,
+  faBars
 } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
 
@@ -16,7 +17,7 @@ import "./index.scss";
 import 'react-toastify/dist/ReactToastify.css';
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-library.add(faArrowLeft, faArrowRight, faArrowDown);
+library.add(faArrowLeft, faArrowRight, faArrowDown, faBars);
 
 root.render(
     <Provider store={store}>
