@@ -74,7 +74,7 @@ h6 {
     display: inline-block;
 
     width: 150px;
-    border-bottom: 1px solid $contrast-color;
+    border-bottom: 1px solid $bazis-color;
   }
 }
 
@@ -164,7 +164,7 @@ h6 {
 }
 
 /* MEDIA */
-@media only screen  and (max-width: 1366px) {
+@media only screen and (max-width: 1366px) {
   :root {
     --header-height: 90px;
   }
@@ -173,6 +173,14 @@ h6 {
 @media (min-width: 768px) and (max-width: 1066px) {
   .container {
     padding: 0 2rem;
+  }
+
+  .main-title {
+    font-size: 45px;
+  }
+
+  .subtitle {
+    font-size: 20px;
   }
 }
 
@@ -183,7 +191,28 @@ h6 {
 }
 
 @media (max-width: 768px) {
+  .container {
+    padding: 0 2rem;
+  }
+
   :root {
     --header-height: 20px;
+  }
+  .main-title {
+    font-size: 40px;
+  }
+
+  .subtitle {
+    font-size: 25px;
+  }
+
+  .subtitle_bottom-line {
+    &::after {
+      display: none;
+    }
+  }
+
+  .btn {
+    font-size: 15px;
   }
 }

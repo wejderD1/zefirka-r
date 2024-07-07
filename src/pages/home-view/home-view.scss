@@ -5,16 +5,16 @@
   height: 100%;
   padding-top: var(--header-height);
   &__inner {
-    height: 900px;
+    height: 40rem;
   }
   & > .container {
     background: no-repeat
       url("../../assets/images/bkg_home_2.webp");
-    background-size: 100% auto;
+    background-size: 100% 100%;
     background-attachment: fixed;
   }
-  &-title_white {
-    color: $bazis-color;
+  &__title_white {
+    color: $bazis-color !important;
   }
 }
 
@@ -24,7 +24,7 @@
 }
 
 .block-inner {
-  margin: 40px;
+  margin: 2rem;
   padding-bottom: 20px;
 }
 
@@ -36,56 +36,32 @@
 
 
 /* MEDIA */
-@media only screen  and (max-width: 1366px) {
-  // .home {
-  //   padding-top: 90px;
-  // }
+@media only screen and (max-width: 1366px) {
+
 }
 
-// Мобильные устройства (поперечная ориентация, малые экраны):
-@media (max-width: 320px) {
-    /* Стили для экранов до 320px шириной */
+@media (min-width: 768px) and (max-width: 1066px) {
+
 }
 
-// Мобильные устройства (обычные размеры):
-@media (max-width: 480px) {
-    /* Стили для экранов до 480px шириной */
-}
-
-// Большие мобильные устройства и малые планшеты:
-@media (max-width: 600px) {
-    /* Стили для экранов до 600px шириной */
-}
-
-// Планшеты (портретная ориентация):
-@media (max-width: 768px) {
-    /* Стили для экранов до 768px шириной */
-}
-
-// Планшеты (альбомная ориентация) и малые десктопы:
 @media (max-width: 992px) {
-    /* Стили для экранов до 992px шириной */
+
 }
 
-// Большие планшеты и десктопы:
-@media (max-width: 1200px) {
-    /* Стили для экранов до 1200px шириной */
-}
+@media (max-width: 768px) {
+  .home > .container {
+    background-size: cover;
+    background-position: top;
+    padding-bottom: 4rem;
+  }
 
-// Широкоформатные экраны и десктопы:
-@media (min-width: 1201px) {
-    /* Стили для экранов шире 1200px */
-    // .home {
-    //   padding-top: 90px;
-    // }
-}
+  .description {
+    text-align: left;
+    padding: 45px 0;
+  }
 
-// Устройства от 480px до 768px:
-@media (min-width: 480px) and (max-width: 768px) {
-    /* Стили для экранов от 480px до 768px шириной */
-}
-
-// Устройства от 768px до 992px:
-@media (min-width: 768px) and (max-width: 992px) {
-    /* Стили для экранов от 768px до 992px шириной */
+  .btn_main {
+    margin-left: 3rem;
+    width: 150px;
+  }
 }
