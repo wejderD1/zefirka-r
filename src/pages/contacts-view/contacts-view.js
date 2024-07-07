@@ -18,7 +18,7 @@ const ContactsView = () => {
    e.preventDefault();
 
     request(
-      "http://localhost:5001/send-email",
+      "http://localhost:5000/send-email",
       "POST",
       JSON.stringify({ name, email, phone, message })
     )
