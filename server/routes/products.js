@@ -2,6 +2,7 @@ const Router = require("express");
 const fs = require("fs");
 
 const router = new Router();
+
 const productsData = JSON.parse(
   fs.readFileSync("public/products.json", "utf-8")
 );
@@ -71,7 +72,3 @@ router.delete("/products/:id", (req, res) => {
 });
 
 module.exports = router;
-
-/**
- * добре було б зробити мідлвеєр для валідації данних які приходять від клієнта
- */
