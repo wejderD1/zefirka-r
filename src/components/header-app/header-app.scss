@@ -3,6 +3,7 @@
 header {
   position: fixed;
   width: 100%;
+  height: var(--header-height);
   padding: 10px 0;
   // background-color: rgba($color: #f48282, $alpha: 0.5);
   background: url("../../assets/images/background12.png");
@@ -12,12 +13,6 @@ header {
 
 .nav {
   list-style: none;
-  // margin: 0;
-  // padding-left: 0;
-  // margin: 20px 0 5px;
-  // padding: 25px 0 5px;
-  // text-align: center;
-  // background: rgba($color: #fff, $alpha: .9);
   &__wrapper {
     display: grid;
     grid-template-columns: 20% 80%;
@@ -42,7 +37,7 @@ header {
     font-family: "Roboto Serif", serif;
     letter-spacing: 2px;
     position: relative;
-    font-size: 14px;
+    font-size: 17px;
     margin: 0 34px 0 30px;
     text-transform: uppercase;
     display: inline-block;
@@ -84,8 +79,8 @@ header {
 //LOGO STYLES
 .logo {
   display: block;
-  width: 70px;
-  height: 70px;
+  width: 110px;
+  height: 110px;
   background: no-repeat url("../../assets/images/logo_v_2.webp");
   background-size: 100%;
   background-position: 50%;
@@ -98,18 +93,35 @@ header {
 }
 
 /* MEDIA */
-@media only screen and (min-width: 1536px) {
+@media only screen and (max-width: 1366px) {
   .logo {
-    width: 110px;
-    height: 110px;
+    width: 70px;
+    height: 70px;
   }
-
   .nav {
     &__link {
-      font-size: 17px;
-    }
-    &__wrapper {
-      grid-template-columns: 30% 70%;
+      font-size: 14px;
     }
   }
+}
+
+// Устройства от 768px до 992px:
+@media (min-width: 768px) and (max-width: 1066px) {
+  .nav__link {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 992px) {
+  .logo {
+    display: none;
+  }
+
+  .nav__wrapper {
+    grid-template-columns: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  
 }

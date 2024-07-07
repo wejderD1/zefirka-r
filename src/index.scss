@@ -162,3 +162,22 @@ h6 {
     font-style: italic;
   }
 }
+
+/* MEDIA */
+@media only screen  and (max-width: 1366px) {
+  :root {
+    --header-height: 90px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1066px) {
+  .container {
+    padding: 0 2rem;
+  }
+}
+
+@media (max-width: 992px) {
+  :root {
+    --header-height: 60px;
+  }
+}
