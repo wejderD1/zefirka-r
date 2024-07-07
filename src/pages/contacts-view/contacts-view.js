@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./contacts-view.scss";
 import { Link } from "react-router-dom/cjs/react-router-dom";
 
+import {ToastContainer, toast} from "react-toastify";
 import { useHttp } from "../../services/http.hooks";
 
 const ContactsView = () => {
@@ -11,6 +12,8 @@ const ContactsView = () => {
   const [message, setMessage] = useState("");
 
   const { request } = useHttp();
+
+  const notify = () => toast("wow to easy!");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,7 +27,7 @@ const ContactsView = () => {
         setEmail("");
         setPhone("");
         setMessage("");
-        alert("your message has been sent");
+        notify();
       })
       .catch((error) => console.error("Error: " + error));
   };
@@ -108,6 +111,7 @@ const ContactsView = () => {
               onChange={(e) => setMessage(e.target.value)}
             ></textarea>
           </form>
+        <ToastContainer />
         </div>
       </div>
     </div>
