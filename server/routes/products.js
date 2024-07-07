@@ -1,74 +1,26 @@
 const Router = require("express");
-const fs = require("fs");
+
+const checkDuplicateId = require("../middleware/checkDuplicateId");
+const productsData = require("../data/productsData")
+const {
+  getAllProducts,
+  addNewProduct,
+  updateProduct,
+  removeProduct,
+} = require("../controllers/productControllers");
 
 const router = new Router();
 
-const productsData = JSON.parse(
-  fs.readFileSync("public/products.json", "utf-8")
-);
-
-const writeFile = (data) => {
-  fs.writeFile("public/products.json", data, "utf8", (err) => {
-    if (err) {
-      console.error("Ошибка записи в файл:", err);
-      return;
-    }
-    console.log("Объект успешно записан в файл");
-  });
-};
-
 //get product localhost:5000/products/
-router.get("/products", (req, res) => {
-  res.json(productsData);
-});
+router.get("/products", getAllProducts);
 
 //add product POST
-router.post("/products/new-product", (req, res) => {
-  const product = req.body;
-
-  if (!product) {
-    res.status(404).json({ message: `Product data error - ${product}` });
-  } else {
-    productsData.push(product);
-    writeFile(JSON.stringify(productsData));
-    res.status(200).json({ message: `New product add into list` });
-  }
-});
+router.post("/products/new-product", checkDuplicateId(productsData), addNewProduct);
 
 //update product PATCH
-router.patch("/products/:id", (req, res) => {
-  const productId = req.params.id;
-  const updateData = req.body;
-  const index = productsData.findIndex((product) => product.id === productId);
-  
-  if (index !== -1) {
-    productsData[index] = {...productsData[index], ...updateData};
-
-    writeFile(JSON.stringify(productsData));
-    
-    res
-      .status(200)
-      .json({ message: `product data with id ${productId} sucefully update` });
-  } else {
-    res.status(404).json({ message: `product update error` });
-  }
-});
+router.patch("/products/:id", updateProduct);
 
 //remove product DELETE
-router.delete("/products/:id", (req, res) => {
-  const productId = req.params.id;
-
-  const index = productsData.findIndex((product) => product.id === productId);
-
-  if (index !== -1) {
-    productsData.splice(index, 1);
-    writeFile(JSON.stringify(productsData));
-    res
-      .status(200)
-      .json({ message: `Product with ID ${productId} successfully deleted.` });
-  } else {
-    res.status(404).json({ error: `Product with ID ${productId} not found.` });
-  }
-});
+router.delete("/products/:id", removeProduct);
 
 module.exports = router;

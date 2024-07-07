@@ -38,26 +38,52 @@ const HomeView = () => {
     );
   }
 
-  const advertisingContent = advertisingsList.map((el, i) => {
+  const EmptyAds = () => {
     return (
       <div className="advertising__container">
         <div className="advertising__info">
-          <h2 className="main-title advertising__title">{el.aTitle}</h2>
-          <p className="advertising__description">{el.aDesc}</p>
-          <h5 className="advertising__note">{el.aNote}</h5>
+          <h2 className="main-title advertising__title">
+            Nie ma ogłoszeń
+          </h2>
+          <p className="advertising__description">
+            w dannym momencie nie ma ogłoszeń
+          </p>
+          <h5 className="advertising__note"></h5>
         </div>
         <img
           className="advertising__img"
-          src={
-            el.aImg
-              ? require(`../../assets/images/${el.aImg}`)
-              : `http://placehold.it/150`
-          }
+          src={require(`../../assets/images/empty_ads.jpg`)}
           alt="advertising pictures"
         />
       </div>
     );
-  });
+  };
+
+  const advertisingContent =
+    advertisingsList.length === 0 ? (
+      [<EmptyAds />]
+    ) : (
+      advertisingsList.map((el, i) => {
+        return (
+          <div className="advertising__container">
+            <div className="advertising__info">
+              <h2 className="main-title advertising__title">{el.aTitle}</h2>
+              <p className="advertising__description">{el.aDesc}</p>
+              <h5 className="advertising__note">{el.aNote}</h5>
+            </div>
+            <img
+              className="advertising__img"
+              src={
+                el.aImg
+                  ? require(`../../assets/images/${el.aImg}`)
+                  : `http://placehold.it/150`
+              }
+              alt="advertising pictures"
+            />
+          </div>
+        );
+      })
+    );
 
   return (
     <div className="home">

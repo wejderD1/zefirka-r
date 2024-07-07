@@ -33,6 +33,7 @@
     font-weight: 500;
     color: $main-color;
     padding: 10px 0;
+    text-wrap: wrap;
   }
   &-price {
     color: $text-color;
@@ -48,7 +49,7 @@
 @media only screen and (max-width: 1366px) {
   .card {
     &-container {
-      width: 15rem;
+      width: 14rem;
     }
     &-img {
       width: 100%;

@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import CarouselIndicators from "./carousel-indicators/carouselIndicators";
 
 import "./slider.scss";
@@ -17,6 +17,7 @@ import "./slider.scss";
  */
 
 function Slider({ itemsData, option = null }) {
+
   const { indicators, backgroundImage } = option;
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -30,7 +31,7 @@ function Slider({ itemsData, option = null }) {
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % itemsData.length);
   };
-
+console.log(itemsData, "id");
   return (
     <div
       className="slider__container"
