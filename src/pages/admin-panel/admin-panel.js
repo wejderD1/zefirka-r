@@ -28,7 +28,7 @@ const AdminPanel = ({ categoriesName }) => {
   ];
 
   return (
-    <div className="admin-panel">
+    <div className="admin-panel page">
       <div className="admin-panel__wrapper">
         <h1>ADMIN PANEL</h1>
         <UserCounter quantity="2" />

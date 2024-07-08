@@ -1,9 +1,8 @@
 @import "../../assets/style/color-palette.scss";
 
 .tabs {
-  &__container {
-  }
   &__inner {
+    padding-top: 5em;
   }
   &__nav {
     padding: 0;
@@ -13,23 +12,35 @@
     align-items: center;
     justify-content: center;
   }
-
 }
 
-.tab__content{ 
+.tab__content {
   margin: 4rem;
 }
 
 .products-wrapper {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   justify-items: center;
-  gap: 6rem 2rem;
+  gap: 6rem 1rem;
 }
 
 /* MEDIA */
-@media only screen and (max-width: 1366px) {
+@media (min-width: 1600px) {
   .products-wrapper {
-    gap: 5rem 2rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
+
+@media (min-width: 768px) and (max-width: 1066px) {
+  .products-wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .products-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+

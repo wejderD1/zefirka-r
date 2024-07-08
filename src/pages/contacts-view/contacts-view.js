@@ -34,7 +34,7 @@ const ContactsView = () => {
   };
 
   return (
-    <div className="contacts pt-115px">
+    <div className="contacts page">
       <ToastContainer
         position="top-center"
         autoClose={3000}

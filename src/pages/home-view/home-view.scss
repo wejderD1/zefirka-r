@@ -2,11 +2,9 @@
 
 // HOME SIZE STYLE
 .home {
-  height: 100%;
+  height: 100dvh;
   padding-top: var(--header-height);
-  &__inner {
-    height: 40rem;
-  }
+  
   & > .container {
     background: no-repeat
       url("../../assets/images/bkg_home_2.webp");

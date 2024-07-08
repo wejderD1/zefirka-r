@@ -82,9 +82,9 @@ const HomeView = () => {
         });
 
   return (
-    <div className="home">
+    <div className="home page">
       <div className="container">
-        <div className="home__inner">
+        <div className="home__inner page__inner">
           <div className="description">
             <div className="block-inner">
               <h1 className="subtitle home__title_white">

@@ -1,5 +1,4 @@
 import "./App.scss";
-import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Footer from "./components/footer/footer";
 import HeaderApp from "./components/header-app/header-app";
@@ -29,7 +28,7 @@ function App() {
     <Router>
       <div className="app">
         <HeaderApp />
-        <Switch>
+        <Switch >
           <Route exact path="/">
             <HomeView />
           </Route>

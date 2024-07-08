@@ -29,7 +29,7 @@ function ProductDetails() {
   }
   const { pTitle, pDescription, pPrice } = oneProduct;
   return (
-    <div className="container product-details__container">
+    <div className="container product-details__container page">
       <div className="product-details__inner">
         <div className="product__info">
           <h2
