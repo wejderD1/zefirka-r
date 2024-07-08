@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 
-import AboutMe from "../../components/about-me/about-me";
 import InformationBlock from "../../components/information-block/information-block";
 import Slider from "../../components/slider/slider";
 
@@ -43,9 +42,7 @@ const HomeView = () => {
     return (
       <div className="advertising__container">
         <div className="advertising__info">
-          <h2 className="main-title advertising__title">
-            Nie ma ogłoszeń
-          </h2>
+          <h2 className="main-title advertising__title">Nie ma ogłoszeń</h2>
           <p className="advertising__description">
             w dannym momencie nie ma ogłoszeń
           </p>
@@ -61,30 +58,28 @@ const HomeView = () => {
   };
 
   const advertisingContent =
-    advertisingsList.length === 0 ? (
-      [<EmptyAds />]
-    ) : (
-      advertisingsList.map((el, i) => {
-        return (
-          <div className="advertising__container">
-            <div className="advertising__info">
-              <h2 className="main-title advertising__title">{el.aTitle}</h2>
-              <p className="advertising__description">{el.aDesc}</p>
-              <h5 className="advertising__note">{el.aNote}</h5>
+    advertisingsList.length === 0
+      ? [<EmptyAds />]
+      : advertisingsList.map((el, i) => {
+          return (
+            <div className="advertising__container">
+              <div className="advertising__info">
+                <h2 className="main-title advertising__title">{el.aTitle}</h2>
+                <p className="advertising__description">{el.aDesc}</p>
+                <h5 className="advertising__note">{el.aNote}</h5>
+              </div>
+              <img
+                className="advertising__img"
+                src={
+                  el.aImg
+                    ? require(`../../assets/images/${el.aImg}`)
+                    : `http://placehold.it/150`
+                }
+                alt="advertising pictures"
+              />
             </div>
-            <img
-              className="advertising__img"
-              src={
-                el.aImg
-                  ? require(`../../assets/images/${el.aImg}`)
-                  : `http://placehold.it/150`
-              }
-              alt="advertising pictures"
-            />
-          </div>
-        );
-      })
-    );
+          );
+        });
 
   return (
     <div className="home">
@@ -116,8 +111,15 @@ const HomeView = () => {
       <div className="about">
         <div className="container">
           <div className="about__inner">
-            {/* INFORMATION & ABOUT ME*/}
-            <AboutMe />
+            <InformationBlock
+              img="omnie"
+              title="O mnie"
+              description="Witajcie! Jestem pasjonatem słodkości i twórcą smaków. Zanurzam się w świecie kondytorstwa od 10 lat, a każdy dzień to dla mnie możliwość odkrywania nowych smaków i kreowania wyjątkowych doświadczeń kulinaro-artystycznych."
+            >
+              <h5 className="additional-title">
+                mam na imię <span style={{ fontWeight: "600" }}>Valentyna</span>
+              </h5>
+            </InformationBlock>
             <InformationBlock
               img="20220308_193827"
               classOther="information_reverse"
