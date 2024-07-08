@@ -13,3 +13,23 @@
     font-size: 15px;
   }
 }
+
+/* MEDIA */
+@media only screen and (max-width: 1366px) {
+
+}
+
+@media (min-width: 768px) and (max-width: 1066px) {
+
+}
+
+@media (max-width: 992px) {
+
+}
+
+@media (max-width: 768px) {
+  #footer .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
