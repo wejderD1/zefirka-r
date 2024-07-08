@@ -92,7 +92,7 @@ const HomeView = () => {
         <div className="home__inner">
           <div className="description">
             <div className="block-inner">
-              <h1 className="subtitle subtitle_bottom-line home__title_white">
+              <h1 className="subtitle home__title_white">
                 domowe słodycze i wypieki
               </h1>
               <h1 className="main-title shadow_white">

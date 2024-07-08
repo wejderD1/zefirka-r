@@ -74,7 +74,7 @@ h6 {
     display: inline-block;
 
     width: 150px;
-    border-bottom: 1px solid $bazis-color;
+    border-bottom: 1px solid $contrast-color;
   }
 }
 
@@ -85,6 +85,7 @@ h6 {
   font-weight: 300;
 }
 
+/*BUTTONS STYLES*/
 .btn {
   display: flex;
   justify-content: center;
@@ -168,6 +169,17 @@ h6 {
   :root {
     --header-height: 90px;
   }
+  .advertising {
+    &__title {
+      font-size: 60px;
+    }
+    &__description {
+      font-size: 25px;
+    }
+    &__note {
+      font-size: 16px;
+    }
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1066px) {
@@ -181,6 +193,19 @@ h6 {
 
   .subtitle {
     font-size: 20px;
+  }
+
+  .advertising {
+    &__title {
+      font-size: 55px;
+    }
+    &__description {
+      font-size: 20px;
+    }
+    &__note {
+      font-size: 14px;
+      padding-top: 18px;
+    }
   }
 }
 
@@ -215,4 +240,18 @@ h6 {
   .btn {
     font-size: 15px;
   }
+
+  .advertising {
+    &__img{
+      display: none;
+    }
+    &__description {
+      font-size: 16px;
+    }
+    &__note {
+      padding-top: 15px;
+      font-size: 18px;
+    }
+  }
+  
 }
