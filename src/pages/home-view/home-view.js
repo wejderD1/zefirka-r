@@ -110,28 +110,26 @@ const HomeView = () => {
       {/* <Advertising /> */}
       <div className="about">
         <div className="container">
-          <div className="about__inner">
-            <InformationBlock
-              img="omnie"
-              title="O mnie"
-              description="Witajcie! Jestem pasjonatem słodkości i twórcą smaków. Zanurzam się w świecie kondytorstwa od 10 lat, a każdy dzień to dla mnie możliwość odkrywania nowych smaków i kreowania wyjątkowych doświadczeń kulinaro-artystycznych."
-            >
-              <h5 className="additional-title">
-                mam na imię <span style={{ fontWeight: "600" }}>Valentyna</span>
-              </h5>
-            </InformationBlock>
-            <InformationBlock
-              img="20220308_193827"
-              classOther="information_reverse"
-              title="Nasza magia"
-              description="Unikalne torty na zamówienie na wyjątkowe okazje. Ekskluzywne desery na przytulne wieczory i święta. Zestawy na uroczystości i wydarzenia korporacyjne. Słodkie komplementy dla bliskich"
-            />
-            <InformationBlock
-              img="20220914_141213"
-              title="wyjątkowy design"
-              description="Indywidualne dekoracje i ozdoby dla każdego deseru. Osobiste podejście do dekorowania tortów i słodkich przysmaków."
-            />
-          </div>
+          <InformationBlock
+            img="omnie"
+            title="O mnie"
+            description={`Witam! Nazywam się VALENTYNA i jestem cukiernikiem z ponad 10-letnim doświadczeniem. Ukończyłam kursy przygotowywania tortów musowych, tortów biszkoptowych, miodowników, tortów 'Napoleon' motchi, panettone, rolad i wielu innych wykwintnych deserów. Cukiernictwo to moja pasja i dążę do tego, aby zachwycać Was moimi smacznymi i pięknymi dziełami sztuki. Każdy tort i deser, który tworzę, powstaje z miłością i dbałością o szczegóły, aby przewyższać Wasze oczekiwania i dawać niezapomniane chwile słodkiej rozkoszy.`}
+          >
+            <h5 className="additional-title">
+              mam na imię <span style={{ fontWeight: "600" }}>Valentyna</span>
+            </h5>
+          </InformationBlock>
+          <InformationBlock
+            img="20220308_193827"
+            classOther="information_reverse"
+            title="Nasza magia"
+            description="Unikalne torty na zamówienie na wyjątkowe okazje. Ekskluzywne desery na przytulne wieczory i święta. Zestawy na uroczystości i wydarzenia korporacyjne. Słodkie komplementy dla bliskich"
+          />
+          <InformationBlock
+            img="20220914_141213"
+            title="wyjątkowy design"
+            description="Indywidualne dekoracje i ozdoby dla każdego deseru. Osobiste podejście do dekorowania tortów i słodkich przysmaków."
+          />
         </div>
       </div>
     </div>

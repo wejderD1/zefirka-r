@@ -39,7 +39,7 @@ h6 {
 // MAIN TEXT
 .main-text {
   font-weight: 300;
-  font-size: 20px;
+  font-size: 18px;
   color: $text-color;
   line-height: 2;
   padding: 40px 0;
@@ -169,6 +169,10 @@ h6 {
   :root {
     --header-height: 90px;
   }
+  .main-text {
+    font-size: 16px;
+  }
+
   .advertising {
     &__title {
       font-size: 60px;
@@ -190,9 +194,11 @@ h6 {
   .main-title {
     font-size: 45px;
   }
-
   .subtitle {
     font-size: 20px;
+  }
+  .main-text {
+    font-size: 14px;
   }
 
   .advertising {
@@ -230,11 +236,13 @@ h6 {
   .subtitle {
     font-size: 25px;
   }
-
   .subtitle_bottom-line {
     &::after {
       display: none;
     }
+  }
+  .main-text {
+    font-size: 12px;
   }
 
   .btn {

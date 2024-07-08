@@ -24,8 +24,25 @@
 }
 
 /* MEDIA */
-@media only screen  and (max-width: 1366px) {
+@media only screen and (max-width: 1366px) {
   .information__photo {
     height: auto;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1066px) {
+}
+
+@media (max-width: 992px) {
+}
+
+@media (max-width: 768px) {
+  .information {
+    &__description {
+      flex-basis: 100%
+    }
+    &__photo {
+      display: none;
+    }
   }
 }
