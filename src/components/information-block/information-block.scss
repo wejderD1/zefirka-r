@@ -42,7 +42,8 @@
 @media (max-width: 768px) {
   .information {
     &__description {
-      flex-basis: 100%
+      flex-basis: 100%;
+      padding: 0 10px;
     }
     &__photo {
       display: none;
