@@ -14,9 +14,7 @@ function AdvertisingSlider({ advertisingCard }) {
   const [advertisingImage, setAdvertisingImage] = useState("");
   const { request } = useHttp();
 
-  const { itemsList } = useSelector(
-    (state) => state.universalReducer.ads
-  );
+  const { itemsList } = useSelector((state) => state.universalReducer.ads);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -25,7 +23,7 @@ function AdvertisingSlider({ advertisingCard }) {
       .catch((error) => console.error(error));
   }, []);
 
-  const onSubmitHandler = (e) => {
+  const onSubmitHandler = async (e) => {
     e.preventDefault();
     const newAdvertising = {
       id: uuidv4(),
@@ -35,16 +33,20 @@ function AdvertisingSlider({ advertisingCard }) {
       aImg: advertisingImage,
     };
 
-    if(!advertisingName || !advertisingDescription ) {
+    if (!advertisingName || !advertisingDescription) {
       return;
     }
-    request(
-      "http://localhost:5000/advertising/new-advertising",
-      "POST",
-      JSON.stringify(newAdvertising)
-    )
-      .then(dispatch(addAd(newAdvertising)))
-      .catch((err) => console.log(err));
+
+    try {
+      const data = await request(
+        "http://localhost:5000/advertising/new-advertising",
+        "POST",
+        JSON.stringify(newAdvertising)
+      );
+      dispatch(addAd(data));
+    } catch (error) {
+      console.error(error);
+    }
 
     setAdvertisingName("");
     setAdvertisingDescription("");
@@ -74,13 +76,10 @@ function AdvertisingSlider({ advertisingCard }) {
   };
 
   const deleteHandler = (id) => {
-    if(!window.confirm("Delete this content?")){
-      return
+    if (!window.confirm("Delete this content?")) {
+      return;
     }
-    request(
-      `http://localhost:5000/advertising/${id}`,
-      "DELETE",
-    )
+    request(`http://localhost:5000/advertising/${id}`, "DELETE")
       .then(() => dispatch(deleteAd(id)))
       .catch((error) => console.error(error));
   };
@@ -129,7 +128,7 @@ function AdvertisingSlider({ advertisingCard }) {
           </button>
         </div>
       </form>
-      <EditList editList={editList} submitHandler={deleteHandler}/>
+      <EditList editList={editList} submitHandler={deleteHandler} />
     </Fragment>
   );
 }
