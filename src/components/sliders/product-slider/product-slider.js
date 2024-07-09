@@ -142,12 +142,12 @@ function ProductSlider({ categoriesName, productCard }) {
       default:
         break;
     }
-  }, []);
+  }, [setProductName, setProductDescription, setProductPrice, setProductImage]);
 
   //radio button change
   const handleRadioChange = useCallback((e) => {
     dispatch(categoriesChanged(e.target.value));
-  }, []);
+  }, [dispatch]);
 
   //created categories block (ratio buttons)
   const categoriesRadioButton = categoriesName.map((el, i) => {
