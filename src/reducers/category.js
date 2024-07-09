@@ -1,7 +1,20 @@
 const initialState = {
   category: {
-    categoryList: [],
-    activeCategory: "zefir", // это неправильно, нужно поменять на переменную
+    categoryList: [
+      "desery musowe",
+      "torty musowe",
+      "miodowniki",
+      "napoleony",
+      "torty biszkoptowe",
+      "torty Opera",
+      "ciastka Kartofel",
+      "ciastka na patyku",
+      "batoniki twarogowe",
+      "moti",
+      "moti alkogolowe",
+      "moti lodowe"
+    ],
+    activeCategory: "desery musowe",
   },
 };
 

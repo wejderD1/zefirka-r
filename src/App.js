@@ -12,17 +12,6 @@ import {
   ProductDetails,
 } from "./pages";
 
-
-const categories = [
-  "zefir",
-  "ciastka",
-  "czekoladki",
-  "motti",
-  "cukierky",
-  "torty musowe",
-];
-
-
 function App() {
   return (
     <Router>
@@ -33,19 +22,19 @@ function App() {
             <HomeView />
           </Route>
           <Route path="/produkty">
-            <ProductsView categoriesName={categories} />
+            <ProductsView />
           </Route>
           <Route path="/galeria"></Route>
           <Route path="/kontakt">
             <ContactsView />
           </Route>
           <Route path="/admin">
-            <AdminPanel categoriesName={categories}/>
+            <AdminPanel />
           </Route>
           <Route path="/details/:id">
             <ProductDetails />
           </Route>
-          <Route component={Page404} />↓µ…
+          <Route component={Page404} />
         </Switch>
         <Footer />
       </div>

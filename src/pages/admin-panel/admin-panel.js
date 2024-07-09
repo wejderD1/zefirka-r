@@ -6,8 +6,11 @@ import ProductSlider from "../../components/sliders/product-slider/product-slide
 import AdvertisingSlider from "../../components/sliders/advertising-slider/advertisingSlider";
 import Slider from "../../components/slider/slider";
 import UserCounter from "../../components/userCounter/userCounter";
+import { useSelector } from "react-redux";
 
-const AdminPanel = ({ categoriesName }) => {
+const AdminPanel = () => {
+  const { categoryList } = useSelector((state) => state.categoryReducer);
+  
   const productCard = InputDataChange({
     id: null,
     category: "",
@@ -23,7 +26,7 @@ const AdminPanel = ({ categoriesName }) => {
     aImg: "",
   });
   const slides = [
-    <ProductSlider categoriesName={categoriesName} productCard={productCard} />,
+    <ProductSlider categoriesName={categoryList} productCard={productCard} />,
     <AdvertisingSlider advertisingCard={advertisingCard} />,
   ];
 

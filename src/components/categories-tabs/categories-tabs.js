@@ -9,10 +9,10 @@ import ProductCard from "../product-card/product-card";
 import "./categories-tabs.scss";
 import SelectedMenu from "../selected-menu/selected-menu";
 
-const CategoriesTabs = ({ categoriesName }) => {
+const CategoriesTabs = () => {
   const dispatch = useDispatch();
   const { request } = useHttp();
-  const { activeCategory } = useSelector((state) => state.categoryReducer);
+  const { activeCategory, categoryList } = useSelector((state) => state.categoryReducer);
 
   const filteredProductsListSelector = createSelector(
     (state) => state.universalReducer.products.itemsList,
@@ -47,7 +47,7 @@ const CategoriesTabs = ({ categoriesName }) => {
 
   const createGridTemplateStyle = () => {
     let str = "";
-    for (let index = 0; index < categoriesName.length; index++) {
+    for (let index = 0; index < categoryList.length; index++) {
       str += "1fr ";
     }
     return str;
@@ -64,7 +64,7 @@ const CategoriesTabs = ({ categoriesName }) => {
     />
   ));
 
-  const tabItems = categoriesName.map((category, index) => (
+  const tabItems = categoryList.map((category, index) => (
     <TabItem key={index} id={category} title={category} />
   ));
 
@@ -81,7 +81,7 @@ const CategoriesTabs = ({ categoriesName }) => {
         >
           {tabItems}
         </ul>
-        <SelectedMenu menuItems={categoriesName}  />
+        <SelectedMenu menuItems={categoryList}  />
 
         <div className="tabs__content">
           <div className="products-wrapper">{productsCards}</div>
