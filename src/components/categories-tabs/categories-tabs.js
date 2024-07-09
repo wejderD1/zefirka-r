@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchedProducts } from "../../actions/productAction";
 import { categoriesChanged } from "../../actions";
@@ -81,22 +81,31 @@ const CategoriesTabs = () => {
   };
 
   return (
-    <div className="tabs__container">
-      <div className="tabs__inner">
-        <button className="btn btn__tabs btn__tabs_left" onClick={() => scrollLeft()}>
-          <FontAwesomeIcon icon="fa-solid fa-arrow-left" />
-        </button>
-        <button className="btn btn__tabs btn__tabs_right" onClick={() => scrollRight()}>
-          <FontAwesomeIcon icon="fa-solid fa-arrow-right" />
-        </button>
-        <ul className="tabs__nav" ref={navRef}>{tabItems}</ul>
-        <SelectedMenu menuItems={categoryList} />
-
-        <div className="tabs__content">
-          <div className="products-wrapper">{productsCards}</div>
+    <Fragment>
+      <div className="tabs__container">
+        <div className="tabs__inner">
+          <button
+            className="btn btn__tabs btn__tabs_left"
+            onClick={() => scrollLeft()}
+          >
+            <FontAwesomeIcon icon="fa-solid fa-arrow-left" />
+          </button>
+          <button
+            className="btn btn__tabs btn__tabs_right"
+            onClick={() => scrollRight()}
+          >
+            <FontAwesomeIcon icon="fa-solid fa-arrow-right" />
+          </button>
+          <ul className="tabs__nav" ref={navRef}>
+            {tabItems}
+          </ul>
+          <SelectedMenu menuItems={categoryList} />
         </div>
       </div>
-    </div>
+      <div className="tabs__content">
+        <div className="products-wrapper">{productsCards}</div>
+      </div>
+    </Fragment>
   );
 };
 

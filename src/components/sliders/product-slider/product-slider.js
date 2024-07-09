@@ -68,14 +68,14 @@ function ProductSlider({ categoriesName, productCard }) {
       id: id,
       category: activeCategory,
       pTitle: productName,
-      pDescription: productDescription,
-      pPrice: productPrice,
+      pDescription: productDescription || "brak opisu",
+      pPrice: productPrice || "brak ceny",
       pImg: productImage || "20210529_105117.jpg",
     };
 
-    if (!productName || !productDescription || !productPrice) {
-      return;
-    }
+    // if (!productName || !productDescription || !productPrice) {
+    //   return;
+    // }
 
     request(
       "http://localhost:5000/products/new-product",

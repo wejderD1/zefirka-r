@@ -1,10 +1,12 @@
 @import "../../assets/style/color-palette.scss";
 
+$margin-bottom: 30px;
+
 .tabs {
   &__container {
     overflow: hidden;
     width: 100%;
-    margin-bottom: 30px;
+    margin-bottom: $margin-bottom;
   }
   &__inner {
     position: relative;
@@ -20,9 +22,13 @@
     white-space: nowrap;
     scrollbar-width: none;
   }
+  &__content {
+    margin-bottom: $margin-bottom;
+  }
 }
 
 .products-wrapper {
+  margin: 0 6rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-items: center;
@@ -36,11 +42,13 @@
   width: 30px;
   height: 35px;
   right: 0;
-  &_left {
 
+  z-index: 2;
+  &_left {
+    right: -40px;
   }
   &_right {
-    right: -40px;
+    right: -70px;
   }
 }
 
