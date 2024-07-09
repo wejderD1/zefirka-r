@@ -1,8 +1,11 @@
 @import "../../assets/style/color-palette.scss";
 
 .tabs {
+  &__container {
+    margin-bottom: 30px;
+  }
   &__inner {
-    padding-top: 5em;
+    padding-top: 3rem;
     margin: 0 10rem;
   }
   &__nav {
@@ -11,9 +14,6 @@
     display: grid;
     align-items: center;
     justify-content: center;
-  }
-  &__content {
-    // margin-top: 20px;
   }
 }
 
@@ -30,9 +30,14 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
+@media only screen and (max-width: 1366px) {
+  .tabs__inner {
+    margin: 0 6rem;
+  }
+}
 
 @media (min-width: 768px) and (max-width: 1066px) {
-  .tabs__nav {
+  .tabs__inner {
     margin: 0 3rem;
   }
   .products-wrapper {

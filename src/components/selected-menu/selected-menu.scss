@@ -7,7 +7,7 @@ $offset-left: 20px;
   &__container{
     @include menu-tabs;
 
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
@@ -58,4 +58,11 @@ $offset-left: 20px;
 
 .btn__icon {
   padding-left: 10px;
+}
+
+/*MEDIA*/
+@media (max-width: 768px) {
+  .menu__container {
+    display: flex;
+  }
 }
