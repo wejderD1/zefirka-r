@@ -1,40 +1,38 @@
 @import "../../assets/style/color-palette.scss";
+@import "../../assets/style/mixins.scss";
 
 .tabs {
   &__item {
+    @include menu-tabs;
     display: inline-block;
-    font-family: ArchitectsDaughter-Regular;
-    color: $contrast-color;
-    list-style: none;
-    font-size: 16px;
-    height: 30px;
-
-    line-height: 2;
-
-    border: 1px solid $text-color;
+    padding: 0;
+    margin: 0;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-
-    text-align: center;
-    text-decoration: none;
-    background: rgba(212, 211, 211, 0.8);
-
-    transition: all 0.2s linear;
-    letter-spacing: 2px;
-    &:hover {
-      background: #fff;
-      cursor: pointer;
-    }
-    &:active {
-      background: rgb(194, 191, 191);
-    }
   }
 }
 
-.item_active, .item_active:hover {
+.item_active,
+.item_active:hover {
   background: $bazis-color;
   color: $text-color;
   border-bottom: 0;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
+}
+
+/* MEDIA */
+@media only screen and (max-width: 1366px) {
+}
+
+@media (min-width: 768px) and (max-width: 1066px) {
+  .tabs__item {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 992px) {
+}
+
+@media (max-width: 768px) {
 }

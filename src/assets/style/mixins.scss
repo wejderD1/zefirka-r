@@ -1,0 +1,28 @@
+//tabs
+@mixin menu-tabs {
+  height: 30px;
+
+  background: rgba(212, 211, 211, 0.8);
+  border: 1px solid $text-color;
+  
+  font-family: ArchitectsDaughter-Regular;
+  font-size: 16px;
+  color: $contrast-color;
+  line-height: 2;
+  text-align: center;
+  text-decoration: none;
+  letter-spacing: 2px;
+
+  transition: all 0.2s linear;
+
+  list-style: none;
+  z-index: 1;
+
+  &:hover {
+    background: #fff;
+    cursor: pointer;
+  }
+  &:active {
+    background: rgb(194, 191, 191);
+  }
+}

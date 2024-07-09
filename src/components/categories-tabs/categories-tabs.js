@@ -7,6 +7,7 @@ import { createSelector } from "reselect";
 import TabItem from "../tab-item/tab-item";
 import ProductCard from "../product-card/product-card";
 import "./categories-tabs.scss";
+import SelectedMenu from "../selected-menu/selected-menu";
 
 const CategoriesTabs = ({ categoriesName }) => {
   const dispatch = useDispatch();
@@ -17,7 +18,7 @@ const CategoriesTabs = ({ categoriesName }) => {
     (state) => state.universalReducer.products.itemsList,
     (state) => state.categoryReducer.activeCategory,
     (products, selectedCategory) => {
-      if (!products) return []; 
+      if (!products) return [];
       return selectedCategory
         ? products.filter((el) => el.category === selectedCategory)
         : products;
@@ -74,10 +75,15 @@ const CategoriesTabs = ({ categoriesName }) => {
   return (
     <div className="tabs__container">
       <div className="tabs__inner">
-        <ul className="tabs__nav" style={{ gridTemplateColumns: createGridTemplateStyle() }}>
+        <ul
+          className="tabs__nav"
+          style={{ gridTemplateColumns: createGridTemplateStyle() }}
+        >
           {tabItems}
         </ul>
-        <div className="tab__content">
+        <SelectedMenu menuItems={categoriesName}  />
+
+        <div className="tabs__content">
           <div className="products-wrapper">{productsCards}</div>
         </div>
       </div>

@@ -50,6 +50,8 @@ h6 {
 }
 
 .main-title {
+  position: relative;
+  
   font-size: 55px;
   color: $main-color;
   margin: 3rem 0;
@@ -199,7 +201,7 @@ h6 {
   .subtitle {
     font-size: 20px;
   }
-  .main-text {
+  .main-text { 
     font-size: 14px;
   }
 

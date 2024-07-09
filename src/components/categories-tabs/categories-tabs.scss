@@ -3,19 +3,18 @@
 .tabs {
   &__inner {
     padding-top: 5em;
+    margin: 0 10rem;
   }
   &__nav {
     padding: 0;
-    margin: 0 10rem;
 
     display: grid;
     align-items: center;
     justify-content: center;
   }
-}
-
-.tab__content {
-  margin: 4rem;
+  &__content {
+    // margin-top: 20px;
+  }
 }
 
 .products-wrapper {
@@ -33,12 +32,18 @@
 }
 
 @media (min-width: 768px) and (max-width: 1066px) {
+  .tabs__nav {
+    margin: 0 3rem;
+  }
   .products-wrapper {
     grid-template-columns: 1fr 1fr;
   }
 }
 
 @media (max-width: 768px) {
+  .tabs__nav {
+    display: none;
+  }
   .products-wrapper {
     grid-template-columns: 1fr;
   }
