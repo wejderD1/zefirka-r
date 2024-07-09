@@ -123,16 +123,16 @@ h6 {
     font-size: 27px;
     line-height: 0.8;
   }
+  &_admin {
+    padding: 0 2rem;
+  }
   &_create {
-    width: 200px;
   }
   &_clear {
     background-color: rgb(251, 202, 202);
-    padding: 0 2rem;
   }
   &_update {
     background-color: rgb(188, 239, 255);
-    padding: 0 2rem;
   }
 }
 
@@ -222,6 +222,10 @@ h6 {
   :root {
     --header-height: 60px;
   }
+
+  .btn {
+    font-size: 16px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -250,6 +254,16 @@ h6 {
 
   .btn {
     font-size: 15px;
+    &_create {
+    }
+    &_clear {
+      background-color: rgb(251, 202, 202);
+      padding: 0 2rem;
+    }
+    &_update {
+      background-color: rgb(188, 239, 255);
+      padding: 0 2rem;
+    }
   }
 
   .advertising {

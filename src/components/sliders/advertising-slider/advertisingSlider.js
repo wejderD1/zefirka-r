@@ -124,7 +124,7 @@ function AdvertisingSlider({ advertisingCard }) {
               </Fragment>
             );
           })}
-          <button className="btn btn_create" type="submit">
+          <button className="btn btn_create btn_admin" type="submit">
             CREATE
           </button>
         </div>

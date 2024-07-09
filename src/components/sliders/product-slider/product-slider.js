@@ -221,18 +221,18 @@ function ProductSlider({ categoriesName, productCard }) {
             );
           })}
           <div className="btn-wrapper">
-            <button className="btn btn_create" type="submit">
+            <button className="btn btn_create btn_admin" type="submit">
               CREATE
             </button>
             <button
-              className="btn btn_update"
+              className="btn btn_update btn_admin"
               type="button"
               onClick={() => updateHandler()}
             >
               update
             </button>
             <button
-              className="btn btn_clear"
+              className="btn btn_clear btn_admin"
               type="button"
               onClick={() => clearDataItems()}
             >

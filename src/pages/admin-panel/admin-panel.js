@@ -30,7 +30,7 @@ const AdminPanel = ({ categoriesName }) => {
   return (
     <div className="admin-panel page">
       <div className="admin-panel__wrapper">
-        <h1>ADMIN PANEL</h1>
+        <h1 className="main-title admin-panel__title">ADMIN PANEL</h1>
         <UserCounter quantity="2" />
         <Slider
           itemsData={slides}

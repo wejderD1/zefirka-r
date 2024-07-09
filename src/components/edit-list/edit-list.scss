@@ -19,3 +19,16 @@
     cursor: pointer;
   }
 }
+
+/* MEDIA */
+@media (max-width: 992px) {
+  .data__item {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .data__item {
+    font-size: 13px;
+  }
+}
