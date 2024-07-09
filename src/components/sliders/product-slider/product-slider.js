@@ -27,12 +27,13 @@ function ProductSlider({ categoriesName, productCard }) {
   const [productDescription, setProductDescription] = useState("");
   const [productPrice, setProductPrice] = useState("");
   const [productImage, setProductImage] = useState("");
-  const { request } = useHttp();                     
+  const { request } = useHttp();
 
   useEffect(() => {
     request("http://localhost:5000/products")
       .then((data) => {
-        dispatch(fetchedProducts(data))})
+        dispatch(fetchedProducts(data));
+      })
       .catch((error) => console.error(error));
   }, [dispatch, request]);
 
@@ -62,7 +63,7 @@ function ProductSlider({ categoriesName, productCard }) {
 
   //product create POST
   //нужно будет в конце убрать картинку по умолчанию
-  const onSubmitHandler = (e) => {
+  const onSubmitHandler = async(e) => {
     e.preventDefault();
     const newProduct = {
       id: id,
@@ -72,19 +73,17 @@ function ProductSlider({ categoriesName, productCard }) {
       pPrice: productPrice || "brak ceny",
       pImg: productImage || "20210529_105117.jpg",
     };
-
-    // if (!productName || !productDescription || !productPrice) {
-    //   return;
-    // }
-
-    request(
-      "http://localhost:5000/products/new-product",
-      "POST",
-      JSON.stringify(newProduct)
-    )
-      .then(dispatch(addProduct(newProduct)))
-      .catch((err) => console.log(err));
-
+ 
+    try {
+      const data = await request(
+        "http://localhost:5000/products/new-product",
+        "POST",
+        JSON.stringify(newProduct)
+      );
+      dispatch(addProduct(data));
+    } catch (error) {
+      console.error(error);
+    }
     clearDataItems();
   };
 
