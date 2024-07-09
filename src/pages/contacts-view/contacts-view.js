@@ -47,18 +47,22 @@ const ContactsView = () => {
         pauseOnHover
         theme="light"
       />
+      <div className="contacts__header">
+        <h1 className="main-title">Kontakty</h1>
+        <h1 className="main-text contacts__info">
+          Stworzymy Razem Wyjątkowy Smak: Znajdź Naszą Ścieżkę Kontaktu
+        </h1>
+      </div>
       <div className="container">
         <div className="contacts__inner">
-          <h1 className="subtitle subtitle_bottom-line">Kontakty</h1>
-          <h1 className="main-text contacts__info">
-            Stworzymy Razem Wyjątkowy Smak: Znajdź Naszą Ścieżkę Kontaktu
-          </h1>
           <div className="contacts__block">
             <h2 className="main-text contacts__item">+48-517-563-983</h2>
             <h2 className="main-text contacts__item">
               zefirka.wiolet@gmail.com
             </h2>
-            <h1 className="main-text contacts__item">97-500, Radomsko, Polska</h1>
+            <h1 className="main-text contacts__item">
+              97-500, Radomsko, Polska
+            </h1>
           </div>
           <div className="social-container pb-40">
             <Link to="#" className="social-links">
