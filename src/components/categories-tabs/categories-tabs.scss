@@ -2,18 +2,23 @@
 
 .tabs {
   &__container {
+    overflow: hidden;
+    width: 100%;
     margin-bottom: 30px;
   }
   &__inner {
+    position: relative;
+    display: flex;
+    align-items: center;
     padding-top: 3rem;
     margin: 0 10rem;
   }
   &__nav {
-    padding: 0;
 
-    display: grid;
-    align-items: center;
-    justify-content: center;
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
   }
 }
 
@@ -22,6 +27,21 @@
   grid-template-columns: 1fr 1fr 1fr;
   justify-items: center;
   gap: 6rem 1rem;
+}
+
+.btn__tabs {
+  position: absolute;
+  cursor: pointer;
+
+  width: 30px;
+  height: 35px;
+  right: 0;
+  &_left {
+
+  }
+  &_right {
+    right: -40px;
+  }
 }
 
 /* MEDIA */

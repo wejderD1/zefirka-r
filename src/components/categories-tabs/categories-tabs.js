@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchedProducts } from "../../actions/productAction";
 import { categoriesChanged } from "../../actions";
@@ -8,11 +8,14 @@ import TabItem from "../tab-item/tab-item";
 import ProductCard from "../product-card/product-card";
 import "./categories-tabs.scss";
 import SelectedMenu from "../selected-menu/selected-menu";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const CategoriesTabs = () => {
   const dispatch = useDispatch();
   const { request } = useHttp();
-  const { activeCategory, categoryList } = useSelector((state) => state.categoryReducer);
+  const { activeCategory, categoryList } = useSelector(
+    (state) => state.categoryReducer
+  );
 
   const filteredProductsListSelector = createSelector(
     (state) => state.universalReducer.products.itemsList,
@@ -27,6 +30,7 @@ const CategoriesTabs = () => {
 
   const filteredProductsList = useSelector(filteredProductsListSelector);
   const [loading, setLoading] = useState(true);
+  const navRef = useRef(null);
 
   useEffect(() => {
     setLoading(true);
@@ -44,14 +48,6 @@ const CategoriesTabs = () => {
   useEffect(() => {
     dispatch(categoriesChanged(activeCategory));
   }, [dispatch, activeCategory]); // Обновление при изменении activeCategory
-
-  const createGridTemplateStyle = () => {
-    let str = "";
-    for (let index = 0; index < categoryList.length; index++) {
-      str += "1fr ";
-    }
-    return str;
-  };
 
   const productsCards = filteredProductsList.map((product) => (
     <ProductCard
@@ -72,16 +68,29 @@ const CategoriesTabs = () => {
     return <div>Loading...</div>;
   }
 
+  const scrollLeft = () => {
+    if (navRef.current) {
+      navRef.current.scrollBy({ left: -200, behavior: "smooth" });
+    }
+  };
+
+  const scrollRight = () => {
+    if (navRef.current) {
+      navRef.current.scrollBy({ left: 200, behavior: "smooth" });
+    }
+  };
+
   return (
     <div className="tabs__container">
       <div className="tabs__inner">
-        <ul
-          className="tabs__nav"
-          style={{ gridTemplateColumns: createGridTemplateStyle() }}
-        >
-          {tabItems}
-        </ul>
-        <SelectedMenu menuItems={categoryList}  />
+        <button className="btn btn__tabs btn__tabs_left" onClick={() => scrollLeft()}>
+          <FontAwesomeIcon icon="fa-solid fa-arrow-left" />
+        </button>
+        <button className="btn btn__tabs btn__tabs_right" onClick={() => scrollRight()}>
+          <FontAwesomeIcon icon="fa-solid fa-arrow-right" />
+        </button>
+        <ul className="tabs__nav" ref={navRef}>{tabItems}</ul>
+        <SelectedMenu menuItems={categoryList} />
 
         <div className="tabs__content">
           <div className="products-wrapper">{productsCards}</div>
