@@ -9,17 +9,16 @@
     margin-top: var(--header-height);
     padding-top: var(--header-height);
     background-image: url("../../assets/images/contacts_bg.jpg");
-    background-size: 90% cover;
+    background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    height: 30rem;
+    height: 21rem;
   }
   &__inner {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: var(--header-height) 0;
     padding-top: var(--header-height);
     & .subtitle {
       margin-bottom: 30px;
@@ -45,8 +44,10 @@
 
 }
 
-.contacts__header > .contacts__info {
+.contacts__inner > .contacts__info {
   font-weight: 500;
+  font-size: 20px;
+  text-transform: uppercase;
 }
 
 .email {
@@ -55,7 +56,7 @@
     display: grid;
     grid-template-columns: 40% 60%;
     gap: 25px;
-    margin: 40px 0;
+    margin: 20px 0;
   }
   &_wrap-item {
     display: grid;

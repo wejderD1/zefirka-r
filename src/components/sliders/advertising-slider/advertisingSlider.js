@@ -18,7 +18,6 @@ function AdvertisingSlider({ advertisingCard }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log("ads");
     request("http://localhost:5000/advertising")
       .then((data) => dispatch(fetchedAd(data)))
       .catch((error) => console.error(error));

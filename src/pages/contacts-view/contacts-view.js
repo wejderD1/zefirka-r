@@ -23,7 +23,7 @@ const ContactsView = () => {
       JSON.stringify({ name, email, phone, message })
     )
       .then(() => {
-        toast.success("your letter has been sent");
+        toast.success("Twój mail jest wysłany :)");
 
         setName("");
         setEmail("");
@@ -48,13 +48,13 @@ const ContactsView = () => {
         theme="light"
       />
       <div className="contacts__header">
-        <h1 className="main-title">Kontakty</h1>
-        <h1 className="main-text contacts__info">
-          Stworzymy Razem Wyjątkowy Smak: Znajdź Naszą Ścieżkę Kontaktu
-        </h1>
+        <h1 className="main-title">Kontaktój z nami</h1>
       </div>
       <div className="container">
         <div className="contacts__inner">
+          <h1 className="main-text contacts__info">
+            Stworzymy Razem Wyjątkowy Smak: Znajdź Naszą Ścieżkę Kontaktu
+          </h1>
           <div className="contacts__block">
             <h2 className="main-text contacts__item">+48-517-563-983</h2>
             <h2 className="main-text contacts__item">
@@ -111,6 +111,9 @@ const ContactsView = () => {
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
               />
+              <button className="btn btn__contacts" type="submit">
+                wysłać
+              </button>
             </div>
             <textarea
               name="message"
@@ -122,9 +125,6 @@ const ContactsView = () => {
               required
               onChange={(e) => setMessage(e.target.value)}
             />
-            <button className="btn btn__contacts" type="submit">
-              wysłać
-            </button>
           </form>
         </div>
       </div>
