@@ -15,7 +15,7 @@ const ContactsView = () => {
   const { request } = useHttp();
 
   const handleSubmit = (e) => {
-   e.preventDefault();
+    e.preventDefault();
 
     request(
       "http://localhost:5000/send-email",
@@ -34,7 +34,7 @@ const ContactsView = () => {
   };
 
   return (
-    <div className="contacts page">
+    <div className="contacts-page">
       <ToastContainer
         position="top-center"
         autoClose={3000}
@@ -48,21 +48,19 @@ const ContactsView = () => {
         theme="light"
       />
       <div className="container">
-        <div className="contacts_inner">
+        <div className="contacts__inner">
           <h1 className="subtitle subtitle_bottom-line">Kontakty</h1>
-          <h1 className="main-text">
+          <h1 className="main-text contacts__info">
             Stworzymy Razem Wyjątkowy Smak: Znajdź Naszą Ścieżkę Kontaktu
           </h1>
-          <div className="contacts_block">
-            <p className="main-text contacts_item tt-uppercase">
-              +48-517-563-983
-            </p>
-            <p className="main-text contacts_item tt-uppercase">
+          <div className="contacts__block">
+            <h2 className="main-text contacts__item">+48-517-563-983</h2>
+            <h2 className="main-text contacts__item">
               zefirka.wiolet@gmail.com
-            </p>
+            </h2>
+            <h1 className="main-text contacts__item">97-500, Radomsko, Polska</h1>
           </div>
-          <h1 className="main-text">97-500, Radomsko, Polska</h1>
-          <div className="social-container padding-bottom_40">
+          <div className="social-container pb-40">
             <Link to="#" className="social-links">
               <i className="fab fa-youtube"></i>
             </Link>
@@ -76,9 +74,9 @@ const ContactsView = () => {
               <i className="fab fa-facebook-f"></i>
             </Link>
           </div>
+
           <h1 className="subtitle subtitle_bottom-line">Masz pytanie</h1>
 
-          {/* к форме нужно написать обработчик события */}
           <form className="email_block" onSubmit={handleSubmit}>
             <div className="email_wrap-item">
               <input
@@ -109,9 +107,6 @@ const ContactsView = () => {
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
               />
-              <button className="btn btn_contacts" type="submit">
-                wysłać
-              </button>
             </div>
             <textarea
               name="message"
@@ -122,7 +117,10 @@ const ContactsView = () => {
               value={message}
               required
               onChange={(e) => setMessage(e.target.value)}
-            ></textarea>
+            />
+            <button className="btn btn__contacts" type="submit">
+              wysłać
+            </button>
           </form>
         </div>
       </div>
