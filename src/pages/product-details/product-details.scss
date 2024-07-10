@@ -1,9 +1,9 @@
 @import "../../assets/style/color-palette.scss";
+@import "../../assets/style/mixins.scss";
 
 .product-details {
   &__container {
-    min-height: 100dvh;
-    padding-top: var(--header-height);
+    @include page-container;
   }
   &__inner {
     margin: 0 auto;

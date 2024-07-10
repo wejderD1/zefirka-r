@@ -1,8 +1,10 @@
+@import "../../assets/style/color-palette.scss";
+
 //FOTER
 #footer {
   margin-top: 35px;
   padding: 20px 50px;
-  background: url("../../assets/images/background12.png");
+  background-color: #8d7557;
   & .footer-inner {
     display: flex;
     justify-content: space-between;
@@ -11,6 +13,7 @@
   & .footer-title {
     font-family: "Acme-Regular";
     font-size: 15px;
+    color: $bazis-color;
   }
 }
 

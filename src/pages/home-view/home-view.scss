@@ -1,9 +1,8 @@
 @import "../../assets/style/color-palette.scss";
+@import "../../assets/style/mixins.scss";
 
-// HOME SIZE STYLE
 .home {
-  height: 100dvh;
-  padding-top: var(--header-height);
+  @include page-container;
   
   & > .container {
     background: no-repeat
@@ -30,8 +29,6 @@
   margin: 0 auto;
   width: 250px;
 }
-
-
 
 /* MEDIA */
 @media only screen and (max-width: 1366px) {

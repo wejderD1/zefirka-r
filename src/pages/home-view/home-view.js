@@ -46,7 +46,9 @@ const HomeView = () => {
           <p className="advertising__description">
             w dannym momencie nie ma ogłoszeń
           </p>
-          <h5 className="advertising__note"></h5>
+          <h5 className="advertising__note">
+            brak
+          </h5>
         </div>
         <img
           className="advertising__img"
@@ -72,7 +74,7 @@ const HomeView = () => {
                 className="advertising__img"
                 src={
                   el.aImg
-                    ? require(`../../assets/images/${el.aImg}`)
+                    ? require(`../../assets/images/ads-img/${el.aImg}`)
                     : `http://placehold.it/150`
                 }
                 alt="advertising pictures"

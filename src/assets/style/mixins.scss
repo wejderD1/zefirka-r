@@ -26,3 +26,8 @@
     background: rgb(194, 191, 191);
   }
 }
+
+@mixin page-container {
+  height: 100dvh;
+  padding-top: calc(var(--header-height) - 10px);
+}

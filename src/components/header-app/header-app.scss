@@ -4,9 +4,14 @@ header {
   position: fixed;
   width: 100%;
   padding: 10px 0;
-  background: url("../../assets/images/background12.png");
+  background-color: rgb(252, 229, 197);
 
   z-index: 10;
+
+  transition: all .5s linear;
+  &.app-header_show {
+    background: rgb(247, 238, 226);
+  }
 }
 
 .nav {
@@ -89,6 +94,12 @@ header {
   justify-self: end;
 
   cursor: pointer;
+
+  transition: all .5s linear;
+  &_active {
+    width: 70px;
+    height: 70px;
+  }
 }
 
 /* MEDIA */

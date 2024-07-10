@@ -64,5 +64,6 @@ $offset-left: 20px;
 @media (max-width: 768px) {
   .menu__container {
     display: flex;
+    padding-right: 10px;
   }
 }
