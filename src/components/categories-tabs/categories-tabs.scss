@@ -31,7 +31,8 @@ $margin-bottom: 30px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-items: center;
-  gap: 6rem 1rem;
+  gap: 6rem 3rem;
+  padding-bottom: 10rem;
 }
 
 .btn__tabs {

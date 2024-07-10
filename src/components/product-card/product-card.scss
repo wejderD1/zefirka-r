@@ -3,12 +3,12 @@
 .card {
   &-container {
     height: 100%;
-    border-radius: 10px;
+    border-radius: 2px;
     box-shadow: 2px 2px 16px $contrast-color;
     padding: 25px;
 
     color: $contrast-color;
-
+    background-color: #fff;
     cursor: pointer;
     transition: all linear 0.5s;
   }
@@ -28,7 +28,7 @@
   &-title {
     text-transform: uppercase;
     letter-spacing: 2px;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 500;
     color: $main-color;
     padding: 10px 0;

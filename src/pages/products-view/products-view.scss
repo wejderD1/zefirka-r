@@ -2,6 +2,7 @@
 @import "../../assets/style/mixins.scss";
 .products {
   @include page-container;
+  background-color: $page-bkg-color;
 
   & > .container {
     text-align: center;
