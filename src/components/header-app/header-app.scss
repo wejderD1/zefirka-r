@@ -20,7 +20,7 @@ header {
   &__wrapper {
     display: grid;
     grid-template-columns: 20% 80%;
-    justify-items: center;
+    justify-items: start;
     justify-content: center;
     align-items: center;
   }

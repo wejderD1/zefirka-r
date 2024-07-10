@@ -35,21 +35,33 @@ $margin-bottom: 30px;
   padding-bottom: 10rem;
 }
 
-.btn__tabs {
-  position: absolute;
-  cursor: pointer;
+.btn {
+  &__tabs {
+    position: absolute;
+    cursor: pointer;
 
-  width: 30px;
-  height: 35px;
-  right: 0;
+    width: 30px;
+    height: 35px;
+    right: 0;
 
-  z-index: 2;
-  &_left {
-    right: -40px;
+    z-index: 2;
+    &_left {
+      right: -40px;
+    }
+    &_right {
+      right: -70px;
+    }
   }
-  &_right {
-    right: -70px;
+  &__list {
+    width: 30px;
+    height: 30px;
   }
+}
+
+.button__container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }
 
 /* MEDIA */
@@ -82,7 +94,7 @@ $margin-bottom: 30px;
     margin: 0 1rem;
   }
 
-  .tabs__inner > .btn__tabs{
+  .tabs__inner > .btn__tabs {
     display: none;
   }
   .tabs__nav {

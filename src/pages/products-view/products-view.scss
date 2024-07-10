@@ -4,7 +4,7 @@
   @include page-container;
   background-color: $page-bkg-color;
 
-  & > .container {
+  & > .products__header > .container {
     text-align: center;
     font-size: 35px;
     background: no-repeat url("../../assets/images/5946038.jpg");

@@ -94,8 +94,8 @@ h6 {
   justify-content: center;
   align-items: center;
 
-  font-family: ArchitectsDaughter-Regular;
   font-size: 20px;
+  font-weight: 400;
   color: $contrast-color;
 
   border: 1px solid $text-color;
@@ -133,6 +133,9 @@ h6 {
   }
   &_update {
     background-color: rgb(188, 239, 255);
+  }
+  &__arrow {
+    font-size: 14px;
   }
 }
 

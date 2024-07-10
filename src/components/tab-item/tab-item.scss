@@ -4,6 +4,7 @@
 .tabs {
   &__item {
     @include menu-tabs;
+    height: auto;
     display: inline-block;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
