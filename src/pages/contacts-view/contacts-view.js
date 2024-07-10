@@ -5,6 +5,7 @@ import { Link } from "react-router-dom/cjs/react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 
 import { useHttp } from "../../services/http.hooks";
+import SocialLinks from "../../components/social-links/social-links";
 
 const ContactsView = () => {
   const [name, setName] = useState("");
@@ -65,18 +66,7 @@ const ContactsView = () => {
             </h1>
           </div>
           <div className="social-container pb-40">
-            <Link to="#" className="social-links">
-              <i className="fab fa-youtube"></i>
-            </Link>
-            <Link to="#" className="social-links">
-              <i className="fab fa-instagram"></i>
-            </Link>
-            <Link to="#" className="social-links">
-              <i className="fab fa-tiktok"></i>
-            </Link>
-            <Link to="#" className="social-links">
-              <i className="fab fa-facebook-f"></i>
-            </Link>
+            <SocialLinks />
           </div>
 
           <h1 className="subtitle subtitle_bottom-line">Masz pytanie</h1>
