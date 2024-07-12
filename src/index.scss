@@ -13,17 +13,12 @@ body {
   --header-height: 100px;
 }
 
-#app {
-  display: flex;
-  flex-direction: column;
-}
-
 .container {
   padding: 0 5rem;
 }
 
 .page {
-  flex: 1;
+  flex: 1 0;
   &__inner {
     height: 35rem;
   }
@@ -270,6 +265,9 @@ h6 {
   }
 
   .advertising {
+    &__container {
+      grid-template-columns: 1fr;
+    }
     &__img{
       display: none;
     }

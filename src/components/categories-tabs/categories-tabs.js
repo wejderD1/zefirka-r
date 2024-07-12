@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, Fragment } from "react";
+import React, { useState, useEffect, useRef, Fragment, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchedProducts } from "../../actions/productAction";
 import { useHttp } from "../../services/http.hooks";
@@ -53,11 +53,6 @@ const CategoriesTabs = () => {
     setStartPos(0);
     setEndPos(counter.current);
   }, [activeCategory]);
-
-  // Обновление списка отображаемых продуктов
-  useEffect(() => {
-    setEndProductsList(filteredProductsList.slice(startPos, endPos));
-  }, [filteredProductsList, endPos, startPos]);
 
   const endProductsList = useMemo(
     () => filteredProductsList.slice(startPos, endPos),
