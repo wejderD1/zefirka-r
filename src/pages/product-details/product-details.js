@@ -3,7 +3,7 @@ import { useEffect } from "react";
 
 import "./product-details.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { selectedProduct, fetchedProducts } from "../../actions/productAction";
+import { selectedProduct, fetchedProducts, clearSelectedItem } from "../../actions/productAction";
 import { useHttp } from "../../services/http.hooks";
 import ProductGallery from "../../components/product-gallery/product-gallery";
 
@@ -23,6 +23,10 @@ function ProductDetails() {
         dispatch(selectedProduct(id));
       })
       .catch((error) => console.error(error));
+
+      return () => {
+        dispatch(clearSelectedItem());
+      }
   }, [id, request]);
 
   if (!oneProduct || Object.keys(oneProduct).length === 0) {

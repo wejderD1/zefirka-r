@@ -4,6 +4,7 @@ import {
   FETCHED_ITEM,
   DELETE_ITEM,
   UPDATE_ITEM,
+  CLEAR_SELECT_ITEM
 } from "../actions/types";
 
 const initialState = {
@@ -44,6 +45,15 @@ const universalReducer = (state = initialState, action) => {
         [entity]: {
           ...state[entity],
           oneProduct: state[entity].itemsList.find((el) => el.id === id),
+        },
+      };
+
+    case CLEAR_SELECT_ITEM:
+      return {
+        ...state,
+        [entity]: {
+          ...state[entity],
+          oneProduct: null,
         },
       };
 
