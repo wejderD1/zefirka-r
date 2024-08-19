@@ -1,1 +1,765 @@
-[{"id":"c96b694e-8d40-4ab3-85fe-92dce4a8fe9d","category":"desery musowe","pTitle":"ciastko „Arbuz”","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"272026f0-84c5-43f1-97b9-20fc73f42373","category":"desery musowe","pTitle":"ciastko „Orzech laskowy i karmel”","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"08744a17-1451-4218-9f71-89d404d2abfd","category":"desery musowe","pTitle":"ciastko „Wiśnia i cytryna”","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"9a7e4fd7-db7e-49f9-a1b8-2b98c4b6ad3a","category":"desery musowe","pTitle":"ciastko „Oreo”","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"9e785843-afa7-43b8-b546-73c35d80aee2","category":"desery musowe","pTitle":"ciastko „Cytryna i szampan”","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"9f6e22e9-9c64-4fdc-a43a-82ddd4e1e2db","category":"desery musowe","pTitle":"ciastko „Mięta i jabłko”","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"a5553cca-8591-4a15-b71a-d19b8b391e18","category":"desery musowe","pTitle":"ciastko „Liczi i malina”","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"66742006-b440-41eb-8a82-e9c5214f7dba","category":"desery musowe","pTitle":"ciastko „Banan i kokos”","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"17850537-9888-4c4e-9900-7c6e2fc24f69","category":"desery musowe","pTitle":"ciastko „Melon i malina”","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"574a3813-d03c-4d46-9761-7a04066f45e7","category":"desery musowe","pTitle":"ciastko „Bubble Gum”","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"a915da7b-4275-4470-82b9-051dcaa76f72","category":"desery musowe","pTitle":"ciastko „Kawa”","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"8d2c50f5-f007-4aee-99d7-d57ff8f8bdb2","category":"desery musowe","pTitle":"ciastko „Orzech laskowy”","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"36eada5a-b2b0-4838-ad77-ab2ae0e6802f","category":"desery musowe","pTitle":"ciastko „Pomarańczowe”","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"a2198389-d7b1-4291-a58e-b2bd707f086b","category":"desery musowe","pTitle":"ciastko „Ananas”","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"290f3839-1bd5-45b1-9830-478060324cc2","category":"torty musowe","pTitle":"GUINNESS","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"54cf39de-210a-4a95-b5e3-bde10dd8ef74","category":"torty musowe","pTitle":"FRESH","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"a10bf525-c58b-4fb9-b699-b18d06f9dbbc","category":"torty musowe","pTitle":"Czekolada i praline","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"c162c4bf-3865-4ee0-8e0e-a8c638a1b0d1","category":"torty musowe","pTitle":"Musowy miodownik czekoladowy","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"3a345656-d5c7-41b7-a5f4-fcac1506edfc","category":"torty musowe","pTitle":"Musowy miodownik pomarańczowy","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"ad900407-7ba7-46a0-9d5f-8e903d567f82","category":"torty musowe","pTitle":"Trzy czekolady","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"da42c8d9-8cac-4bb8-96e7-9b0f9735230d","category":"miodowniki","pTitle":"Czarna porzeczka, rozmaryn, limonka","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"4c5b55bf-0431-495c-9990-1fded7729e02","category":"miodowniki","pTitle":"Malina, kokos","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"e9859fc7-6a79-4a91-b8ba-72a4247a2d86","category":"miodowniki","pTitle":"Czekolada, pijana wiśnia","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"140cd155-fd4f-4479-a03c-ad15acc2354c","category":"miodowniki","pTitle":"Grzane wino","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"12b8c4db-a832-475b-8571-b16358006a80","category":"miodowniki","pTitle":"Pistacja, malina","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"945871e5-4154-4618-87b8-71dd22f655d9","category":"miodowniki","pTitle":"Gruszka, karmel i dor blue","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"c1e3f213-ed54-47f0-a304-dbfbc01583c8","category":"miodowniki","pTitle":"Suszona śliwka, orzech włoski","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"1eb1d066-a40d-420e-96a1-0e125e3f7bcf","category":"napoleony","pTitle":"Klasyczny","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"37d3c6ae-fcab-4527-b6cc-d0be26006f4d","category":"miodowniki","pTitle":"Klasyczny","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"a4313a45-9b82-47d1-8cc9-9392effba7e5","category":"miodowniki","pTitle":"Biszkoptowy","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"2ce6c858-adde-4bd5-b356-ba6108c5991f","category":"miodowniki","pTitle":"Baileys-mokko","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"57ef4e6e-26f0-4e3e-ac86-44456f790d04","category":"napoleony","pTitle":"Warstwowy","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"c1ba095d-941a-43d9-b687-3f3e716dc279","category":"napoleony","pTitle":"Napoleon orzechowy","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"6ec69d8a-afeb-4e2e-94b1-026a821682d3","category":"napoleony","pTitle":"Napoleon czekoladowy","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"a55720e6-da6b-42fa-ac62-8007443a8c4d","category":"torty biszkoptowe","pTitle":"Prowansja","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"53416619-60fc-494f-bd6f-1f6bc58a5650","category":"torty biszkoptowe","pTitle":"Leśna bajka","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"49288d58-3aa6-449f-97d9-89ef2b679b03","category":"torty biszkoptowe","pTitle":"Egzotyczny","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"d4811644-324c-4e02-a1bd-aa79efcba84b","category":"torty biszkoptowe","pTitle":"Szpinakowy","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"3fef595c-3b62-41b8-92ae-be6508702969","category":"torty biszkoptowe","pTitle":"Mona Lisa","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"bba423ed-d0b4-406d-ae60-4338bab60d9b","category":"torty biszkoptowe","pTitle":"Czerwony aksamit","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"0ba303e2-b244-4e1a-86f8-e4060ceac9a6","category":"torty Opera","pTitle":"Klasyczna Opera","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"b77bcc6b-8969-4247-9b39-c59ad708ba2f","category":"torty Opera","pTitle":"Pistacja, malina","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"e0679264-72c9-4203-a084-46fc18e138a1","category":"torty Opera","pTitle":"Opera z marakują","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"ef5b2a58-a1e8-48cf-a917-6adb460f0f5a","category":"torty Opera","pTitle":"Miodowa Opera","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"dc87ff6d-45f7-4f94-80be-891b6a85743e","category":"torty Opera","pTitle":"Pomarańcza, orzech laskowy","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"3c6c2214-5694-4026-abb1-cd40b4133e2c","category":"torty Opera","pTitle":"Opera z herbatą matcha","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"275aeb5f-a3c5-4796-b1f6-ec35011f38d6","category":"torty Opera","pTitle":"Jagoda, lawenda","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"b3677ebd-afe6-4dfe-aa45-2fa835488fa5","category":"torty Opera","pTitle":"Truflowa","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"608a7417-c06b-4984-a09e-bb5a285952f4","category":"torty Opera","pTitle":"Kawowa","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"27d4937e-2473-4d8c-a91a-29b2af9ad2b2","category":"ciastka Kartofel","pTitle":"Pijana wiśnia","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"bdb19393-94a1-48c3-a829-32e3ea7afbd0","category":"ciastka Kartofel","pTitle":"Pistacja, malin","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"e944edff-88ae-427b-9dcb-46bc6c7a5f71","category":"ciastka Kartofel","pTitle":"Czekolada, karmel","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"df397a94-6ad7-44a2-8a53-a51307efdbd2","category":"ciastka Kartofel","pTitle":"Truflowa","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"10d352ba-2d56-4b0f-b1fc-e033009860e0","category":"ciastka Kartofel","pTitle":"Raffaello","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"f2d18496-c1c2-44e7-95bf-7f7511803434","category":"ciastka Kartofel","pTitle":"Snickers","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"b9bcc686-d6e7-4ddc-8b33-52309635c516","category":"ciastka Kartofel","pTitle":"Kawowa","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"60563d7e-2ed0-45fe-9f8e-ae867f325331","category":"ciastka Kartofel","pTitle":"Czerwony aksamit","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"9a443d1a-d660-4144-9a5b-17d297248cac","category":"ciastka Kartofel","pTitle":"Pomarańczowa","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"a07658c6-451a-41aa-b401-0228cff37a6f","category":"batoniki twarogowe","pTitle":"Kawa, karmel","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"0dac6943-1a01-4e3a-b671-e5d538c15a24","category":"batoniki twarogowe","pTitle":"Wanilia, żurawina","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"bdde6292-ee8f-46b2-90ff-f3a17ec410be","category":"batoniki twarogowe","pTitle":"Kokos, mango, marakuja","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"9d2bbe8d-f079-4866-9436-6a21f0296e11","category":"batoniki twarogowe","pTitle":"Raffaello","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"43f602b2-2553-4e08-b45f-b540d40e5a6a","category":"batoniki twarogowe","pTitle":"Brownie, karmel","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"6030a330-a679-44ee-ab95-927db48d4439","category":"ciastka na patyku","pTitle":"Mango, marakuja","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"85f5deac-77b7-4403-949c-aa572780f163","category":"ciastka na patyku","pTitle":"Snickers","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"6e6bdf99-83b3-46ad-a5d6-a73a488cb354","category":"ciastka na patyku","pTitle":"Wiśnia, czekolada","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"c16a0520-e0e6-459d-b54a-e8661bee5003","category":"ciastka na patyku","pTitle":"Migdał, amaretto","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"12eae7e0-2664-4296-8ccb-395eaaa184c4","category":"ciastka na patyku","pTitle":"Wiśnia, koniak","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"9c1a4226-2f2a-4929-860b-c280141cc482","category":"ciastka na patyku","pTitle":"Kawa, kardamon","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"57ab2246-f93f-4cae-8f26-bad3e8937cc9","category":"moti","pTitle":"Mango, chili","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"3bed38a1-e5ae-4c4f-973b-21ecacd96f9f","category":"moti","pTitle":"Egzotyczny","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"44e81904-fd4f-4dc4-a939-55837dc8a033","category":"moti","pTitle":"Kokos, malina","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"c8a85325-a7cb-4ef6-954c-4657d90e6d4b","category":"moti","pTitle":"Gruszka, dor blue","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"002e8383-4e90-43ba-90e6-49985ec9ec8c","category":"moti","pTitle":"Kawa, karmel","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"cdb9216e-cc99-4949-81f4-a563f32cacaf","category":"moti","pTitle":"Tiramisu","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"3da02a45-2057-4371-b314-9cbba5767ef5","category":"moti","pTitle":"Raffaello","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"8a6be0d0-af66-4be6-8d1f-ad4dc73d3de3","category":"moti","pTitle":"Coca-Cola","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"2e91704b-0d94-4995-87b9-4207ede11fcc","category":"moti","pTitle":"McFlurry","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"1677e55e-1bb3-4498-96f2-44bb5ff2052b","category":"moti","pTitle":"Oreo","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"cde9fc93-d74c-42fd-936e-569a8bb5c07a","category":"moti","pTitle":"Tropikalny","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"b795fd34-d723-4e5e-a9e5-c17757eec4c9","category":"moti alkogolowe","pTitle":"Truskawkowe mojito","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"fd8c1983-c264-40ab-9f8a-0e9ce8f67849","category":"moti alkogolowe","pTitle":"Truskawka, szampan","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"e5d8c316-0af2-4794-9ca4-fa83f2b9fe3f","category":"moti alkogolowe","pTitle":"Grzane wino","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"17c9a834-209b-40eb-9ae9-69be736f2868","category":"moti alkogolowe","pTitle":"Malibu","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"385ef5ba-a500-4284-ba3d-b0611d4eb9dc","category":"moti alkogolowe","pTitle":"Kawa Bailey’s","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"5ce3ef38-1b1e-462c-bdd6-ab3993e5c0d2","category":"moti alkogolowe","pTitle":"Cointreau, pomarańcza","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"53397688-9147-4fe6-afd7-3453a84c14c9","category":"moti alkogolowe","pTitle":"Suszona śliwka, rum","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"e2e0e741-b049-43ca-8443-c403f6f5907b","category":"moti lodowe","pTitle":"Pistacja, malina","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"1d915db6-3eee-4577-9eb7-1d609f476543","category":"moti lodowe","pTitle":"Czekoladowy lód, kokos","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"8cf3074e-4b51-40d6-955c-f0746d25fddc","category":"moti lodowe","pTitle":"Wanilia, jagoda","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"152fab6a-2e71-4eef-9463-bab7bba2cda7","category":"moti lodowe","pTitle":"Karmelowe","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"8ba48c97-0eeb-4dd7-ad35-3f0d5735c3b1","category":"moti lodowe","pTitle":"Śmietankowe lody","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"77755a3c-97fb-4e87-98be-163ff10f16b3","category":"moti lodowe","pTitle":"Mięta, czekolada","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"a9dfc8fd-5d24-4b97-93a9-d8a6f007fe77","category":"moti lodowe","pTitle":"Bubble Gum","pDescription":"brak opisu","pPrice":"brak ceny","pImg":"20210529_105117.jpg"},{"id":"02fcd558-f9ff-446d-98ce-b05eb4e65eab","category":"torty biszkoptowe","pTitle":"tort Oreo","pDescription":"Czekoladowy biszkopt, sernik, krem nutella i chrupiąca warstwa oreo.","pPrice":"80","pImg":"448180177_2140962599614168_2780538136810305266_n.jpg"}]
+[
+  {
+    "id": "c96b694e-8d40-4ab3-85fe-92dce4a8fe9d",
+    "category": "desery musowe",
+    "pTitle": "ciastko „Arbuz”",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "272026f0-84c5-43f1-97b9-20fc73f42373",
+    "category": "desery musowe",
+    "pTitle": "ciastko „Orzech laskowy i karmel”",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "08744a17-1451-4218-9f71-89d404d2abfd",
+    "category": "desery musowe",
+    "pTitle": "ciastko „Wiśnia i cytryna”",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "9a7e4fd7-db7e-49f9-a1b8-2b98c4b6ad3a",
+    "category": "desery musowe",
+    "pTitle": "ciastko „Oreo”",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "9e785843-afa7-43b8-b546-73c35d80aee2",
+    "category": "desery musowe",
+    "pTitle": "ciastko „Cytryna i szampan”",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "9f6e22e9-9c64-4fdc-a43a-82ddd4e1e2db",
+    "category": "desery musowe",
+    "pTitle": "ciastko „Mięta i jabłko”",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "a5553cca-8591-4a15-b71a-d19b8b391e18",
+    "category": "desery musowe",
+    "pTitle": "ciastko „Liczi i malina”",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "66742006-b440-41eb-8a82-e9c5214f7dba",
+    "category": "desery musowe",
+    "pTitle": "ciastko „Banan i kokos”",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "17850537-9888-4c4e-9900-7c6e2fc24f69",
+    "category": "desery musowe",
+    "pTitle": "ciastko „Melon i malina”",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "574a3813-d03c-4d46-9761-7a04066f45e7",
+    "category": "desery musowe",
+    "pTitle": "ciastko „Bubble Gum”",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "a915da7b-4275-4470-82b9-051dcaa76f72",
+    "category": "desery musowe",
+    "pTitle": "ciastko „Kawa”",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "8d2c50f5-f007-4aee-99d7-d57ff8f8bdb2",
+    "category": "desery musowe",
+    "pTitle": "ciastko „Orzech laskowy”",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "36eada5a-b2b0-4838-ad77-ab2ae0e6802f",
+    "category": "desery musowe",
+    "pTitle": "ciastko „Pomarańczowe”",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "a2198389-d7b1-4291-a58e-b2bd707f086b",
+    "category": "desery musowe",
+    "pTitle": "ciastko „Ananas”",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "290f3839-1bd5-45b1-9830-478060324cc2",
+    "category": "torty musowe",
+    "pTitle": "GUINNESS",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "54cf39de-210a-4a95-b5e3-bde10dd8ef74",
+    "category": "torty musowe",
+    "pTitle": "FRESH",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "a10bf525-c58b-4fb9-b699-b18d06f9dbbc",
+    "category": "torty musowe",
+    "pTitle": "Czekolada i praline",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "c162c4bf-3865-4ee0-8e0e-a8c638a1b0d1",
+    "category": "torty musowe",
+    "pTitle": "Musowy miodownik czekoladowy",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "3a345656-d5c7-41b7-a5f4-fcac1506edfc",
+    "category": "torty musowe",
+    "pTitle": "Musowy miodownik pomarańczowy",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "ad900407-7ba7-46a0-9d5f-8e903d567f82",
+    "category": "torty musowe",
+    "pTitle": "Trzy czekolady",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "da42c8d9-8cac-4bb8-96e7-9b0f9735230d",
+    "category": "miodowniki",
+    "pTitle": "Czarna porzeczka, rozmaryn, limonka",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "4c5b55bf-0431-495c-9990-1fded7729e02",
+    "category": "miodowniki",
+    "pTitle": "Malina, kokos",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "e9859fc7-6a79-4a91-b8ba-72a4247a2d86",
+    "category": "miodowniki",
+    "pTitle": "Czekolada, pijana wiśnia",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "140cd155-fd4f-4479-a03c-ad15acc2354c",
+    "category": "miodowniki",
+    "pTitle": "Grzane wino",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "12b8c4db-a832-475b-8571-b16358006a80",
+    "category": "miodowniki",
+    "pTitle": "Pistacja, malina",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "945871e5-4154-4618-87b8-71dd22f655d9",
+    "category": "miodowniki",
+    "pTitle": "Gruszka, karmel i dor blue",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "c1e3f213-ed54-47f0-a304-dbfbc01583c8",
+    "category": "miodowniki",
+    "pTitle": "Suszona śliwka, orzech włoski",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "1eb1d066-a40d-420e-96a1-0e125e3f7bcf",
+    "category": "napoleony",
+    "pTitle": "Klasyczny",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "37d3c6ae-fcab-4527-b6cc-d0be26006f4d",
+    "category": "miodowniki",
+    "pTitle": "Klasyczny",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "a4313a45-9b82-47d1-8cc9-9392effba7e5",
+    "category": "miodowniki",
+    "pTitle": "Biszkoptowy",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "2ce6c858-adde-4bd5-b356-ba6108c5991f",
+    "category": "miodowniki",
+    "pTitle": "Baileys-mokko",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "57ef4e6e-26f0-4e3e-ac86-44456f790d04",
+    "category": "napoleony",
+    "pTitle": "Warstwowy",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "c1ba095d-941a-43d9-b687-3f3e716dc279",
+    "category": "napoleony",
+    "pTitle": "Napoleon orzechowy",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "6ec69d8a-afeb-4e2e-94b1-026a821682d3",
+    "category": "napoleony",
+    "pTitle": "Napoleon czekoladowy",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "a55720e6-da6b-42fa-ac62-8007443a8c4d",
+    "category": "torty biszkoptowe",
+    "pTitle": "Prowansja",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "53416619-60fc-494f-bd6f-1f6bc58a5650",
+    "category": "torty biszkoptowe",
+    "pTitle": "Leśna bajka",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "49288d58-3aa6-449f-97d9-89ef2b679b03",
+    "category": "torty biszkoptowe",
+    "pTitle": "Egzotyczny",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "d4811644-324c-4e02-a1bd-aa79efcba84b",
+    "category": "torty biszkoptowe",
+    "pTitle": "Szpinakowy",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "3fef595c-3b62-41b8-92ae-be6508702969",
+    "category": "torty biszkoptowe",
+    "pTitle": "Mona Lisa",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "bba423ed-d0b4-406d-ae60-4338bab60d9b",
+    "category": "torty biszkoptowe",
+    "pTitle": "Czerwony aksamit",
+    "pDescription": "Ciasto  Czerwony aksamit z konfiturą truskawkową.",
+    "pPrice": "80",
+    "pImg": ["IMG_0350.jpg", "IMG_0347.jpg", "IMG_0344.jpg", "IMG_0367.jpg", "IMG_0374.jpg", "IMG_0343.jpg"]
+  },
+  {
+    "id": "0ba303e2-b244-4e1a-86f8-e4060ceac9a6",
+    "category": "torty Opera",
+    "pTitle": "Klasyczna Opera",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "b77bcc6b-8969-4247-9b39-c59ad708ba2f",
+    "category": "torty Opera",
+    "pTitle": "Pistacja, malina",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "e0679264-72c9-4203-a084-46fc18e138a1",
+    "category": "torty Opera",
+    "pTitle": "Opera z marakują",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "ef5b2a58-a1e8-48cf-a917-6adb460f0f5a",
+    "category": "torty Opera",
+    "pTitle": "Miodowa Opera",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "dc87ff6d-45f7-4f94-80be-891b6a85743e",
+    "category": "torty Opera",
+    "pTitle": "Pomarańcza, orzech laskowy",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "3c6c2214-5694-4026-abb1-cd40b4133e2c",
+    "category": "torty Opera",
+    "pTitle": "Opera z herbatą matcha",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "275aeb5f-a3c5-4796-b1f6-ec35011f38d6",
+    "category": "torty Opera",
+    "pTitle": "Jagoda, lawenda",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "b3677ebd-afe6-4dfe-aa45-2fa835488fa5",
+    "category": "torty Opera",
+    "pTitle": "Truflowa",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "608a7417-c06b-4984-a09e-bb5a285952f4",
+    "category": "torty Opera",
+    "pTitle": "Kawowa",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "27d4937e-2473-4d8c-a91a-29b2af9ad2b2",
+    "category": "ciastka Kartofel",
+    "pTitle": "Pijana wiśnia",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "bdb19393-94a1-48c3-a829-32e3ea7afbd0",
+    "category": "ciastka Kartofel",
+    "pTitle": "Pistacja, malin",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "e944edff-88ae-427b-9dcb-46bc6c7a5f71",
+    "category": "ciastka Kartofel",
+    "pTitle": "Czekolada, karmel",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "df397a94-6ad7-44a2-8a53-a51307efdbd2",
+    "category": "ciastka Kartofel",
+    "pTitle": "Truflowa",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "10d352ba-2d56-4b0f-b1fc-e033009860e0",
+    "category": "ciastka Kartofel",
+    "pTitle": "Raffaello",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "f2d18496-c1c2-44e7-95bf-7f7511803434",
+    "category": "ciastka Kartofel",
+    "pTitle": "Snickers",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "b9bcc686-d6e7-4ddc-8b33-52309635c516",
+    "category": "ciastka Kartofel",
+    "pTitle": "Kawowa",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "60563d7e-2ed0-45fe-9f8e-ae867f325331",
+    "category": "ciastka Kartofel",
+    "pTitle": "Czerwony aksamit",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "9a443d1a-d660-4144-9a5b-17d297248cac",
+    "category": "ciastka Kartofel",
+    "pTitle": "Pomarańczowa",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "a07658c6-451a-41aa-b401-0228cff37a6f",
+    "category": "batoniki twarogowe",
+    "pTitle": "Kawa, karmel",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "0dac6943-1a01-4e3a-b671-e5d538c15a24",
+    "category": "batoniki twarogowe",
+    "pTitle": "Wanilia, żurawina",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "bdde6292-ee8f-46b2-90ff-f3a17ec410be",
+    "category": "batoniki twarogowe",
+    "pTitle": "Kokos, mango, marakuja",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "9d2bbe8d-f079-4866-9436-6a21f0296e11",
+    "category": "batoniki twarogowe",
+    "pTitle": "Raffaello",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "43f602b2-2553-4e08-b45f-b540d40e5a6a",
+    "category": "batoniki twarogowe",
+    "pTitle": "Brownie, karmel",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "6030a330-a679-44ee-ab95-927db48d4439",
+    "category": "ciastka na patyku",
+    "pTitle": "Mango, marakuja",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "85f5deac-77b7-4403-949c-aa572780f163",
+    "category": "ciastka na patyku",
+    "pTitle": "Snickers",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "6e6bdf99-83b3-46ad-a5d6-a73a488cb354",
+    "category": "ciastka na patyku",
+    "pTitle": "Wiśnia, czekolada",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "c16a0520-e0e6-459d-b54a-e8661bee5003",
+    "category": "ciastka na patyku",
+    "pTitle": "Migdał, amaretto",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "12eae7e0-2664-4296-8ccb-395eaaa184c4",
+    "category": "ciastka na patyku",
+    "pTitle": "Wiśnia, koniak",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "9c1a4226-2f2a-4929-860b-c280141cc482",
+    "category": "ciastka na patyku",
+    "pTitle": "Kawa, kardamon",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "57ab2246-f93f-4cae-8f26-bad3e8937cc9",
+    "category": "moti",
+    "pTitle": "Mango, chili",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "3bed38a1-e5ae-4c4f-973b-21ecacd96f9f",
+    "category": "moti",
+    "pTitle": "Egzotyczny",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "44e81904-fd4f-4dc4-a939-55837dc8a033",
+    "category": "moti",
+    "pTitle": "Kokos, malina",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "c8a85325-a7cb-4ef6-954c-4657d90e6d4b",
+    "category": "moti",
+    "pTitle": "Gruszka, dor blue",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "002e8383-4e90-43ba-90e6-49985ec9ec8c",
+    "category": "moti",
+    "pTitle": "Kawa, karmel",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "cdb9216e-cc99-4949-81f4-a563f32cacaf",
+    "category": "moti",
+    "pTitle": "Tiramisu",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "3da02a45-2057-4371-b314-9cbba5767ef5",
+    "category": "moti",
+    "pTitle": "Raffaello",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "8a6be0d0-af66-4be6-8d1f-ad4dc73d3de3",
+    "category": "moti",
+    "pTitle": "Coca-Cola",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "2e91704b-0d94-4995-87b9-4207ede11fcc",
+    "category": "moti",
+    "pTitle": "McFlurry",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "1677e55e-1bb3-4498-96f2-44bb5ff2052b",
+    "category": "moti",
+    "pTitle": "Oreo",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "cde9fc93-d74c-42fd-936e-569a8bb5c07a",
+    "category": "moti",
+    "pTitle": "Tropikalny",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "b795fd34-d723-4e5e-a9e5-c17757eec4c9",
+    "category": "moti alkogolowe",
+    "pTitle": "Truskawkowe mojito",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "fd8c1983-c264-40ab-9f8a-0e9ce8f67849",
+    "category": "moti alkogolowe",
+    "pTitle": "Truskawka, szampan",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "e5d8c316-0af2-4794-9ca4-fa83f2b9fe3f",
+    "category": "moti alkogolowe",
+    "pTitle": "Grzane wino",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "17c9a834-209b-40eb-9ae9-69be736f2868",
+    "category": "moti alkogolowe",
+    "pTitle": "Malibu",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "385ef5ba-a500-4284-ba3d-b0611d4eb9dc",
+    "category": "moti alkogolowe",
+    "pTitle": "Kawa Bailey’s",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "5ce3ef38-1b1e-462c-bdd6-ab3993e5c0d2",
+    "category": "moti alkogolowe",
+    "pTitle": "Cointreau, pomarańcza",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "53397688-9147-4fe6-afd7-3453a84c14c9",
+    "category": "moti alkogolowe",
+    "pTitle": "Suszona śliwka, rum",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "e2e0e741-b049-43ca-8443-c403f6f5907b",
+    "category": "moti lodowe",
+    "pTitle": "Pistacja, malina",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "1d915db6-3eee-4577-9eb7-1d609f476543",
+    "category": "moti lodowe",
+    "pTitle": "Czekoladowy lód, kokos",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "8cf3074e-4b51-40d6-955c-f0746d25fddc",
+    "category": "moti lodowe",
+    "pTitle": "Wanilia, jagoda",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "152fab6a-2e71-4eef-9463-bab7bba2cda7",
+    "category": "moti lodowe",
+    "pTitle": "Karmelowe",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "8ba48c97-0eeb-4dd7-ad35-3f0d5735c3b1",
+    "category": "moti lodowe",
+    "pTitle": "Śmietankowe lody",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "77755a3c-97fb-4e87-98be-163ff10f16b3",
+    "category": "moti lodowe",
+    "pTitle": "Mięta, czekolada",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "a9dfc8fd-5d24-4b97-93a9-d8a6f007fe77",
+    "category": "moti lodowe",
+    "pTitle": "Bubble Gum",
+    "pDescription": "brak opisu",
+    "pPrice": "brak ceny",
+    "pImg": ["no-image-available.webp"]
+  },
+  {
+    "id": "02fcd558-f9ff-446d-98ce-b05eb4e65eab",
+    "category": "torty biszkoptowe",
+    "pTitle": "tort Oreo",
+    "pDescription": "Czekoladowy biszkopt, sernik, krem nutella i chrupiąca warstwa oreo.",
+    "pPrice": "80",
+    "pImg": [
+      "448180177_2140962599614168_2780538136810305266_n.jpg",
+      "448238974_2140962639614164_4936404141151868156_n.jpg"
+    ]
+  }
+]

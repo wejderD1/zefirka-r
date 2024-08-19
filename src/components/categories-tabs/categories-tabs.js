@@ -27,7 +27,7 @@ const CategoriesTabs = () => {
     }
   );
 
-  const counter = useRef(8);
+  const counter = useRef(8); //количество отображаемых продуктов
   const filteredProductsList = useSelector(filteredProductsListSelector);
   const [loading, setLoading] = useState(true);
   const [startPos, setStartPos] = useState(0);
@@ -66,7 +66,7 @@ const CategoriesTabs = () => {
       title={product.pTitle}
       desc={product.pDescription}
       price={product.pPrice}
-      img={product.pImg}
+      img={product.pImg[0]}
     />
   ));
 

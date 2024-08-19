@@ -5,6 +5,7 @@ import "./product-details.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { selectedProduct, fetchedProducts } from "../../actions/productAction";
 import { useHttp } from "../../services/http.hooks";
+import ProductGallery from "../../components/product-gallery/product-gallery";
 
 function ProductDetails() {
   const { id } = useParams();
@@ -60,11 +61,12 @@ function ProductDetails() {
             </Link>
           </div>
           <img
-            src={require(`../../assets/images/products_img/${pImg}`)}
+            src={require(`../../assets/images/products_img/${pImg[0]}`)}
             alt="product_image"
             className="product__photo"
           />
         </div>
+        <ProductGallery galeryImages={pImg}/>
       </div>
     </div>
   );

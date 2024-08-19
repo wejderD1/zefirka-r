@@ -1,0 +1,23 @@
+.gallery__ {
+    &container {
+        margin: 40px 20px;
+    }
+    &inner {
+        display: flex;
+        justify-content: flex-start;
+        gap: 60px;
+
+        align-items: center;
+    }
+    &item {
+        width: 150px;
+
+        border-radius: 16px;
+        cursor: pointer;
+
+        transition: all .2s linear;
+    }
+    &item:hover {
+        transform: scale(1.6);
+    }
+}
