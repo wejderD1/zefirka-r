@@ -113,8 +113,9 @@
 @media (max-width: 768px) {
   .product-details {
     &__inner {
-      grid-template-columns: none;
+      grid-template-columns: 1fr;
       gap: 3rem;
+      justify-items: center;
     }
   }
   .product {
@@ -127,7 +128,7 @@
       width: 50%;
     }
     &__photo {
-      width: 100%;
+      width: 80%;
       order: 1;
     }
   }
