@@ -113,7 +113,7 @@ const HomeView = () => {
       <div className="about">
         <div className="container">
           <InformationBlock
-            img="omnie"
+            img="omnie_1.jpg"
             title="O mnie"
             description={`Witam! Nazywam się VALENTYNA i jestem cukiernikiem z ponad 10-letnim doświadczeniem. Ukończyłam kursy przygotowywania tortów musowych, tortów biszkoptowych, miodowników, tortów 'Napoleon' motchi, panettone, rolad i wielu innych wykwintnych deserów. Cukiernictwo to moja pasja i dążę do tego, aby zachwycać Was moimi smacznymi i pięknymi dziełami sztuki. Każdy tort i deser, który tworzę, powstaje z miłością i dbałością o szczegóły, aby przewyższać Wasze oczekiwania i dawać niezapomniane chwile słodkiej rozkoszy.`}
           >
@@ -122,13 +122,13 @@ const HomeView = () => {
             </h5>
           </InformationBlock>
           <InformationBlock
-            img="20220308_193827"
+            img="IMG_0344.jpg"
             classOther="information_reverse"
             title="Nasza magia"
             description="Unikalne torty na zamówienie na wyjątkowe okazje. Ekskluzywne desery na przytulne wieczory i święta. Zestawy na uroczystości i wydarzenia korporacyjne. Słodkie komplementy dla bliskich"
           />
           <InformationBlock
-            img="20220914_141213"
+            img="20220914_141213.jpg"
             title="wyjątkowy design"
             description="Indywidualne dekoracje i ozdoby dla każdego deseru. Osobiste podejście do dekorowania tortów i słodkich przysmaków."
           />

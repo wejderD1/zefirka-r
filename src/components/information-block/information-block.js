@@ -10,7 +10,7 @@ const InformationBlock = ({
   return (
     <div className={`information ${classOther ? classOther : ""}`}>
       <img
-        src={require(`../../assets/images/${img}.jpg`)} //относительный путь, работает только в папке components/component
+        src={require(`../../assets/images/${img}`)} //относительный путь, работает только в папке components/component
         alt="information-img"
         className="information__photo"
       />
