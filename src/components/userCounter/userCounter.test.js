@@ -21,7 +21,7 @@ describe("userCounter component", () => {
   it("initialization value user count", () => {
     // Мокаем useHttp и возвращаем объект с request
     useHttp.mockReturnValue({
-      request: jest.fn().mockResolvedValue(10), // Можете замокать реальное поведение request
+      request: jest.fn().mockResolvedValue(0), // Можете замокать реальное поведение request
     });
     render(<UserCounter />);
     expect(screen.getByText(/user count:/i)).toHaveTextContent("user count: 0");
@@ -32,7 +32,7 @@ describe("userCounter component", () => {
     useDispatch.mockReturnValue(mockDispatch);
 
     useHttp.mockReturnValue({
-      request: jest.fn().mockResolvedValue({count: 10}), // Можете замокать реальное поведение request
+      request: jest.fn().mockResolvedValue({ count: 10 }), // Можете замокать реальное поведение request
     });
 
     render(<UserCounter />);
@@ -43,6 +43,10 @@ describe("userCounter component", () => {
         payload: { count: 10 },
       });
     });
+
+    expect(screen.getByText(/user count:/i)).toHaveTextContent(
+      "user count: 10"
+    );
   });
   // it("should fetch and display the user count", async () => {
   //   // Мокаем возвращаемое значение useSelector
