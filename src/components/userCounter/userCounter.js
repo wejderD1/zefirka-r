@@ -12,7 +12,7 @@ function UserCounter() {
   const dispatch = useDispatch();
   useEffect(() => {
     request("http://localhost:5000/user-count")
-      .then((data) => {
+      .then((data) => {        
         dispatch(userFetchCounter(data))})
       .catch((err) => console.log(err));
   }, []);
