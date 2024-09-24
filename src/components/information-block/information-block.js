@@ -15,7 +15,7 @@ const InformationBlock = ({
         className="information__photo"
       />
       <div className="information__description">
-        <h1 className="subtitle subtitle_bottom-line">{title}</h1>
+        <h1 className="subtitle subtitle_bottom-line information__title">{title}</h1>
         <div>{children}</div>
         <h2 className="main-text information__text">{description}</h2>
       </div>
