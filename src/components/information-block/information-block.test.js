@@ -17,6 +17,8 @@ const renderInformmationBlock = (classOther = "") => {
   );
 };
 
+jest.mock("../../assets/images/404.jpg", () => "mocked-image-path.jpg");
+
 describe("information-block component", () => {
   it("render information-block", () => {
     renderInformmationBlock();
@@ -81,6 +83,26 @@ describe("information-block component", () => {
 
       const desc = container.querySelector("h2");
       expect(desc).toHaveClass("main-text information__text");
+    })
+  });
+
+  describe("image testing", () => {
+    let container;
+
+    beforeEach(() => {
+      container = renderInformmationBlock().container;
+    })
+
+
+    it("render image", () => {
+      const image = container.querySelector("img");
+      expect(image).toHaveClass("information__photo");
+
+    });
+
+    it("correct required path", () => {
+      const image = container.querySelector("img");
+      expect(image).toHaveAttribute("src", "mocked-image-path.jpg");
     })
   });
 
