@@ -1,20 +1,37 @@
 import "./social-links.scss";
 
 function SocialLinks() {
+  const linksName = [
+    {
+      name: "facebook",
+      url: "https://www.facebook.com/groups/748009266201827/",
+    },
+    {
+      name: "instagram",
+      url: "https://www.facebook.com/groups/748009266201827/",
+    },
+    {
+      name: "tiktok",
+      url: "https://www.facebook.com/groups/748009266201827/",
+    },
+  ];
+
   return (
     <div className="social-container">
-      <a href="https://www.facebook.com/groups/748009266201827/" className="social-links" target="_blank" rel="noopener noreferrer">
-        <i className="fab fa-facebook-f"></i>
-      </a>
-      {/* <a href="#" className="social-links">
-        <i className="fab fa-youtube"></i>
-      </a> */}
-      <a href="#" className="social-links">
-        <i className="fab fa-instagram"></i>
-      </a>
-      <a href="#" className="social-links">
-        <i className="fab fa-tiktok"></i>
-      </a>
+      {linksName.map((item) => {
+        return (
+          <a
+            key={item.name}
+            href={item.url}
+            className="social-links"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={item.name}
+          >
+            <i className={`fab fa-${item.name}`}></i>
+          </a>
+        );
+      })}
     </div>
   );
 }
