@@ -3,6 +3,7 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "./burger-menu.scss";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 function BurgerMenu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,7 +14,7 @@ function BurgerMenu() {
 
   return (
     <div className="burger__container">
-      <FontAwesomeIcon  className="burger" onClick={() => toggleMenu()} icon="fa-solid fa-bars" />
+      <FontAwesomeIcon  className="burger" onClick={() => toggleMenu()} icon={faBars} />
       {isOpen && (
         <div className="bm__wrapper">
           <ul className="bm">

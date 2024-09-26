@@ -19,11 +19,11 @@ const HeaderApp = () => {
   }, [visible]);
 
   return (
-    <header className={`app-header ${ !visible ? "app-header_show" : ""}`}>
+    <header className={`app-header ${ !visible ? "app-header_show" : ""}`} aria-label="header-nav">
       <div className="container">
         <BurgerMenu />
         <div className="nav__wrapper">
-          <Link className={`logo ${ !visible ? "logo_active" : ""}`} alt="zefirka logo" to="/"></Link>
+          <Link className={`logo ${ !visible ? "logo_active" : ""}`} to="/"aria-label="zefirka logo"></Link>
           <ul className="nav">
             <li className="nav__item">
               <NavLink className="nav__link" to="/">
