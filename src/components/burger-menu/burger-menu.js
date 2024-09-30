@@ -28,9 +28,6 @@ function BurgerMenu() {
                 produkty
               </NavLink>
             </li>
-            {/* <li className="nav__item">
-                    <NavLink className="nav__link" to="/gleria">galeria</NavLink>
-                  </li> */}
             <li className="bm__item">
               <NavLink className="bm__link" to="/kontakt">
                 kontakt

@@ -6,21 +6,21 @@ import "./product-card.scss";
 
 function ProductCard({ title, desc, price, img, id }) {
   const dispatch = useDispatch();
-
-
+  
   return (
     <Link
       className="card-link"
       to={`/details/${id}`}
       style={{ textDecoration: "none" }}
       onClick={() => dispatch(selectedProduct(id))}
+      aria-label="card-link"
     >
       <div className="card-container">
         <div className="card-wrapper">
           <img
             src={
               img
-                ? require(`/src/assets/images/products_img/${img}`)
+                ? require(`../../assets/images/products_img/${img}`)
                 : `http://placehold.it/250x250`
             }
             alt="product img"
