@@ -17,6 +17,10 @@ function UserCounter() {
       .catch((err) => console.log(err));
   }, []);
 
+  const userAdd = () => {
+    console.log("count");
+  }
+
   return (
     <Fragment>
       <h2 className="user-counter__counter main__title">user count: {count}</h2>

@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import { useDispatch, useSelector } from "react-redux";
 import { useHttp } from "../../services/http.hooks";
@@ -12,25 +12,20 @@ jest.mock("react-redux", () => ({
   useSelector: jest.fn(),
 }));
 
-/**
- * Arrange
- * Act
- * Assert
- */
-
 describe("UserCounter component", () => {
   beforeEach(() => {
-    //Мокаю useSelector и возвращаю обьект count: 0
     useSelector.mockReturnValue({ count: 0 });
-    // Мокаем useHttp и возвращаем объект с request
+    useDispatch.mockReturnValue(jest.fn()); // Mock dispatch in both tests
     useHttp.mockReturnValue({
-      request: jest.fn().mockResolvedValue({ count: 0 }), // Можете замокать реальное поведение request
+      request: jest.fn().mockResolvedValue({ count: 0 }) // Ensure useHttp is mocked
     });
   });
 
   it("UserCounter render", () => {
     render(<UserCounter />);
 
-    expect(screen.getByText(/user count/i)).toBeInTheDocument();
+    const userCount = screen.getByText(/user count/i);
+    expect(userCount).toBeInTheDocument();
+    expect(userCount).toHaveTextContent("0");
   });
 });

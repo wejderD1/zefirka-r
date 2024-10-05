@@ -1,7 +1,12 @@
 import { Fragment, useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-import { addAd, deleteAd, fetchedAd } from "../../../actions/advertisingAction";
+import {
+  addAd,
+  deleteAd,
+  fetchedAd,
+  selectedAd,
+} from "../../../actions/advertisingAction";
 import { useDispatch, useSelector } from "react-redux";
 
 import { useHttp } from "../../../services/http.hooks";
@@ -14,7 +19,9 @@ function AdvertisingSlider({ advertisingCard }) {
   const [advertisingImage, setAdvertisingImage] = useState("");
   const { request } = useHttp();
 
-  const { itemsList } = useSelector((state) => state.universalReducer.ads);
+  const { itemsList, oneProduct } = useSelector(
+    (state) => state.universalReducer.ads
+  );
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -22,6 +29,16 @@ function AdvertisingSlider({ advertisingCard }) {
       .then((data) => dispatch(fetchedAd(data)))
       .catch((error) => console.error(error));
   }, [dispatch, request]);
+
+  useEffect(() => {
+    if (oneProduct) {
+      const { aTitle, aDesc, aNote, aImg } = oneProduct;
+      setAdvertisingName(aTitle);
+      setAdvertisingDescription(aDesc);
+      setAdvertisingNote(aNote);
+      setAdvertisingImage(aImg);
+    }
+  }, [oneProduct]);
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
@@ -73,6 +90,10 @@ function AdvertisingSlider({ advertisingCard }) {
       default:
         break;
     }
+  };
+
+  const selectHandler = (adsId) => {
+    dispatch(selectedAd(adsId));
   };
 
   const deleteHandler = (id) => {
@@ -128,7 +149,11 @@ function AdvertisingSlider({ advertisingCard }) {
           </button>
         </div>
       </form>
-      <EditList editList={editList} submitHandler={deleteHandler} />
+      <EditList
+        editList={editList}
+        submitHandler={deleteHandler}
+        selectItemHandler={selectHandler}
+      />
     </Fragment>
   );
 }
