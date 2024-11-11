@@ -16,7 +16,6 @@ export const useHttp = () => {
         }
 
         const data = await response.json();
-
         return data;
       } catch (e) {
         throw e;

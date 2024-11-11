@@ -37,10 +37,13 @@ const CategoriesTabs = () => {
   // Загрузка продуктов при монтировании компонента
   useEffect(() => {
     setLoading(true);
+    console.log(filteredProductsList);
+    
     request("http://localhost:5000/products")
       .then((data) => {
         setLoading(false);
         dispatch(fetchedProducts(data));
+        
       })
       .catch((error) => {
         console.error(error);
