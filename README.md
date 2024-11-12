@@ -13,3 +13,24 @@ Zefirka is developed using the following technologies:
 - **Sass** — a CSS preprocessor that simplifies writing styles. Sass allows for more modular and maintainable style code through variables, nesting, and mixins.
 - **uuid** — a library for generating unique identifiers. It is used to create unique keys for React components or other data that require uniqueness.
 - **Nodemailer** — a library for sending emails from the server. In Zefirka, it's used for sending order confirmation emails or other notifications to users.
+
+## Install and run
+Clone the repository with the command:
+```
+git clone https://github.com/wejderD1/zefirka-r.git
+cd zefirka-r
+```
+
+## Install the dependencies:
+
+```npm install```
+
+navigate to the server folder
+
+## Install dependencies:
+
+```npm install```
+
+do not leave this folder, run the project
+
+```npm run start```
