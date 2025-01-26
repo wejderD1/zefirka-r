@@ -1,3 +1,6 @@
+![Preview](./zefirka-react.jpg)
+
+
 # Zefirka 🍬
 
 Zefirka is a web application for an online confectionery that allows users to order delicious desserts online. The app provides a user-friendly interface for browsing the product catalog, adding items to the cart, and placing orders. The project is built using modern web technologies to create a smooth and secure user experience.
