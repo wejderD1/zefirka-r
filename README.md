@@ -28,7 +28,7 @@ cd zefirka-r
 
 ```npm install```
 
-navigate to the server folder
+navigate to the 'server' folder
 
 ## Install dependencies:
 
